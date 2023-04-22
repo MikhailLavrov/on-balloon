@@ -1,0 +1,66 @@
+@import './vars.scss';
+@import './mixins.scss';
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+
+  font-family: $ff-tilda;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+a,
+button {
+  font-family: $ff-tilda;
+}
+
+#root {
+  flex-grow: 1;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 $primary-indent;
+
+  max-width: calc($vp-768 + $primary-indent * 2);
+  height: 100%;
+  
+  @include vp-768 {
+    padding: 0 $secondary-indent;
+  
+    max-width: calc($vp-1440 + $secondary-indent * 2);
+  }
+}
+
+.visually-hidden {
+  margin: -1px;
+  padding: 0;
+  
+  width: 1px;
+  height: 1px;
+
+  border: none;
+  position: absolute;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

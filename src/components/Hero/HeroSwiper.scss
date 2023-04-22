@@ -1,0 +1,45 @@
+@import '../../styles/styles.scss';
+
+.hero__slider .swiper-button-prev,
+.hero__slider .swiper-button-next {
+  margin-top: 0;
+  
+  height: 100%;
+  
+  top: 0;
+  bottom: 0;
+
+  transition: all 0.2s linear;
+
+  &:after {
+    color: $base-dark-color;
+  }
+}
+
+.hero__slider .swiper-button-prev {
+  left: 0;
+
+  &:hover {
+    box-shadow: 40px 0 50px -70px $base-dark-color inset;
+  }
+}
+
+.hero__slider .swiper-button-next {
+  right: 0;
+  
+    &:hover {
+      box-shadow: -40px 0 50px -70px $base-dark-color inset;
+    }
+}
+
+.hero__slider .swiper-pagination {
+  bottom: 10px;
+}
+
+.hero__slider .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+
+  background-color: transparent;
+  box-shadow: 0 0 0 1px $base-dark-color inset;
+}
