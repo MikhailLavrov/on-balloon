@@ -4,7 +4,13 @@
 .header {
   padding: 0;
   height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
 
+  line-height: 1;
   background-color: $color-2-header;
 
   @include vp-768 {
@@ -79,19 +85,17 @@
 }
 
 // Х при открытом состоянии
-.header__siderButton.open span {
+.header__menuButton.open span {
   &:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
+    transform: rotate(45deg) translate(5px, 5px);
   }
-
   &:nth-child(2) {
     opacity: 0;
   }
-
   &:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
+    transform: rotate(-45deg) translate(5px, -5px);
   }
-}
+} 
 // =====================================================================
 
 .header__content {

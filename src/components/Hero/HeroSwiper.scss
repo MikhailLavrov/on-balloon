@@ -1,5 +1,3 @@
-@import '../../styles/styles.scss';
-
 .hero__slider .swiper-button-prev,
 .hero__slider .swiper-button-next {
   margin-top: 0;
@@ -8,28 +6,25 @@
   
   top: 0;
   bottom: 0;
+  opacity: 0;
 
   transition: all 0.2s linear;
 
   &:after {
     color: $base-dark-color;
   }
-}
 
-.hero__slider .swiper-button-prev {
-  left: 0;
-
-  &:hover {
-    box-shadow: 40px 0 50px -70px $base-dark-color inset;
+  @include vp-768 {
+    opacity: 1;
   }
 }
 
+.hero__slider .swiper-button-prev {
+  left: 1%;
+}
+
 .hero__slider .swiper-button-next {
-  right: 0;
-  
-    &:hover {
-      box-shadow: -40px 0 50px -70px $base-dark-color inset;
-    }
+  right: 1%;
 }
 
 .hero__slider .swiper-pagination {

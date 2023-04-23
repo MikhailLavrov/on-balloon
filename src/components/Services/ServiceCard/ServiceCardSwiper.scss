@@ -1,0 +1,16 @@
+.services__slider .swiper-button-prev,
+.services__slider .swiper-button-next {
+  width: 40px;
+  height: 40px;
+  background-color: rgba($base-light-color, 0.5);
+  border-radius: 50%;
+
+  &:after {
+    color: $base-dark-color;
+    font-size: 16px;
+  }
+}
+
+.services__slider .swiper-pagination {
+  color: $base-light-color;
+}

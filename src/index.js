@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './styles/styles.scss';
 import { App } from './components/App/App';
 import reportWebVitals from './reportWebVitals';
+import { HashRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* HashRouter вместо BrowserRouter использован для gh-pages фикса перезагрузки */}
+    <HashRouter>
+      <App />
+    </HashRouter>
   </React.StrictMode>
 );
 

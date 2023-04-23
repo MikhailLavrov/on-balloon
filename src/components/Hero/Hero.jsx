@@ -1,8 +1,8 @@
-import './HeroSwiper.scss';
 import c from './Hero.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper';
-import IMG_01 from '../../assets/hero/hero_01.jpg';
+import IMG_01 from '../../assets/hero/img_01.jpg';
+import { HeroSlide } from './HeroSlide/HeroSlide';
 
 const heroCards = [
   {
@@ -32,27 +32,21 @@ const heroCards = [
     },
     image: IMG_01,
   },
-];
+]
 
 const heroSwiperParams = {
   modules: [Navigation, Pagination, Autoplay],
   navigation: true,
   pagination: true,
+  loop: true,
   autoplay: {
     delay: 5000,
   },
-};
+}
 
 const HeroSlides = heroCards.map((card, index) => (
-  <SwiperSlide className={c.hero__slide} key={index}>
-    <div className={c.hero__slideContent}>
-      <h2 className={c.hero__title}>{card.title}</h2>
-      <p className={c.hero__text}>{card.text}</p>
-      <a className={c.hero__link} href={card.link.href} size={'large'}>{card.link.text}</a>
-    </div>
-    <div className={c.hero__slideImage}>
-      <img width={500} src={card.image} alt="" />
-    </div>
+  <SwiperSlide key={index} className={c.hero__slide}>
+    <HeroSlide card={card} />
   </SwiperSlide>
 ))
 

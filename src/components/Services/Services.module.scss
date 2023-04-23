@@ -1,0 +1,33 @@
+@import '../../styles/styles.scss';
+@import '../../styles/mixins.scss';
+
+.services {
+  padding: 40px 0;
+
+  text-align: center;
+  font-family: $ff-tilda;
+  line-height: 1;
+}
+
+.services__title {
+  margin: 0;
+  margin-bottom: 20px;
+
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.services__subtitle {
+  margin: 0;
+  margin-bottom: 20px;
+
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.services__list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}

@@ -1,0 +1,61 @@
+@import '../../../styles/styles.scss';
+@import '../../../styles/mixins.scss';
+
+.serviceCard {
+  padding: 15px;
+  margin-bottom: 10px;
+
+  width: 100%;
+  box-shadow: 0 0 0 2px $color-4-blue inset;
+}
+
+.serviceCard__content {
+  text-align: left;
+}
+
+.serviceCard__image {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.serviceCard img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 12/9;
+}
+
+.serviceCard__title {
+  margin: 0;
+  margin-bottom: 15px;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.serviceCard__footer {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.serviceCard__text {
+  margin: 0;
+  font-size: 16px;
+}
+
+.serviceCard__link {
+  padding: 10px 15px;
+  margin-left: auto;
+
+  color: $base-dark-color;
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 300;
+  
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  background-color: $color-2-header;
+}

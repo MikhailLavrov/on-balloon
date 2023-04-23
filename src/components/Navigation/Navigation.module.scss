@@ -1,0 +1,13 @@
+@import '../../styles/styles.scss';
+
+.navigation {
+  width: 100%;
+  min-height: calc(100vh - 50px);
+
+  position: fixed;
+  top: 50px;
+  left: 0;
+  z-index: 1000;
+
+  background-color: $base-light-color;
+}
