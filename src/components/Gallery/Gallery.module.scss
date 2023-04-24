@@ -1,0 +1,24 @@
+@import '../../styles/styles.scss';
+@import '../../styles/mixins.scss';
+
+.gallery__title {
+  font-family: $ff-tilda;
+  font-weight: 400;
+  text-align: center;
+}
+
+.gallery__backLink {
+  padding: 15px;
+  display: inline-block;
+}
+
+.gallery__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  @include vp-768 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}

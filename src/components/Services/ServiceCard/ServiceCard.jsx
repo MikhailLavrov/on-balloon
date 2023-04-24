@@ -21,7 +21,8 @@ export const ServiceCard = ({card, index}) => {
         <Swiper className='services__slider' {...serviceCardSwiperParams}>
           {card.images.map((image, index) => (
             <SwiperSlide key={index} className={c.serviceCard__slide}>
-              <img width={200} src={image} alt={card.title} />
+              <img width={200} src={image} alt={card.title} loading="lazy" />
+              <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
             </SwiperSlide>
           ))}
         </Swiper>

@@ -36,10 +36,15 @@
 
   font-size: 28px;
   font-weight: 500;
+  user-select: none;
 
   @include vp-1120 {
     margin-bottom: 30px;
-    font-size: 60px;
+    font-size: 42px;
+  }
+
+  @include vp-1440 {
+    // font-size: 60px;
   }
 }
 
@@ -49,6 +54,7 @@
 
   font-weight: 300;
   font-size: 24px;
+  user-select: none;
 
   @include vp-1120 {
     font-size: 32px;
@@ -69,6 +75,7 @@
 
   background-color: $color-4-blue;
   transition: all 0.2s linear;
+  user-select: none;
 
   &:hover {
     background-color: $base-dark-color;

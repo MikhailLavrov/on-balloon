@@ -3,10 +3,20 @@
 
 .serviceCard {
   padding: 15px;
-  margin-bottom: 10px;
-
+  
   width: 100%;
+  min-width: 200px;
+  height: 100%;
+  
   box-shadow: 0 0 0 2px $color-4-blue inset;
+  
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  @include vp-768 {
+    margin-bottom: 0;
+  }
 }
 
 .serviceCard__content {
@@ -22,6 +32,7 @@
   width: 100%;
   object-fit: cover;
   aspect-ratio: 12/9;
+  user-select: none;
 }
 
 .serviceCard__title {

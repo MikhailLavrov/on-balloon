@@ -1,25 +1,27 @@
-import c from './App.module.scss';
-import { Layout } from 'antd';
-import { HeaderComponent } from '../Header/Header';
-import { FooterComponent } from '../Footer/Footer';
+import { LayoutComponent } from '../Layout/Layout';
+import { Route, Routes } from 'react-router-dom';
+import { Gallery } from '../Gallery/Gallery';
 import { Hero } from '../Hero/Hero';
 import { Services } from '../Services/Services';
 import { DrawerComponent } from '../Drawer/Drawer';
 
-const { Content } = Layout;
+const MainPage = () => {
+  return (
+    <>
+      <Hero />
+      <DrawerComponent />
+      <Services />
+    </>
+  );
+}
 
 export const App = () => {
   return (
-    <Layout className={c.layout}>
-      <HeaderComponent />
-      <Content className={c.content}>
-
-        <Hero />
-      <DrawerComponent />
-        <Services />
-
-      </Content>
-      <FooterComponent />
-    </Layout>
+    <Routes>
+      <Route path="/" element={<LayoutComponent /> }>
+        <Route index path="/" element={<MainPage />} />
+        <Route path="gallery" element={<Gallery />} />
+      </Route>
+    </Routes>
   );
 }

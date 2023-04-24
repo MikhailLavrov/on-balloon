@@ -1,7 +1,9 @@
 import c from './Hero.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper';
+import { Navigation, Pagination, Autoplay, Parallax, EffectFade } from 'swiper';
 import IMG_01 from '../../assets/hero/img_01.jpg';
+import IMG_02 from '../../assets/services/img_01.webp';
+import IMG_03 from '../../assets/services/img_02.webp';
 import { HeroSlide } from './HeroSlide/HeroSlide';
 
 const heroCards = [
@@ -21,7 +23,7 @@ const heroCards = [
       text: 'Оформить заказ',
       href: '#a',
     },
-    image: IMG_01,
+    image: IMG_02,
   },
   {
     title: 'Шарами украшаем важные мероприятия',
@@ -30,17 +32,25 @@ const heroCards = [
       text: 'Сделать заказ',
       href: '#a',
     },
-    image: IMG_01,
+    image: IMG_03,
   },
 ]
 
 const heroSwiperParams = {
-  modules: [Navigation, Pagination, Autoplay],
+  modules: [Navigation, Pagination, Autoplay, Parallax, EffectFade],
   navigation: true,
   pagination: true,
+  parallax: true,
   loop: true,
+  preventInteractionOnTransition: true,
+  speed: 1000,
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
   autoplay: {
     delay: 5000,
+    pauseOnMouseEnter: true,
   },
 }
 

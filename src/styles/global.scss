@@ -9,6 +9,7 @@ body {
 
 body {
   margin: 0;
+  padding-top: 50px;
 
   font-family: $ff-tilda;
   font-weight: 400;
@@ -19,6 +20,10 @@ body {
   
   display: flex;
   flex-direction: column;
+
+  @include vp-1120 {
+    padding: 64px 0 40px ;
+  }
 }
 
 a,
@@ -63,4 +68,18 @@ img {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.ant-menu-item,
+.ant-menu-submenu {
+  font-size: 20px;
+  font-family: $ff-tilda;
+}
+
+.ant-image-preview {
+  background-color: rgba($base-dark-color, 0.7) !important;
+}
+
+.ant-image-preview-operations-progress {
+  top: 40px;
 }

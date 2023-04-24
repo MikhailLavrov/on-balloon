@@ -21,7 +21,7 @@ export const HeaderComponent = () => {
         <div className={c.header__logo}>
           <a className={c.header__logoLink} href="#a">
             <img width={50} src={LOGO_ICON} alt="logo" />
-            Шарики
+            Гатчинские шары
           </a>
         </div>
         <button 
