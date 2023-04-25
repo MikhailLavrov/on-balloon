@@ -4,8 +4,9 @@
 .hero {
   background-color: $color-1-hero ;
 
-  @include vp-768 {
+  @include vp-1120 {
     padding-top: 64px;
+    padding-bottom: 64px;
   }
 }
 

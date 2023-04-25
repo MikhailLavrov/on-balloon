@@ -4,6 +4,7 @@ import { Gallery } from '../Gallery/Gallery';
 import { Hero } from '../Hero/Hero';
 import { Services } from '../Services/Services';
 import { DrawerComponent } from '../Drawer/Drawer';
+import { CoopOffer } from '../CoopOffer/CoopOffer';
 
 const MainPage = () => {
   return (
@@ -11,6 +12,7 @@ const MainPage = () => {
       <Hero />
       <DrawerComponent />
       <Services />
+      <CoopOffer />
     </>
   );
 }

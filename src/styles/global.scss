@@ -69,17 +69,3 @@ img {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-
-.ant-menu-item,
-.ant-menu-submenu {
-  font-size: 20px;
-  font-family: $ff-tilda;
-}
-
-.ant-image-preview {
-  background-color: rgba($base-dark-color, 0.7) !important;
-}
-
-.ant-image-preview-operations-progress {
-  top: 40px;
-}

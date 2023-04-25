@@ -1,0 +1,36 @@
+.ant-menu-item,
+.ant-menu-submenu {
+  font-size: 20px;
+  font-family: $ff-tilda;
+}
+
+.ant-image-preview {
+  background-color: rgba($base-dark-color, 0.7) !important;
+}
+
+.ant-image-preview-operations-progress {
+  top: 40px;
+}
+
+.ant-drawer-content {
+  @include vp-768 {
+   border-bottom-left-radius: 10px !important;
+  }
+}
+
+.ant-drawer-wrapper-body {
+ @include vp-768 {
+  right: 0;
+  border-bottom-left-radius: 50px !important;
+ }
+}
+
+.ant-drawer-content-wrapper {
+  @include vp-768 {
+    width: auto !important;
+    min-width: 40%;
+
+    right: 0 !important;
+    left: auto !important;
+  }
+}

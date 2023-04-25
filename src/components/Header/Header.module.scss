@@ -21,14 +21,18 @@
 .header .header__container {
   padding: 0;
   height: 100%;
+  width: 100%;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   @include vp-768 {
     padding: 0 $secondary-indent;
   }
+}
+
+.header__logo {
+  margin-right: auto;
 }
 
 .header__logoLink {
@@ -58,50 +62,8 @@
   }
 }
 
-// ================Кнопка меню====================
-.header__menuButton {
-  padding: 17px 10px;
-
-  width: 50px;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 9999;
-  
-  @include vp-768 {
-    display: none;
-  }
-}
-
-.header__menuButton span {
-  width: 100%;
-  height: 2px;
-  
-  background-color: $base-dark-color;
-  transition: all 0.3s ease-in-out;
-}
-
-// Х при открытом состоянии
-.header__menuButton.open span {
-  &:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  &:nth-child(2) {
-    opacity: 0;
-  }
-  &:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-} 
-// =====================================================================
-
 .header__content {
+  margin-left: auto;
   display: none;
   align-items: center;
   gap: 20px;
@@ -139,3 +101,94 @@
   width: 35px;
   border-radius: 50%;
 }
+
+// =================================
+// =================================
+.header__menuWrapper {
+  width: auto;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  position: relative;
+
+  @include vp-768 {
+    width: 7em;
+  }
+}
+
+.menu__border{
+  position: absolute;
+  left: 0;
+  top: 99.9%;
+
+  width: 7em;
+  height: 0.6em;
+  display: none;
+  
+  transform: rotate(180deg);
+  clip-path: url(#menu);
+  background-color: $color-2-header;
+
+  @include vp-768 {
+    display: block;
+  }
+}
+
+.header__menuButton {
+  padding: 17px 10px;
+
+  width: 50px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9999;
+  
+  @include vp-768 {
+    padding: 17px 10px;
+    height: 50px;
+    border: 1px solid $base-dark-color;
+  }
+}
+
+.header__menuButton span {
+  width: 100%;
+  height: 2px;
+  
+  background-color: $base-dark-color;
+  transition: all 0.3s ease-in-out;
+}
+
+// Х при открытом состоянии
+.header__menuButton.open span {
+  &:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  &:nth-child(2) {
+    opacity: 0;
+  }
+  &:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  @include vp-768 {
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 5px);
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -4px);
+    }
+  }
+} 
