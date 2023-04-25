@@ -59,9 +59,17 @@
 }
 
 .services__link {
-  background-color: $color-4-blue;
-  color: $base-dark-color;
   padding: 10px 40px;
+
+  color: $base-dark-color;
   font-family: $ff-tilda;
   font-size: 18px;
+  
+  background-color: $color-5-green;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $base-dark-color;
+    color: $base-light-color;
+  }
 }

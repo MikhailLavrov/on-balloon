@@ -11,7 +11,7 @@
   z-index: 1001;
 
   line-height: 1;
-  background-color: $color-2-header;
+  background-color: $color-1-violet;
 
   @include vp-768 {
     min-height: 64px;
@@ -54,7 +54,7 @@
   }
 }
 
-.header__logoLink img {
+.header__logoLink svg {
   width: 40px;
   
   @include vp-768 {
@@ -97,7 +97,9 @@
   }
 }
 
+.header__contentLink svg,
 .header__contentLink img {
+  height: 35px;
   width: 35px;
   border-radius: 50%;
 }
@@ -130,7 +132,7 @@
   
   transform: rotate(180deg);
   clip-path: url(#menu);
-  background-color: $color-2-header;
+  background-color: $color-1-violet;
 
   @include vp-768 {
     display: block;

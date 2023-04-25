@@ -2,6 +2,13 @@
 .ant-menu-submenu {
   font-size: 20px;
   font-family: $ff-tilda;
+
+  & svg[data-svg-icon] {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
 }
 
 .ant-image-preview {
@@ -12,21 +19,16 @@
   top: 40px;
 }
 
-.ant-drawer-content {
-  @include vp-768 {
-   border-bottom-left-radius: 10px !important;
-  }
-}
-
 .ant-drawer-wrapper-body {
- @include vp-768 {
-  right: 0;
-  border-bottom-left-radius: 50px !important;
- }
+  @include vp-768 {
+    right: 0;
+  }
 }
 
 .ant-drawer-content-wrapper {
   @include vp-768 {
+    height: 100% !important;
+    min-height: 100% !important;
     width: auto !important;
     min-width: 40%;
 

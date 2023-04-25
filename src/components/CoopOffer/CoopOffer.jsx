@@ -1,10 +1,8 @@
 import c from './CoopOffer.module.scss';
-import CALL_ICON from '../../assets/contacts/call.svg';
-import TELEGRAM_ICON from '../../assets/contacts/telegram.svg';
-import MESSAGE_ICON from '../../assets/contacts/message.svg';
-import WHATSAPP_ICON from '../../assets/contacts/whatsapp.svg';
 import { Popover } from 'antd';
 import { useState, useEffect, useRef } from 'react';
+import { contactData } from '../../data/contactData';
+import { SvgIcon } from '../SvgIcon/SvgIcon';
 
 export const CoopOffer = () => {
   const [open, setOpen] = useState(false);
@@ -35,11 +33,11 @@ export const CoopOffer = () => {
   const MessageChoose = () => {
     return (
       <div className={c.messageChoose} ref={popoverRef}>
-        <a className={c.offer__link} href="https://t.me/trafik_manager_NL" target='_blank' rel="noreferrer" title='Написать в Telegram'>
-          <img width={50} src={TELEGRAM_ICON} alt="Telegram" />
+        <a className={c.offer__link} href={contactData.telegram} target='_blank' rel="noreferrer" title='Написать в Telegram'>
+          <SvgIcon icon='telegram' />
         </a>
-        <a className={c.offer__link} href="https://api.whatsapp.com/send?phone=79315401970" target='_blank' rel="noreferrer" title='Написать в WhatsApp'>
-          <img width={50} src={WHATSAPP_ICON} alt="WhatsApp" />
+        <a className={c.offer__link} href={contactData.whatsapp} target='_blank' rel="noreferrer" title='Написать в WhatsApp'>
+          <SvgIcon icon='whatsapp' />
         </a>
       </div>
     )
@@ -58,12 +56,12 @@ export const CoopOffer = () => {
             onOpenChange={handleOpenChange}
           >
             <button className={`${c.offer__link} ${c.message}`} type="button">
-              <img width={50} src={MESSAGE_ICON} alt="Написать сообщение" />
+              <SvgIcon icon='message' />
               Написать
             </button>
           </Popover>
-          <a className={`${c.offer__link} ${c.call}`} href="tel:+79315401970" title='Позвонить по телефону'>
-            <img width={50} src={CALL_ICON} alt="call" />
+          <a className={`${c.offer__link} ${c.call}`} href={`tel:${contactData.phone}`} title='Позвонить по телефону'>
+            <SvgIcon icon='call' />
             Позвонить
           </a>
         </div>

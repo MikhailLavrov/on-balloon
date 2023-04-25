@@ -17,7 +17,7 @@
   line-height: 1.2;
   
   // Голубой
-  background-color: $color-3-heroSlide;
+  background-color: $color-2-beige;
 
   @include vp-768 {
     padding: 40px;
@@ -64,7 +64,7 @@
 
 .heroSlide__link {
   margin-top: auto;
-  padding: 15px;
+  padding: 15px 30px;
 
   width: 100%;
 
@@ -76,10 +76,10 @@
   background-color: $color-4-blue;
   transition: all 0.2s linear;
   user-select: none;
-
+  
   &:hover {
-    background-color: $base-dark-color;
-    color: $base-light-color;
+    background-color: $color-3-pink;
+    color: $base-dark-color;
   }
   
   @include vp-768 {

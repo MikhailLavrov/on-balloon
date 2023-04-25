@@ -8,7 +8,7 @@
   min-width: 200px;
   height: 100%;
   
-  box-shadow: 0 0 0 2px $color-4-blue inset;
+  box-shadow: 0 0 0 2px $color-3-pink inset;
   
   &:not(:last-child) {
     margin-bottom: 20px;
@@ -68,5 +68,11 @@
   align-items: center;
   flex-shrink: 0;
 
-  background-color: $color-2-header;
+  background-color: $color-4-blue;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $color-3-pink;
+    color: $base-dark-color;
+  }
 }
