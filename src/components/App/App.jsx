@@ -5,6 +5,7 @@ import { Hero } from '../Hero/Hero';
 import { Services } from '../Services/Services';
 import { DrawerComponent } from '../Drawer/Drawer';
 import { CoopOffer } from '../CoopOffer/CoopOffer';
+import { Assortment } from '../Assortment/Assortment';
 
 const MainPage = () => {
   return (
@@ -13,6 +14,7 @@ const MainPage = () => {
       <DrawerComponent />
       <Services />
       <CoopOffer />
+      <Assortment />
     </>
   );
 }

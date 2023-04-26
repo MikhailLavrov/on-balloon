@@ -20,6 +20,7 @@ body {
   
   display: flex;
   flex-direction: column;
+  background-color: $base-light-color;
 
   @include vp-1120 {
     padding: 64px 0 40px ;

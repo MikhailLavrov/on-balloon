@@ -36,3 +36,25 @@
     left: auto !important;
   }
 }
+
+.ant-tabs-tab:not(:first-child) {
+  margin: 0 0 0 20px !important;
+}
+
+.ant-tabs-nav-wrap {
+  & * {
+    font-size: 16px;
+    
+    @include vp-768 {
+      font-size: 18px;
+    }
+  }
+
+  @include vp-768 {
+    justify-content: center !important;
+  }
+}
+
+.ant-image {
+  width: 100% !important;
+}

@@ -33,10 +33,10 @@ export const CoopOffer = () => {
   const MessageChoose = () => {
     return (
       <div className={c.messageChoose} ref={popoverRef}>
-        <a className={c.offer__link} href={contactData.telegram} target='_blank' rel="noreferrer" title='Написать в Telegram'>
+        <a className={`${c.offer__link} ${c.outer}`} href={contactData.telegram} target='_blank' rel="noreferrer" title='Написать в Telegram'>
           <SvgIcon icon='telegram' />
         </a>
-        <a className={c.offer__link} href={contactData.whatsapp} target='_blank' rel="noreferrer" title='Написать в WhatsApp'>
+        <a className={`${c.offer__link} ${c.outer}`} href={contactData.whatsapp} target='_blank' rel="noreferrer" title='Написать в WhatsApp'>
           <SvgIcon icon='whatsapp' />
         </a>
       </div>

@@ -53,9 +53,14 @@
   
   border: none;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     color: $base-dark-color;
+
+    &.outer {
+      background-color: rgba($base-dark-color, 0.1);
+    }
   }
 
   &.message {

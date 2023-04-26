@@ -1,0 +1,72 @@
+@import '../../../styles/styles.scss';
+@import '../../../styles/mixins.scss';
+
+.assortmentCard {
+  box-shadow: 0 0 0 1px rgba($base-dark-color, 0.2);
+  
+  display: flex;
+  flex-direction: column;
+  height: 100% !important;
+}
+
+.assortmentCard__image {
+  width: 100%;
+}
+
+.assortmentCard__image img {
+  width: 100% !important;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+
+.assortmentCard__textContent {
+  padding: 8px;
+
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  font-family: $ff-tilda;
+}
+
+.assortmentCard__title {
+  margin: 0;
+  margin-bottom: 8px;
+
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 600;
+
+  @include vp-768 {
+    font-size: 18px;
+  }
+}
+
+.assortmentCard__price {
+  margin: 0;
+  
+
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.assortmentCard__actions {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.assortmentCard__actionLink {
+  width: 100%;
+  padding: 5px;
+
+  color: $base-dark-color;
+  font-size: 20px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  box-shadow: 0 0 0 1px rgba($base-dark-color, 0.15);
+}
