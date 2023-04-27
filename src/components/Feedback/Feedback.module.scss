@@ -2,14 +2,46 @@
 @import '../../styles/mixins.scss';
 
 .feedback {
-  padding: 30px 0 0;
-
   background-color: $color-2-beige;
   line-height: 1;
   font-family: $ff-tilda;
+  position: relative;
+
+  @include vp-1120 {
+    padding: 0;
+    min-height: 40vh;
+
+    display: grid;
+    grid-template-columns: minmax(auto, 760px) minmax(auto, 760px);
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 50vw;
+      background-color: rgba($base-dark-color, 0.2);
+      right: 0;
+    }
+  }
 }
 
-.feedback__title {
+// Форма
+
+.feedback__formWrapper {
+  padding: 30px;
+
+  @include vp-768 {
+    padding: 40px;
+  }
+
+  @include vp-1120 {
+    padding: 60px 40px;
+  }
+}
+
+.feedback__formTitle {
   margin: 0;
   margin-bottom: 20px;
 
@@ -22,20 +54,31 @@
   }
 }
 
-.feedback__subtitle {
+.feedback__formSubtitle {
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 
   font-size: 18px;
   line-height: 1.1;
   text-align: center;
+
+  @include vp-1120 {
+    font-size: 24px;
+  }
 }
 
-// 
+// Контакты
 
 .feedback__contacts {
-  padding: 20px 0;
+  padding: 40px 0;
   background-color: rgba($base-dark-color, 0.2);
+
+  @include vp-1120 {
+    padding: 60px 40px;
+
+    background-color: transparent;
+    z-index: 10;
+  }
 }
 
 .feedback__contactsInner {
@@ -44,7 +87,10 @@
 
   display: flex;
   flex-direction: column;
-  
+
+  @include vp-1120 {
+    
+  }
 }
 
 .feedback__contactsItem {
@@ -70,6 +116,11 @@
 
     font-weight: 600;
     font-size: 24px;
+
+    @include vp-1120 {
+      font-size: 28px;
+      font-weight: 500;
+    }
   }
 
   & a {
@@ -77,6 +128,10 @@
     font-size: 20px;
 
     color: $base-dark-color;
+
+    @include vp-1120 {
+      font-size: 24px;
+    }
   }
 }
 
@@ -91,5 +146,37 @@
     width: 40px;
     height: auto;
     border-radius: 50%;
+  }
+}
+
+// =====Formik=======
+
+.feedback__formik {
+  display: flex;
+  justify-content: center;
+}
+
+.feedback__form {
+  width: 100%;
+  max-width: 350px;
+
+  & input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  & div {
+    transform: translateY(-15px);
+  }
+  
+  & button {
+    padding: 10px;
+    width: 100%;
+    background-color: $color-1-violet;
+    font-size: 20px;
+    border: none;
   }
 }
