@@ -8,6 +8,7 @@ import { CoopOffer } from '../CoopOffer/CoopOffer';
 import { Assortment } from '../Assortment/Assortment';
 import { Advantages } from '../Advantages/Advantages';
 import { GallerySection } from '../GallerySection/GallerySection';
+import { Feedback } from '../Feedback/Feedback';
 
 const MainPage = () => {
   return (
@@ -19,6 +20,7 @@ const MainPage = () => {
       <Assortment />
       <Advantages />
       <GallerySection />
+      <Feedback />
     </>
   );
 }

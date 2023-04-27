@@ -1,4 +1,95 @@
 @import '../../styles/styles.scss';
 @import '../../styles/mixins.scss';
 
+.feedback {
+  padding: 30px 0 0;
 
+  background-color: $color-2-beige;
+  line-height: 1;
+  font-family: $ff-tilda;
+}
+
+.feedback__title {
+  margin: 0;
+  margin-bottom: 20px;
+
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+
+  @include vp-1120 {
+    font-size: 42px;
+  }
+}
+
+.feedback__subtitle {
+  margin: 0;
+  margin-bottom: 30px;
+
+  font-size: 18px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+// 
+
+.feedback__contacts {
+  padding: 20px 0;
+  background-color: rgba($base-dark-color, 0.2);
+}
+
+.feedback__contactsInner {
+  margin: 0 auto;
+  width: max-content;
+
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.feedback__contactsItem {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.feedback__contactsIcon {
+  display: flex;
+  align-items: center;
+
+  & svg {
+    width: 30px;
+    height: 100%;
+  }
+}
+
+.feedback__contactsInfo {
+  & h3 {
+    margin: 0;
+    margin-bottom: 5px;
+
+    font-weight: 600;
+    font-size: 24px;
+  }
+
+  & a {
+    display: block;
+    font-size: 20px;
+
+    color: $base-dark-color;
+  }
+}
+
+.feedback__socials {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  & svg {
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+  }
+}
