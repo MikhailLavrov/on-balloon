@@ -22,7 +22,7 @@ body {
   flex-direction: column;
   background-color: $base-light-color;
 
-  @include vp-1120 {
+  @include vp-768 {
     padding: 64px 0 40px ;
   }
 }

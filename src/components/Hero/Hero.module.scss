@@ -4,6 +4,11 @@
 .hero {
   background-color: $color-2-beige ;
 
+  @include vp-768 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
   @include vp-1120 {
     padding-top: 64px;
     padding-bottom: 64px;

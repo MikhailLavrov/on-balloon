@@ -1,0 +1,94 @@
+@import '../../styles/styles.scss';
+@import '../../styles/mixins.scss';
+
+.advantages {
+  padding: 30px 0;
+
+  text-align: center;
+  font-family: $ff-tilda;
+
+  background-color: $color-2-beige;
+
+  @include vp-1120 {
+    padding: 50px 0;
+  }
+}
+
+.advantages__title {
+  margin: 0;
+  margin-bottom: 20px;
+
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1;
+
+  @include vp-1120 {
+    margin-bottom: 40px;
+    font-size: 42px;
+  }
+}
+
+.advantages__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @include vp-1120 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+}
+
+.advantages__item {
+  padding: 10px;
+  height: 100%;
+
+  &:not(:last-child) {
+    margin-bottom: 5px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $base-dark-color;
+  }
+
+  @include vp-768 {
+    &:not(:last-child) {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+}
+
+.advantages__image {
+  margin-bottom: 15px;
+  & svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  @include vp-1120 {
+    margin-bottom: 30px;
+  }
+}
+
+.advantages__itemName {
+  margin: 0;
+  margin-bottom: 10px;
+
+  font-size: 22px;
+  font-weight: 600;
+
+  @include vp-1120 {
+    margin-bottom: 20px;
+  }
+}
+
+.advantages__itemText {
+  margin: 0;
+}

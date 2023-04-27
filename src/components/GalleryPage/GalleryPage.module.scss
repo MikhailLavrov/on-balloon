@@ -1,0 +1,70 @@
+@import '../../styles/styles.scss';
+@import '../../styles/mixins.scss';
+
+.gallery {
+  padding: 30px 0;
+
+  position: relative;
+  
+  text-align: center;
+  font-family: $ff-tilda;
+  line-height: 1.2;
+}
+
+.gallery__text {
+  margin-bottom: 20px;
+  
+  @include vp-768 {
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+}
+
+.gallery__title {
+  margin: 0;
+  
+  font-weight: 600;
+  text-align: center;
+
+  @include vp-768 {
+    font-size: 24px;
+  }
+
+  @include vp-1120 {
+    font-size: 28px;
+  }
+}
+
+.gallery__subtitle {
+  @include vp-768 {
+    font-size: 18px;
+  }
+}
+
+.gallery__backLink {
+  padding: 15px;
+  
+  display: inline-block;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  & svg {
+    fill: $base-dark-color;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.gallery__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  @include vp-768 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}

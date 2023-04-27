@@ -22,11 +22,11 @@ export const AssortmentCard = ({item, index}) => {
       </div>
 
       <div className={c.assortmentCard__actions}>
-        <a className={c.assortmentCard__actionLink} href onClick={handleLikeToggle}>
+        <a className={c.assortmentCard__actionLink} href onClick={handleLikeToggle} title='В избранное'>
           {/* <EyeOutlined /> */}
           {liked ? <HeartFilled style={{color: 'red'}} /> : <HeartOutlined />}
         </a>
-        <a href className={c.assortmentCard__actionLink}>
+        <a href className={c.assortmentCard__actionLink} title='Подробнее'>
           <EyeOutlined />
         </a>
       </div>
