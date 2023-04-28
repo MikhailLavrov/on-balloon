@@ -151,7 +151,7 @@
 
 // =====Formik=======
 
-.feedback__formik {
+.feedback__callback {
   display: flex;
   justify-content: center;
 }
@@ -159,6 +159,7 @@
 .feedback__form {
   width: 100%;
   max-width: 350px;
+  position: relative;
 
   & input {
     display: block;
@@ -172,11 +173,38 @@
     transform: translateY(-15px);
   }
   
-  & button {
+  & input[type="submit"] {
     padding: 10px;
     width: 100%;
     background-color: $color-1-violet;
     font-size: 20px;
     border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $base-dark-color;
+      color: $base-light-color;
+    }
+
+    &:disabled {
+      pointer-events: none;
+      user-select: none;
+    }
   }
+}
+
+.feedback__submitCover {
+  background-color: $color-2-beige;
+  text-align: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

@@ -2,56 +2,72 @@ import c from './Feedback.module.scss';
 import { MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import { contactData } from '../../data/contactData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
+import { notification } from 'antd';
+import { useEffect, useState } from 'react';
+import InputMaskExample from '../InputMask';
 
-const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
-
-const FeedbackSchema = Yup.object().shape({
-  firstName: Yup.string()
-  .min(2, 'Минимальная длина 2 символа')
-  .max(25, 'Максимальная длина 25 символов')
-  .required('Введите Ваше имя'),
-  phoneNumber: Yup.string().matches(phoneRegExp, 'Введите свой настоящий номер').required('Введите Ваш номер'),
-});
-
-const onSubmitHandle = (values, { resetForm }) => {
-  console.log(values);
-  resetForm();
+const openNotification = () => {
+  notification.open({
+    message: 'Информация отправлена',
+    description: 'Мы свяжемся с Вами в ближайшее время.',
+  });
 };
 
 export const Feedback = () => {
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const isSubmitted = sessionStorage.getItem('submitted');
+
+    if (isSubmitted === 'true') {
+      setSubmitted(true);
+    }
+  }, []);
+  
+  const onSubmitHandler = () => {
+    setSubmitted(true);
+    sessionStorage.setItem('submitted', 'true');
+  }
+  
   return (
     <section className={c.feedback}>
+
       <div className={c.feedback__formWrapper}>
         <h2 className={c.feedback__formTitle}>Закажите шары на&nbsp;праздник</h2>
         <p className={c.feedback__formSubtitle}>Оставьте заявку, мы вам перезвоним.<br />Поможем с концепцией оформления мероприятия, воплотим любую идею.</p>
 
-        <div className={c.feedback__formik}>
-          <Formik
-            initialValues={{firstName: '', phoneNumber: ''}}
-            validationSchema={FeedbackSchema}
-            validateOnChange={true}
-            onSubmit={onSubmitHandle}
+        <div className={c.feedback__callback}>
+          <iframe name="hidden_iframe" id="hidden_iframe" title='gFormIframe' style={{display: 'none'}} 
+            onLoad={() => {
+              if (submitted) {
+                openNotification()
+              } 
+            }}
           >
-            {({ errors, touched, isSubmitting  }) => (
-              <Form className={c.feedback__form}>
+          </iframe>
+          <form 
+            className={c.feedback__form}
+            action={contactData.gForms.action}
+            method="post" 
+            target="hidden_iframe"
+            onSubmit={onSubmitHandler}
+            >
+            <label htmlFor="name">Имя</label>
+            <input name={contactData.gForms.nameEntry} id='name' type="text" required maxLength={50} />
+            <label htmlFor='phone'>Телефон</label>
+            {/* <input name={contactData.gForms.phoneEntry} id='phone' type="text" required /> */}
+            <InputMaskExample />
+            <input type="submit" value="Отправить" disabled={submitted} />
 
-                <Field name="firstName" placeholder="Ваше имя" />
-                  {errors.firstName && touched.firstName ? (
-                    <div>{errors.firstName}</div>
-                  ) : null}
-                  <Field name="phoneNumber" placeholder="8(ХХХ)ХХХХХХХ" mask="99/99/9999" />
-                  {errors.phoneNumber && touched.phoneNumber ? (
-                    <div>{errors.phoneNumber}</div>
-                  ) : null}
-                
-                <button type="submit" disabled={isSubmitting}>Отправить</button>
-              </Form>
-            )}
-          </Formik>
+            {submitted &&
+              <div className={c.feedback__submitCover}>
+                <h2 className={c.feedback__submitTitle}>Заявка отправлена!</h2>
+                <p className={c.feedback__submitSubtitle}>Мы вам перезвоним</p>
+              </div>
+            }
+          </form>
         </div>
-
+        
       </div>
       <div className={c.feedback__contacts}>
           <div className={c.feedback__contactsInner}>
