@@ -6,6 +6,10 @@
 
   font-family: $ff-tilda;
   background-color: $base-light-color;
+
+  @include vp-1120 {
+    padding: 60px 0;
+  }
 }
 
 .assortment__title {

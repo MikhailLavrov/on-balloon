@@ -3,15 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './styles/styles.scss';
 import { App } from './components/App/App';
 import reportWebVitals from './reportWebVitals';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import store from './redux/store';
+import { Provider } from 'react-redux'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* HashRouter вместо BrowserRouter использован для gh-pages фикса перезагрузки */}
-    <HashRouter>
-      <App />
-    </HashRouter>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

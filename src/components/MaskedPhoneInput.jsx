@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { contactData } from '../data/contactData';
 import InputMask from 'react-input-mask';
 
-const InputMaskExample = () => {
+export const MaskedPhoneInput = () => {
   const [card, setCard] = useState('');
   const inputCard = useRef(null);
 
@@ -21,9 +21,8 @@ const InputMaskExample = () => {
         onChange={handleChange}
         ref={inputCard}
         required
+        placeholder='+7 (___) ___-__-__'
       />
     </>
   );
 };
-
-export default InputMaskExample;

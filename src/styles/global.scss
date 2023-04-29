@@ -24,7 +24,7 @@ body {
   background-color: $base-light-color;
 
   @include vp-768 {
-    padding: 64px 0 40px ;
+    padding-top: 64px;
   }
 }
 

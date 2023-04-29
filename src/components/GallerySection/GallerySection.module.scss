@@ -12,6 +12,10 @@
   & * {
     user-select: none;
   }
+
+  @include vp-1120 {
+    padding: 60px 0;
+  }
 }
 
 .gallery__text {

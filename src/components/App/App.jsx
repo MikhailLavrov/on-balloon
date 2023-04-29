@@ -12,7 +12,7 @@ import { Feedback } from '../Feedback/Feedback';
 
 const MainPage = () => {
   return (
-    <>
+    <div>
       <Hero />
       <DrawerComponent />
       <Services />
@@ -21,15 +21,15 @@ const MainPage = () => {
       <Advantages />
       <GallerySection />
       <Feedback />
-    </>
+    </div>
   );
 }
 
 export const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<LayoutComponent /> }>
-        <Route index path="/" element={<MainPage />} />
+      <Route element={<LayoutComponent /> }>
+        <Route path='*' element={<MainPage />} />
         <Route path="gallery" element={<GalleryPage />} />
       </Route>
     </Routes>

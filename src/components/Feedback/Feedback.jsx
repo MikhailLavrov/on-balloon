@@ -4,7 +4,7 @@ import { contactData } from '../../data/contactData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { notification } from 'antd';
 import { useEffect, useState } from 'react';
-import InputMaskExample from '../InputMask';
+import { MaskedPhoneInput } from '../MaskedPhoneInput';
 
 const openNotification = () => {
   notification.open({
@@ -31,7 +31,6 @@ export const Feedback = () => {
   
   return (
     <section className={c.feedback}>
-
       <div className={c.feedback__formWrapper}>
         <h2 className={c.feedback__formTitle}>Закажите шары на&nbsp;праздник</h2>
         <p className={c.feedback__formSubtitle}>Оставьте заявку, мы вам перезвоним.<br />Поможем с концепцией оформления мероприятия, воплотим любую идею.</p>
@@ -53,10 +52,10 @@ export const Feedback = () => {
             onSubmit={onSubmitHandler}
             >
             <label htmlFor="name">Имя</label>
-            <input name={contactData.gForms.nameEntry} id='name' type="text" required maxLength={50} />
+            <input name={contactData.gForms.nameEntry} id='name' type="text" required maxLength={50} placeholder='Ваше имя' />
             <label htmlFor='phone'>Телефон</label>
             {/* <input name={contactData.gForms.phoneEntry} id='phone' type="text" required /> */}
-            <InputMaskExample />
+            <MaskedPhoneInput />
             <input type="submit" value="Отправить" disabled={submitted} />
 
             {submitted &&
