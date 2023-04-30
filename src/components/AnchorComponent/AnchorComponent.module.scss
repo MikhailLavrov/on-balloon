@@ -1,0 +1,8 @@
+@import '../../styles/styles.scss';
+@import '../../styles/mixins.scss';
+
+.anchorComponent {
+  padding: 5px 10px 5px;
+
+  background-color: $base-light-color;
+}

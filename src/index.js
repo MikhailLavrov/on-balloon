@@ -6,12 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/store';
 import { Provider } from 'react-redux'
+import { ScrollToTop } from './utils/ScrollToTop';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* HashRouter вместо BrowserRouter использован для gh-pages фикса перезагрузки */}
     <BrowserRouter>
+      <ScrollToTop />
       <Provider store={store}>
         <App />
       </Provider>

@@ -30,7 +30,7 @@ export const Services = () => {
   ));
 
   return (
-    <section className={c.services}>
+    <section className={c.services} id='services_section'>
       <div className='container'>
         <h2 className={c.services__title}>Ищите готовое решение оформления?</h2>
         <p className={c.services__subtitle}>Вы можете подобрать оформление воздушными шарами из тех вариантов, которые мы уже делали. Посмотрите примеры наших работ</p>

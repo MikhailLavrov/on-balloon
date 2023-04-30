@@ -1,7 +1,7 @@
 import c from './CoopOffer.module.scss';
 import { Popover } from 'antd';
 import { useState, useEffect, useRef } from 'react';
-import { contactData } from '../../data/contactData';
+import { contactData } from '../../data/personalData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 
 export const CoopOffer = () => {

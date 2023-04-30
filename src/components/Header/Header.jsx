@@ -3,7 +3,7 @@ import { Layout, Badge, Dropdown } from 'antd';
 import { useEffect, useRef, useState } from 'react';
 import { DrawerComponent } from '../Drawer/Drawer';
 import { Link } from 'react-router-dom';
-import { contactData } from '../../data/contactData';
+import { contactData } from '../../data/personalData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { HeartOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux'

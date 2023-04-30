@@ -30,7 +30,7 @@ const HeroSlides = heroData.map((card, index) => (
 
 export const Hero = () => {
   return (
-    <section className={c.hero}>
+    <section className={c.hero} id='hero_section'>
       <h1 className='visually-hidden'>Украшение воздушными шарами важных мероприятий</h1>
       <div className={c.hero__container}>
         <Swiper className='hero__slider' {...heroSwiperParams}>

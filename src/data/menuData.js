@@ -1,6 +1,6 @@
 import { HomeOutlined, BulbOutlined, FireOutlined, PictureOutlined, LineOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { contactData } from './contactData.js';
+import { contactData } from './personalData.js';
 import { SvgIcon } from '../components/SvgIcon/SvgIcon.jsx';
 
 export const menuData = [

@@ -10,9 +10,9 @@ export const LayoutComponent = () => {
   return (
     <Layout className={c.layout}>
       <HeaderComponent />
-        <Content>
-          <Outlet />
-        </Content>
+      <Content>
+        <Outlet />
+      </Content>
       <FooterComponent />
     </Layout>
   );

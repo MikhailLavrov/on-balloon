@@ -1,10 +1,10 @@
 import c from './Feedback.module.scss';
 import { MailOutlined, PhoneOutlined } from '@ant-design/icons';
-import { contactData } from '../../data/contactData';
+import { contactData } from '../../data/personalData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { notification } from 'antd';
 import { useEffect, useState } from 'react';
-import { MaskedPhoneInput } from '../MaskedPhoneInput';
+import { MaskedPhoneInput } from '../../utils/MaskedPhoneInput';
 
 const openNotification = () => {
   notification.open({
@@ -30,7 +30,7 @@ export const Feedback = () => {
   }
   
   return (
-    <section className={c.feedback}>
+    <section className={c.feedback} id='feedback_section'>
       <div className={c.feedback__formWrapper}>
         <h2 className={c.feedback__formTitle}>Закажите шары на&nbsp;праздник</h2>
         <p className={c.feedback__formSubtitle}>Оставьте заявку, мы вам перезвоним.<br />Поможем с концепцией оформления мероприятия, воплотим любую идею.</p>

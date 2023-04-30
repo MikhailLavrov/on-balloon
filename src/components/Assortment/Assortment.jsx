@@ -55,7 +55,7 @@ const assortmentTabs = assortmentData.map((tabItem, index) => {
 
 export const Assortment = () => {
   return (
-    <section className={c.assortment}>
+    <section className={c.assortment} id='assortment_section'>
       <div className='container'>
         <h2 className={c.assortment__title}>Варианты композиций</h2>
         <p className={c.assortment__subtitle}>Цвет шаров возможен любой.<br /><span>Доставка и монтаж оплачиваются отдельно.</span></p>

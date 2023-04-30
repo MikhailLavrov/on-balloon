@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { contactData } from '../data/contactData';
+import { contactData } from '../data/personalData';
 import InputMask from 'react-input-mask';
 
 export const MaskedPhoneInput = () => {
