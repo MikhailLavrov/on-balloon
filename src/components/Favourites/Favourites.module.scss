@@ -36,3 +36,27 @@
     font-size: 20px;
   }
 }
+
+.favourites__item {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.favourites__name {
+  font-family: $ff-tilda;
+}
+
+.favourites__delButton {
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: rgba($base-dark-color, 0.05);
+  }
+}

@@ -1,10 +1,12 @@
 import c from './Favourites.module.scss';
 import { Badge, Dropdown } from 'antd';
-import { HeartOutlined } from '@ant-design/icons';
-import { useSelector } from 'react-redux';
+import { HeartOutlined, ReadOutlined, CloseOutlined } from '@ant-design/icons';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { deleteFavourite } from '../../redux/favouritesSlice';
 
 export const Favourites = ({headerRef}) => {
+  const dispatch = useDispatch();
   const favourites = useSelector(state => state.favourites)
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -15,6 +17,10 @@ export const Favourites = ({headerRef}) => {
   const handleDropdownOpenChange = (newOpen) => {
     setDropdownOpen(newOpen);
   };
+
+  const handleRemoveFromFavourites = (key) => {
+    dispatch(deleteFavourite({ key }));
+  };  
 
   useEffect(() => {
     const handleScroll = (event) => {
@@ -30,15 +36,30 @@ export const Favourites = ({headerRef}) => {
     };
   }, [dropdownOpen, headerRef]);
 
-  const children = favourites.map(item => ({
+  const favouritesList = favourites.map(item => ({
     key: item.key,
-    label: item.label,
+    label: (
+      <div className={c.favourites__item}>
+        <span className={c.favourites__name}>{item.label}</span>
+        <button 
+          className={c.favourites__delButton} 
+          type='button' 
+          onClick={() => handleRemoveFromFavourites(item.key)}><CloseOutlined /></button>
+      </div>
+    ),
     icon: <img width={30} height={30} src={item.iconurl} alt="" />
-  }))
+  }));
+  
+
+  const emptyFavouritesList = [{
+    key: 1,
+    label: 'Список пуст',
+    icon: <ReadOutlined />
+  }]
 
   return (
     <Dropdown 
-      menu={{items: children}}
+      menu={favourites.length === 0 ? {items: emptyFavouritesList} : {items: favouritesList}}
       placement="bottomRight"
       trigger={['click']}
       open={dropdownOpen}
