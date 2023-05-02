@@ -1,5 +1,5 @@
 import { Drawer, Menu } from 'antd';
-import { menuData } from '../../data/menuData';
+import { menuDataMobile } from '../../data/menuData';
 
 export const DrawerComponent = ({ open, toggleMenu }) => {
   const drawerOptions = {
@@ -14,7 +14,7 @@ export const DrawerComponent = ({ open, toggleMenu }) => {
 
   const menuOptions = {
     mode: 'inline',
-    items: menuData,
+    items: menuDataMobile,
     onClick: toggleMenu,
   };
 

@@ -3,13 +3,17 @@
 
 .gallery {
   padding: 30px 0;
-
+  
   position: relative;
   
   text-align: center;
   font-family: $ff-tilda;
   line-height: 1.2;
   background-color: $base-light-color;
+  
+  @include vp-1120 {
+    padding: 76px 0 30px;
+  }
 }
 
 .gallery__text {
@@ -56,6 +60,10 @@
     fill: $base-dark-color;
     width: 20px;
     height: 20px;
+  }
+
+  @include vp-1120 {
+    display: none;
   }
 }
 

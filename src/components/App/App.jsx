@@ -9,12 +9,12 @@ import { Assortment } from '../Assortment/Assortment';
 import { Advantages } from '../Advantages/Advantages';
 import { GallerySection } from '../GallerySection/GallerySection';
 import { Feedback } from '../Feedback/Feedback';
-import { AnchorComponent } from '../AnchorComponent/AnchorComponent';
+// import { AnchorComponent } from '../AnchorComponent/AnchorComponent';
 
 const MainPage = () => {
   return (
     <div>
-      <AnchorComponent />
+      {/* <AnchorComponent /> */}
       <Hero />
       <DrawerComponent />
       <Services />

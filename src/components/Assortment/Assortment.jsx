@@ -37,6 +37,7 @@ const assortmentSwiperParams = {
 }
 
 const assortmentTabs = assortmentData.map((tabItem, index) => {
+  
   const tabChildren = 
     <Swiper className={c.assortment__swiper} {...assortmentSwiperParams}>
       {tabItem.children.map((childItem, index) => 

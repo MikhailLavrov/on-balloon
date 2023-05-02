@@ -1,23 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
-import {assortmentData} from '../data/assortmentData';
 
 export const favouritesSlice = createSlice({
   name: 'favourites',
   initialState: [],
   reducers: {
-    increment: state => {
-      state.value += 1
+    addFavourite: (state, action) => {
+      state.push({
+        key: action.payload.key,
+        label: action.payload.label,
+        iconurl: action.payload.iconurl,
+      })
     },
-    decrement: state => {
-      state.value -= 1
+    deleteFavourite: (state, action) => {
+      const index = state.findIndex(item => item.key === action.payload.key)
+      if (index !== -1) {
+        state.splice(index, 1)
+      }
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
-    }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = favouritesSlice.actions
+export const { addFavourite, deleteFavourite } = favouritesSlice.actions
 
 export default favouritesSlice.reducer

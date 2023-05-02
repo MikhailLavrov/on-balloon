@@ -1,107 +1,32 @@
 import c from './Header.module.scss';
-import { Layout, Badge, Dropdown } from 'antd';
-import { useEffect, useRef, useState } from 'react';
+import { Layout } from 'antd';
+import { useRef, useState } from 'react';
 import { DrawerComponent } from '../Drawer/Drawer';
 import { Link } from 'react-router-dom';
 import { contactData } from '../../data/personalData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
-import { HeartOutlined } from '@ant-design/icons';
-import { useSelector, useDispatch } from 'react-redux'
+import { Favourites } from '../Favourites/Favourites';
 
 const { Header } = Layout;
 
-const dropdownMenu = [
-  {
-    key: '1',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        1st menu item
-      </a>
-    ),
-  },
-  {
-    key: '2',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        2nd menu item (disabled)
-      </a>
-    ),
-    icon: <HeartOutlined />,
-    disabled: true,
-  },
-  {
-    key: '3',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-        3rd menu item (disabled)
-      </a>
-    ),
-    disabled: true,
-  },
-  {
-    key: '4',
-    danger: true,
-    label: 'a danger item',
-  },
-];
-
 export const HeaderComponent = () => {
-  const favourites = useSelector(state => state.favourites)
-  const dispatch = useDispatch()
-  
-  const [open, setOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef(null);
 
   const toggleMenu = () => {
-    open ? setOpen(false) : setOpen(true);
+    menuOpen ? setMenuOpen(false) : setMenuOpen(true);
   };
-
-  const dropdownHide = () => {
-    setDropdownOpen(false);
-  };
-  
-  const handleDropdownOpenChange = (newOpen) => {
-    setDropdownOpen(newOpen);
-  };
-  
-  useEffect(() => {
-    const handleScroll = (event) => {
-      if (dropdownOpen && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        dropdownHide();
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [dropdownOpen]);
 
   return (
     <Header className={c.header}>
-      <div className={c.header__container} ref={dropdownRef}>
+      <div className={c.header__container} ref={headerRef}>
         <div className={c.header__logo}>
           <Link className={c.header__logoLink} to={''}>
             <SvgIcon icon='logo' />
             Гатчинские шары
           </Link>
         </div>
-        <Dropdown 
-          menu={{ items: dropdownMenu }}
-          placement="bottomRight"
-          trigger={['click']}
-          open={dropdownOpen}
-          onOpenChange={handleDropdownOpenChange}
-          arrow
-          >
-          <a className={c.header__favourites} title='Избранное'>
-            <Badge count={favourites.length}>
-              <HeartOutlined />
-            </Badge>
-          </a>
-        </Dropdown>
+        <Favourites headerRef={headerRef} />
         <div className={c.header__content}>
           <a className={c.header__contentLink} href={`tel:${contactData.phone}`} title='Позвонить по телефону'>
             <SvgIcon icon='call' />
@@ -114,10 +39,10 @@ export const HeaderComponent = () => {
             <SvgIcon icon='whatsapp' />
           </a>
         </div>
-        {open && <DrawerComponent open={open} toggleMenu={toggleMenu} />}
+        {menuOpen && <DrawerComponent open={menuOpen} toggleMenu={toggleMenu} />}
         <div className={c.header__menuWrapper}>
           <button 
-            className={`${c.header__menuButton} ${open ? c.open : ''}`}
+            className={`${c.header__menuButton} ${menuOpen ? c.open : ''}`}
             onClick={toggleMenu} 
             type='button'
             >

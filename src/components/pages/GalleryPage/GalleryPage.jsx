@@ -1,8 +1,8 @@
-import { Image } from 'antd';
+import { Image, FloatButton } from 'antd';
 import c from './GalleryPage.module.scss';
 import { Link } from 'react-router-dom';
 import '../../../styles/global.scss';
-import { ArrowLeftOutlined } from '@ant-design/icons';
+import { ArrowLeftOutlined, ArrowUpOutlined } from '@ant-design/icons';
 import { galleryData } from '../../../data/galleryData';
 
 const galleryImages = galleryData.map((item, index) => (
@@ -27,6 +27,7 @@ export const GalleryPage = () => (
           {galleryImages}
         </Image.PreviewGroup>
       </div>
+      <FloatButton.BackTop icon={<ArrowUpOutlined />} />
     </div>
   </section>
 );

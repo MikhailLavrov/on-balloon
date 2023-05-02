@@ -1,0 +1,38 @@
+@import '../../styles/styles.scss';
+@import '../../styles/mixins.scss';
+
+.favourites {
+  margin-right: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  & svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  @include vp-768 {
+    margin-right: 20px;
+    gap: 5px;
+  }
+}
+
+.favourites p {
+  display: none;
+
+  font-family: $ff-tilda;
+
+  @include vp-768 {
+    display: block;
+    font-size: 16px;
+  }
+
+  @include vp-1120 {
+    font-size: 20px;
+  }
+}

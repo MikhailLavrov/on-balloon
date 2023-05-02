@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { contactData } from './personalData.js';
 import { SvgIcon } from '../components/SvgIcon/SvgIcon.jsx';
 
-export const menuData = [
-  {label: <Link to={'/'}>На главную</Link>, key: 'home', icon: <HomeOutlined />},
+export const menuDataMobile = [
+  {label: <Link to={'/'}>Главная </Link>, key: 'home', icon: <HomeOutlined />},
   {label: <Link to={'/hot'}>Спецпредложения</Link>, key: 'hot', icon: <FireOutlined />},
   {label: <Link to={'/gallery'}>Галерея работ</Link>, key: 'gallery', icon: <PictureOutlined />},
   {label: 'Услуги', key: 'services', icon: <BulbOutlined />,
