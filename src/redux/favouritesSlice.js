@@ -9,6 +9,8 @@ export const favouritesSlice = createSlice({
         key: action.payload.key,
         label: action.payload.label,
         iconurl: action.payload.iconurl,
+        price: action.payload.price,
+        unit: action.payload.unit,
       })
     },
     deleteFavourite: (state, action) => {
@@ -17,10 +19,13 @@ export const favouritesSlice = createSlice({
         state.splice(index, 1)
       }
     },
+    updateFavourites: (state, action) => {
+      state = action.payload
+    },
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { addFavourite, deleteFavourite } = favouritesSlice.actions
+export const { addFavourite, deleteFavourite, updateFavourites } = favouritesSlice.actions
 
 export default favouritesSlice.reducer

@@ -1,0 +1,91 @@
+@import '../../../styles/styles.scss';
+@import '../../../styles/mixins.scss';
+
+.showFavourites__button {
+  padding: 5px;
+  width: 100%;
+  background-color: $color-1-violet;
+  border: none;
+
+  font-family: $ff-tilda;
+
+  cursor: pointer;
+}
+
+.favouriteItem {
+  padding: 10px;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+
+  background-color: rgba($color-1-violet, 0.3);
+  border-radius: 10px;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+// Слева
+.favouriteItem__visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.favouriteItem__visual img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.favouriteItem__countButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.favouriteItem__countButtons button {
+  background-color: transparent;
+  border: none;
+}
+
+// Справа
+.favouriteItem__content {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+  font-family: $ff-tilda;
+}
+
+.favouriteItem__label {
+  margin: 0;
+  margin-bottom: 10px;
+
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.favouriteItem__price {
+  margin: 0;
+  margin-bottom: auto;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.favouriteItem__totalCount {
+  margin-top: auto;
+}
+
+.favouriteItem__totalCount p {
+  margin: 0;
+}

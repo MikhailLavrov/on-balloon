@@ -60,3 +60,14 @@
     background-color: rgba($base-dark-color, 0.05);
   }
 }
+
+.favourites__showMoreButton {
+  padding: 5px;
+  width: 100%;
+  background-color: $color-1-violet;
+  border: none;
+
+  font-family: $ff-tilda;
+
+  cursor: pointer;
+}

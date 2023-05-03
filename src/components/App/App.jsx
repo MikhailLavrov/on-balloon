@@ -9,12 +9,12 @@ import { Assortment } from '../Assortment/Assortment';
 import { Advantages } from '../Advantages/Advantages';
 import { GallerySection } from '../GallerySection/GallerySection';
 import { Feedback } from '../Feedback/Feedback';
-// import { AnchorComponent } from '../AnchorComponent/AnchorComponent';
+import { FloatButton } from 'antd';
+import { ArrowUpOutlined } from '@ant-design/icons';
 
 const MainPage = () => {
   return (
     <div>
-      {/* <AnchorComponent /> */}
       <Hero />
       <DrawerComponent />
       <Services />
@@ -23,6 +23,7 @@ const MainPage = () => {
       <Advantages />
       <GallerySection />
       <Feedback />
+      {/* <FloatButton.BackTop icon={<ArrowUpOutlined />} /> */}
     </div>
   );
 }
