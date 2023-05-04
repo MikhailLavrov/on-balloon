@@ -4,6 +4,22 @@ import { useState } from 'react';
 import { contactData } from '../../../data/personalData';
 import { MaskedPhoneInput } from '../../../utils/MaskedPhoneInput';
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
+import { SmileOutlined } from '@ant-design/icons';
+import { notification } from 'antd';
+  
+const openNotification = () => {
+  notification.open({
+    message: 'Информация отправлена',
+    description: 'Мы свяжемся с Вами в ближайшее время.',
+    icon: (
+      <SmileOutlined
+        style={{
+          color: '#108ee9',
+        }}
+      />
+    ),
+  });
+};
 
 export const ShowAllFavourites = ({ favourites, setDropdownOpen }) => {
   const [open, setOpen] = useState(false);
@@ -33,29 +49,6 @@ export const ShowAllFavourites = ({ favourites, setDropdownOpen }) => {
     }
   };
 
-  const favouriteItems = favourites.map((item, index) => {
-    const {iconurl, key, label, price, unit} = item;
-    return (
-      <div className={c.favouriteItem} key={key}>
-        <div className={c.favouriteItem__visual}>
-          <Image src={iconurl} />
-          <div className={c.favouriteItem__countButtons}>
-            <button onClick={() => counts[index] > 1 ? handleDecrement(index) : 1}><MinusOutlined /></button>
-            <span>{counts[index]}</span>
-            <button onClick={() => counts[index] < 20 ? handleIncrement(index) : 20}><PlusOutlined /></button>
-          </div>
-        </div>
-        <div className={c.favouriteItem__content}>
-          <h3 className={c.favouriteItem__label}>{label}</h3>
-          <p className={c.favouriteItem__price}>{price}&nbsp;р.&nbsp;/&nbsp;{unit}</p>
-          <div className={c.favouriteItem__totalCount}>
-            <p>Итого: {+counts[index] * +price}&nbsp;р. за&nbsp;{counts[index]}&nbsp;{unit}</p>
-          </div>
-        </div>
-      </div>
-    );
-  });
-
   const showModal = () => {
     setDropdownOpen(false)
     setOpen(true);
@@ -66,6 +59,7 @@ export const ShowAllFavourites = ({ favourites, setDropdownOpen }) => {
     setTimeout(() => {
       setOpen(false);
       setConfirmLoading(false);
+      openNotification();
     }, 2000);
   };
 
@@ -73,30 +67,76 @@ export const ShowAllFavourites = ({ favourites, setDropdownOpen }) => {
     setOpen(false);
   };
 
-  const modalFooter = (
-    <div key={121}>
-      <div>
-        <p>Всего в избранном {favourites.length} позиции на общую сумму {totalPrice} р.</p>
+  const modalItems = favourites.map((item, index) => {
+    const {iconurl, key, label, price, unit} = item;
+    
+    const totalItemPrice = +counts[index] * +price;
+    const totalItemAmount = counts[index];
+
+    return (
+      <div className={c.favouriteItem} key={key}>
+        <div className={c.favouriteItem__visual}>
+          <Image src={iconurl} />
+          <div className={c.favouriteItem__countButtons}>
+            <button onClick={() => totalItemAmount > 1 ? handleDecrement(index) : 1}><MinusOutlined /></button>
+            <span>{totalItemAmount}</span>
+            <button onClick={() => totalItemAmount < 20 ? handleIncrement(index) : 20}><PlusOutlined /></button>
+          </div>
+        </div>
+        <div className={c.favouriteItem__content}>
+          <h3 className={c.favouriteItem__label}>{label}</h3>
+          <p className={c.favouriteItem__price}>{price}&nbsp;р.&nbsp;/&nbsp;{unit}</p>
+          <div className={c.favouriteItem__totalCount}>
+            <p>Итого: {totalItemPrice}&nbsp;р. за&nbsp;{totalItemAmount}&nbsp;{unit}</p>
+          </div>
+        </div>
       </div>
+    );
+  });
+  
+  const modalFooter = (
+    <div className={c.modalFooter} key={9999}>
+      <h3 className={c.modalFooter__title}>Всего в&nbsp;избранном {favourites.length} позиции на&nbsp;общую сумму {totalPrice}&nbsp;р.</h3>
       <iframe name="hidden_iframe" id="hidden_iframe" title='gFormIframe' style={{display: 'none'}} 
         onLoad={() => {}} >
       </iframe>
-      <form 
-        action={contactData.gForms.action}
+      <form
+        className={c.modalFooter__form}
+        action={contactData.gFormsFavourites.action}
         method="post" 
         target="hidden_iframe"
         onSubmit={handleOk}
         >
-        <fieldset>
-          <label htmlFor="name">Имя</label>
-          <input name={contactData.gForms.nameEntry} id='name' type="text" required maxLength={50} placeholder='Ваше имя' />
-          <label htmlFor='phone'>Телефон</label>
-          <MaskedPhoneInput />
+        <fieldset className={c.modalFooter__fieldset}>
+          <label className='visually-hidden' htmlFor="name">Имя</label>
+          <input name={contactData.gFormsFavourites.nameEntry} id='name' type="text" required maxLength={50} minLength={2} placeholder='Ваше имя' />
+          <label className='visually-hidden' htmlFor='phone'>Телефон</label>
+          <MaskedPhoneInput phoneEntry={contactData.gFormsFavourites.phoneEntry} />
         </fieldset>
-        <fieldset>
+        <fieldset className='visually-hidden'>
+          {favourites.map((item, index) => {
+            const {key, label, price, unit} = item;
+            
+            const totalItemPrice = +counts[index] * +price;
+            const totalItemAmount = counts[index];
 
+            return (
+              <div key={key}>
+                <label className='visually-hidden' htmlFor="good">Товар</label>
+                <input name={contactData.gFormsFavourites.goodEntry} value={label} id='good' type="text" readOnly ></input>
+                <label className='visually-hidden' htmlFor="goodPrice">Цена за ед.</label>
+                <input name={contactData.gFormsFavourites.goodPriceEntry} value={`${price} р.`} id='goodPrice' type="text" readOnly />
+                <label className='visually-hidden' htmlFor="goodTotalAmount">Количество</label>
+                <input name={contactData.gFormsFavourites.goodTotalAmountEntry} value={`${totalItemAmount} ${unit}.`} id='goodTotalAmount' type="text" readOnly />
+                <label className='visually-hidden' htmlFor="goodTotalPrice">Сумма</label>
+                <input name={contactData.gFormsFavourites.goodTotalPriceEntry} value={`${totalItemPrice} р.`} id='goodTotalPrice' type="text" readOnly />
+              </div>
+            )
+          })}
+          <label className='visually-hidden' htmlFor="superTotalPrice">Итоговая общая стоимость</label>
+          <input name={contactData.gFormsFavourites.superTotalPriceEntry} value={`${totalPrice} р.`} id='superTotalPrice' type="text" readOnly />
         </fieldset>
-        <input type="submit" value="Отправить данные" />
+        <input className={c.modalFooter__formSubmit} type="submit" value="Отправить данные" disabled={confirmLoading} />
       </form>
     </div>
   )
@@ -118,7 +158,7 @@ export const ShowAllFavourites = ({ favourites, setDropdownOpen }) => {
         zIndex='1001'
         footer={[modalFooter]}
       >
-        {favouriteItems}
+        {modalItems}
       </Modal>
     </div>
   );

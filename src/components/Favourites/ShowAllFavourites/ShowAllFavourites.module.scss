@@ -51,6 +51,18 @@
 .favouriteItem__countButtons button {
   background-color: transparent;
   border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: rgba($base-dark-color, 0.1);
+  }
+}
+
+.favouriteItem__countButtons span {
+  font-size: 16px;
+  font-family: $ff-tilda;
+  font-weight: 600;
 }
 
 // Справа
@@ -83,9 +95,54 @@
 }
 
 .favouriteItem__totalCount {
-  margin-top: auto;
+  margin-top: 15px;
 }
 
 .favouriteItem__totalCount p {
   margin: 0;
+
+  font-size: 14px;
+}
+
+// Футер
+
+.modalFooter {
+  font-family: $ff-tilda;
+  line-height: 1.1;
+}
+
+.modalFooter__title {
+  margin: 0;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+// .modalFooter__form {}
+
+.modalFooter__fieldset {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 5px;
+  outline: none;
+  border: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.modalFooter__fieldset input {
+  padding: 7px;
+  font-size: 14px;
+}
+
+.modalFooter__formSubmit {
+  padding: 7px;
+  width: 100%;
+  max-width: 60%;
+  font-family: $ff-tilda;
+  font-size: 14px;
+  border: none;
+  background-color: $color-5-green;
+  cursor: pointer;
 }

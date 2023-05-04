@@ -46,16 +46,16 @@ export const Feedback = () => {
           </iframe>
           <form 
             className={c.feedback__form}
-            action={contactData.gForms.action}
+            action={contactData.gFormsFeedback.action}
             method="post" 
             target="hidden_iframe"
             onSubmit={onSubmitHandler}
             >
             <label htmlFor="name">Имя</label>
-            <input name={contactData.gForms.nameEntry} id='name' type="text" required maxLength={50} placeholder='Ваше имя' />
+            <input name={contactData.gFormsFeedback.nameEntry} id='name' type="text" required maxLength={50} placeholder='Ваше имя' />
             <label htmlFor='phone'>Телефон</label>
-            {/* <input name={contactData.gForms.phoneEntry} id='phone' type="text" required /> */}
-            <MaskedPhoneInput />
+            {/* <input name={contactData.gFormsFeedback.phoneEntry} id='phone' type="text" required /> */}
+            <MaskedPhoneInput phoneEntry={contactData.gFormsFeedback.phoneEntry} />
             <input type="submit" value="Отправить" disabled={submitted} />
 
             {submitted &&
