@@ -59,7 +59,7 @@ export const Assortment = () => {
     <section className={c.assortment} id='assortment_section'>
       <div className='container'>
         <h2 className={c.assortment__title}>Варианты композиций</h2>
-        <p className={c.assortment__subtitle}>Цвет шаров возможен любой.<br /><span>Доставка и монтаж оплачиваются отдельно.</span></p>
+        <p className={c.assortment__subtitle}>Цвет шаров возможен любой.<br /><span>Доставка и монтаж оплачиваются&nbsp;отдельно.</span></p>
         <Tabs
           className={c.assortment__tabs}
           tabPosition={'top'}

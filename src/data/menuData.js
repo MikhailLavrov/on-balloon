@@ -16,8 +16,8 @@ export const menuDataMobile = [
   // ==================Контакты===================
   {label: 'Контакты', key: 'contacts', type: 'group',
     children: [
-      {label: <a href={`tel:${contactData.phone}`}>Позвонить по телефону</a>, key: 'phone', icon: <SvgIcon icon="telegram" />},
-      {label: <a href={contactData.telegram} target='_blank' rel="noreferrer">Написать в Telegram</a>, key: 'telegram', icon: <SvgIcon icon="call" />},
+      {label: <a href={`tel:${contactData.phone}`}>Позвонить по телефону</a>, key: 'phone', icon: <SvgIcon icon="call" />},
+      {label: <a href={contactData.telegram} target='_blank' rel="noreferrer">Написать в Telegram</a>, key: 'telegram', icon: <SvgIcon icon="telegram" />},
       {label: <a href={contactData.whatsapp} target='_blank' rel="noreferrer">Написать в Whatsapp</a>, key: 'whatsapp', icon: <SvgIcon icon="whatsapp" />},
     ],
   },

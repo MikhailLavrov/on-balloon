@@ -33,7 +33,7 @@ export const Services = () => {
     <section className={c.services} id='services_section'>
       <div className='container'>
         <h2 className={c.services__title}>Ищите готовое решение оформления?</h2>
-        <p className={c.services__subtitle}>Вы можете подобрать оформление воздушными шарами из тех вариантов, которые мы уже делали. Посмотрите примеры наших работ</p>
+        <p className={c.services__subtitle}>Вы можете подобрать оформление из тех вариантов, которые мы уже делали. Посмотрите примеры наших работ</p>
         <ul className={c.services__list}>
           {renderedServiceCards}
         </ul>

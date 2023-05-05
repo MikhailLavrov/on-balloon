@@ -14,10 +14,11 @@
 
 .assortment__title {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 500;
+  line-height: 1.2;
   text-align: center;
 
   @include vp-1120 {
@@ -27,10 +28,10 @@
 
 .assortment__subtitle {
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 
-  font-size: 18px;
-  line-height: 1.1;
+  font-size: 20px;
+  line-height: 1.2;
   text-align: center;
 
   & span {

@@ -61,9 +61,7 @@ export const GallerySection = () => {
   return (
     <section className={c.gallery} id='gallery_section'>
       <div className='container'>
-        <div className={c.gallery__text}>
-          <h2 className={c.gallery__title}>Наши работы</h2>
-        </div>
+        <h2 className={c.gallery__title}>Наши работы</h2>
         <div className='gallery__slider gallery__slider--main'>
           <Swiper {...swiperParams}>
             {gallerySlide}

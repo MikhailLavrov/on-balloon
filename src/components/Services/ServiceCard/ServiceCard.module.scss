@@ -51,18 +51,19 @@
 
 .serviceCard__text {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.1;
 }
 
 .serviceCard__link {
   padding: 10px 15px;
   margin-left: auto;
 
-  color: $base-dark-color;
+  color: $base-light-color;
   text-decoration: none;
   text-align: center;
-  font-size: 18px;
-  font-weight: 300;
+  font-size: 16px;
+  font-weight: 400;
   
   display: flex;
   align-items: center;

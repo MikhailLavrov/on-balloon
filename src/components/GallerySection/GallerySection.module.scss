@@ -18,16 +18,13 @@
   }
 }
 
-.gallery__text {
-  margin-bottom: 20px;
-}
-
 .gallery__title {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
+  line-height: 1.2;
 
   @include vp-1120 {
     margin-bottom: 40px;
@@ -50,14 +47,14 @@
 }
 
 .gallery__link {
-  padding: 10px 40px;
+  padding: 10px 30px;
   display: block;
 
-  color: $base-dark-color;
+  color: $base-light-color;
   font-family: $ff-tilda;
-  font-size: 22px;
+  font-size: 20px;
   
-  background-color: $color-5-green;
+  background-color: $color-4-blue;
   transition: all 0.2s ease-in-out;
 
   &:hover {

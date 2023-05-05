@@ -43,10 +43,11 @@
 
 .feedback__formTitle {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
   text-align: center;
 
   @include vp-1120 {
@@ -59,7 +60,7 @@
   margin-bottom: 20px;
 
   font-size: 18px;
-  line-height: 1.1;
+  line-height: 1.2;
   text-align: center;
 
   @include vp-1120 {
@@ -70,7 +71,8 @@
 // Контакты
 
 .feedback__contacts {
-  padding: 40px 0;
+  padding: 30px 0;
+
   background-color: rgba($base-dark-color, 0.2);
 
   @include vp-1120 {
@@ -95,6 +97,7 @@
 
 .feedback__contactsItem {
   margin-bottom: 20px;
+
   display: flex;
   gap: 20px;
 }
@@ -114,8 +117,9 @@
     margin: 0;
     margin-bottom: 5px;
 
-    font-weight: 600;
     font-size: 24px;
+    font-weight: 600;
+    line-height: 1.2;
 
     @include vp-1120 {
       font-size: 28px;
@@ -125,6 +129,7 @@
 
   & a {
     display: block;
+
     font-size: 20px;
 
     color: $base-dark-color;
@@ -137,13 +142,14 @@
 
 .feedback__socials {
   margin-top: 10px;
+
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 
   & svg {
-    width: 40px;
+    width: 35px;
     height: auto;
     border-radius: 50%;
   }
@@ -174,12 +180,18 @@
   }
   
   & input[type="submit"] {
+    margin-bottom: 0;
     padding: 10px;
+
     width: 100%;
-    background-color: $color-1-violet;
+    
     font-size: 20px;
+    font-family: $ff-tilda;
+    font-weight: 500;
+    
     border: none;
     cursor: pointer;
+    background-color: $color-1-violet;
     transition: all 0.2s ease-in-out;
 
     &:hover {

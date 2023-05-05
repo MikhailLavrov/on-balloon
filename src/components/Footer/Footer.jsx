@@ -7,7 +7,7 @@ const { Footer } = Layout;
 export const FooterComponent = () => {
   return (
     <Footer className={c.footer}>
-      Гатчинские шары <CopyrightOutlined /> 2023
+      Мистер Латекс <CopyrightOutlined /> 2023
     </Footer>
   )
 }

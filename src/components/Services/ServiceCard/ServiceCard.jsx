@@ -31,7 +31,7 @@ export const ServiceCard = ({card, index}) => {
         <h3 className={c.serviceCard__title}>{card.title}</h3>
         <div className={c.serviceCard__footer}>
           <p className={c.serviceCard__text}>{card.text}</p>
-          <a className={c.serviceCard__link} href={card.link.href}>{card.link.text}</a>
+          {/* <a className={c.serviceCard__link} href={card.link.href}>{card.link.text}</a> */}
         </div>
       </div>
     </li>
