@@ -1,3 +1,4 @@
+// Меню (открытое desktop)
 .ant-menu-item,
 .ant-menu-submenu {
   font-size: 20px;
@@ -11,20 +12,21 @@
   }
 }
 
+// Картинки
 .ant-image-preview {
   background-color: rgba($base-dark-color, 0.7) !important;
 }
 
+.ant-image {
+  width: 100% !important;
+}
+
+// ГАЛЕРЕЯ Очердный номер открытого превью
 .ant-image-preview-operations-progress {
   top: 40px;
 }
 
-.ant-drawer-wrapper-body {
-  @include vp-768 {
-    right: 0;
-  }
-}
-
+// Открытое меню (бургер)
 .ant-drawer-content-wrapper {
   @include vp-768 {
     height: 100% !important;
@@ -37,11 +39,17 @@
   }
 }
 
+// КАТАЛОГ расстояние между табами
 .ant-tabs-tab:not(:first-child) {
   margin: 0 0 0 20px !important;
 }
 
+// КАТАЛОГ табы
 .ant-tabs-nav-wrap {
+  @include vp-768 {
+    justify-content: center !important;
+  }
+  
   & * {
     font-size: 16px;
     
@@ -49,12 +57,4 @@
       font-size: 18px;
     }
   }
-
-  @include vp-768 {
-    justify-content: center !important;
-  }
-}
-
-.ant-image {
-  width: 100% !important;
 }

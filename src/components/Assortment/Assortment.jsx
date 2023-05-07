@@ -53,7 +53,6 @@ const assortmentTabs = assortmentData.map((tabItem, index) => {
   };
 })
 
-
 export const Assortment = () => {
   return (
     <section className={c.assortment} id='assortment_section'>

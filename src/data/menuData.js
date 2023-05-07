@@ -1,17 +1,23 @@
-import { HomeOutlined, BulbOutlined, FireOutlined, PictureOutlined, LineOutlined } from '@ant-design/icons';
+import { HomeOutlined, ShoppingOutlined, FireOutlined, PictureOutlined, LineOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { contactData } from './personalData.js';
 import { SvgIcon } from '../components/SvgIcon/SvgIcon.jsx';
+import { assortmentData } from './assortmentData.js';
+
+const assortmentTabs = assortmentData.map((item, index) => {
+  return {
+    label: item.tabName,
+    key: index,
+    icon: <LineOutlined />
+  }
+})
 
 export const menuDataMobile = [
   {label: <Link to={'/'}>Главная </Link>, key: 'home', icon: <HomeOutlined />},
   {label: <Link to={'/hot'}>Спецпредложения</Link>, key: 'hot', icon: <FireOutlined />},
   {label: <Link to={'/gallery'}>Галерея работ</Link>, key: 'gallery', icon: <PictureOutlined />},
-  {label: 'Услуги', key: 'services', icon: <BulbOutlined />,
-    children: [
-      {label: 'Украшение сцены', key: 'sceneDecor', icon: <LineOutlined />},
-      {label: 'Украшение помещения', key: 'roomDecor', icon: <LineOutlined />},
-    ],
+  {label: 'Каталог', key: 'services', icon: <ShoppingOutlined />,
+    children: assortmentTabs,
   },
   // ==================Контакты===================
   {label: 'Контакты', key: 'contacts', type: 'group',
