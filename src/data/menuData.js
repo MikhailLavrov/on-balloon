@@ -14,7 +14,7 @@ const assortmentTabs = assortmentData.map((item, index) => {
 
 export const menuDataMobile = [
   {label: <Link to={'/'}>Главная </Link>, key: 'home', icon: <HomeOutlined />},
-  {label: <Link to={'/hot'}>Спецпредложения</Link>, key: 'hot', icon: <FireOutlined />},
+  {label: <Link to={'/services'}>Готовые решения</Link>, key: 'hot', icon: <FireOutlined />},
   {label: <Link to={'/gallery'}>Галерея работ</Link>, key: 'gallery', icon: <PictureOutlined />},
   {label: 'Каталог', key: 'services', icon: <ShoppingOutlined />,
     children: assortmentTabs,
@@ -26,5 +26,14 @@ export const menuDataMobile = [
       {label: <a href={contactData.telegram} target='_blank' rel="noreferrer">Написать в Telegram</a>, key: 'telegram', icon: <SvgIcon icon="telegram" />},
       {label: <a href={contactData.whatsapp} target='_blank' rel="noreferrer">Написать в Whatsapp</a>, key: 'whatsapp', icon: <SvgIcon icon="whatsapp" />},
     ],
+  },
+];
+
+export const menuDataDesktop = [
+  {label: <Link to={'/'}>Главная </Link>, key: 'home', icon: <HomeOutlined />},
+  {label: <Link to={'/services'}>Готовые решения</Link>, key: 'hot', icon: <FireOutlined />},
+  {label: <Link to={'/gallery'}>Галерея работ</Link>, key: 'gallery', icon: <PictureOutlined />},
+  {label: 'Каталог', key: 'services', icon: <ShoppingOutlined />,
+    children: assortmentTabs,
   },
 ];

@@ -11,6 +11,7 @@ import { GallerySection } from '../GallerySection/GallerySection';
 import { Feedback } from '../Feedback/Feedback';
 import { FloatButton } from 'antd';
 import { ArrowUpOutlined } from '@ant-design/icons';
+import { ServicesPage } from '../pages/ServicesPage/ServicesPage';
 
 const MainPage = () => {
   return (
@@ -34,6 +35,7 @@ export const App = () => {
       <Route path='/' element={<LayoutComponent /> }>
         <Route index element={<MainPage />} />
         <Route path="gallery" element={<GalleryPage />} />
+        <Route path="services" element={<ServicesPage />} />
       </Route>
     </Routes>
   );
