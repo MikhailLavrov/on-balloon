@@ -47,6 +47,7 @@
 }
 
 .gallery__link {
+  margin-top: 20px;
   padding: 10px 30px;
   display: block;
 
@@ -65,6 +66,7 @@
   @include vp-768 {
     font-size: 20px;
     margin: 0 auto;
+    margin-top: 30px;
     max-width: fit-content;
   }
 }

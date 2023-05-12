@@ -15,7 +15,6 @@
   &--thumbs {
     & .swiper-wrapper {
         padding-bottom: 20px;
-        margin-bottom: 40px
       }
 
     & .swiper-button-prev,
@@ -73,18 +72,18 @@
 }
 
 .gallery__slider .swiper-scrollbar {
-  background-color: rgba($color-1-violet, 0.99);
-  top: 70%;
+  background-color: rgba($base-dark-color, 0.15);
+  bottom: 0;
   display: flex;
   align-items: center;
 
   & .swiper-scrollbar-drag {
-    background-color: $color-3-pink;
+    background-color: $base-dark-color;
     cursor: pointer;
-    height: 15px;
+    // height: 5px;
   }
 
   @include vp-1440 {
-    top: 80%;
+    // top: 80%;
   }
 }

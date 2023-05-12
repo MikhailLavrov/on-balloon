@@ -78,6 +78,8 @@
   }
 
   @include vp-768 {
+    margin: 0 auto;
     font-size: 22px;
+    max-width: fit-content;
   }
 }
