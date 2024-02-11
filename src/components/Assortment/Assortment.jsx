@@ -2,49 +2,12 @@ import c from './Assortment.module.scss';
 import { Tabs } from 'antd';
 import { assortmentData } from '../../data/assortmentData';
 import { AssortmentCard } from './AssortmentCard/AssortmentCard';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Grid, Autoplay } from "swiper";
-
-const assortmentSwiperParams = {
-  modules: [Grid, Autoplay],
-  slidesPerView: 2,
-  autoplay: {
-    delay: 5000,
-  },
-  spaceBetween: 10,
-  grid: {
-    fill: 'row',
-    rows: 2,
-  },
-  breakpoints: {
-    // when window width is >= 768px
-    768: {
-      slidesPerView: 3,
-      grid: {
-        rows: 2,
-        fill: 'row'
-      }
-    },
-    1120: {
-      slidesPerView: 4,
-      grid: {
-        rows: 2,
-        fill: 'row'
-      },
-      spaceBetween: 20,
-    },
-  },
-}
 
 const assortmentTabs = assortmentData.map((tabItem, index) => {
   const tabChildren = 
-    <Swiper className={c.assortment__swiper} {...assortmentSwiperParams}>
-      {tabItem.children.map((childItem, childIndex) => 
-        <SwiperSlide className={c.assortment__slide} key={childIndex}>
-          <AssortmentCard item={childItem} index={index + String(childIndex)}  />
-        </SwiperSlide>
-      )}
-    </Swiper>
+    tabItem.children.map((childItem, childIndex) => 
+      <AssortmentCard key={childIndex} item={childItem} index={index + String(childIndex)}  />
+    )
 
   return {
     label: tabItem.tabName,

@@ -23,7 +23,7 @@ export const HeaderComponent = () => {
         <div className={c.header__logo}>
           <Link className={c.header__logoLink} to={''}>
             <SvgIcon icon='logo' />
-            Латексный дизайн
+            Воздушный дизайн
           </Link>
         </div>
         <Favourites headerRef={headerRef} />

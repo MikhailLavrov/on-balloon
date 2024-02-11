@@ -9,7 +9,7 @@
   line-height: 1;
   background-color: $base-light-color;
 
-  @include vp-1120 {
+  @include vp-1260 {
     padding: 60px 0;
   }
 }
@@ -22,7 +22,7 @@
   font-weight: 500;
   line-height: 1.2;
 
-  @include vp-1120 {
+  @include vp-1260 {
     font-size: 42px;
   }
 }
@@ -34,7 +34,7 @@
   font-weight: 300;
   font-size: 22px;
 
-  @include vp-1120 {
+  @include vp-1260 {
     font-size: 28px;
   }
 }
@@ -54,7 +54,7 @@
     gap: 20px;
   }
 
-  @include vp-1440 {
+  @include vp-1600 {
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
   }

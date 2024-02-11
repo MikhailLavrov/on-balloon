@@ -102,7 +102,7 @@ export const assortmentData = [
         name: 'Фонтан из 10 шаров',
         price: 1500,
         unit: 'шт',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFCN0-Y6lSJjHb7d-JgF4IgnNaVpTAeosltg&usqp=CAU',
+        image: 'https://img.freepik.com/free-photo/arrangement-abstract-festive-balloons_23-2148987079.jpg?w=740&t=st=1683921970~exp=1683922570~hmac=8d701238e0c63bfc72354804b5607f02f60a2f3806995cacf71d1ab2c3e0f21c',
       },
       {
         name: 'Фонтан из 8 шаров, 2 звезды',
@@ -155,13 +155,13 @@ export const assortmentData = [
         name: 'Цифры из шаров и баннер',
         price: 4000,
         unit: 'набор',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsDuRsz8t5quCBc6_MDSwedIARLeqrCluJ8w&usqp=CAU',
+        image: 'https://img.freepik.com/free-psd/baby-pink-blue-balloons_53876-84521.jpg?w=740&t=st=1683922117~exp=1683922717~hmac=5c53250aef02109eb46397ae1aacdac34f4c2fcc14406acf59978143af4403ca',
       },
       {
         name: 'Помпон из шаров',
         price: 1000,
         unit: 'шт',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7veMXeQCPwicCGveOwAanjCE806E4B52IxQ&usqp=CAU',
+        image: 'https://img.freepik.com/free-photo/bunch-different-colored-balloons-holiday-concept_169016-4772.jpg?w=740&t=st=1683922142~exp=1683922742~hmac=81af56be277b96826a029dbd6315e2e774f1cc4c1568468950a447e9f6f29570',
       },
       {
         name: 'Флаг из шаров с гелием',

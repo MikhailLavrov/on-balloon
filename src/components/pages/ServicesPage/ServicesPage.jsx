@@ -22,10 +22,12 @@ export const ServicesPage = () => {
   return (
     <section className={c.servicesPage}>
       <Link className={c.servicesPage__backLink} to={'/'}><ArrowLeftOutlined /></Link>
-      <h2 className={c.servicesPage__title}>Готовые решения</h2>
-      <ul className={c.servicesPage__list}>
-        {renderedServiceItems}
-      </ul>
+      <div className='container'>
+        <h2 className={c.servicesPage__title}>Готовые решения</h2>
+        <ul className={c.servicesPage__list}>
+          {renderedServiceItems}
+        </ul>
+      </div>
     </section>
   )
 }

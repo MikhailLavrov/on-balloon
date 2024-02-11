@@ -12,6 +12,7 @@ import { Feedback } from '../Feedback/Feedback';
 import { FloatButton } from 'antd';
 import { ArrowUpOutlined } from '@ant-design/icons';
 import { ServicesPage } from '../pages/ServicesPage/ServicesPage';
+import { TestPage } from '../pages/TestPage/TestPage';
 
 const MainPage = () => {
   return (
@@ -24,7 +25,7 @@ const MainPage = () => {
       <Advantages />
       <GallerySection />
       <Feedback />
-      {/* <FloatButton.BackTop icon={<ArrowUpOutlined />} /> */}
+      <FloatButton.BackTop icon={<ArrowUpOutlined />} />
     </div>
   );
 }
@@ -36,6 +37,7 @@ export const App = () => {
         <Route index element={<MainPage />} />
         <Route path="gallery" element={<GalleryPage />} />
         <Route path="services" element={<ServicesPage />} />
+        <Route path="test" element={<TestPage />} />
       </Route>
     </Routes>
   );

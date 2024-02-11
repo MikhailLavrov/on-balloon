@@ -28,6 +28,6 @@ export const heroData = [
       text: 'Сделать заказ',
       href: '#a',
     },
-    image: IMG_03,
+    image: 'https://img.freepik.com/free-vector/realistic-russia-day-background_23-2148566447.jpg?w=1380&t=st=1683922008~exp=1683922608~hmac=858d2606eaf353e3a0fdf328f883c55fdc212a2df0123f2f6b9cb7c192cd7da9',
   },
 ]

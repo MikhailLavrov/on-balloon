@@ -5,11 +5,6 @@
 }
 
 // Mobile first
-@mixin vp-375 {
-  @media (min-width: $vp-375) {
-    @content;
-  }
-}
 
 @mixin vp-768 {
   @media (min-width: $vp-768) {
@@ -17,14 +12,14 @@
   }
 }
 
-@mixin vp-1120 {
-  @media (min-width: $vp-1120) {
+@mixin vp-1260 {
+  @media (min-width: $vp-1260) {
     @content;
   }
 }
 
-@mixin vp-1440 {
-  @media (min-width: $vp-1440) {
+@mixin vp-1600 {
+  @media (min-width: $vp-1600) {
     @content;
   }
 }

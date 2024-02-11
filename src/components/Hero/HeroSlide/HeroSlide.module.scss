@@ -16,7 +16,6 @@
   font-family: $ff-tilda;
   line-height: 1.2;
   
-  // Голубой
   background-color: $color-2-beige;
 
   @include vp-768 {
@@ -38,12 +37,12 @@
   font-weight: 500;
   user-select: none;
 
-  @include vp-1120 {
+  @include vp-1260 {
     margin-bottom: 30px;
     font-size: 42px;
   }
 
-  @include vp-1440 {
+  @include vp-1600 {
     // font-size: 60px;
   }
 }
@@ -56,7 +55,7 @@
   font-size: 22px;
   user-select: none;
 
-  @include vp-1120 {
+  @include vp-1260 {
     font-size: 32px;
     margin-bottom: 40px;
   }

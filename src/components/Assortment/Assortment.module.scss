@@ -7,7 +7,7 @@
   font-family: $ff-tilda;
   background-color: $base-light-color;
 
-  @include vp-1120 {
+  @include vp-1260 {
     padding: 60px 0;
   }
 }
@@ -21,7 +21,7 @@
   line-height: 1.2;
   text-align: center;
 
-  @include vp-1120 {
+  @include vp-1260 {
     font-size: 42px;
   }
 }
@@ -49,7 +49,7 @@
 }
 
 .assortment__swiper {
-  @include vp-1120 {
+  @include vp-1260 {
     max-width: 80%;
   }
 }

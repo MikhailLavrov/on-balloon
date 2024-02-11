@@ -9,18 +9,18 @@
     padding-bottom: 40px;
   }
 
-  @include vp-1120 {
+  @include vp-1260 {
     padding-top: 64px;
     padding-bottom: 64px;
   }
 }
 
 .hero__container {
-  @include vp-1120 {
+  @include vp-1260 {
     margin: 0 auto;
     padding: 0 $secondary-indent;
     
-    max-width: calc($vp-1440 + $secondary-indent * 2);
+    max-width: calc($vp-1600 + $secondary-indent * 2);
   }
 }
 

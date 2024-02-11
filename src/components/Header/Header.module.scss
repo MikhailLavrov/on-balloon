@@ -68,7 +68,7 @@
   align-items: center;
   gap: 20px;
 
-  @include vp-1120 {
+  @include vp-1260 {
     display: flex;
   }
 }
@@ -92,7 +92,7 @@
   font-weight: 700;
   display: none;
 
-  @include vp-1120 {
+  @include vp-1260 {
     display: block;
   }
 }
@@ -116,7 +116,7 @@
   
   position: relative;
 
-  @include vp-1120 {
+  @include vp-1260 {
     display: none;
   }
 }
