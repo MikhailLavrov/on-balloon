@@ -3,63 +3,42 @@
 
 .header {
   padding: 0;
-  height: 50px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1001;
+  min-height: 3rem;
 
-  line-height: 1;
-  background-color: $color-2-beige;
-  box-shadow: 0 10px 25px -20px $base-dark-color;
-
-  @include vp-768 {
-    min-height: 64px;
-  }
+  background-color: $base-light-color;
 }
 
 .header .header__container {
-  padding: 0;
+  padding: 0 0.5rem;
   height: 100%;
   width: 100%;
 
   display: flex;
+  justify-content: space-between;
   align-items: center;
 
   @include vp-768 {
-    padding: 0 $secondary-indent;
+    padding: 0 1rem;
   }
-}
 
-.header__logo {
-  margin-right: auto;
+  @include vp-1260 {
+    padding: 2rem;
+    // gap: 1rem;
+    justify-content: start;
+  }
 }
 
 .header__logoLink {
-  padding: 0 15px;
-
-  display: flex;
-  align-items: center;
-  gap: 5px;
-
-  font-size: 14px;
-  font-weight: 600;
-  font-family: $ff-tilda;
-  color: $base-dark-color;
+  color: $color-6-red;
+  font-weight: 500;
+  font-size: 1rem;
 
   @include vp-768 {
-    padding: 0 10px;
-
-    font-size: 18px;
+    font-size: 1.8rem;
   }
-}
 
-.header__logoLink svg {
-  width: 40px;
-  
-  @include vp-768 {
-    width: 50px;
+  @include vp-1260 {
+    margin-right: 1.5rem;
   }
 }
 
@@ -106,10 +85,7 @@
 
 // =================================
 // =================================
-.header__menuWrapper {
-  width: auto;
-  height: 100%;
-
+.burgerMenu {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,58 +115,25 @@
   }
 }
 
-.header__menuButton {
-  padding: 17px 10px;
+.header__mainControls {
+  margin: 0 2rem;
 
-  width: 50px;
-  height: 100%;
+  display: none;
+  align-items: center;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  @include vp-1260 {
+    display: flex;
+  }
 
-  background-color: transparent;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 9999;
-  
-  @include vp-768 {
-    padding: 17px 10px;
-    height: 50px;
-    border: 1px solid $base-dark-color;
+  & a {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+
+    font-size: 1.2rem;
+    color: $base-dark-color;
   }
 }
-
-.header__menuButton span {
-  width: 100%;
-  height: 2px;
-  
-  background-color: $base-dark-color;
-  transition: all 0.3s ease-in-out;
-}
-
-// Х при открытом состоянии
-.header__menuButton.open span {
-  &:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  &:nth-child(2) {
-    opacity: 0;
-  }
-  &:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-  
-  @include vp-768 {
-    &:nth-child(1) {
-      transform: rotate(45deg) translate(4px, 5px);
-    }
-    &:nth-child(2) {
-      opacity: 0;
-    }
-    &:nth-child(3) {
-      transform: rotate(-45deg) translate(4px, -4px);
-    }
-  }
-} 

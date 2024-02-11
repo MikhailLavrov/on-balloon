@@ -12,7 +12,7 @@ export const LayoutComponent = () => {
   return (
     <Layout className={c.layout}>
       <HeaderComponent />
-      <DesktopMenu />
+      {/* <DesktopMenu /> */}
       <Content>
         <Outlet />
       </Content>

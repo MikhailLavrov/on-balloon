@@ -1,3 +1,8 @@
 @import '../../styles/vars.scss';
 @import '../../styles/mixins.scss';
 
+.burgerButton {
+  @include vp-1260 {
+    display: none;
+  }
+}

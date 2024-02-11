@@ -1,57 +1,48 @@
 import c from './Header.module.scss';
-import { Layout } from 'antd';
-import { useRef, useState } from 'react';
-import { DrawerComponent } from '../Drawer/Drawer';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { contactData } from '../../data/personalData';
-import { SvgIcon } from '../SvgIcon/SvgIcon';
-import { Favourites } from '../Favourites/Favourites';
+// import { contactData } from '../../data/personalData';
+// import { SvgIcon } from '../SvgIcon/SvgIcon';
+// import { Favourites } from '../Favourites/Favourites';
+import { HeartOutlined, UserOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import Catalog from '../Catalog/Catalog';
+import SearchComponent from '../SearchComponent/SearchComponent';
+import MobileBurgerMenu from '../MobileBurgerMenu/MobileBurgerMenu';
+import MobileSearch from '../MobileSearch/MobileSearch';
 
-const { Header } = Layout;
+// const { Header } = Layout;
 
 export const HeaderComponent = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef(null);
 
-  const toggleMenu = () => {
-    menuOpen ? setMenuOpen(false) : setMenuOpen(true);
-  };
-
   return (
-    <Header className={c.header}>
+    <header className={c.header}>
       <div className={c.header__container} ref={headerRef}>
-        <div className={c.header__logo}>
-          <Link className={c.header__logoLink} to={''}>
-            <SvgIcon icon='logo' />
-            Воздушный дизайн
+        <MobileBurgerMenu />
+        <Link className={c.header__logoLink} to={''}>
+          {/* <SvgIcon icon='logo' /> */}
+          Тренд на праздник
+        </Link>
+        <Catalog />
+        <SearchComponent />
+        <div className={c.header__mainControls}>
+          <Link>
+            <UserOutlined style={{ fontSize: '1.7rem' }} />
+            <span>Войти</span>
+          </Link>
+          <Link>
+            <HeartOutlined style={{ fontSize: '1.7rem' }} />
+            <span>Избранное</span>
+          </Link>
+          <Link>
+            <ShoppingCartOutlined style={{ fontSize: '1.7rem' }} />
+            <span>Корзина</span>
           </Link>
         </div>
-        <Favourites headerRef={headerRef} />
-        <div className={c.header__content}>
-          <a className={c.header__contentLink} href={`tel:${contactData.phone}`} title='Позвонить по телефону'>
-            <SvgIcon icon='call' />
-            <span>+7 (931) 540 1970</span>
-          </a>
-          <a className={c.header__contentLink} href={contactData.telegram} target='_blank' rel="noreferrer" title='Написать в Telegram'>
-            <SvgIcon icon='telegram' />
-          </a>
-          <a className={c.header__contentLink} href={contactData.whatsapp} target='_blank' rel="noreferrer" title='Написать в WhatsApp'>
-            <SvgIcon icon='whatsapp' />
-          </a>
-        </div>
-        {menuOpen && <DrawerComponent open={menuOpen} toggleMenu={toggleMenu} />}
-        <div className={c.header__menuWrapper}>
-          <button 
-            className={`${c.header__menuButton} ${menuOpen ? c.open : ''}`}
-            onClick={toggleMenu} 
-            type='button'
-            >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+        <div className={c.header__searchMobile}>
+        <MobileSearch />
         </div>
       </div>
-    </Header>
+    </header>
   )
 }

@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { GalleryPage } from '../pages/GalleryPage/GalleryPage';
 import { Hero } from '../Hero/Hero';
 import { Services } from '../Services/Services';
-import { DrawerComponent } from '../Drawer/Drawer';
+// import { DrawerComponent } from '../Drawer/Drawer';
 import { CoopOffer } from '../CoopOffer/CoopOffer';
 import { Assortment } from '../Assortment/Assortment';
 import { Advantages } from '../Advantages/Advantages';
@@ -18,7 +18,7 @@ const MainPage = () => {
   return (
     <div>
       <Hero />
-      <DrawerComponent />
+      {/* <DrawerComponent /> */}
       <Services />
       <CoopOffer />
       <Assortment />

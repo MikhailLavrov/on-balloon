@@ -1,0 +1,19 @@
+@import '../../styles/vars.scss';
+@import '../../styles/mixins.scss';
+
+.searchComponent {
+  display: none;
+
+  @include vp-1260 {
+    padding-left: 2rem;
+    display: block;
+    flex-grow: 1;
+    width: auto;
+    max-width: 600px;
+    margin-left: auto;
+  
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: $ff-tilda;
+  }
+}
