@@ -32,9 +32,8 @@
 }
 
 .header .headerTopMenu__container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
 }
 
 .topMenu__socials {
@@ -57,7 +56,7 @@
 .topMenu__contacts {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
   gap: 15px;
   flex-wrap: wrap;
 

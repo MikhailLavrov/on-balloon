@@ -13,17 +13,17 @@ import CallMeBack from '../CallMeBack/CallMeBack';
 
 const topMenuItems = [
   {
-    label: 'Покупателям',
-    key: 'buyers',
+    label: 'Клиентам',
+    key: 'clients',
     icon: <DownOutlined />,
     children: [
       {
-        label: 'Топ ассортимента',
-        key: 'top',
+        label: 'Политика конфиденциальности',
+        key: 'confidence',
       },
       {
-        label: 'Распродажа',
-        key: 'hotsale',
+        label: 'Пользовательское соглашение',
+        key: 'agreement',
       },
     ]
   },
@@ -33,20 +33,20 @@ const topMenuItems = [
     icon: <DownOutlined />,
     children: [
       {
-        label: 'Ленинградская область',
-        key: 'lo',
-      },
-      {
-        label: 'Санкт-Петербург',
-        key: 'spb',
+        label: 'СПб и ЛО',
+        key: 'spblo',
       },
       {
         label: 'Самовывоз',
         key: 'pickup',
       },
       {
-        label: 'Оплата',
-        key: 'pay',
+        label: 'Условия бесплатной доставки',
+        key: 'freedelivery',
+      },
+      {
+        label: 'Способы оплаты',
+        key: 'payment',
       },
     ]
   },
@@ -101,7 +101,10 @@ export const HeaderComponent = () => {
                   selectedKeys={[current]}
                   mode="horizontal"
                   items={topMenuItems}
-                  style={{backgroundColor: "transparent", fontSize: "10px"}}
+                  style={{
+                    backgroundColor: "transparent", 
+                    fontSize: "10px",
+                  }}
                   />
               </ConfigProvider>
             </div>
