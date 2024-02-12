@@ -23,8 +23,8 @@ const MobileSearch = () => {
         closable={true}
         onClose={onClose}
         open={open}
+        
       >
-        <p>Some contents.asd..</p>
         <SearchComponent />
       </Drawer>
     </div>

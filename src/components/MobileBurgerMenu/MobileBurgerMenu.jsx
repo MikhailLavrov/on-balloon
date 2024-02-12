@@ -17,7 +17,7 @@ const MobileBurgerMenu = () => {
       <Drawer
         title="Мобильное меню"
         placement={'top'}
-        closable={false}
+        closable={true}
         onClose={onClose}
         open={open}
       >

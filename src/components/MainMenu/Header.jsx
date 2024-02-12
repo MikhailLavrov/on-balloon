@@ -31,7 +31,7 @@ export const HeaderComponent = () => {
             >
           </Button>
         </div>
-        <Link className={c.header__logoLink} to={''}>
+        <Link className={c.header__logo} to={''}>
           {/* <SvgIcon icon='logo' /> */}
           Тренд на праздник
         </Link>

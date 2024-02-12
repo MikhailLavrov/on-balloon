@@ -48,7 +48,7 @@ img {
   @include vp-768 {
     padding: 0 $secondary-indent;
   
-    max-width: calc($vp-1600 + $secondary-indent * 2);
+    max-width: calc($vp-1380 + $secondary-indent * 2);
   }
 }
 

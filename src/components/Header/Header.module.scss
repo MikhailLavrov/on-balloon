@@ -1,34 +1,45 @@
 @import '../../styles/vars.scss';
 @import '../../styles/mixins.scss';
+@import '../../styles/global.scss';
 
 .header {
-  padding: 0;
-  min-height: 3rem;
+  min-height: 50px;
 
   background-color: $base-light-color;
+
+  @include vp-768 {
+    min-height: 60px;
+  }
+
+  @include vp-1260 {
+    min-height: 100px;
+  }
 }
 
 .header .header__container {
-  padding: 0 0.5rem;
-  height: 100%;
-  width: 100%;
+  background-color: $base-light-color;
+  display: flex;
+  align-items: center;
+}
 
+.header .headerMain {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   @include vp-768 {
-    padding: 0 1rem;
+    // padding: 0 1rem;
   }
 
   @include vp-1260 {
-    padding: 2rem;
+    // padding: 2rem;
     // gap: 1rem;
     justify-content: start;
   }
 }
 
-.header__logoLink {
+.header__logo {
   color: $color-6-red;
   font-weight: 500;
   font-size: 1rem;
@@ -135,5 +146,22 @@
 
     font-size: 1.2rem;
     color: $base-dark-color;
+  }
+}
+
+.searchComponent {
+  display: none;
+
+  @include vp-1260 {
+    padding-left: 2rem;
+    display: block;
+    flex-grow: 1;
+    width: auto;
+    max-width: 600px;
+    margin-left: auto;
+  
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: $ff-tilda;
   }
 }

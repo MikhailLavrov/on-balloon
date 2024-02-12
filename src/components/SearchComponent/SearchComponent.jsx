@@ -6,7 +6,7 @@ const { Search } = Input;
 
 const onSearch = (value, _e, info) => console.log(info?.source, value);
 
-const SearchComponent = () => (
+const SearchComponent = ({className}) => (
   <ConfigProvider
     theme={{
       token: {
@@ -15,7 +15,7 @@ const SearchComponent = () => (
     }}
   >
     <Search
-      className={c.searchComponent}
+      className={className}
       placeholder="Искать товары"
       onSearch={onSearch}
       maxLength={50}
