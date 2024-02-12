@@ -100,49 +100,6 @@
   }
 }
 
-.header__content {
-  display: none;
-  align-items: center;
-  gap: 20px;
-
-  @include vp-1260 {
-    display: flex;
-  }
-}
-
-// Contacts (phone, telegram, whatsapp, etc.)
-.header__contentLink {
-  display: flex;
-  align-items: center;
-
-  line-height: 1;
-  color: $base-dark-color;
-
-  border-radius: 50px;
-  background-color: $base-light-color;
-}
-
-.header__contentLink span {
-  padding: 0 10px;
-
-  font-family: $ff-tilda;
-  font-weight: 700;
-  display: none;
-
-  @include vp-1260 {
-    display: block;
-  }
-}
-
-.header__contentLink svg,
-.header__contentLink img {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-}
-
-// =================================
-// =================================
 .burgerMenu {
   display: flex;
   justify-content: center;
@@ -152,24 +109,6 @@
 
   @include vp-1260 {
     display: none;
-  }
-}
-
-.menu__border{
-  position: absolute;
-  left: 0;
-  top: 99.9%;
-
-  width: 7em;
-  height: 0.6em;
-  display: none;
-  
-  transform: rotate(180deg);
-  clip-path: url(#menu);
-  background-color: $color-1-violet;
-
-  @include vp-768 {
-    // display: block;
   }
 }
 

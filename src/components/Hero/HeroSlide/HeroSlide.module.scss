@@ -1,106 +1,23 @@
 @import '../../../styles/styles.scss';
 @import '../../../styles/mixins.scss';
+@import '../../../styles/global.scss';
 
-.heroSlide__content {
-  padding: 20px;
-  padding-bottom: 40px;
-  
-  height: auto;
-  flex-grow: 1;
+.heroSlide__imageWrapper {
+  aspect-ratio: 16/5;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-  text-align: center;
-  font-family: $ff-tilda;
-  line-height: 1.2;
-  
-  background-color: $color-2-grey;
-
-  @include vp-768 {
-    padding: 40px;
-
-    height: 100%;
-    
-    justify-content: center !important;
-  }
-}
-
-.heroSlide__title {
-  margin: 0;
-  margin-bottom: 15px;
-
-  width: 75%;
-
-  font-size: 24px;
-  font-weight: 500;
-  user-select: none;
-
-  @include vp-1260 {
-    margin-bottom: 30px;
-    font-size: 42px;
-  }
-
-  @include vp-1600 {
-    // font-size: 60px;
-  }
-}
-
-.heroSlide__text {
-  margin: 0;
-  margin-bottom: 20px;
-
-  font-weight: 300;
-  font-size: 22px;
-  user-select: none;
-
-  @include vp-1260 {
-    font-size: 32px;
-    margin-bottom: 40px;
-  }
-}
-
-.heroSlide__link {
-  margin-top: auto;
-  padding: 10px 30px;
-
-  width: 100%;
-
-  font-family: $ff-tilda;
-  font-weight: 500;
-  font-size: 20px;
-  color: $base-light-color;
-
-  background-color: $color-4-blue;
-  transition: all 0.2s linear;
-  user-select: none;
-  
-  &:hover {
-    background-color: $color-3-pink;
-    color: $base-dark-color;
-  }
-  
-  @include vp-768 {
-    margin-top: 0;
-
-    width: auto;
-  }
-}
-
-.heroSlide__image {
   @include vp-768 {
     height: 100%;
     width: 100%;
   }
 }
 
-.heroSlide__image img {
+.heroSlide__image {
   margin: 0 auto;
 
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: top;
   
-  aspect-ratio: 1/1;
   user-select: none;
 }

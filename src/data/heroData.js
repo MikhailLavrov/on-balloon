@@ -1,7 +1,3 @@
-import IMG_01 from '../assets/hero/img_01.jpg';
-import IMG_02 from '../assets/services/img_01.webp';
-import IMG_03 from '../assets/services/img_02.webp';
-
 export const heroData = [
   {
     title: 'Украшаем шарами важные мероприятия',
@@ -10,7 +6,7 @@ export const heroData = [
       text: 'Заказать оформление',
       href: '#a',
     },
-    image: IMG_01,
+    image: 'https://www.donballon.ru/upload/iblock/1d9/lxfmrjc2rk6tz10160z6lp6n9bv4f1pu/photo_2024_01_09_22_03_48.jpg',
   },
   {
     title: 'Украшаем важные мероприятия шарами',
@@ -19,7 +15,7 @@ export const heroData = [
       text: 'Оформить заказ',
       href: '#a',
     },
-    image: IMG_02,
+    image: 'https://www.donballon.ru/upload/iblock/87c/TRI-KOTA_2720x770.jpg',
   },
   {
     title: 'Шарами украшаем важные мероприятия',
@@ -28,6 +24,6 @@ export const heroData = [
       text: 'Сделать заказ',
       href: '#a',
     },
-    image: 'https://img.freepik.com/free-vector/realistic-russia-day-background_23-2148566447.jpg?w=1380&t=st=1683922008~exp=1683922608~hmac=858d2606eaf353e3a0fdf328f883c55fdc212a2df0123f2f6b9cb7c192cd7da9',
+    image: 'https://www.donballon.ru/upload/iblock/f14/pl3x37u1tlllrcomysqpbw1kfqpbvtsb/1360kh388_512_anim.gif',
   },
 ]

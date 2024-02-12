@@ -11,11 +11,11 @@
   transition: all 0.2s linear;
 
   &:after {
-    color: $base-dark-color;
+    color: $base-light-color;
   }
 
-  @include vp-768 {
-    opacity: 1;
+  @include vp-1260 {
+    opacity: 0.5;
   }
 }
 
@@ -28,13 +28,19 @@
 }
 
 .hero__slider .swiper-pagination {
-  bottom: 10px;
+  bottom: 5px;
 }
 
 .hero__slider .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
 
-  background-color: transparent;
+  background-color: $base-light-color;
+  opacity: 0.5;
   box-shadow: 0 0 0 1px $base-dark-color inset;
+
+  @include vp-1260 {
+    width: 10px;
+    height: 10px;
+  }
 }
