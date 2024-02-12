@@ -2,7 +2,7 @@
 @import '../../styles/mixins.scss';
 
 .hero {
-  background-color: $color-2-beige ;
+  background-color: $color-2-grey ;
 
   @include vp-768 {
     padding-top: 40px;

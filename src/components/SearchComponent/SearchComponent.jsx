@@ -21,7 +21,6 @@ const SearchComponent = ({className}) => (
       maxLength={50}
       size={'large'}
       enterButton
-      hoverBg='#000'
     />
   </ConfigProvider>
   
