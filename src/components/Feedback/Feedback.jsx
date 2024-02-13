@@ -1,10 +1,10 @@
 import c from './Feedback.module.scss';
 import { MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import { personalData } from '../../data/personalData';
-import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { notification } from 'antd';
 import { useEffect, useState } from 'react';
 import { MaskedPhoneInput } from '../../utils/MaskedPhoneInput';
+import { SocialLinks } from '../SocialLinks/SocialLinks';
 
 const openNotification = () => {
   notification.open({
@@ -92,15 +92,7 @@ export const Feedback = () => {
             </div>
 
             <div className={c.feedback__socials}>
-              <a href={personalData.telegram} target='_blank' rel="noreferrer" title='Написать в Telegram'>
-                <SvgIcon icon='telegram' />
-              </a>
-              <a href={personalData.whatsapp} target='_blank' rel="noreferrer" title='Написать в WhatsApp'>
-                <SvgIcon icon='whatsapp' />
-              </a>
-              <a href={personalData.vkontakte} target='_blank' rel="noreferrer" title='Написать в VK'>
-                <SvgIcon icon='vk' />
-              </a>
+              <SocialLinks />
             </div>
 
         </div>

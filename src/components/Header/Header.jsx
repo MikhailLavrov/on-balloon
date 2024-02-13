@@ -1,7 +1,6 @@
 import c from './Header.module.scss';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { HeartOutlined, UserOutlined, ShoppingCartOutlined, MobileOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import CallMeBackModal from '../CallMeBackModal/CallMeBackModal';
 import Catalog from '../Catalog/Catalog';
@@ -10,6 +9,7 @@ import MobileBurgerMenu from '../MobileBurgerMenu/MobileBurgerMenu';
 import MobileSearch from '../MobileSearch/MobileSearch';
 import { TopMenu } from '../TopMenu/TopMenu';
 import { personalData } from '../../data/personalData';
+import { SocialLinks } from '../SocialLinks/SocialLinks';
 
 export const HeaderComponent = () => {
   const headerRef = useRef(null);
@@ -22,15 +22,7 @@ export const HeaderComponent = () => {
               <TopMenu />
             </div>
             <div className={c.topMenu__socials}>
-              <Link target = "_blank" to={personalData.telegram}>
-                <SvgIcon icon='telegram' />
-              </Link>
-              <Link target = "_blank" to={personalData.whatsapp}>
-                <SvgIcon icon='whatsapp' />
-              </Link>
-              <Link target = "_blank" to={personalData.vkontakte}>
-                <SvgIcon icon='vk' />
-              </Link>
+              <SocialLinks />
             </div>
             <div className={c.topMenu__contacts}>
               <a  href={`tel:${personalData.phone}`}><MobileOutlined />{personalData.phone}</a>
@@ -49,16 +41,16 @@ export const HeaderComponent = () => {
           <SearchComponent className={c.searchComponent} />
           <div className={c.header__mainControls}>
             <Link>
-              <UserOutlined style={{ fontSize: '20px' }} />
-              <span>Войти</span>
-            </Link>
-            <Link>
               <HeartOutlined style={{ fontSize: '20px' }} />
               <span>Избранное</span>
             </Link>
             <Link>
               <ShoppingCartOutlined style={{ fontSize: '20px' }} />
               <span>Корзина</span>
+            </Link>
+            <Link>
+              <UserOutlined style={{ fontSize: '20px' }} />
+              <span>Войти</span>
             </Link>
           </div>
           <MobileSearch />

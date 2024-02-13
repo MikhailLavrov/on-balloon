@@ -2,6 +2,45 @@ import { CaretDownOutlined } from '@ant-design/icons';
 
 export const topMenuData = [
   {
+    label: 'О компании',
+    key: 'about',
+    style: {
+      fontSize: '15px',
+      padding: '0 10px',
+      },
+    icon: <CaretDownOutlined />,
+    children: [
+      {
+        label: 'Новости',
+        key: 'news',
+        style: {
+          fontSize: '15px',
+          },
+      },
+      {
+        label: 'Сотрудничество',
+        key: 'cooperation',
+        style: {
+          fontSize: '15px',
+          },
+      },
+      {
+        label: 'Рассылка',
+        key: 'distribution',
+        style: {
+          fontSize: '15px',
+          },
+      },
+      {
+        label: 'О нас',
+        key: 'aboutus',
+        style: {
+          fontSize: '15px',
+          },
+      },
+    ]
+  },
+  {
     label: 'Клиентам',
     key: 'clients',
     style: {
@@ -59,45 +98,6 @@ export const topMenuData = [
       {
         label: 'Способы оплаты',
         key: 'payment',
-        style: {
-          fontSize: '15px',
-          },
-      },
-    ]
-  },
-  {
-    label: 'О компании',
-    key: 'about',
-    style: {
-      fontSize: '15px',
-      padding: '0 10px',
-      },
-    icon: <CaretDownOutlined />,
-    children: [
-      {
-        label: 'Новости',
-        key: 'news',
-        style: {
-          fontSize: '15px',
-          },
-      },
-      {
-        label: 'Сотрудничество',
-        key: 'cooperation',
-        style: {
-          fontSize: '15px',
-          },
-      },
-      {
-        label: 'Рассылка',
-        key: 'distribution',
-        style: {
-          fontSize: '15px',
-          },
-      },
-      {
-        label: 'О нас',
-        key: 'aboutus',
         style: {
           fontSize: '15px',
           },

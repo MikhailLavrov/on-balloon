@@ -6,7 +6,7 @@ export const heroData = [
       text: 'Заказать оформление',
       href: '',
     },
-    image: 'https://www.donballon.ru/upload/iblock/1d9/lxfmrjc2rk6tz10160z6lp6n9bv4f1pu/photo_2024_01_09_22_03_48.jpg',
+    image: 'https://www.donballon.ru/upload/iblock/f71/npb0tmfi3tdhbgnhyfbav6xfm29r7awb/banner_23-fevr-kopiya-2.jpg',
   },
   {
     title: 'Украшаем шарами важные мероприятия',
@@ -15,7 +15,7 @@ export const heroData = [
       text: 'Заказать оформление',
       href: '',
     },
-    image: 'https://eventrental.ru/upload/images/gif-stoyka/gif-stoyka2.gif',
+    image: 'https://www.donballon.ru/upload/iblock/1d9/lxfmrjc2rk6tz10160z6lp6n9bv4f1pu/photo_2024_01_09_22_03_48.jpg',
   },
   {
     title: 'Украшаем важные мероприятия шарами',
@@ -24,7 +24,7 @@ export const heroData = [
       text: 'Оформить заказ',
       href: '',
     },
-    image: 'https://www.kant.ru/upload/iblock/66f/66fee440fb03ae4967dd3851a6a52d1a.jpg',
+    image: 'https://www.donballon.ru/upload/iblock/a65/1360kh388_Buba.gif',
   },
   {
     title: 'Шарами украшаем важные мероприятия',
@@ -33,7 +33,7 @@ export const heroData = [
       text: 'Сделать заказ',
       href: '',
     },
-    image: 'https://www.donballon.ru/upload/iblock/f14/pl3x37u1tlllrcomysqpbw1kfqpbvtsb/1360kh388_512_anim.gif',
+    image: 'https://www.donballon.ru/upload/iblock/25e/LYEVA_slayder-2.jpg',
   },
   {
     title: 'Шарами украшаем важные мероприятия',
@@ -42,6 +42,24 @@ export const heroData = [
       text: 'Сделать заказ',
       href: '',
     },
-    image: 'https://i.imgur.com/Vray7kC.gif',
+    image: 'https://www.donballon.ru/upload/iblock/139/OK_slayder-1_1_.jpg',
+  },
+  {
+    title: 'Шарами украшаем важные мероприятия',
+    text: 'в Ленинградской области и Гатчине сотрудничаем с муниципальными организациями, физ. и юр. лицами',
+    link: {
+      text: 'Сделать заказ',
+      href: '',
+    },
+    image: 'https://www.donballon.ru/upload/iblock/6d7/SINIY-TRAKTOR_2720kh770.jpg',
+  },
+  {
+    title: 'Шарами украшаем важные мероприятия',
+    text: 'в Ленинградской области и Гатчине сотрудничаем с муниципальными организациями, физ. и юр. лицами',
+    link: {
+      text: 'Сделать заказ',
+      href: '',
+    },
+    image: 'https://www.donballon.ru/upload/iblock/87c/TRI-KOTA_2720x770.jpg',
   },
 ]

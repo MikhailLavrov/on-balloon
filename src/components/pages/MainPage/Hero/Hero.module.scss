@@ -63,18 +63,21 @@
 }
 
 .hero__collectionsImageWrapper {
+  height: 100%;
+  width: 50%;
+
   position: absolute;
   top: 50%;
   right: 0;
+  
   transform: translateY(-50%);
   z-index: 0;
-  height: 100%;
-  width: 50%;
   opacity: 0.5;
 }
 
 .hero__collectionsImage {
   height: 100%;
   width: 100%;
+  
   object-fit: contain;
 }

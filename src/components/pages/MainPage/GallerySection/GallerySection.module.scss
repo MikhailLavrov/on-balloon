@@ -2,7 +2,7 @@
 @import '../../../../styles/mixins.scss';
 
 .gallery {
-  padding: 20px 0;
+  padding: 15px 0;
 
   text-align: center;
   font-family: $ff-tilda;
@@ -14,13 +14,13 @@
   }
 
   @include vp-1260 {
-    padding: 30px 0;
+    padding: 20px 0;
   }
 }
 
 .gallery__title {
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 
   font-size: $fz-m;
   font-weight: 600;
@@ -47,7 +47,7 @@
 }
 
 .gallery__link {
-  margin-top: 20px;
+  // margin-top: 20px;
   padding: 10px 30px;
   display: block;
 
@@ -66,7 +66,7 @@
   @include vp-768 {
     font-size: 20px;
     margin: 0 auto;
-    margin-top: 30px;
+    // margin-top: 30px;
     max-width: fit-content;
   }
 }
