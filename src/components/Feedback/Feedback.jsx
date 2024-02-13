@@ -58,13 +58,13 @@ export const Feedback = () => {
             <MaskedPhoneInput phoneEntry={personalData.gFormsFeedback.phoneEntry} />
             <input type="submit" value="Отправить" disabled={submitted} />
 
+          </form>
             {submitted &&
               <div className={c.feedback__submitCover}>
                 <h2 className={c.feedback__submitTitle}>Заявка отправлена!</h2>
                 <p className={c.feedback__submitSubtitle}>Мы вам перезвоним</p>
               </div>
             }
-          </form>
         </div>
         
       </div>

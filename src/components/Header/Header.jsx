@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { HeartOutlined, UserOutlined, ShoppingCartOutlined, MobileOutlined, EnvironmentOutlined } from '@ant-design/icons';
-import CallMeBack from '../CallMeBack/CallMeBack';
+import CallMeBackModal from '../CallMeBackModal/CallMeBackModal';
 import Catalog from '../Catalog/Catalog';
 import SearchComponent from '../SearchComponent/SearchComponent';
 import MobileBurgerMenu from '../MobileBurgerMenu/MobileBurgerMenu';
@@ -33,8 +33,8 @@ export const HeaderComponent = () => {
               </Link>
             </div>
             <div className={c.topMenu__contacts}>
-              <a href="tel:+79315401970"><MobileOutlined />{personalData.phone}</a>
-              <CallMeBack />
+              <a  href={`tel:${personalData.phone}`}><MobileOutlined />{personalData.phone}</a>
+              <CallMeBackModal />
               <p><EnvironmentOutlined /> Гатчина, CПб</p>
             </div>
           </div>

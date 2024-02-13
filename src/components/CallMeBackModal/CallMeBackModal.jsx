@@ -1,6 +1,6 @@
 import React, {  useState } from 'react';
 import { Button, Modal, Form, Input } from 'antd';
-import c from './CallMeBack.module.scss';
+import c from './CallMeBackModal.module.scss';
 
 const formItemLayout = {
   labelCol: {
@@ -21,7 +21,7 @@ const formTailLayout = {
   },
 };
 
-const CallMeBack = () => {
+const CallMeBackModal = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const CallMeBackForm = () => {
@@ -94,4 +94,4 @@ const CallMeBack = () => {
     </>
   );
 };
-export default CallMeBack;
+export default CallMeBackModal;
