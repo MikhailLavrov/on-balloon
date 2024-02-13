@@ -15,7 +15,7 @@ export const GalleryPage = () => (
     <div className='container'>
       <div className={c.gallery__text}>
         <h2 className={c.gallery__title}>Галерея наших работ</h2>
-        <p className={c.gallery__subtitle}>Мы оформили большое количество мероприятий различного уровня и масштаба.<br />Делимся событиями, в которых принимали непосредственное участие, создавая ту самую торжественную атмосферу.</p>
+        <p className={c.gallery__subtitle}>Делимся событиями, в которых принимали непосредственное участие, создавая ту самую торжественную атмосферу.</p>
       </div>
       <div className={c.gallery__content}>
         <Image.PreviewGroup

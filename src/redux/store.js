@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import favouritesReducer from './favouritesSlice';
+import callMeBackReducer from './favouritesSlice'
 
-export default configureStore({
-  reducer: {
-    favourites: favouritesReducer
-  }
+const store = configureStore({
+  reducer: callMeBackReducer
 })
+
+export default store;

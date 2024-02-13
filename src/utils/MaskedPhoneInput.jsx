@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import InputMask from 'react-input-mask';
 
-export const MaskedPhoneInput = ({phoneEntry}) => {
+export const MaskedPhoneInput = ({phoneEntry, ...props}) => {
   const [card, setCard] = useState('');
   const inputCard = useRef(null);
 
@@ -12,6 +12,7 @@ export const MaskedPhoneInput = ({phoneEntry}) => {
   return (
     <>
       <InputMask
+        disabled={props.disabled}
         name={phoneEntry}
         id='phone'
         type='text'
