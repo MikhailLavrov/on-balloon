@@ -45,13 +45,13 @@
   margin: 0;
   margin-bottom: 15px;
 
-  font-size: 24px;
+  font-size: $fz-m;
   font-weight: 600;
   line-height: 1.2;
   text-align: center;
 
   @include vp-1260 {
-    font-size: 42px;
+    font-size: $fz-l;
   }
 }
 
@@ -59,12 +59,12 @@
   margin: 0;
   margin-bottom: 20px;
 
-  font-size: 18px;
+  font-size: $fz-s;
   line-height: 1.2;
   text-align: center;
 
   @include vp-1260 {
-    font-size: 24px;
+    font-size: $fz-m;
   }
 }
 
@@ -117,12 +117,11 @@
     margin: 0;
     margin-bottom: 5px;
 
-    font-size: 24px;
+    font-size: $fz-m;
     font-weight: 600;
     line-height: 1.2;
 
     @include vp-1260 {
-      font-size: 28px;
       font-weight: 500;
     }
   }
@@ -130,12 +129,12 @@
   & a {
     display: block;
 
-    font-size: 20px;
+    font-size: $fz-m;
 
     color: $base-dark-color;
 
     @include vp-1260 {
-      font-size: 24px;
+      font-size: $fz-m;
     }
   }
 }
@@ -172,7 +171,7 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: $fz-s;
   }
 
   & div {
@@ -185,13 +184,14 @@
 
     width: 100%;
     
-    font-size: 20px;
+    font-size: $fz-s;
     font-family: $ff-tilda;
     font-weight: 500;
     
     border: none;
     cursor: pointer;
-    background-color: $color-1-violet;
+    background-color: $color-6-red;
+    color: $base-light-color;
     transition: all 0.2s ease-in-out;
 
     &:hover {
@@ -202,6 +202,10 @@
     &:disabled {
       pointer-events: none;
       user-select: none;
+    }
+
+    @include vp-1260 {
+      font-size: $fz-m;
     }
   }
 }

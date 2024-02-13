@@ -17,7 +17,7 @@ import IMG_16 from '../assets/assortment/tab_03/img_03.jpg';
 import IMG_17 from '../assets/assortment/tab_03/img_04.jpg';
 
 export const galleryData = [
-  {image: IMG_01, title: ''},
+  {image: "https://kartinki.pibig.info/uploads/posts/2023-04/1680653430_kartinki-pibig-info-p-mnogo-sharikov-s-dnem-rozhdeniya-kartinki-35.jpg", title: ''},
   {image: IMG_02, title: ''},
   {image: IMG_03, title: ''},
   {image: IMG_04, title: ''},

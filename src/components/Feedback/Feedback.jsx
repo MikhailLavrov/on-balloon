@@ -1,6 +1,6 @@
 import c from './Feedback.module.scss';
 import { MailOutlined, PhoneOutlined } from '@ant-design/icons';
-import { contactData } from '../../data/personalData';
+import { personalData } from '../../data/personalData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { notification } from 'antd';
 import { useEffect, useState } from 'react';
@@ -46,16 +46,16 @@ export const Feedback = () => {
           </iframe>
           <form 
             className={c.feedback__form}
-            action={contactData.gFormsFeedback.action}
+            action={personalData.gFormsFeedback.action}
             method="post" 
             target="hidden_iframe"
             onSubmit={onSubmitHandler}
             >
             <label htmlFor="name">Имя</label>
-            <input name={contactData.gFormsFeedback.nameEntry} id='name' type="text" required maxLength={50} placeholder='Ваше имя' />
+            <input name={personalData.gFormsFeedback.nameEntry} id='name' type="text" required maxLength={50} placeholder='Ваше имя' />
             <label htmlFor='phone'>Телефон</label>
-            {/* <input name={contactData.gFormsFeedback.phoneEntry} id='phone' type="text" required /> */}
-            <MaskedPhoneInput phoneEntry={contactData.gFormsFeedback.phoneEntry} />
+            {/* <input name={personalData.gFormsFeedback.phoneEntry} id='phone' type="text" required /> */}
+            <MaskedPhoneInput phoneEntry={personalData.gFormsFeedback.phoneEntry} />
             <input type="submit" value="Отправить" disabled={submitted} />
 
             {submitted &&
@@ -77,7 +77,7 @@ export const Feedback = () => {
               </div>
               <div className={c.feedback__contactsInfo}>
                 <h3>Почта</h3>
-                <a href={`mailto:${contactData.mail}`}>{contactData.mail}</a>
+                <a href={`mailto:${personalData.mail}`}>{personalData.mail}</a>
               </div>
             </div>
 
@@ -87,18 +87,18 @@ export const Feedback = () => {
               </div>
               <div className={c.feedback__contactsInfo}>
                 <h3>Телефон</h3>
-                <a href={`tel:${contactData.phone}`}>{contactData.phone}</a>
+                <a href={`tel:${personalData.phone}`}>{personalData.phone}</a>
               </div>
             </div>
 
             <div className={c.feedback__socials}>
-              <a href={contactData.telegram} target='_blank' rel="noreferrer" title='Написать в Telegram'>
+              <a href={personalData.telegram} target='_blank' rel="noreferrer" title='Написать в Telegram'>
                 <SvgIcon icon='telegram' />
               </a>
-              <a href={contactData.whatsapp} target='_blank' rel="noreferrer" title='Написать в WhatsApp'>
+              <a href={personalData.whatsapp} target='_blank' rel="noreferrer" title='Написать в WhatsApp'>
                 <SvgIcon icon='whatsapp' />
               </a>
-              <a href={contactData.vkontakte} target='_blank' rel="noreferrer" title='Написать в VK'>
+              <a href={personalData.vkontakte} target='_blank' rel="noreferrer" title='Написать в VK'>
                 <SvgIcon icon='vk' />
               </a>
             </div>

@@ -1,14 +1,13 @@
-@import '../../styles/vars.scss';
-@import '../../styles/mixins.scss';
-@import '../../styles/global.scss';
+@import '../../../../styles/vars.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/global.scss';
 
 .hero {
   background-color: $base-light-color;
 }
 
 .hero__container {
-  // margin-bottom: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 .hero__collections {
@@ -51,7 +50,7 @@
   }
 
   @include vp-1260 {
-    font-size: 20px;
+    font-size: $fz-m;
   }
 }
 

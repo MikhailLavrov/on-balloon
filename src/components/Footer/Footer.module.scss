@@ -1,9 +1,16 @@
 @import '../../styles/vars.scss';
 
 .footer {
-  text-align: right;
+  padding: 15px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
   font-family: $ff-tilda;
-  background-color: $color-1-violet;
-  color: $base-light-color;
+  background-color: $color-2-grey;
+  color: $base-dark-color;
+  font-size: 12px;
+
   box-shadow: 0 20px 15px -25px $base-dark-color inset;
 }

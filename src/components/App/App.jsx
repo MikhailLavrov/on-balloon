@@ -1,9 +1,9 @@
 import { LayoutComponent } from '../Layout/Layout';
 import { Route, Routes } from 'react-router-dom';
 import { GalleryPage } from '../pages/GalleryPage/GalleryPage';
-import { Hero } from '../Hero/Hero';
+import { Hero } from '../pages/MainPage/Hero/Hero';
 import { Advantages } from '../Advantages/Advantages';
-import { GallerySection } from '../GallerySection/GallerySection';
+import { GallerySection } from '../pages/MainPage/GallerySection/GallerySection';
 import { Feedback } from '../Feedback/Feedback';
 import { FloatButton } from 'antd';
 import { ArrowUpOutlined } from '@ant-design/icons';

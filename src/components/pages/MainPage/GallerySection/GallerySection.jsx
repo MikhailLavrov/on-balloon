@@ -2,7 +2,7 @@ import c from './GallerySection.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Thumbs, Navigation, Pagination, Scrollbar } from 'swiper';
 import { useState } from 'react';
-import { galleryData } from '../../data/galleryData';
+import { galleryData } from '../../../../data/galleryData';
 import { Link } from 'react-router-dom';
 
 export const GallerySection = () => {

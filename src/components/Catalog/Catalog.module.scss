@@ -12,11 +12,11 @@
 .catalog_button {
   height: auto;
 
-  font-size: 1.4rem;
+  font-size: $fz-s;
   font-weight: 500;
   font-family: $ff-tilda;
 
   color: $base-light-color;
-  border-radius: 50px;
+  border-radius: 10px;
   background-color: $color-6-red;
 }

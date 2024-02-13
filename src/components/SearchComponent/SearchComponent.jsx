@@ -1,6 +1,5 @@
 import React from 'react';
 import { Input, ConfigProvider } from 'antd';
-import c from './SearchComponent.module.scss';
 
 const { Search } = Input;
 

@@ -2,9 +2,9 @@ import c from './Hero.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, Parallax, EffectFade } from 'swiper';
 import { HeroSlide } from './HeroSlide/HeroSlide';
-import { heroData } from '../../data/heroData';
+import { heroData } from '../../../../data/heroData';
 import { Link } from 'react-router-dom';
-import { collectionsData } from '../../data/collectionsData';
+import { collectionsData } from '../../../../data/collectionsData';
 
 const CollectionsTiles = collectionsData.map((tile, index) => {
   return (

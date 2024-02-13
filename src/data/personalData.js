@@ -1,9 +1,10 @@
-export const contactData = {
+export const personalData = {
+  orgname: 'Тренд на праздник',
   phone: '+79315401970',
   mail: 'aerodesign@gtn.ru',
-  telegram: 'https://t.me/trafik_manager_NL',
+  telegram: 'https://t.me/Nadia_Lavrova_event_design',
   whatsapp: 'https://api.whatsapp.com/send?phone=79315401970',
-  vkontakte: 'https://vk.com/id275246',
+  vkontakte: 'https://vk.com/trendnaprazdnik',
   gFormsFeedback: {
     action: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSfgoiLh87MOP9iKadI-hyh4YcZCmc09J-7NuTQxc5w6d4Urxg/formResponse',
     nameEntry: 'entry.494818634',

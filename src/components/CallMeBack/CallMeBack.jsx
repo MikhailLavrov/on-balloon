@@ -1,4 +1,3 @@
-import { PhoneOutlined } from '@ant-design/icons';
 import React, {  useState } from 'react';
 import { Button, Modal, Form, Input } from 'antd';
 import c from './CallMeBack.module.scss';

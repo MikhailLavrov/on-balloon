@@ -1,128 +1,41 @@
 import c from './Header.module.scss';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { HeartOutlined, UserOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { SvgIcon } from '../SvgIcon/SvgIcon';
+import { HeartOutlined, UserOutlined, ShoppingCartOutlined, MobileOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import CallMeBack from '../CallMeBack/CallMeBack';
 import Catalog from '../Catalog/Catalog';
 import SearchComponent from '../SearchComponent/SearchComponent';
 import MobileBurgerMenu from '../MobileBurgerMenu/MobileBurgerMenu';
 import MobileSearch from '../MobileSearch/MobileSearch';
-import { DownOutlined, MobileOutlined } from '@ant-design/icons';
-import { Menu, ConfigProvider } from 'antd';
-import { SvgIcon } from '../SvgIcon/SvgIcon';
-import CallMeBack from '../CallMeBack/CallMeBack';
-
-const topMenuItems = [
-  {
-    label: 'Клиентам',
-    key: 'clients',
-    icon: <DownOutlined />,
-    children: [
-      {
-        label: 'Политика конфиденциальности',
-        key: 'confidence',
-      },
-      {
-        label: 'Пользовательское соглашение',
-        key: 'agreement',
-      },
-    ]
-  },
-  {
-    label: 'Доставка и оплата',
-    key: 'delivery',
-    icon: <DownOutlined />,
-    children: [
-      {
-        label: 'СПб и ЛО',
-        key: 'spblo',
-      },
-      {
-        label: 'Самовывоз',
-        key: 'pickup',
-      },
-      {
-        label: 'Условия бесплатной доставки',
-        key: 'freedelivery',
-      },
-      {
-        label: 'Способы оплаты',
-        key: 'payment',
-      },
-    ]
-  },
-  {
-    label: 'О компании',
-    key: 'about',
-    icon: <DownOutlined />,
-    children: [
-      {
-        label: 'Новости',
-        key: 'news',
-      },
-      {
-        label: 'Сотрудничество',
-        key: 'cooperation',
-      },
-      {
-        label: 'Рассылка',
-        key: 'distribution',
-      },
-      {
-        label: 'О нас',
-        key: 'aboutus',
-      },
-    ]
-  },
-];
+import { TopMenu } from '../TopMenu/TopMenu';
+import { personalData } from '../../data/personalData';
 
 export const HeaderComponent = () => {
   const headerRef = useRef(null);
-  const [current, setCurrent] = useState('mail');
-  const onClick = (e) => {
-    console.log('click ', e);
-    setCurrent(e.key);
-  };
 
   return (
     <header className={c.header}>
         <div className={c.header__topMenu}>
           <div className={`${c.headerTopMenu__container} ${c.container}`}>
             <div className={c.topMenu__menu}>
-              <ConfigProvider
-                  theme={{
-                    token: {
-                      colorPrimary: '#f83939',
-                      lineWidth: 0,
-                    },
-                  }}
-                >
-                <Menu 
-                  onClick={onClick}
-                  selectedKeys={[current]}
-                  mode="horizontal"
-                  items={topMenuItems}
-                  style={{
-                    backgroundColor: "transparent", 
-                    fontSize: "10px",
-                  }}
-                  />
-              </ConfigProvider>
+              <TopMenu />
             </div>
             <div className={c.topMenu__socials}>
-              <Link target = "_blank" to={'https://t.me/Nadia_Lavrova_event_design'}>
+              <Link target = "_blank" to={personalData.telegram}>
                 <SvgIcon icon='telegram' />
               </Link>
-              <Link target = "_blank" to={''}>
+              <Link target = "_blank" to={personalData.whatsapp}>
                 <SvgIcon icon='whatsapp' />
               </Link>
-              <Link target = "_blank" to={'https://vk.com/trendnaprazdnik'}>
+              <Link target = "_blank" to={personalData.vkontakte}>
                 <SvgIcon icon='vk' />
               </Link>
             </div>
             <div className={c.topMenu__contacts}>
-              <a href="tel:+79315401970"><MobileOutlined /> +7(931)540-19-70</a>
+              <a href="tel:+79315401970"><MobileOutlined />{personalData.phone}</a>
               <CallMeBack />
-              <p>Гатчина, CПб</p>
+              <p><EnvironmentOutlined /> Гатчина, CПб</p>
             </div>
           </div>
         </div>
@@ -136,15 +49,15 @@ export const HeaderComponent = () => {
           <SearchComponent className={c.searchComponent} />
           <div className={c.header__mainControls}>
             <Link>
-              <UserOutlined style={{ fontSize: '1.7rem' }} />
+              <UserOutlined style={{ fontSize: '20px' }} />
               <span>Войти</span>
             </Link>
             <Link>
-              <HeartOutlined style={{ fontSize: '1.7rem' }} />
+              <HeartOutlined style={{ fontSize: '20px' }} />
               <span>Избранное</span>
             </Link>
             <Link>
-              <ShoppingCartOutlined style={{ fontSize: '1.7rem' }} />
+              <ShoppingCartOutlined style={{ fontSize: '20px' }} />
               <span>Корзина</span>
             </Link>
           </div>
