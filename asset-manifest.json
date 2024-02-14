@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/on-balloon/static/css/main.c4a9238e.css",
+    "main.js": "/on-balloon/static/js/main.5a16504e.js",
+    "static/js/787.47eb2e1f.chunk.js": "/on-balloon/static/js/787.47eb2e1f.chunk.js",
+    "static/media/img_03.jpg": "/on-balloon/static/media/img_03.64e523ebdf5a4d07e0ef.jpg",
+    "static/media/img_04.webp": "/on-balloon/static/media/img_04.780eb7e5e83270edc606.webp",
+    "static/media/img_01.jpg": "/on-balloon/static/media/img_01.710cc988f05887f922ad.jpg",
+    "static/media/img_02.webp": "/on-balloon/static/media/img_02.70425d98837f8e9f0910.webp",
+    "static/media/TildaSans-Light.woff": "/on-balloon/static/media/TildaSans-Light.da05a6c07f6f161b6cd5.woff",
+    "static/media/TildaSans-Bold.woff": "/on-balloon/static/media/TildaSans-Bold.7c8ed76dd091c4d3ac7d.woff",
+    "static/media/TildaSans-Semibold.woff": "/on-balloon/static/media/TildaSans-Semibold.357320cc3c10f7d792b3.woff",
+    "static/media/TildaSans-Medium.woff": "/on-balloon/static/media/TildaSans-Medium.1eced789c8c85a3ebdf3.woff",
+    "static/media/TildaSans-Regular.woff": "/on-balloon/static/media/TildaSans-Regular.da50688203ec449eaec5.woff",
+    "static/media/img_02.jpg": "/on-balloon/static/media/img_02.b68845f04477c02f0e79.jpg",
+    "static/media/TildaSans-Light.woff2": "/on-balloon/static/media/TildaSans-Light.9df27024da31c1e64a58.woff2",
+    "static/media/TildaSans-Bold.woff2": "/on-balloon/static/media/TildaSans-Bold.7b20d6ac9e458d542ac9.woff2",
+    "static/media/TildaSans-Semibold.woff2": "/on-balloon/static/media/TildaSans-Semibold.3b24df94c76ce65b9fa6.woff2",
+    "static/media/TildaSans-Medium.woff2": "/on-balloon/static/media/TildaSans-Medium.90e34d39fb42c65017a6.woff2",
+    "static/media/TildaSans-Regular.woff2": "/on-balloon/static/media/TildaSans-Regular.ea99090449b0ab24b898.woff2",
+    "static/media/img_04.jpg": "/on-balloon/static/media/img_04.1375c05a09a586ebcf1a.jpg",
+    "static/media/logo.png": "/on-balloon/static/media/logo.723f88b43f9b8029d539.png",
+    "static/media/sprite.svg": "/on-balloon/static/media/sprite.6664288762457a310115456858f19389.svg",
+    "index.html": "/on-balloon/index.html",
+    "main.c4a9238e.css.map": "/on-balloon/static/css/main.c4a9238e.css.map",
+    "main.5a16504e.js.map": "/on-balloon/static/js/main.5a16504e.js.map",
+    "787.47eb2e1f.chunk.js.map": "/on-balloon/static/js/787.47eb2e1f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c4a9238e.css",
+    "static/js/main.5a16504e.js"
+  ]
+}
