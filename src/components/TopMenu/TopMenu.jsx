@@ -13,6 +13,7 @@ export const TopMenu = () => {
       colorPrimary: '#f83939',
       lineWidth: 0,
       fontSize: '10px',
+      fontFamily: 'Tilda Sans, Arial, sans-serif'
     },
   }
 

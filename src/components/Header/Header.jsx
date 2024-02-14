@@ -3,13 +3,14 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { HeartOutlined, UserOutlined, ShoppingCartOutlined, MobileOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import CallMeBackModal from '../CallMeBackModal/CallMeBackModal';
-import Catalog from '../Catalog/Catalog';
+import CatalogLink from '../CatalogLink/CatalogLink';
 import SearchComponent from '../SearchComponent/SearchComponent';
 import MobileBurgerMenu from '../MobileBurgerMenu/MobileBurgerMenu';
 import MobileSearch from '../MobileSearch/MobileSearch';
 import { TopMenu } from '../TopMenu/TopMenu';
 import { personalData } from '../../data/personalData';
 import { SocialLinks } from '../SocialLinks/SocialLinks';
+import LOGO_IMG from '../../assets/logo.png';
 
 export const HeaderComponent = () => {
   const headerRef = useRef(null);
@@ -35,9 +36,9 @@ export const HeaderComponent = () => {
          <div className={`${c.headerMain__container} ${c.container}`} ref={headerRef}>
           <MobileBurgerMenu />
           <Link className={c.header__logo} to={''}>
-            Тренд на праздник
+            <img src={LOGO_IMG} width={100} alt="Логотип" />
           </Link>
-          <Catalog />
+          <CatalogLink />
           <SearchComponent className={c.searchComponent} />
           <div className={c.header__mainControls}>
             <Link>
