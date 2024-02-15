@@ -2,8 +2,8 @@ import { Breadcrumb } from 'antd';
 import c from './CatalogPage.module.scss';
 import { HomeOutlined } from '@ant-design/icons';
 import CatalogMenu from '../../CatalogMenu/CatalogMenu';
-import CatalogCard from '../../CatalogCard/CatalogCard';
-import { galleryData } from '../../../data/galleryData';
+// import CatalogCard from '../../CatalogCard/CatalogCard';
+// import { catalogData } from '../../../data/catalogData';
 
 const Breadcrumbs = () => (
   <Breadcrumb
@@ -19,9 +19,9 @@ const Breadcrumbs = () => (
   />
 );
 
-const catalogCards = galleryData.map((card, index) => (
-  <CatalogCard key={index} title={card.title} image={card.image} price={card.price} article={card.article} style={{aspectRatio: 1/1}} />
-))
+// const catalogCards = catalogData.map((card, index) => (
+//   <CatalogCard key={index} title={card.title} image={card.image} price={card.price} article={card.article} style={{aspectRatio: 1/1}} />
+// ))
 // title, image, price, article, style
 export const CatalogPage = () => {
   return (
@@ -34,7 +34,7 @@ export const CatalogPage = () => {
         <div className={c.catalog__innerContainer}>
           <CatalogMenu/>
           <div className={c.catalog__content}>
-           {catalogCards}
+           {/* {catalogCards} */}
             {/* <CatalogCard />
             <CatalogCard />
             <CatalogCard />

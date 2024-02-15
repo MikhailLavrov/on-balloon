@@ -6,10 +6,10 @@ import { gallerySwiperParams } from '../../../../data/swiperParams';
 
 export const GallerySection = () => {
 
-  const gallerySlide = galleryData.map((slide, index) => (
+  const gallerySlide = galleryData.map((image, index) => (
     <SwiperSlide className='gallery__slide' key={index}>
       <div className={c.gallery__image}>
-        <img src={slide.image} alt={slide.title} />
+        <img src={image} alt={index} />
         <div className="swiper-lazy-preloader"></div>
       </div>
     </SwiperSlide>

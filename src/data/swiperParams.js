@@ -21,10 +21,12 @@ export const gallerySwiperParams = {
   modules: [Thumbs, Navigation, Pagination, Autoplay],
   spaceBetween: 15,
   speed: 5000,
+  allowTouchMove: false,
   loop: true,
   autoplay: {
-    delay: 100,
+    delay: 10,
     disableOnInteraction	: false,
+    stopOnLast: false,
   },
   breakpoints: {
     0: {
@@ -34,7 +36,7 @@ export const gallerySwiperParams = {
       slidesPerView: 3,
     },
     1260: {
-      slidesPerView: 4,
+      slidesPerView: 5,
     }
   }
 };

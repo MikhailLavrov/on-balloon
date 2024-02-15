@@ -18,7 +18,13 @@ const Catalog = () => {
 
   return (
     <div className={c.catalog}>
-      <Button type="button" onClick={showDrawer} icon={<MenuOutlined />}  className={c.catalog_button} >
+      <Button 
+        type="button" 
+        // onClick={showDrawer} 
+        href='/catalog'
+        icon={<MenuOutlined />} 
+        className={c.catalog_button} 
+      >
         Каталог товаров
       </Button>
       <Drawer

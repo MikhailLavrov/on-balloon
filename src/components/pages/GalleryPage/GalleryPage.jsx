@@ -18,8 +18,12 @@ const Breadcrumbs = () => (
   />
 );
 
-const galleryImages = galleryData.map((item, index) => (
-  <Image key={index} height={'100%'} width={'100%'} src={item.image} />
+const galleryImages = galleryData.map((image, index) => (
+  <Image 
+    key={index}
+    width={'auto'}
+    src={image}
+  />
 ))
 
 export const GalleryPage = () => (
@@ -31,12 +35,7 @@ export const GalleryPage = () => (
         <p className={c.gallery__subtitle}>Делимся событиями, в которых принимали непосредственное участие, создавая ту самую торжественную атмосферу.</p>
       </div>
       <div className={c.gallery__content}>
-        <Image.PreviewGroup
-          rootClassName='rootImg'
-          preview={{
-            onChange: (current, prev) => console.log(`current index: ${current}, prev index: ${prev}`),
-          }}
-          >
+        <Image.PreviewGroup rootClassName='rootImg' >
           {galleryImages}
         </Image.PreviewGroup>
       </div>

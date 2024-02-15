@@ -1,59 +1,59 @@
-import _32432 from '../assets/hero/img_01.jpg';
-import IMG_02 from '../assets/services/img_02.webp';
-import IMG_03 from '../assets/services/img_03.jpg';
-import IMG_04 from '../assets/services/img_04.webp';
-import IMG_05 from '../assets/assortment/tab_03/img_01.jpg';
-import IMG_06 from '../assets/assortment/tab_03/img_02.jpg';
-import IMG_07 from '../assets/assortment/tab_03/img_03.jpg';
-import IMG_08 from '../assets/assortment/tab_03/img_04.jpg';
+import IMG_01 from '../assets/gallery/1 Opening of a sports school 1.webp';
+import IMG_02 from '../assets/gallery/2 Syaskelevo Village Day 2022 2.webp';
+import IMG_03 from '../assets/gallery/3 Syaskelevo Village Day 2019 1.webp';
+import IMG_04 from '../assets/gallery/4 Fornosovo opening of the playground 1.webp';
+import IMG_05 from '../assets/gallery/5 Fedorovskoye on 9 May 2019.webp';
+import IMG_06 from '../assets/gallery/6 Syaskelevo Village Day 2022 3.webp';
+import IMG_07 from '../assets/gallery/7 Day of Russia Klopitsy village 2.webp';
+import IMG_08 from '../assets/gallery/8 Opening of a sports school 7.webp';
+import IMG_09 from '../assets/gallery/9 Syaskelevo Village Day 2022 1.webp';
+import IMG_10 from '../assets/gallery/10 Syaskelevo Village Day 2022 8.webp';
+import IMG_11 from '../assets/gallery/11  School 11 graduation 2.webp';
+import IMG_12 from '../assets/gallery/12 Shell gas station 1.webp';
+import IMG_13 from '../assets/gallery/13 Fornosovo opening of the playground 2.webp';
+import IMG_14 from '../assets/gallery/14 The year of the teacher and mentor 2023 1.webp';
+import IMG_15 from '../assets/gallery/15 Syaskelevo Village Day 2019 2.webp';
+import IMG_16 from '../assets/gallery/Baby Skills 1.webp';
+import IMG_17 from '../assets/gallery/Baby Skills 2.webp';
+import IMG_18 from '../assets/gallery/Day of Russia Klopitsy village 1.webp';
+import IMG_19 from '../assets/gallery/Day of Russia Klopitsy village 3.webp';
+import IMG_20 from '../assets/gallery/Fedorovskoe election 1.webp';
+import IMG_21 from '../assets/gallery/Fedorovskoe election.webp';
+import IMG_22 from '../assets/gallery/Fedorovskoe scene inside 1.webp';
+import IMG_23 from '../assets/gallery/Fedorovskoe scene inside 2.webp';
+import IMG_24 from '../assets/gallery/Fedorovskoe scene inside 3.webp';
+import IMG_25 from '../assets/gallery/Fedorovskoye on 9 May 2019 2.webp';
+import IMG_26 from '../assets/gallery/Fedorovskoye Village Day.webp';
+import IMG_27 from '../assets/gallery/Fornosovo opening of the playground 3.webp';
+import IMG_28 from '../assets/gallery/Fornosovo opening of the playground 4.webp';
+import IMG_29 from '../assets/gallery/Good optics 1.webp';
+import IMG_30 from '../assets/gallery/Good optics 2.webp';
+import IMG_31 from '../assets/gallery/Kindergarten graduation 1.webp';
+import IMG_32 from '../assets/gallery/Opening of a sports school 2.webp';
+import IMG_33 from '../assets/gallery/Opening of a sports school 3.webp';
+import IMG_34 from '../assets/gallery/Opening of a sports school 4.webp';
+import IMG_35 from '../assets/gallery/Opening of a sports school 5.webp';
+import IMG_36 from '../assets/gallery/Opening of a sports school 6.webp';
+import IMG_37 from '../assets/gallery/Opening of the anti-cafe 1.webp';
+import IMG_38 from '../assets/gallery/Opening of the anti-cafe 2.webp';
+import IMG_39 from '../assets/gallery/RCDT 1.webp';
+import IMG_40 from '../assets/gallery/School 11 graduation 1.webp';
+import IMG_41 from '../assets/gallery/School 11 graduation 3.webp';
+import IMG_42 from '../assets/gallery/School 11 graduation 4.webp';
+import IMG_43 from '../assets/gallery/School on September 1st 1.webp';
+import IMG_44 from '../assets/gallery/School on September 1st 2.webp';
+import IMG_45 from '../assets/gallery/Syaskelevo Day of the Elderly 1.webp';
+import IMG_46 from '../assets/gallery/Syaskelevo Flag Day 1.webp';
+import IMG_47 from '../assets/gallery/Syaskelevo Village Day 2022 4.webp';
+import IMG_48 from '../assets/gallery/Syaskelevo Village Day 2022 5.webp';
+import IMG_49 from '../assets/gallery/Syaskelevo Village Day 2022 6.webp';
+import IMG_50 from '../assets/gallery/Syaskelevo Village Day 2022 7.webp';
+import IMG_51 from '../assets/gallery/Syaskelevo Village Day 2022 9.webp';
+import IMG_52 from '../assets/gallery/The Fair of Additional Education 1.webp';
+import IMG_53 from '../assets/gallery/The scene of the village of Reyzino 1.webp';
+import IMG_54 from '../assets/gallery/Young Master 1.webp';
+import IMG_55 from '../assets/gallery/Young Master 2.webp';
 
 export const galleryData = [
-  {
-    image: _32432, 
-    title: 'Прикольный шар', 
-    article: 32432,
-    price: 650
-  },
-  {
-    image: IMG_02, 
-    title: 'Классный шар', 
-    article: '12432', 
-    price: 250
-  },
-  {
-    image: IMG_03, 
-    title: 'Потрясающая фотозона', 
-    article: '22432', 
-    price: 150
-  },
-  {
-    image: IMG_04, 
-    title: 'Красивый подарок', 
-    article: '42432', 
-    price: 1250
-  },
-  {
-    image: IMG_05, 
-    title: 'Прикольный шар', 
-    article: '32432', 
-    price: 200
-  },
-  {
-    image: IMG_06, 
-    title: 'Классный шар', 
-    article: '12432', 
-    price: 50
-  },
-  {
-    image: IMG_07, 
-    title: 'Потрясающая фотозона', 
-    article: '22432', 
-    price: 1850
-  },
-  {
-    image: IMG_08, 
-    title: 'Красивый подарок', 
-    article: '42432', 
-    price: 950
-  },
+  IMG_01, IMG_02, IMG_03, IMG_04, IMG_05, IMG_06, IMG_07, IMG_08, IMG_09, IMG_10, IMG_11, IMG_12, IMG_13, IMG_14, IMG_15, IMG_16, IMG_17, IMG_18, IMG_19, IMG_20, IMG_21, IMG_22, IMG_23, IMG_24, IMG_25, IMG_26, IMG_27, IMG_28, IMG_29, IMG_30, IMG_31, IMG_32, IMG_33, IMG_34, IMG_35, IMG_36, IMG_37, IMG_38, IMG_39, IMG_40, IMG_41, IMG_42, IMG_43, IMG_44, IMG_45, IMG_46, IMG_47, IMG_48, IMG_49, IMG_50, IMG_51, IMG_52, IMG_53, IMG_54, IMG_55,
 ];
