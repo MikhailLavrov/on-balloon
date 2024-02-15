@@ -24,6 +24,7 @@ const Breadcrumbs = () => (
 // ))
 // title, image, price, article, style
 export const CatalogPage = () => {
+
   return (
     <section className={c.catalog}>
       <div className={`${c.catalog__container} ${c.container}`}>

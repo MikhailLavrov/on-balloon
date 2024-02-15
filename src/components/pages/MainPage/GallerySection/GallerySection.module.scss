@@ -50,23 +50,25 @@
 
 .gallery__link {
   // margin-top: 20px;
-  padding: 10px 30px;
+  padding: 13px 30px;
   display: block;
 
-  color: $base-light-color;
   font-family: $ff-tilda;
-  font-size: $fz-m;
+  font-size: $fz-s;
+  font-weight: 500;
+  color: $base-light-color;
   
   background-color: $color-6-red;
   transition: all 0.2s ease-in-out;
+  border-radius: 10px;
 
   &:hover {
-    background-color: $base-dark-color;
+    background-color: $color-6-red-lighter;
     color: $base-light-color;
   }
 
   @include vp-768 {
-    font-size: 20px;
+    font-size: 17px;
     margin: 0 auto;
     // margin-top: 30px;
     max-width: fit-content;

@@ -9,20 +9,19 @@
   }
 }
 
-.catalog_button {
-  height: auto;
+.catalog__button {
+  height: 100%;
 
-  font-size: $fz-s;
+  font-size: 17px;
   font-weight: 500;
   font-family: $ff-tilda;
 
   color: $base-light-color;
   border-radius: 10px;
   background-color: $color-6-red;
-
+  
   &:hover {
-    color: $base-dark-color;
-    background-color: $base-light-color;
-    box-shadow: 0 0 0 1px $color-6-red inset;
+    color: $base-light-color;
+    background-color: $color-6-red-lighter;
   }
 }
