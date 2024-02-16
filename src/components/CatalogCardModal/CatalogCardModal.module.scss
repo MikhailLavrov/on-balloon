@@ -1,77 +1,6 @@
 @import '../../styles/vars.scss';
 @import '../../styles/mixins.scss';
 
-.catalogCard {
-  width: 100%;
-  height: auto;
-  display: block;
-
-  color: $base-dark-color;
-  aspect-ratio: 1/1;
-  box-shadow: 0 0 0 1px $color-2-grey inset;
-  border-radius: 5px;
-  
-  &:hover {
-    color: $base-dark-color;
-    box-shadow: 0 0 5px 1px #dedddd;
-  }
-}
-
-.catalogCard__imageWrapper {
-  
-  & img {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    width: 100%;
-    aspect-ratio: 1/1;
-  }
-}
-
-.catalogCard__content {
-  font-family: $ff-tilda;
-}
-
-.catalogCard__priceBox {
-  padding: 10px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: $color-2-grey;
-}
-
-.catalogCard__price {
-  margin: 0;
-
-  font-weight: 600;
-  font-size: $fz-s;
-}
-
-.catalogCard__oldPrice {
-  margin: 0;
-
-  color: rgba($base-dark-color, 0.5);
-  text-decoration: line-through;
-  font-weight: 500;
-  font-size: $fz-s;
-}
-
-.catalogCard__text {
-  padding: 10px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.catalogCard__title {
-  margin: 0;
-  font-size: $fz-s;
-  font-weight: 500;
-}
-
-// ========================================
-
 .cardModal {
   width: 100%;
 
@@ -79,6 +8,8 @@
 }
 
 .cardModal__main {
+  margin-bottom: 15px;
+
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
@@ -203,7 +134,7 @@
   
   & svg {
     border-radius: 50%;
-    width: 30px;
+    width: 25px;
     height: auto;
   }
 }
