@@ -1,66 +1,24 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Button, Drawer, Space } from 'antd';
-import { DoubleRightOutlined, AlignLeftOutlined, CloseOutlined } from '@ant-design/icons';
-import c from './CatalogLink.module.scss';
-// import CatalogMenu from '../CatalogMenu/CatalogMenu';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { Button } from 'antd';
+import { AlignLeftOutlined, CloseOutlined } from '@ant-design/icons';
+import c from './CatalogLink.module.scss';
 
 const Catalog = () => {
-  const [open, setOpen] = useState(false);
   const location = useLocation();
-  // const btn =  useRef()
-  // console.log(location.pathname)
-
-  // useEffect(() => {
-  //   if (location.pathname==='/catalog') {
-  //     console.log('щас в каталоге')
-  //     console.log(btn.current.href)
-
-  //   }
-  // }, [location])
-
-  // const showDrawer = () => {
-  //   setOpen(true);
-  // };
-  // const onClose = () => {
-  //   setOpen(false);
-  // };
-  // const onGoToCatalog = () => {
-  //   setOpen(false);
-  // };
 
   return (
     <div className={c.catalog}>
       <Button 
-        // ref={btn}
         type="button" 
-        // onClick={showDrawer} 
         href={location.pathname==='/catalog' ? '/' : '/catalog'}
         icon={location.pathname==='/catalog' ? <CloseOutlined /> : <AlignLeftOutlined />} 
-        className={c.catalog__button} 
+        className={c.catalog__button}
+        style={location.pathname==='/catalog' ? {backgroundColor: '#fff', color: '#000', boxShadow: '0 0 0 1px #000 inset'} : ''}
         size='large'
       >
-        Каталог товаров
+        {location.pathname==='/catalog' ? 'Закрыть каталог' : 'Каталог товаров'}
       </Button>
-      {/* <Drawer
-        title="Каталог товаров"
-        placement={'left'}
-        closable={true}
-        onClose={onClose}
-        open={open}
-        extra={
-          <Space>
-            <Button 
-              onClick={onGoToCatalog} 
-              href='/catalog' 
-              style={{backgroundColor: '#f83939', color: '#fff', border: 'none'}}>
-                В каталог<DoubleRightOutlined />
-            </Button>
-          </Space>
-        }
-      >
-        <CatalogMenu />
-      </Drawer> */}
     </div>
   );
 };

@@ -15,6 +15,7 @@ const Breadcrumbs = () => (
         title: 'Галерея',
       },
     ]}
+    style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}}
   />
 );
 
