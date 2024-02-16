@@ -36,7 +36,7 @@
   </symbol>
 
   <symbol id="phone" viewBox="0 0 512 512" xml:space="preserve">
-    <ellipse style="fill:#00000A;" cx="256" cy="256" rx="256" ry="255.832"/>
+    <ellipse style="fill:orange;" cx="256" cy="256" rx="256" ry="255.832"/>
     <g>
       <rect x="331.753" y="288.52" transform="matrix(0.7879 -0.6158 0.6158 0.7879 -131.5202 286.6909)" style="fill:#FFFFFF;" width="37.344" height="91.504"/>
       <path style="fill:#FFFFFF;" d="M348.696,393.736L292.344,321.6c-51.16-14.248-87.064-60.168-88.544-113.256l-56.352-72.096

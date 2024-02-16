@@ -11,6 +11,7 @@ import { TopMenu } from '../TopMenu/TopMenu';
 import { personalData } from '../../data/personalData';
 import { SocialLinks } from '../SocialLinks/SocialLinks';
 import LOGO_IMG from '../../assets/logo.png';
+import { Badge } from 'antd';
 
 export const HeaderComponent = () => {
   const headerRef = useRef(null);
@@ -42,11 +43,15 @@ export const HeaderComponent = () => {
           <SearchComponent className={c.searchComponent} />
           <div className={c.header__mainControls}>
             <Link>
+            <Badge count={0}>
               <HeartOutlined style={{ fontSize: '20px' }} />
+            </Badge>
               <span>Избранное</span>
             </Link>
             <Link>
-              <ShoppingCartOutlined style={{ fontSize: '20px' }} />
+              <Badge count={0}>
+                <ShoppingCartOutlined style={{ fontSize: '20px' }} />
+              </Badge>
               <span>Корзина</span>
             </Link>
             <Link>

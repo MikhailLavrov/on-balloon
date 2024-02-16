@@ -1,14 +1,15 @@
-import IMG_32432423 from '../../assets/gallery/1 Opening of a sports school 1.webp';
-import IMG_965664223 from '../../assets/gallery/10 Syaskelevo Village Day 2022 8.webp';
+import IMG_111542123 from '../../assets/catalog/cotton.webp';
+import IMG_455542423 from '../../assets/catalog/skazka.webp';
+import IMG_155542423 from '../../assets/catalog/popcorn.webp';
 
 export const attractionsData = [
   {
     category: ['at_cotton'],
     article: '111542-123',
     title: 'Сладкая вата',
-    description: 'Описание 6',
+    description: 'Аппарат сладкой ваты и оператор в аренду',
     price: 23000,
-    image: IMG_32432423,
+    image: IMG_111542123,
     hit: true,
     count: 1,
   },
@@ -16,20 +17,20 @@ export const attractionsData = [
     category: ['at_skazka'],
     article: '455542-423',
     title: 'Сказка',
-    description: 'Описание 7',
+    description: 'Сказочный надувной батут',
     price: 42300,
-    image: IMG_965664223,
+    image: IMG_455542423,
     hit: false,
     count: 1,
   },
   {
     category: ['at_popcorn'],
     article: '155542-423',
-    title: 'Попкрок',
-    description: 'Описание 8',
+    title: 'Попкорн',
+    description: 'Магия взорванной кукурузы',
     price: 11400,
     oldPrice: 12000,
-    image: IMG_32432423,
+    image: IMG_155542423,
     hit: false,
     count: 1,
   },

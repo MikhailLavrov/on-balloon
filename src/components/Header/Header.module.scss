@@ -40,14 +40,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 
   & a {
-    padding: 10px;
     display: flex;
   }
 
   & svg {
-    max-width: 25px;
+    width: 22px;
     height: auto;
     border-radius: 50%;
   }

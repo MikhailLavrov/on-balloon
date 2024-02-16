@@ -1,13 +1,13 @@
-import IMG_32432423 from '../../assets/gallery/1 Opening of a sports school 1.webp';
+import IMG_665544423 from '../../assets/catalog/payetki.webp';
 
 export const photozoneData = [
   {
     category: ['ph_payetki'],
     article: '665544-423',
-    title: 'Пайетки',
-    description: 'Описание 3',
+    title: 'Фотозона с пайетками',
+    description: 'Самая блестящая из всех фотозон',
     price: 11500,
-    image: IMG_32432423,
+    image: IMG_665544423,
     hit: true,
     count: 1,
   },
