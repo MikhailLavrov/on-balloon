@@ -10,7 +10,6 @@ export const animationData = [
     price: 1300,
     oldPrice: 1900,
     image: IMG_965664223,
-    sale: true,
     hit: true,
     count: 1,
   },
@@ -21,8 +20,7 @@ export const animationData = [
     description: 'Описание 5',
     price: 4300,
     image: IMG_32432423,
-    sale: false,
-    hit: true,
+    hit: false,
     count: 1,
   },
 ]

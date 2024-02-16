@@ -55,3 +55,13 @@
   grid-template-rows: min-content;
   gap: 10px;
 }
+
+.catalogMenu {
+  
+  background-color: $color-6-red;
+
+  &:first-child {
+    background-color: $base-dark-color;
+  }
+  
+}

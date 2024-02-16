@@ -1,4 +1,4 @@
-import { AppstoreOutlined, BulbOutlined, BuildOutlined, SmileOutlined, FireOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, BulbOutlined, BuildOutlined, SmileOutlined, FireFilled } from '@ant-design/icons';
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -11,7 +11,7 @@ function getItem(label, key, icon, children, type) {
 }
 
 export const catalogMenuData = [
-  getItem('СУПЕР АКЦИЯ', 'hot', <FireOutlined />),
+  getItem('Супер акция', 'hot', <FireFilled style={{color: 'red'}} />),
   getItem('Воздушные шары', 'balloons', <BulbOutlined />, [
     getItem('14 февраля', 'b_valentine'),
     getItem('Для него', 'b_forhim'),

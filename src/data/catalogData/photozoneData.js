@@ -8,7 +8,6 @@ export const photozoneData = [
     description: 'Описание 3',
     price: 11500,
     image: IMG_32432423,
-    sale: true,
     hit: true,
     count: 1,
   },

@@ -1,11 +1,12 @@
-import { Menu } from 'antd';
+import { ConfigProvider, Menu } from 'antd';
 import { useState } from 'react';
 import { catalogMenuData } from '../../data/catalogMenuData';
+import c from './CatalogMenu.module.scss';
 
 // submenu keys of first level
 const rootSubmenuKeys = ['balloons', 'photozone', 'animation', 'attractions'];
 
-export const CatalogMenu = ({style, handleMenuClick}) => {
+export const CatalogMenu = ({style, handleMenuClick, theme}) => {
   // Only one menu opened logic
   const [openKeys, setOpenKeys] = useState(['hot', 'balloons']);
   const onOpenChange = (keys) => {
@@ -18,14 +19,17 @@ export const CatalogMenu = ({style, handleMenuClick}) => {
   };
 
   return (
-    <Menu
-      onClick={handleMenuClick}
-      style={style}
-      openKeys={openKeys}
-      onOpenChange={onOpenChange}
-      mode="inline"
-      items={catalogMenuData}
-      defaultSelectedKeys={['hot']}
-    />
+    <ConfigProvider theme={theme} >
+      <Menu
+        onClick={handleMenuClick}
+        style={style}
+        openKeys={openKeys}
+        onOpenChange={onOpenChange}
+        mode="inline"
+        items={catalogMenuData}
+        defaultSelectedKeys={['hot']}
+        className={c.menu}
+      />
+    </ConfigProvider>
   )
 };

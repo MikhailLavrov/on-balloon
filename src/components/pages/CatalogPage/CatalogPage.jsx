@@ -36,16 +36,16 @@ export const CatalogPage = () => {
   const filterCatalogData = (data) => {
     return data
       .filter(item => item.category.includes(selectedCategory))
-      .map((item, index) => (
-        item.sale ? (
-          <Badge.Ribbon text="Акция" color="red" key={index}>
+      .map((item) => (
+        item.oldPrice ? (
+          <Badge.Ribbon text="Акция" color="red" key={item.article}>
             <CatalogCard 
               {...item} 
               style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}} 
             />
           </Badge.Ribbon>
         ) : item.hit ? (
-          <Badge.Ribbon text="Хит" color="green" key={index}>
+          <Badge.Ribbon text="Хит" color="green" key={item.article}>
             <CatalogCard 
               {...item} 
               style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}} 
@@ -53,16 +53,13 @@ export const CatalogPage = () => {
           </Badge.Ribbon>
         ) : (
           <CatalogCard 
-            key={index} 
+            key={item.article} 
             {...item} 
             style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}} 
           />
         )
       ));
   };
-  
-  
-  
 
   let catalogItems;
   switch (selectedTopCategory) {
@@ -99,9 +96,17 @@ export const CatalogPage = () => {
           <h2 className={c.catalog__title}>Каталог</h2>
         </div>
         <div className={c.catalog__innerContainer}>
-          <CatalogMenu 
+          <CatalogMenu
             handleMenuClick={onClick}
-            style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}}
+            theme={{
+              components: {
+                Menu: {
+                  itemSelectedColor: 'black',
+                  itemSelectedBg: '#cdcdcd',
+                  fontFamily: 'Tilda Sans, Arial, sans-serif',
+                },
+              },
+            }}
           />
           <div className={c.catalog__content}>
             {catalogItems}
