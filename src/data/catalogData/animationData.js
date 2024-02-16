@@ -3,7 +3,7 @@ import IMG_965664223 from '../../assets/gallery/10 Syaskelevo Village Day 2022 8
 
 export const animationData = [
   {
-    category: ['an_chemical', 'an_crio', 'an_bubbles'],
+    category: ['an_chemical', 'an_crio', 'an_bubbles', 'hot'],
     article: '665542-423',
     title: 'Хим, крио и баблс',
     description: 'Описание 4',

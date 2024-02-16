@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Breadcrumb } from 'antd';
+import { Badge, Breadcrumb } from 'antd';
 import c from './CatalogPage.module.scss';
 import { HomeOutlined } from '@ant-design/icons';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
@@ -25,37 +25,66 @@ const Breadcrumbs = () => (
 );
 
 export const CatalogPage = () => {
-  const [selectedTopCategory, setSelectedTopCategory] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedTopCategory, setSelectedTopCategory] = useState('hot');
+  const [selectedCategory, setSelectedCategory] = useState('hot');
   
   const onClick = (e) => {
     setSelectedTopCategory(e.keyPath[e.keyPath.length - 1]);
     setSelectedCategory(e.key);
   };
 
-  const filterCatalogData = (data, category) => {
-    return data.filter(item => item.category.includes(category)).map((item, index) => (
-      <CatalogCard 
-        key={index} 
-        {...item} 
-        style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}} 
-      />
-    ));
+  const filterCatalogData = (data) => {
+    return data
+      .filter(item => item.category.includes(selectedCategory))
+      .map((item, index) => (
+        item.sale ? (
+          <Badge.Ribbon text="Акция" color="red" key={index}>
+            <CatalogCard 
+              {...item} 
+              style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}} 
+            />
+          </Badge.Ribbon>
+        ) : item.hit ? (
+          <Badge.Ribbon text="Хит" color="green" key={index}>
+            <CatalogCard 
+              {...item} 
+              style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}} 
+            />
+          </Badge.Ribbon>
+        ) : (
+          <CatalogCard 
+            key={index} 
+            {...item} 
+            style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}} 
+          />
+        )
+      ));
   };
+  
+  
+  
 
   let catalogItems;
   switch (selectedTopCategory) {
+    case 'hot':
+      catalogItems = [
+        ...filterCatalogData(balloonsData),
+        ...filterCatalogData(photozoneData),
+        ...filterCatalogData(animationData),
+        ...filterCatalogData(attractionsData)
+      ];
+      break;
     case 'balloons':
-      catalogItems = filterCatalogData(balloonsData, selectedCategory);
+      catalogItems = filterCatalogData(balloonsData);
       break;
     case 'photozone':
-      catalogItems = filterCatalogData(photozoneData, selectedCategory);
+      catalogItems = filterCatalogData(photozoneData);
       break;
     case 'animation':
-      catalogItems = filterCatalogData(animationData, selectedCategory);
+      catalogItems = filterCatalogData(animationData);
       break;
     case 'attractions':
-      catalogItems = filterCatalogData(attractionsData, selectedCategory);
+      catalogItems = filterCatalogData(attractionsData);
       break;
     default:
       catalogItems = null;
