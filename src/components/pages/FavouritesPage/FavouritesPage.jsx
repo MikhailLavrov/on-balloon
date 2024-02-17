@@ -35,7 +35,7 @@ export const FavouritesPage = () => {
         <Breadcrumbs />
         <h1 className={c.favourites__title}>Избранное</h1>
         {favouritesState && favouritesState.length !== 0 && (
-          <div className={c.favourites__favouritesListContainer}>
+          <div className={c.favourites__listContainer}>
             {favouritesList}
           </div>
         )}

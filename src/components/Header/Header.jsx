@@ -61,7 +61,7 @@ export const HeaderComponent = () => {
             </Badge>
               <span>Избранное</span>
             </Link>
-            <Link>
+            <Link to={'/cart'}>
               <Badge count={shoppingCartCountState}>
                 <ShoppingCartOutlined style={{ fontSize: '20px' }} />
               </Badge>
