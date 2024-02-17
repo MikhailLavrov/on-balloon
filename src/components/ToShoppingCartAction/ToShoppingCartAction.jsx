@@ -21,11 +21,11 @@ export const ToShoppingCartAction = ({item, text}) => {
     if (index !== -1) {
       goods = goods.filter((_, i) => i !== index);
       setIsInCart(false); // Устанавливаем в false только для текущего товара
-      dispatch(deleteFromShoppingCart())
+      dispatch(deleteFromShoppingCart(item))
     } else {
       goods.push(item);
       setIsInCart(true); // Устанавливаем в true только для текущего товара
-      dispatch(addToShoppingCart())
+      dispatch(addToShoppingCart(item))
     }
     localStorage.setItem('shoppingCart', JSON.stringify(goods));
   };

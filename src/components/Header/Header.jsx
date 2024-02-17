@@ -13,20 +13,20 @@ import { SocialLinks } from '../SocialLinks/SocialLinks';
 import LOGO_IMG from '../../assets/logo.png';
 import { Badge } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { initFavourite } from '../../redux/favouritesSlice';
+import { initFavourites } from '../../redux/favouritesSlice';
 import { initShoppingCart } from '../../redux/shoppingCartSlice';
 
 export const HeaderComponent = () => {
   const headerRef = useRef(null);
   const dispatch = useDispatch();
-  const favouritesCountState = useSelector(state => state.favourites);
-  const shoppingCartCountState = useSelector(state => state.shoppingCart);
-
+  const favouritesCountState = useSelector(state => state.favourites.count);
+  const shoppingCartCountState = useSelector(state => state.shoppingCart.count);
+  
   useEffect(() => {
     const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites')) || [];
-    dispatch(initFavourite(favoritesFromStorage.length))
+    dispatch(initFavourites(favoritesFromStorage))
     const shoppingCartFromStorage = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-    dispatch(initShoppingCart(shoppingCartFromStorage.length))
+    dispatch(initShoppingCart(shoppingCartFromStorage))
   }, [dispatch]);
 
   return (

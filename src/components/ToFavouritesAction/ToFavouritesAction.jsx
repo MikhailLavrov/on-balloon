@@ -21,11 +21,11 @@ export const ToFavouritesAction = ({item, text}) => {
     if (index !== -1) {
       favorites = favorites.filter((_, i) => i !== index);
       setIsFavorite(false); // Устанавливаем в false только для текущего товара
-      dispatch(deleteFromFavourites())
+      dispatch(deleteFromFavourites(item))
     } else {
       favorites.push(item);
       setIsFavorite(true); // Устанавливаем в true только для текущего товара
-      dispatch(addToFavourites())
+      dispatch(addToFavourites(item))
     }
     localStorage.setItem('favorites', JSON.stringify(favorites));
   };

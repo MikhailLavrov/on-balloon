@@ -2,23 +2,30 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const favouritesSlice = createSlice({
   name: 'favourites',
-  initialState: 0,
+  initialState: { count: 0, items: [] },
   reducers: {
-    initFavourite: (state, action) => {
-      return state = action.payload;
+    initFavourites: (state, action) => {
+      state.count = action.payload.length;
+      state.items = action.payload;
     },
-    addToFavourites: state => {
-      return state + 1;
+    addToFavourites: (state, action) => {
+      state.items.push(action.payload);
+      state.count++;
     },
-    deleteFromFavourites: state => {
-      return state - 1;
+    deleteFromFavourites: (state, action) => {
+      const index = state.items.findIndex(item => item.article === action.payload.article);
+      if (index !== -1) {
+        state.items.splice(index, 1);
+        state.count--;
+      }
     },
   },
 });
 
-export const { initFavourite, addToFavourites, deleteFromFavourites } = favouritesSlice.actions;
+export const { initFavourites, addToFavourites, deleteFromFavourites } = favouritesSlice.actions;
 
 export default favouritesSlice.reducer;
+
 
 
 
