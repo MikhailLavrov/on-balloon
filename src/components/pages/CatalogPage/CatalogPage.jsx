@@ -92,9 +92,7 @@ export const CatalogPage = () => {
     <section className={c.catalog}>
       <div className={`${c.catalog__container} ${c.container}`}>
         <Breadcrumbs />
-        <div className={c.catalog__info}>
-          <h2 className={c.catalog__title}>Каталог</h2>
-        </div>
+        <h2 className={c.catalog__title}>Каталог</h2>
         <div className={c.catalog__innerContainer}>
           <CatalogMenu
             handleMenuClick={onClick}

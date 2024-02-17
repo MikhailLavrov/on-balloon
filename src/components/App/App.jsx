@@ -2,6 +2,7 @@ import { LayoutComponent } from '../Layout/Layout';
 import { Route, Routes } from 'react-router-dom';
 import { GalleryPage } from '../pages/GalleryPage/GalleryPage';
 import { CatalogPage } from '../pages/CatalogPage/CatalogPage';
+import { FavouritesPage } from '../pages/FavouritesPage/FavouritesPage';
 import { Hero } from '../pages/MainPage/Hero/Hero';
 import { Advantages } from '../Advantages/Advantages';
 import { GallerySection } from '../pages/MainPage/GallerySection/GallerySection';
@@ -28,6 +29,7 @@ export const App = () => {
         <Route index element={<MainPage />} />
         <Route path="gallery" element={<GalleryPage />} />
         <Route path="catalog" element={<CatalogPage />} />
+        <Route path="favourites" element={<FavouritesPage />} />
       </Route>
     </Routes>
   );

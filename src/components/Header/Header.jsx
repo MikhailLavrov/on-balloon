@@ -55,7 +55,7 @@ export const HeaderComponent = () => {
           <CatalogLink />
           <SearchComponent className={c.searchComponent} />
           <div className={c.header__mainControls}>
-            <Link>
+            <Link to={'/favourites'}>
             <Badge count={favouritesCountState}>
               <HeartOutlined style={{ fontSize: '20px' }} />
             </Badge>
