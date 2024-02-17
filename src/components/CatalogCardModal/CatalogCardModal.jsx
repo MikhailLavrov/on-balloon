@@ -1,12 +1,14 @@
 import React from 'react';
 import c from './CatalogCardModal.module.scss';
 import { Link } from 'react-router-dom';
-import { Badge, Button, ConfigProvider, Modal, Tabs } from 'antd';
+import { Badge, ConfigProvider, Modal, Tabs } from 'antd';
 import LOGO_IMG from '../../assets/logo.png';
-import { HeartOutlined, ReadOutlined, ShoppingCartOutlined, TruckOutlined } from '@ant-design/icons';
+import { ReadOutlined, ShoppingCartOutlined, TruckOutlined } from '@ant-design/icons';
 import { personalData } from '../../data/personalData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { termsData } from '../../data/termsData';
+import { ToFavouritesAction } from '../ToFavouritesAction/ToFavouritesAction';
+import { ToShoppingCartAction } from '../ToShoppingCartAction/ToShoppingCartAction';
 
 const {delivery, payment} = termsData;
 
@@ -72,8 +74,8 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen}) => {
             : <div className={c.cardModal__inStockWrapper}><Badge status="warning" /><span className={c.cardModal__inStock}>Доступно для заказа</span></div>}
             <div className={c.cardModal__userActions}>
               <div className={c.cardModal__userActionsInner}>
-                <Button>В избранное <HeartOutlined /></Button>
-                <Button>В корзину <ShoppingCartOutlined /></Button>
+                <ToFavouritesAction item={item} text />
+                <ToShoppingCartAction item={item} text />
               </div>
               <div className={c.cardModal__userActionsOuter}>
                 <p className={c.cardModal__userActionsOuterNotation}>Задать вопрос:</p>

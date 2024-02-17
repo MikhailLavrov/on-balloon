@@ -1,5 +1,5 @@
 import c from './Header.module.scss';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { HeartOutlined, UserOutlined, ShoppingCartOutlined, MobileOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import CallMeBackModal from '../CallMeBackModal/CallMeBackModal';
@@ -12,9 +12,22 @@ import { personalData } from '../../data/personalData';
 import { SocialLinks } from '../SocialLinks/SocialLinks';
 import LOGO_IMG from '../../assets/logo.png';
 import { Badge } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { initFavourite } from '../../redux/favouritesSlice';
+import { initShoppingCart } from '../../redux/shoppingCartSlice';
 
 export const HeaderComponent = () => {
   const headerRef = useRef(null);
+  const dispatch = useDispatch();
+  const favouritesCountState = useSelector(state => state.favourites);
+  const shoppingCartCountState = useSelector(state => state.shoppingCart);
+
+  useEffect(() => {
+    const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites')) || [];
+    dispatch(initFavourite(favoritesFromStorage.length))
+    const shoppingCartFromStorage = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    dispatch(initShoppingCart(shoppingCartFromStorage.length))
+  }, [dispatch]);
 
   return (
     <header className={c.header}>
@@ -43,13 +56,13 @@ export const HeaderComponent = () => {
           <SearchComponent className={c.searchComponent} />
           <div className={c.header__mainControls}>
             <Link>
-            <Badge count={0}>
+            <Badge count={favouritesCountState}>
               <HeartOutlined style={{ fontSize: '20px' }} />
             </Badge>
               <span>Избранное</span>
             </Link>
             <Link>
-              <Badge count={0}>
+              <Badge count={shoppingCartCountState}>
                 <ShoppingCartOutlined style={{ fontSize: '20px' }} />
               </Badge>
               <span>Корзина</span>
