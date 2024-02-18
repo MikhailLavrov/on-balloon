@@ -62,6 +62,9 @@ export const SearchResultsPage = () => {
             image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
             imageStyle={{
               height: 200,
+              marginTop: 30,
+              display: 'flex',
+              justifyContent: 'center',
             }}
             description={<span>По вашему запросу ничего не найдено</span>}
           />

@@ -8,6 +8,7 @@ import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { CatalogMenu } from './CatalogMenu/CatalogMenu';
+import { useSelector } from 'react-redux';
 
 const Breadcrumbs = () => (
   <Breadcrumb
@@ -25,8 +26,11 @@ const Breadcrumbs = () => (
 );
 
 export const CatalogPage = () => {
+  const currentCollectionState = useSelector(state => state.collectionsNav.currentCollection);
   const [selectedTopCategory, setSelectedTopCategory] = useState('hot');
   const [selectedCategory, setSelectedCategory] = useState('hot');
+
+  console.log(currentCollectionState); 
   
   const onClick = (e) => {
     setSelectedTopCategory(e.keyPath[e.keyPath.length - 1]);

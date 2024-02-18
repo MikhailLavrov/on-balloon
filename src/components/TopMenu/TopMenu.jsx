@@ -1,10 +1,9 @@
 import { Menu, ConfigProvider } from 'antd';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setCurrentMenu } from '../../redux/menuNavSlice';
 import { topMenuData } from '../../data/topMenuData';
 
 export const TopMenu = () => {
-  const currentMenu = useSelector(state => state.menuNav.currentMenu);
   const dispatch = useDispatch();
 
   const onClick = (e) => {
@@ -24,7 +23,7 @@ export const TopMenu = () => {
     <ConfigProvider theme={theme}>
       <Menu
         onClick={onClick}
-        selectedKeys={[currentMenu]}
+        selectedKeys={''}
         mode="horizontal"
         items={topMenuData}
         style={{

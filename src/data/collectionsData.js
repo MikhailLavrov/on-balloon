@@ -5,23 +5,27 @@ import IMG_PHOTOZONE from '../assets/hero/collections/photozone.webp';
 
 export const collectionsData = [
   {
-    title: "Воздушные шары",
-    link: "",
+    label: 'Воздушные шары',
+    key: 'balloons',
     image: IMG_BALLOONS,
+    link: '/catalog',
   },
   {
-    title: "Фотозоны",
-    link: "",
+    label: 'Фотозоны',
+    key: 'photozone',
     image: IMG_PHOTOZONE,
+    link: '/catalog',
   },
   {
-    title: "Аниматоры и шоу",
-    link: "",
+    label: 'Аниматоры и шоу',
+    key: 'animation',
     image: IMG_ANIMATION,
+    link: '/catalog',
   },
   {
-    title: "Аттракционы и оборудование",
-    link: "",
+    label: 'Аттракционы и оборудование',
+    key: 'attractions',
     image: IMG_ATTRACTIONS,
+    link: '/catalog',
   },
 ]
