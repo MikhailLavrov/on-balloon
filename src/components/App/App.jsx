@@ -10,6 +10,7 @@ import { GallerySection } from '../pages/MainPage/GallerySection/GallerySection'
 import { Feedback } from '../Feedback/Feedback';
 import { FloatButton } from 'antd';
 import { ArrowUpOutlined } from '@ant-design/icons';
+import { SearchResultsPage } from '../pages/SearchResultsPage/SearchResultsPage';
 
 const MainPage = () => {
   return (
@@ -32,6 +33,7 @@ export const App = () => {
         <Route path="catalog" element={<CatalogPage />} />
         <Route path="favourites" element={<FavouritesPage />} />
         <Route path="cart" element={<ShoppingCartPage />} />
+        <Route path="search" element={<SearchResultsPage />} />
       </Route>
     </Routes>
   );

@@ -10,6 +10,7 @@
   aspect-ratio: 1/1;
   box-shadow: 0 0 0 1px $color-2-grey inset;
   border-radius: 5px;
+  cursor: pointer;
   
   &:hover {
     color: $base-dark-color;

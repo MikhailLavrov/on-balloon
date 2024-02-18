@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import c from './CatalogCard.module.scss';
-import { Link } from 'react-router-dom';
 import { CatalogCardModal } from '../CatalogCardModal/CatalogCardModal';
 
 export const CatalogCard = ({...item}) => {
@@ -14,7 +13,7 @@ export const CatalogCard = ({...item}) => {
 
   return (
     <>
-      <Link className={c.catalogCard} onClick={showModal}>
+      <div className={c.catalogCard} onClick={showModal}>
         <div className={c.catalogCard__imageWrapper}>
           <img src={image} width={200} alt={title} />
         </div>
@@ -27,7 +26,7 @@ export const CatalogCard = ({...item}) => {
             <p className={c.catalogCard__title}>{title}</p>
           </div>
         </div>
-      </Link>
+      </div>
       <CatalogCardModal item={item} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </>
 )};

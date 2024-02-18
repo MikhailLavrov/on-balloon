@@ -1,0 +1,36 @@
+@import '../../../styles/vars.scss';
+@import '../../../styles/mixins.scss';
+
+.searchResults {
+  min-height: 100%;
+  
+  text-align: start;
+  font-family: $ff-tilda;
+
+  background-color: $base-light-color;
+  
+  @include vp-1260 {
+    padding: 20px 0;
+  }
+}
+
+.searchResults__title {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  
+  font-size: $fz-m;
+  font-weight: 600;
+  text-align: center;
+
+  @include vp-1260 {
+    margin-bottom: 15px;
+
+    font-size: $fz-l;
+  }
+}
+
+.searchResults__innerContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
