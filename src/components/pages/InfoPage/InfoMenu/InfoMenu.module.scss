@@ -1,0 +1,17 @@
+@import '../../../../styles/vars.scss';
+@import '../../../../styles/mixins.scss';
+
+.menu {
+  & li {
+
+    & svg {
+      transition: all 200ms ease-in-out;
+    }
+
+    &:hover {
+      & svg {
+        color: $color-6-red;
+      }
+    }
+  }
+}

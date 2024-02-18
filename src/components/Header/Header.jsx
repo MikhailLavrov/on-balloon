@@ -55,19 +55,19 @@ export const HeaderComponent = () => {
           <CatalogLink />
           <SearchComponent className={c.searchComponent} />
           <div className={c.header__mainControls}>
-            <Link to={'/favourites'}>
+            <Link to={'/favourites'} title='Перейти в избранное'>
             <Badge count={favouritesCountState}>
               <HeartOutlined style={{ fontSize: '20px' }} />
             </Badge>
               <span>Избранное</span>
             </Link>
-            <Link to={'/cart'}>
+            <Link to={'/cart'} title='Перейти в корзину'>
               <Badge count={shoppingCartCountState}>
                 <ShoppingCartOutlined style={{ fontSize: '20px' }} />
               </Badge>
               <span>Корзина</span>
             </Link>
-            <Link>
+            <Link disabled style={{opacity: '0.3'}}>
               <UserOutlined style={{ fontSize: '20px' }} />
               <span>Войти</span>
             </Link>

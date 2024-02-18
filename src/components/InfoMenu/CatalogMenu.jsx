@@ -1,6 +1,6 @@
 import { ConfigProvider, Menu } from 'antd';
 import { useState } from 'react';
-import { catalogMenuData } from '../../data/catalogMenuData';
+import { catalogMenuData } from '../../../../data/catalogMenuData';
 import c from './CatalogMenu.module.scss';
 
 // submenu keys of first level

@@ -11,6 +11,7 @@ import { Feedback } from '../Feedback/Feedback';
 import { FloatButton } from 'antd';
 import { ArrowUpOutlined } from '@ant-design/icons';
 import { SearchResultsPage } from '../pages/SearchResultsPage/SearchResultsPage';
+import { InfoPage } from '../pages/InfoPage/InfoPage';
 
 const MainPage = () => {
   return (
@@ -34,6 +35,7 @@ export const App = () => {
         <Route path="favourites" element={<FavouritesPage />} />
         <Route path="cart" element={<ShoppingCartPage />} />
         <Route path="search" element={<SearchResultsPage />} />
+        <Route path="info" element={<InfoPage />} />
       </Route>
     </Routes>
   );

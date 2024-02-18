@@ -12,6 +12,9 @@ function getItem(label, key, icon, children, type) {
 
 export const catalogMenuData = [
   getItem('Супер акция', 'hot', <FireFilled style={{color: 'red'}} />),
+  {
+    type: 'divider',
+  },
   getItem('Воздушные шары', 'balloons', <BulbOutlined />, [
     getItem('14 февраля', 'b_valentine'),
     getItem('Для него', 'b_forhim'),

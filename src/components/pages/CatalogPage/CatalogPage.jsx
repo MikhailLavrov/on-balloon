@@ -7,7 +7,7 @@ import { animationData } from '../../../data/catalogData/animationData';
 import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
-import { CatalogMenu } from '../../CatalogMenu/CatalogMenu';
+import { CatalogMenu } from './CatalogMenu/CatalogMenu';
 
 const Breadcrumbs = () => (
   <Breadcrumb
@@ -90,7 +90,7 @@ export const CatalogPage = () => {
 
   return (
     <section className={c.catalog}>
-      <div className={`${c.catalog__container} ${c.container}`}>
+      <div className={`${c.catalog__container} container`}>
         <Breadcrumbs />
         <h2 className={c.catalog__title}>Каталог</h2>
         <div className={c.catalog__innerContainer}>
