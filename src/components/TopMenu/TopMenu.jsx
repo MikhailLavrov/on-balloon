@@ -1,13 +1,16 @@
-import { useState } from 'react';
 import { Menu, ConfigProvider } from 'antd';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentMenu } from '../../redux/menuNavSlice';
 import { topMenuData } from '../../data/topMenuData';
 
 export const TopMenu = () => {
-  const [current, setCurrent] = useState('mail');
+  const currentMenu = useSelector(state => state.menuNav.currentMenu);
+  const dispatch = useDispatch();
+
   const onClick = (e) => {
-    console.log('click ', e);
-    setCurrent(e.key);
+    dispatch(setCurrentMenu({ currentTopMenu: e.keyPath[e.keyPath.length - 1], currentMenu: e.key }));
   };
+  
   const theme = {
     token: {
       colorPrimary: '#f83939',
@@ -19,15 +22,15 @@ export const TopMenu = () => {
 
   return (
     <ConfigProvider theme={theme}>
-      <Menu 
+      <Menu
         onClick={onClick}
-        selectedKeys={[current]}
+        selectedKeys={[currentMenu]}
         mode="horizontal"
         items={topMenuData}
         style={{
           backgroundColor: "transparent",
         }}
-        />
+      />
     </ConfigProvider>
   )
 }

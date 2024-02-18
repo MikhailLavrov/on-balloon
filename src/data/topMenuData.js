@@ -1,9 +1,10 @@
 import { CaretDownOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 export const topMenuData = [
   {
     label: 'О компании',
-    key: 'about',
+    key: 'aboutcompany',
     style: {
       fontSize: '15px',
       padding: '0 10px',
@@ -11,28 +12,28 @@ export const topMenuData = [
     icon: <CaretDownOutlined />,
     children: [
       {
-        label: 'Новости',
+        label: <Link to="/info">Новости</Link>,
         key: 'news',
         style: {
           fontSize: '15px',
           },
       },
       {
-        label: 'Сотрудничество',
+        label: <Link to="/info">Сотрудничество</Link>,
         key: 'cooperation',
         style: {
           fontSize: '15px',
           },
       },
       {
-        label: 'Рассылка',
+        label: <Link to="/info">Рассылка</Link>,
         key: 'distribution',
         style: {
           fontSize: '15px',
           },
       },
       {
-        label: 'О нас',
+        label: <Link to="/info">О нас</Link>,
         key: 'aboutus',
         style: {
           fontSize: '15px',
@@ -42,7 +43,7 @@ export const topMenuData = [
   },
   {
     label: 'Клиентам',
-    key: 'clients',
+    key: 'forclients',
     style: {
       fontSize: '15px',
       padding: '0 10px',
@@ -50,14 +51,14 @@ export const topMenuData = [
     icon: <CaretDownOutlined />,
     children: [
       {
-        label: 'Политика конфиденциальности',
+        label: <Link to="/info">Политика конфиденциальности</Link>,
         key: 'confidence',
         style: {
           fontSize: '15px',
           },
       },
       {
-        label: 'Пользовательское соглашение',
+        label: <Link to="/info">Пользовательское соглашение</Link>,
         key: 'agreement',
         style: {
           fontSize: '15px',
@@ -67,7 +68,7 @@ export const topMenuData = [
   },
   {
     label: 'Доставка и оплата',
-    key: 'delivery',
+    key: 'shipping',
     style: {
       fontSize: '15px',
       padding: '0 10px',
@@ -75,29 +76,29 @@ export const topMenuData = [
     icon: <CaretDownOutlined />,
     children: [
       {
-        label: 'СПб и ЛО',
-        key: 'spblo',
+        label: <Link to="/info">СПб и ЛО</Link>,
+        key: 'spbilo',
         style: {
           fontSize: '15px',
           },
       },
       {
-        label: 'Самовывоз',
+        label: <Link to="/info">Самовывоз</Link>,
         key: 'pickup',
         style: {
           fontSize: '15px',
           },
       },
       {
-        label: 'Условия бесплатной доставки',
-        key: 'freedelivery',
+        label: <Link to="/info">Бесплатная доставка</Link>,
+        key: 'freeshipping',
         style: {
           fontSize: '15px',
           },
       },
       {
-        label: 'Способы оплаты',
-        key: 'payment',
+        label: <Link to="/info">Способы оплаты</Link>,
+        key: 'paymethods',
         style: {
           fontSize: '15px',
           },

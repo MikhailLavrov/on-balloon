@@ -3,7 +3,9 @@ import { InfoMenu } from './InfoMenu/InfoMenu';
 import { Breadcrumb } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
 import { infoData } from '../../../data/infoData';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentMenu } from '../../../redux/menuNavSlice';
 
 const Breadcrumbs = () => (
   <Breadcrumb
@@ -21,13 +23,20 @@ const Breadcrumbs = () => (
 );
 
 export const InfoPage = () => {
-  const [selectedTopCategory, setSelectedTopCategory] = useState('aboutcompany');
-  const [selectedCategory, setSelectedCategory] = useState('news');
-
+  const currentTopMenu = useSelector(state => state.menuNav.currentTopMenu);
+  const currentMenu = useSelector(state => state.menuNav.currentMenu);
+  const [selectedTopCategory, setSelectedTopCategory] = useState(currentTopMenu);
+  const [selectedCategory, setSelectedCategory] = useState(currentMenu);
+  const dispatch = useDispatch();
+  
   const onClick = (e) => {
-    setSelectedTopCategory(e.keyPath[1]);
+    setSelectedTopCategory(e.keyPath[e.keyPath.length - 1]);
     setSelectedCategory(e.key);
   };
+
+  useEffect(() => {
+    dispatch(setCurrentMenu({ currentTopMenu: selectedTopCategory, currentMenu: selectedCategory }));
+  }, [dispatch, selectedCategory, selectedTopCategory])
 
   const infoItems = selectedCategory ? infoData[selectedTopCategory].filter(item => item.key === selectedCategory) : [];
 
