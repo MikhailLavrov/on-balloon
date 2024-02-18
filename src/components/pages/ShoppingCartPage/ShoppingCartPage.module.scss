@@ -88,3 +88,21 @@
     background-color: $base-light-color;
   }
 }
+
+.shoppingCart__footer {
+  padding: 10px 50px;
+  text-align: right;
+}
+
+.shoppingCart__totalDescription {
+  margin-bottom: 30px;
+
+  font-size: $fz-m;
+}
+
+.shoppingCart__checkoutLink {
+  background-color: $color-6-red;
+
+  color: $base-light-color;
+  font-family: $ff-tilda;
+}

@@ -1,4 +1,4 @@
-import { Image, FloatButton, Breadcrumb } from 'antd';
+import { Image, FloatButton, Breadcrumb, ConfigProvider } from 'antd';
 import c from './GalleryPage.module.scss';
 import '../../../styles/global.scss';
 import { ArrowUpOutlined, HomeOutlined } from '@ant-design/icons';
@@ -36,9 +36,17 @@ export const GalleryPage = () => (
         <p className={c.gallery__subtitle}>Делимся событиями, в которых принимали непосредственное участие, создавая ту самую торжественную атмосферу.</p>
       </div>
       <div className={c.gallery__content}>
-        <Image.PreviewGroup rootClassName='rootImg' >
+        <ConfigProvider
+          theme={{
+            token: {
+              colorBgMask: 'rgba(0, 0, 0, 0.85)'
+            },
+          }}
+        >
+        <Image.PreviewGroup rootClassName='rootImg' movable='false' >
           {galleryImages}
         </Image.PreviewGroup>
+        </ConfigProvider>
       </div>
       <FloatButton.BackTop icon={<ArrowUpOutlined />} />
     </div>
