@@ -16,7 +16,7 @@ export const InfoMenu = ({style, handleMenuClick, theme}) => {
 
   // Get the first key from infoMenuData
   const defaultKey = infoMenuData.length > 0 ? infoMenuData[0].children[0].key : null;
-
+  
   return (
     <ConfigProvider theme={theme} >
       <Menu

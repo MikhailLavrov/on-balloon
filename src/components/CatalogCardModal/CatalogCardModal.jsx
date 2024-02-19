@@ -68,7 +68,7 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen}) => {
                 {hit && <span style={{backgroundColor: 'rgb(77, 182, 40)'}}>Хит</span>}
               </div>
             </div>
-            <p className={c.cardModal__article}>Артикул: {article}</p>
+            <p className={c.cardModal__article}>Артикул: {article}, {count}</p>
             {count>=1 ? 
               <div className={c.cardModal__inStockWrapper}><Badge status="success" /><span className={c.cardModal__inStock}>Есть в наличии</span></div> 
             : <div className={c.cardModal__inStockWrapper}><Badge status="warning" /><span className={c.cardModal__inStock}>Доступно для заказа</span></div>}

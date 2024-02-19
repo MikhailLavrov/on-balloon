@@ -23,10 +23,10 @@ const Breadcrumbs = () => (
 );
 
 export const InfoPage = () => {
-  const currentTopMenu = useSelector(state => state.menuNav.currentTopMenu);
-  const currentMenu = useSelector(state => state.menuNav.currentMenu);
-  const [selectedTopCategory, setSelectedTopCategory] = useState(currentTopMenu);
-  const [selectedCategory, setSelectedCategory] = useState(currentMenu);
+  const currentTopMenuState = useSelector(state => state.menuNav.currentTopMenu);
+  const currentMenuState = useSelector(state => state.menuNav.currentMenu);
+  const [selectedTopCategory, setSelectedTopCategory] = useState(currentTopMenuState);
+  const [selectedCategory, setSelectedCategory] = useState(currentMenuState);
   const dispatch = useDispatch();
   
   const onClick = (e) => {

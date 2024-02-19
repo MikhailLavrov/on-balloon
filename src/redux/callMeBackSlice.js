@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const callMeBackSlice = createSlice({
   name: 'callMeBack',
   initialState: {
-    submitted: false
+    submitted: false,
   },
   reducers: {
     callMeBackSubmit: (state, action) => {
