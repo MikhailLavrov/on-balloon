@@ -1,5 +1,6 @@
 import { HeaderComponent } from '../Header/Header';
 import { FooterComponent } from '../Footer/Footer';
+import { MobileNavigation } from '../MobileNavigation/MobileNavigation';
 import { Outlet } from 'react-router-dom';
 import { Layout } from 'antd';
 import c from './Layout.module.scss';
@@ -15,6 +16,7 @@ export const LayoutComponent = () => {
         <Outlet />
       </Content>
       <FooterComponent />
+      <MobileNavigation />
     </Layout>
   );
 }
