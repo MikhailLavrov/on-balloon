@@ -3,11 +3,11 @@ import { createSlice } from '@reduxjs/toolkit'
 export const callMeBackSlice = createSlice({
   name: 'callMeBack',
   initialState: {
-    submitted: false,
+    isSubmitted: false,
   },
   reducers: {
     callMeBackSubmit: (state, action) => {
-      state.submitted = action.payload
+      state.isSubmitted = action.payload
     },
   }
 })

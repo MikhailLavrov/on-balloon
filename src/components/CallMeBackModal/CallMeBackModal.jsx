@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'antd';
 import c from './CallMeBackModal.module.scss';
 import { CallbackForm } from '../CallbackForm/CallbackForm';
@@ -6,30 +6,45 @@ import { useSelector } from 'react-redux';
 
 const CallMeBackModal = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const submitted = useSelector((state) => state.submitted);
-  
+  const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted);
+
   useEffect(() => {
-    if (submitted) {
+    if (isSubmittedState) {
       setModalOpen(false);
     }
-  }, [submitted]);
+  }, [isSubmittedState]);
+
+  const handleModalOpen = () => {
+    setModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
 
   return (
     <>
-      <Button type="button" onClick={() => setModalOpen(true)} className={c.callMeBack__button}>
+      <Button type="button" onClick={handleModalOpen} className={c.callMeBack__button}>
         Обратный звонок
       </Button>
       <Modal
+        className={c.callMeBack__modal}
         title="Мы вам перезвоним"
         centered
         footer={null}
         open={modalOpen}
-        onOk={() => setModalOpen(false)}
-        onCancel={() => setModalOpen(false)}
+        onCancel={handleModalClose}
       >
+        {isSubmittedState && (
+          <div className={c.callMeBack__submitCover}>
+            <h2 className={c.callMeBack__submitTitle}>Заявка отправлена!</h2>
+            <p className={c.callMeBack__submitSubtitle}>Мы вам перезвоним</p>
+          </div>
+        )}
         <CallbackForm className={c.callMeBack__form} />
       </Modal>
     </>
   );
 };
+
 export default CallMeBackModal;

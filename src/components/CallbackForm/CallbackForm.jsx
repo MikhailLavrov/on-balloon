@@ -3,7 +3,7 @@ import { notification } from 'antd';
 import { useEffect, useState } from 'react';
 import { MaskedPhoneInput } from '../../utils/MaskedPhoneInput';
 import { callMeBackSubmit } from '../../redux/callMeBackSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const openNotification = () => {
   notification.open({
@@ -13,21 +13,12 @@ const openNotification = () => {
 };
 
 export const CallbackForm = (props) => {
-  const [submitted, setSubmitted] = useState(false);
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    const isSubmitted = sessionStorage.getItem('submitted');
-  
-    if (isSubmitted === 'true') {
-      setSubmitted(true);
-    }
-  }, []);
+  const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted)
+  const dispatch = useDispatch();
   
   const onSubmitHandler = () => {
-    setSubmitted(true);
-    sessionStorage.setItem('submitted', 'true');
-    dispatch(callMeBackSubmit(true))
+    dispatch(callMeBackSubmit(true));
+    sessionStorage.setItem('submitted', 'true'); // Сохраняем значение в сессионное хранилище
     openNotification()
   }
   
@@ -35,8 +26,7 @@ export const CallbackForm = (props) => {
     <>
       <iframe name="hidden_iframe" id="hidden_iframe" title='gFormIframe' style={{display: 'none'}} 
         onLoad={() => {
-          if (submitted) {
-            // openNotification()
+          if (isSubmittedState) {
           } 
         }}
         >
@@ -52,7 +42,7 @@ export const CallbackForm = (props) => {
         <input name={personalData.gFormsFeedback.nameEntry} id='name' type="text" required maxLength={50} placeholder='Ваше имя' />
         <label htmlFor='phone'>Телефон</label>
         <MaskedPhoneInput phoneEntry={personalData.gFormsFeedback.phoneEntry} />
-        <input type="submit" value={submitted ? "Данные отправлены" : "Отправить"} disabled={submitted} />
+        <input type="submit" value={isSubmittedState ? "Данные отправлены" : "Отправить"} disabled={isSubmittedState} />
       </form>
     </>
   )

@@ -44,3 +44,29 @@
     }
   }
 }
+
+.callMeBack__modal {
+  position: relative;
+}
+
+.callMeBack__submitCover {
+  position: absolute;
+  z-index: 1;
+  background-color: $base-light-color;
+  width: 90%;
+  height: 90%;
+  top: 1%;
+  left: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// .callMeBack__submitTitle {
+
+// }
+
+// .callMeBack__submitSubtitle {
+
+// }
