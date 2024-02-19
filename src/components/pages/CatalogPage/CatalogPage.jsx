@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Badge, Breadcrumb } from 'antd';
 import c from './CatalogPage.module.scss';
 import { HomeOutlined } from '@ant-design/icons';
@@ -9,6 +9,7 @@ import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { CatalogMenu } from './CatalogMenu/CatalogMenu';
 import { useSelector } from 'react-redux';
+import { catalogMenuData } from '../../../data/catalogMenuData';
 
 const Breadcrumbs = () => (
   <Breadcrumb
@@ -26,12 +27,28 @@ const Breadcrumbs = () => (
 );
 
 export const CatalogPage = () => {
-  const currentCollectionState = useSelector(state => state.collectionsNav.currentCollection);
-  const [selectedTopCategory, setSelectedTopCategory] = useState('hot');
-  const [selectedCategory, setSelectedCategory] = useState('hot');
-
-  console.log(currentCollectionState); 
+  const currentTopCollectionState = useSelector(state => state.collectionsNav.currentCollection);
   
+  const [selectedTopCategory, setSelectedTopCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+
+  useEffect(() => {
+    if (currentTopCollectionState && currentTopCollectionState !== '') {
+      setSelectedTopCategory(currentTopCollectionState);
+      
+      // Найдем подраздел в меню, соответствующий текущей топовой категории
+      const topLevelCategory = catalogMenuData.find(item => item.key === currentTopCollectionState);
+      if (topLevelCategory) {
+        // Установим первый подраздел в качестве выбранной категории
+        setSelectedCategory(topLevelCategory.children?.[0]?.key || '');
+      }
+    } else {
+      setSelectedTopCategory(catalogMenuData[0].key || '');
+      setSelectedCategory(catalogMenuData[0].key || ''); // Установим первый подраздел первой категории по умолчанию
+    }
+  }, [currentTopCollectionState, setSelectedTopCategory, setSelectedCategory]);
+  
+
   const onClick = (e) => {
     setSelectedTopCategory(e.keyPath[e.keyPath.length - 1]);
     setSelectedCategory(e.key);
@@ -43,24 +60,14 @@ export const CatalogPage = () => {
       .map((item) => (
         item.oldPrice ? (
           <Badge.Ribbon text="Акция" color="red" key={item.article}>
-            <CatalogCard 
-              {...item} 
-              style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}} 
-            />
+            <CatalogCard {...item} />
           </Badge.Ribbon>
         ) : item.hit ? (
           <Badge.Ribbon text="Хит" color="green" key={item.article}>
-            <CatalogCard 
-              {...item} 
-              style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}} 
-            />
+            <CatalogCard {...item} />
           </Badge.Ribbon>
         ) : (
-          <CatalogCard 
-            key={item.article} 
-            {...item} 
-            style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}} 
-          />
+          <CatalogCard key={item.article} {...item} />
         )
       ));
   };

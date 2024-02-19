@@ -11,14 +11,14 @@ import { useDispatch } from 'react-redux';
 const CollectionsTiles = () => {
   const dispatch = useDispatch();
 
-  const onClickHandler = (key) => {
-    dispatch(setCurrentCollection(key))
+  const onClickHandler = (tile) => {
+    dispatch(setCurrentCollection(tile.key));
   }
 
   const collection = collectionsData.map((tile, index) => {
     return (
       <div className={c.hero__collectionsCard} key={index}>
-        <Link to={tile.link} className={c.hero__collectionsLink} onClick={() => onClickHandler(tile.key)}>
+        <Link to={tile.link} className={c.hero__collectionsLink} onClick={() => onClickHandler(tile)}>
           <p className={c.hero__collectionsTitle}>{tile.label}</p>
           <div className={c.hero__collectionsImageWrapper}>
             <img className={c.hero__collectionsImage} src={tile.image} alt={tile.label} />
@@ -31,18 +31,6 @@ const CollectionsTiles = () => {
   return collection;
 } 
 
-// const CollectionsTiles = collectionsData.map((tile, index) => {
-//   return (
-//   <div className={c.hero__collectionsCard} key={index}>
-//     <Link to={tile.link} className={c.hero__collectionsLink}>
-//       <p className={c.hero__collectionsTitle}>{tile.label}</p>
-//       <div className={c.hero__collectionsImageWrapper}>
-//         <img className={c.hero__collectionsImage} src={tile.image} alt={tile.label} />
-//       </div>
-//     </Link>
-//   </div>
-//   )
-// })
 
 const HeroSlides = heroData.map((card, index) => (
   <SwiperSlide key={index} className={c.hero__slide}>
