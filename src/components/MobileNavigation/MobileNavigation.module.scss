@@ -42,8 +42,10 @@
   font-weight: 600;
   line-height: 2;
   color: $base-dark-color;
+
+  &.active {
+  color: $color-6-red;
+}
 }
 
-.mobileNavigation__linkIcon {
-  font-size: 20px;
-}
+

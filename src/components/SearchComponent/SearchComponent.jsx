@@ -9,8 +9,13 @@ const SearchComponent = ({ className }) => {
   const [searchValue, setSearchValue] = useState('');
 
   const onSearch = (value, _e, info) => {
-    navigate(`/search?q=${encodeURIComponent(value)}`);
-    setSearchValue('');
+    if (value.trim() !== '') {
+      navigate(`/search?q=${encodeURIComponent(value)}`);
+      setSearchValue('');
+    } else {
+      // Вывод сообщения об ошибке или какие-то другие действия при пустом поле
+      console.log('Введите значение для поиска');
+    }
   };
 
   return (
@@ -26,10 +31,11 @@ const SearchComponent = ({ className }) => {
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
         placeholder="Введите название или артикул"
-        onSearch={onSearch}
         maxLength={50}
         size={'large'}
         enterButton
+        required // Добавляем атрибут required
+        onSearch={onSearch}
       />
     </ConfigProvider>
   );

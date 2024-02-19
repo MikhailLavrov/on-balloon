@@ -15,7 +15,12 @@ const MobileSearch = () => {
   return (
     <div className={c.mobileSearch}>
       <div>
-        <Button type="button" onClick={showDrawer} className={c.searchButton} icon={<SearchOutlined />} />
+        <Button 
+          type="button" 
+          onClick={showDrawer} 
+          className={c.searchButton} 
+          icon={<SearchOutlined style={{fontSize: '20px'}} />} 
+        />
       </div>
       <Drawer
         title="Поиск"

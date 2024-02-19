@@ -1,27 +1,34 @@
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import c from './MobileNavigation.module.scss';
-import { AlignLeftOutlined, EnvironmentOutlined, HeartOutlined, HomeOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { mobileNavigationData } from '../../data/mobileNavigationData';
 
 export const MobileNavigation = () => {
+  const location = useLocation();
+  const [currentItem, setCurrentItem] = useState(null);
+
+  useEffect(() => {
+    const foundItem = mobileNavigationData.find(item => item.link === location.pathname);
+    setCurrentItem(foundItem);
+  }, [location]);
+
+  const navigationItems = mobileNavigationData.map(item => {
+    const isActive = currentItem && currentItem.link === item.link;
+
+    return (
+      <div className={c.mobileNavigation__linkWrapper} key={item.link}>
+        <Link to={item.link} className={`${c.mobileNavigation__link}  ${isActive ? c.active : ''}`}>
+          {item.icon} {item.title}
+        </Link>
+      </div>
+    );
+  });
+
   return (
     <div className={c.mobileNavigation}>
       <div className={c.mobileNavigation__container}>
-        <div className={c.mobileNavigation__linkWrapper}>
-          <Link className={c.mobileNavigation__link}><HomeOutlined className={c.mobileNavigation__linkIcon} /> Главная</Link>
-        </div>
-        <div className={c.mobileNavigation__linkWrapper}>
-          <Link className={c.mobileNavigation__link}><AlignLeftOutlined className={c.mobileNavigation__linkIcon} /> Каталог</Link>
-        </div>
-        <div className={c.mobileNavigation__linkWrapper}>
-          <Link className={c.mobileNavigation__link}><ShoppingCartOutlined className={c.mobileNavigation__linkIcon} /> Корзина</Link>
-        </div>
-        <div className={c.mobileNavigation__linkWrapper}>
-          <Link className={c.mobileNavigation__link}><HeartOutlined className={c.mobileNavigation__linkIcon} /> Избранное</Link>
-        </div>
-        <div className={c.mobileNavigation__linkWrapper}>
-          <Link className={c.mobileNavigation__link}><EnvironmentOutlined className={c.mobileNavigation__linkIcon} /> Контакты</Link>
-        </div>
+        {navigationItems}
       </div>
     </div>
-  )
+  );
 };

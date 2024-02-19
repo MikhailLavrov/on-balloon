@@ -14,7 +14,7 @@ const MobileBurgerMenu = () => {
   };
   return (
     <div>
-      <Button type="button" onClick={showDrawer} icon={<MenuOutlined />}  className={c.burgerButton}></Button>
+      <Button type="button" onClick={showDrawer} icon={<MenuOutlined style={{fontSize: '20px'}} />}  className={c.burgerButton}></Button>
       <Drawer
         title="Мобильное меню"
         placement={'top'}
