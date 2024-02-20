@@ -1,3 +1,9 @@
 @import '../../styles/vars.scss';
 @import '../../styles/mixins.scss';
 @import '../../styles/global.scss';
+
+a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

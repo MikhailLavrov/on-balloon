@@ -6,6 +6,7 @@ import { CallbackForm } from '../CallbackForm/CallbackForm';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { callMeBackSubmit } from '../../redux/callMeBackSlice';
+import { YMapComponent } from '../YMapComponent/YMapComponent';
 
 export const Feedback = () => {
   const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted);
@@ -35,29 +36,37 @@ export const Feedback = () => {
         </div>
       </div>
       <div className={c.feedback__contacts}>
-        <div className={c.feedback__contactsInner}>
-          <div className={c.feedback__contactsItem}>
-            <div className={c.feedback__contactsIcon}>
-              <MailOutlined />
+        <p className={c.feedback__contactsTitle}>Всегда на связи</p>
+        <div className={c.feedback__contactsMainWrapper}>
+          <div className={c.feedback__contactsMainContent}>
+            <div className={c.feedback__contactsInner}>
+
+              <div className={c.feedback__contactsItem}>
+                <div className={c.feedback__contactsIcon}>
+                  <PhoneOutlined style={{transform: 'scale(-1, 1)'}} />
+                </div>
+                <div className={c.feedback__contactsInfo}>
+                  <a href={`tel:${personalData.phone}`}>{personalData.phone}</a>
+                  <span>8:00 - 20:00 (МСК)</span>
+                </div>
+              </div>
+
+              <div className={c.feedback__contactsItem}>
+                <div className={c.feedback__contactsIcon}>
+                  <MailOutlined />
+                </div>
+                <div className={c.feedback__contactsInfo}>
+                  <a href={`mailto:${personalData.mail}`}>{personalData.mail}</a>
+                </div>
+              </div>
+
             </div>
-            <div className={c.feedback__contactsInfo}>
-              <h3>Почта</h3>
-              <a href={`mailto:${personalData.mail}`}>{personalData.mail}</a>
+            <div className={c.feedback__socials}>
+              <SocialLinks />
             </div>
           </div>
-
-          <div className={c.feedback__contactsItem}>
-            <div className={c.feedback__contactsIcon}>
-              <PhoneOutlined style={{transform: 'scale(-1, 1)'}} />
-            </div>
-            <div className={c.feedback__contactsInfo}>
-              <h3>Телефон</h3>
-              <a href={`tel:${personalData.phone}`}>{personalData.phone}</a>
-            </div>
-          </div>
-
-          <div className={c.feedback__socials}>
-            <SocialLinks />
+          <div className={c.feedback__contactsMapWrapper}>
+            <YMapComponent  />
           </div>
         </div>
       </div>

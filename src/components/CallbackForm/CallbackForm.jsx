@@ -1,6 +1,5 @@
 import { personalData } from '../../data/personalData';
 import { notification } from 'antd';
-import { useEffect, useState } from 'react';
 import { MaskedPhoneInput } from '../../utils/MaskedPhoneInput';
 import { callMeBackSubmit } from '../../redux/callMeBackSlice';
 import { useDispatch, useSelector } from 'react-redux';

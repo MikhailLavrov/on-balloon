@@ -6,10 +6,14 @@ import { personalData } from '../../data/personalData';
 const { Footer } = Layout;
 
 export const FooterComponent = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <Footer className={c.footer}>
-      <span>Все цены и условия, указанные на данном сайте, не являются публичной офертой.</span>
-      <span>{personalData.orgname} <CopyrightOutlined /> 2024</span>
+      <div className={`${c.footer__container} container`}>
+        <span><CopyrightOutlined /> {personalData.orgname} {currentYear}</span>
+        <span>Все цены и условия, указанные на данном сайте, не являются публичной офертой.</span>
+      </div>
     </Footer>
-  )
-}
+  );
+};

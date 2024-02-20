@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { personalData } from '../../data/personalData';
+// import c from './SocialLinks.module.scss';
 
 export const SocialLinks = () => {
   return (

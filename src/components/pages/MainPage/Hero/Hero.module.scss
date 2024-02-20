@@ -7,7 +7,11 @@
 }
 
 .hero__container {
-  padding-bottom: 20px;
+  padding-bottom: 15px;
+
+  @include vp-768 {
+    padding-bottom: 20px;
+  }
 }
 
 .hero__collections {
@@ -30,9 +34,11 @@
 }
 
 .hero__collectionsLink {
+  position: relative;
+
   display: flex;
   align-items: center;
-  position: relative;
+  justify-content: flex-start;
 
   width: 100%;
   height: 100%;
@@ -69,7 +75,7 @@
   color: $base-dark-color;
   
   @include vp-768 {
-    font-size: calc($fz-s - 2px);
+    font-size: calc($fz-s - 1px);
   }
   
   @include vp-1260 {

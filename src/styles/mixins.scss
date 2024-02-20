@@ -6,6 +6,12 @@
 
 // Mobile first
 
+@mixin vp-500 {
+  @media (min-width: $vp-500) {
+    @content;
+  }
+}
+
 @mixin vp-768 {
   @media (min-width: $vp-768) {
     @content;

@@ -6,15 +6,18 @@
 
   text-align: center;
   font-family: $ff-tilda;
-  line-height: 1;
   background-color: $base-light-color;
 
   & * {
     user-select: none;
   }
 
-  @include vp-1260 {
+  @include vp-768 {
     padding: 20px 0;
+  }
+  
+  @include vp-1260 {
+    padding: 40px 0;
   }
 }
 
@@ -22,13 +25,18 @@
   margin: 0;
   margin-bottom: 15px;
 
-  font-size: $fz-m;
-  font-weight: 600;
-  line-height: 1.2;
+  font-size: $fz-s;
+  font-weight: 500;
+
+  @include vp-768 {
+    margin-bottom: 20px;
+
+    font-size: $fz-m;
+  }
   
   @include vp-1260 {
-    margin-bottom: 20px;
-    font-size: $fz-l;
+    margin-bottom: 40px;
+    font-weight: 600;
   }
 }
 
@@ -49,8 +57,11 @@
 }
 
 .gallery__link {
-  // margin-top: 20px;
+  margin: 0 auto;
   padding: 13px 30px;
+
+  max-width: 350px;
+
   display: block;
 
   font-family: $ff-tilda;
@@ -60,7 +71,6 @@
   
   background-color: $color-6-red;
   transition: all 0.2s ease-in-out;
-  border-radius: 10px;
 
   &:hover {
     background-color: $color-6-red-lighter;
@@ -68,9 +78,10 @@
   }
 
   @include vp-768 {
-    font-size: 17px;
     margin: 0 auto;
-    // margin-top: 30px;
-    max-width: fit-content;
+  }
+  
+  @include vp-1260 {
+    font-size: calc($fz-m - 3px);
   }
 }

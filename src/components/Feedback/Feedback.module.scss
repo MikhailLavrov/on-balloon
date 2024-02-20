@@ -2,17 +2,17 @@
 @import '../../styles/mixins.scss';
 
 .feedback {
-  background-color: $color-2-grey;
-  line-height: 1;
-  font-family: $ff-tilda;
   position: relative;
+
+  font-family: $ff-tilda;
+  
+  background-color: $color-2-grey;
 
   @include vp-1260 {
     padding: 0;
-    min-height: 40vh;
 
     display: grid;
-    grid-template-columns: minmax(auto, 760px) minmax(auto, 760px);
+    grid-template-columns: minmax(auto, 630px) minmax(auto, 630px);
     justify-content: center;
     align-items: center;
 
@@ -21,7 +21,6 @@
       position: absolute;
       height: 100%;
       width: 50vw;
-      background-color: rgba($base-dark-color, 0.2);
       right: 0;
     }
   }
@@ -30,14 +29,14 @@
 // Форма
 
 .feedback__formWrapper {
-  padding: 30px;
+  padding: 15px 10px;
 
   @include vp-768 {
-    padding: 40px;
+    padding: 20px;
   }
 
   @include vp-1260 {
-    padding: 60px 40px;
+    padding: 40px;
   }
 }
 
@@ -45,19 +44,26 @@
   margin: 0;
   margin-bottom: 15px;
 
-  font-size: $fz-m;
-  font-weight: 600;
+  font-size: $fz-s;
+  font-weight: 500;
   line-height: 1.2;
   text-align: center;
 
+  @include vp-768 {
+    margin-bottom: 20px;
+
+    font-size: $fz-m;
+    line-height: 1;
+  }
+
   @include vp-1260 {
-    font-size: $fz-l;
+    font-weight: 600;
   }
 }
 
 .feedback__formSubtitle {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 
   font-size: $fz-s;
   line-height: 1.2;
@@ -68,38 +74,106 @@
   }
 }
 
-// Контакты
+// =====Contacts=======
 
 .feedback__contacts {
-  padding: 30px 0;
+  padding: 15px 10px;
 
-  background-color: rgba($base-dark-color, 0.2);
+  background-color: $base-light-color;
 
   @include vp-1260 {
-    padding: 60px 40px;
+    height: 100%;
+    padding: 40px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     background-color: transparent;
     z-index: 10;
+
+    &::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background-color: $color-2-greyDarker;
+    }
+  }
+}
+
+.feedback__contactsMainWrapper {
+
+  @include vp-1260 {
+    height: 100%;
+    max-height: 100%;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.feedback__contactsMainContent {
+
+  @include vp-1260 {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 
 .feedback__contactsInner {
   margin: 0 auto;
-  width: max-content;
 
   display: flex;
   flex-direction: column;
 
-  @include vp-1260 {
+  @include vp-500 {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
     
+  @include vp-1260 {
+    margin: 0;
+    margin: auto;
+    
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.feedback__contactsTitle {
+  margin: 0;
+  margin-bottom: 15px;
+
+  font-size: $fz-s;
+  font-weight: 500;
+  text-align: center;
+    
+  @include vp-1260 {
+    margin-bottom: 20px;
+
+    font-size: $fz-m;
+    text-align: center;
   }
 }
 
 .feedback__contactsItem {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 10px;
 }
 
 .feedback__contactsIcon {
@@ -107,35 +181,36 @@
   align-items: center;
 
   & svg {
-    width: 30px;
-    height: 100%;
+    width: 20px;
+    height: 20px;
+    
+    @include vp-1260 {
+      width: 25px;
+      height: 25px;
+    }
   }
 }
 
 .feedback__contactsInfo {
-  & h3 {
-    margin: 0;
+  & a {
     margin-bottom: 5px;
 
-    font-size: $fz-m;
-    font-weight: 600;
-    line-height: 1.2;
-
-    @include vp-1260 {
-      font-weight: 500;
-    }
-  }
-
-  & a {
     display: block;
 
-    font-size: $fz-m;
-
+    font-size: calc($fz-s + 1px);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    
     color: $base-dark-color;
-
+    
     @include vp-1260 {
-      font-size: $fz-m;
+      font-size: calc($fz-s + 2px);
     }
+  }
+  
+  & span {
+    font-weight: 300;
+    letter-spacing: 0.1px;
   }
 }
 
@@ -145,12 +220,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 
   & svg {
-    width: 35px;
+    width: 25px;
     height: auto;
     border-radius: 50%;
+    
+    @include vp-1260 {
+      width: 30px;
+    }
+  }
+}
+
+.feedback__contactsMapWrapper {
+  display: none;
+
+  @include vp-1260 {
+    height: 100%;
+
+    display: flex;
+
+    background-color: $color-1-violet;
   }
 }
 
@@ -181,7 +272,7 @@
   
   & input[type="submit"] {
     margin-bottom: 0;
-    padding: 10px;
+    padding: 13px 30px;
 
     width: 100%;
     
@@ -194,9 +285,9 @@
     background-color: $color-6-red;
     color: $base-light-color;
     transition: all 0.2s ease-in-out;
-
+  
     &:hover {
-      background-color: $base-dark-color;
+      background-color: $color-6-red-lighter;
       color: $base-light-color;
     }
 
@@ -206,7 +297,7 @@
     }
 
     @include vp-1260 {
-      font-size: $fz-m;
+      font-size: calc($fz-m - 3px);
     }
   }
 }

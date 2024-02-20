@@ -2,28 +2,37 @@
 @import '../../styles/mixins.scss';
 
 .advantages {
-  padding: 20px 0;
+  padding: 15px 0;
 
   text-align: center;
   font-family: $ff-tilda;
 
   background-color: $color-2-grey;
 
+  @include vp-768 {
+    padding: 20px 0;
+  }
+
   @include vp-1260 {
-    padding: 60px 0;
+    padding: 40px 0;
   }
 }
 
 .advantages__title {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 
-  font-size: $fz-m;
-  font-weight: 400;
+  font-size: $fz-s;
+  font-weight: 500;
   text-align: center;
+
+  @include vp-768 {
+    margin-bottom: 20px;
+    font-size: $fz-m;
+  }
   
   @include vp-1260 {
-    font-size: $fz-l;
+    font-size: $fz-m;
     margin-bottom: 40px;
     font-weight: 600;
   }
@@ -35,17 +44,17 @@
   
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  gap: 10px;
 
   list-style: none;
 
   @include vp-768 {
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
   }
 
   @include vp-1260 {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: 20px;
   }
 }
 
@@ -53,31 +62,29 @@
   padding: 10px;
   height: 100%;
   
-  box-shadow: 0 0 0 1px #4444441b inset;
-
-  @include vp-768 {
-    padding: 15px;
-  }
+  box-shadow: 0 0 0 1px $color-2-greyDarker inset;
 }
 
 .advantages__image {
   margin-bottom: 5px;
+
   & svg {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
+
+    @include vp-768 {
+      width: 25px;
+      height: 25px;
+    }
     
     @include vp-1260 {
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
     }
   }
 
-  @include vp-768 {
-    margin-bottom: 10px;
-  }
-
   @include vp-1260 {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 }
 
@@ -87,28 +94,24 @@
 
   font-size: $fz-s;
   font-weight: 600;
-  
-  @include vp-768 {
-    font-size: $fz-m;
-    margin-bottom: 10px;
-  }
 
   @include vp-1260 {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    font-size: calc($fz-s + 4px);
   }
 }
 
 .advantages__itemText {
   margin: 0;
 
-  font-size: 13px;
+  font-size: calc($fz-s - 3px);
   line-height: 1;
 
   @include vp-768 {
-    font-size: $fz-s;
+    font-size: calc($fz-s - 2px);
   }
 
   @include vp-1260 {
-    font-size: $fz-m;
+    font-size: calc($fz-s + 4px);
   }
 }
