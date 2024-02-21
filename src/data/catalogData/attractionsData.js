@@ -4,7 +4,7 @@ import IMG_155542423 from '../../assets/catalog/popcorn.webp';
 
 export const attractionsData = [
   {
-    category: ['at_cotton'],
+    category: ['cotton'],
     article: '122-123',
     title: 'Сладкая вата',
     description: 'Аппарат сладкой ваты и оператор в аренду',
@@ -15,7 +15,7 @@ export const attractionsData = [
     count: 1,
   },
   {
-    category: ['at_skazka'],
+    category: ['skazka'],
     article: '4365-423',
     title: 'Сказка',
     description: 'Сказочный надувной батут',
@@ -25,7 +25,7 @@ export const attractionsData = [
     count: 1,
   },
   {
-    category: ['at_popcorn'],
+    category: ['popcorn'],
     article: '678-423',
     title: 'Попкорн',
     description: 'Магия взорванной кукурузы',

@@ -51,12 +51,50 @@
 }
 
 .catalog__content {
-  grid-column: 2/-1;
+  display: grid;
+  gap: 10px;
   
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: min-content;
   gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+  
+  @include vp-500 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  @include vp-768 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @include vp-1260 {
+    grid-column: 2/-1;
+    
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: min-content;
+  }
+}
+
+.styledBadge {
+  padding: 5px;
+  
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  
+  font-size: 12px;
+  font-family: $ff-tilda;
+
+  @include vp-500 {
+    padding: 0 8px;
+
+    height: auto;
+
+    display: block;
+
+    font-size: 14px;
+  }
 }
 
 .catalogMenu {
@@ -67,4 +105,18 @@
     background-color: $base-dark-color;
   }
   
+}
+
+.catalog__razdelTitle {
+  margin: 0;
+  margin-bottom: 15px;
+
+  grid-column: 1/-1;
+  font-family: $ff-tilda;
+  font-weight: 500;
+  font-size: $fz-s;
+
+  @include vp-1260 {
+    display: none;
+  }
 }

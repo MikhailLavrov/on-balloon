@@ -10,6 +10,7 @@ import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { CatalogMenu } from './CatalogMenu/CatalogMenu';
 import { useSelector } from 'react-redux';
 import { catalogMenuData } from '../../../data/catalogMenuData';
+import { topLevelTranslations, sublevelTranslations } from '../../../data/catalogData/catalogMenuTranslations';
 
 const Breadcrumbs = () => (
   <Breadcrumb
@@ -27,28 +28,30 @@ const Breadcrumbs = () => (
 );
 
 export const CatalogPage = () => {
-  const currentTopCollectionState = useSelector(state => state.collectionsNav.currentCollection);
+  const currentTopCategoryState = useSelector(state => state.outerCatalogNav.currentTopCategory);
+  const currentCategoryState = useSelector(state => state.outerCatalogNav.currentCategory);
   
   const [selectedTopCategory, setSelectedTopCategory] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
 
   useEffect(() => {
-    if (currentTopCollectionState && currentTopCollectionState !== '') {
-      setSelectedTopCategory(currentTopCollectionState);
+    if (currentTopCategoryState && currentTopCategoryState !== '') {
+      setSelectedTopCategory(currentTopCategoryState);
       
       // Найдем подраздел в меню, соответствующий текущей топовой категории
-      const topLevelCategory = catalogMenuData.find(item => item.key === currentTopCollectionState);
-      if (topLevelCategory) {
+      const topLevelCategory = catalogMenuData.find(item => item.key === currentTopCategoryState);
+      if (currentCategoryState && currentCategoryState !== '') {
+        setSelectedCategory(currentCategoryState);
+      } else {
         // Установим первый подраздел в качестве выбранной категории
-        setSelectedCategory(topLevelCategory.children?.[0]?.key || '');
+        topLevelCategory && setSelectedCategory(topLevelCategory.children?.[0]?.key || '');
       }
     } else {
       setSelectedTopCategory(catalogMenuData[0].key || '');
       setSelectedCategory(catalogMenuData[0].key || ''); // Установим первый подраздел первой категории по умолчанию
     }
-  }, [currentTopCollectionState, setSelectedTopCategory, setSelectedCategory]);
+  }, [currentTopCategoryState, currentCategoryState, setSelectedTopCategory, setSelectedCategory]);
   
-
   const onClick = (e) => {
     setSelectedTopCategory(e.keyPath[e.keyPath.length - 1]);
     setSelectedCategory(e.key);
@@ -59,11 +62,11 @@ export const CatalogPage = () => {
       .filter(item => item.category.includes(selectedCategory))
       .map((item) => (
         item.oldPrice ? (
-          <Badge.Ribbon text="Акция" color="red" key={item.article}>
+          <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
             <CatalogCard {...item} />
           </Badge.Ribbon>
         ) : item.hit ? (
-          <Badge.Ribbon text="Хит" color="green" key={item.article}>
+          <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
             <CatalogCard {...item} />
           </Badge.Ribbon>
         ) : (
@@ -99,6 +102,16 @@ export const CatalogPage = () => {
       break;
   }
 
+  let translatedTopCategory;
+    if (selectedTopCategory) {
+      translatedTopCategory = topLevelTranslations[selectedTopCategory];
+    }
+
+    let translatedCurrentCategory;
+    if (selectedCategory) {
+      translatedCurrentCategory = sublevelTranslations[selectedCategory];
+    }
+
   return (
     <section className={c.catalog}>
       <div className={`${c.catalog__container} container`}>
@@ -117,6 +130,9 @@ export const CatalogPage = () => {
               },
             }}
           />
+          <h3 className={c.catalog__razdelTitle}>
+            Категория: {translatedTopCategory} {translatedCurrentCategory && `(${translatedCurrentCategory})`}
+          </h3>
           <div className={c.catalog__content}>
             {catalogItems}
           </div>

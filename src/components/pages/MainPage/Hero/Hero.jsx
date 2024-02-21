@@ -5,14 +5,14 @@ import { heroData } from '../../../../data/heroData';
 import { Link } from 'react-router-dom';
 import { collectionsData } from '../../../../data/collectionsData';
 import { heroSwiperParams } from '../../../../data/swiperParams';
-import { setCurrentCollection } from '../../../../redux/collectionsNavSlice';
+import { setCurrentCategory } from '../../../../redux/outerCatalogNavSlice';
 import { useDispatch } from 'react-redux';
 
 const CollectionsTiles = () => {
   const dispatch = useDispatch();
 
   const onClickHandler = (tile) => {
-    dispatch(setCurrentCollection(tile.key));
+    dispatch(setCurrentCategory({currentTopCategory: tile.key}));
   }
 
   const collection = collectionsData.map((tile, index) => {

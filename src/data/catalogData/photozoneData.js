@@ -2,7 +2,7 @@ import IMG_665544423 from '../../assets/catalog/payetki.webp';
 
 export const photozoneData = [
   {
-    category: ['ph_payetki'],
+    category: ['payetki'],
     article: '66225544-423',
     title: 'Фотозона с пайетками',
     description: 'Самая блестящая из всех фотозон',

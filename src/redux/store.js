@@ -3,7 +3,7 @@ import callMeBackReducer from './callMeBackSlice'
 import favouritesReducer from './favouritesSlice'
 import shoppingCartReducer from './shoppingCartSlice'
 import menuNavReducer from './menuNavSlice'
-import collectionsNavReducer from './collectionsNavSlice'
+import outerCatalogNavReducer from './outerCatalogNavSlice'
 
 const store = configureStore({
   reducer: {
@@ -11,7 +11,7 @@ const store = configureStore({
     favourites: favouritesReducer,
     shoppingCart: shoppingCartReducer,
     menuNav: menuNavReducer,
-    collectionsNav: collectionsNavReducer,
+    outerCatalogNav: outerCatalogNavReducer,
   },
 });
 

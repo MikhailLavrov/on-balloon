@@ -1,7 +1,7 @@
 import { ConfigProvider, Menu } from 'antd';
 import { useState } from 'react';
-import { catalogMenuData } from '../../../../data/catalogMenuData';
-import c from './CatalogMenu.module.scss';
+import { catalogMenuData } from '../../data/catalogMenuData';
+import c from './MobileCatalogMenu.module.scss';
 import { useSelector } from 'react-redux';
 
 // Get submenu keys of first level from catalogMenuData
@@ -12,13 +12,12 @@ const rootSubmenuKeys = catalogMenuData.reduce((acc, item) => {
   return acc;
 }, []);
 
-export const CatalogMenu = ({style, handleMenuClick, theme}) => {
+export const MobileCatalogMenu = ({style, handleMenuClick, theme}) => {
   const currentTopCategoryState = useSelector(state => state.outerCatalogNav.currentTopCategory)
-  // ИЗ STATE - то что нажали с hero (balloons - photozone - animation - attractions)
   
   // Only one menu opened logic
   const [openKeys, setOpenKeys] = useState(
-    [currentTopCategoryState && currentTopCategoryState !== '' ? currentTopCategoryState : catalogMenuData[1].key]
+    [currentTopCategoryState && currentTopCategoryState !== '' ? currentTopCategoryState : '']
     );
 
   const onOpenChange = (keys) => {
@@ -30,12 +29,6 @@ export const CatalogMenu = ({style, handleMenuClick, theme}) => {
     }
   };
 
-  const defaultSelectedKeys = currentTopCategoryState && currentTopCategoryState !== '' 
-    ? [catalogMenuData.find(item => item.key === currentTopCategoryState).children[0].key]
-    : [catalogMenuData[0].key];
-
-    // Get the first key from infoMenuData
-    // const defaultKey = infoMenuData.length > 0 ? infoMenuData[0].children[0].key : null;
   return (
     <ConfigProvider theme={theme} >
       <Menu
@@ -45,8 +38,6 @@ export const CatalogMenu = ({style, handleMenuClick, theme}) => {
         onOpenChange={onOpenChange}
         mode="inline"
         items={catalogMenuData}
-        // defaultSelectedKeys={currentSelectedKey && currentSelectedKey !== '' ? currentSelectedKey : defaultKey}
-        defaultSelectedKeys={defaultSelectedKeys}
         className={c.menu}
       />
     </ConfigProvider>
