@@ -16,6 +16,28 @@
 
 // .shoppingCart__container {}
 
+.styledBadge {
+  padding: 5px;
+  
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  
+  font-size: 12px;
+  font-family: $ff-tilda;
+
+  @include vp-500 {
+    padding: 0 8px;
+
+    height: auto;
+
+    display: block;
+
+    font-size: 14px;
+  }
+}
+
 .shoppingCart__title {
   margin: 0 auto;
   margin-bottom: 10px;
@@ -33,16 +55,30 @@
 
 .shoppingCart__listContainer {
   padding: 10px 0 15px;
-
+  
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
   gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+  
+  @include vp-500 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  @include vp-768 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @include vp-1260 {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 
 // ===========Empty=============
 
 .shoppingCart__emptyContainer {
   height: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,7 +101,11 @@
   align-items: center;
   gap: 20px;
 
-  font-size: $fz-m;
+  font-size: $fz-s;
+
+  @include vp-1260 {
+    font-size: $fz-m;
+  }
 }
 
 // .shoppingCart__emptyTitle {}
@@ -90,17 +130,33 @@
 }
 
 .shoppingCart__footer {
-  padding: 10px 50px;
-  text-align: right;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include vp-1260 {
+    padding: 10px 50px;
+    text-align: right;
+  }
 }
 
 .shoppingCart__totalDescription {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  
+  font-size: calc($fz-s + 2px);
 
-  font-size: $fz-m;
+  @include vp-1260 {
+    margin-bottom: 30px;
+    
+    font-size: $fz-m;
+  }
 }
 
 .shoppingCart__checkoutLink {
+  width: 100%;
+  max-width: 360px;
+
   background-color: $color-6-red;
 
   color: $base-light-color;

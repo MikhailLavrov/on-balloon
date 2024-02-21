@@ -1,7 +1,7 @@
 import c from './ShoppingCartPage.module.scss';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
 import { useSelector } from 'react-redux';
-import { Breadcrumb, Button, Divider } from 'antd';
+import { Badge, Breadcrumb, Button, Divider } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
@@ -23,11 +23,19 @@ const Breadcrumbs = () => (
 export const ShoppingCartPage = () => {
   const shoppingCartState = useSelector(state => state.shoppingCart.items)
 
-  const shoppingCartList = shoppingCartState.map(item => {
-    return (
-      <CatalogCard key={item.article} {...item} style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}}  />
+  const shoppingCartList = shoppingCartState.map((item) => (
+    item.oldPrice ? (
+      <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
+        <CatalogCard {...item} />
+      </Badge.Ribbon>
+    ) : item.hit ? (
+      <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
+        <CatalogCard {...item} />
+      </Badge.Ribbon>
+    ) : (
+      <CatalogCard key={item.article} {...item} />
     )
-  })
+  ));
 
   let totalPrice = (array) => {
     let price = 0;

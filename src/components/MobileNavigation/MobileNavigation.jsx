@@ -1,24 +1,57 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AlignLeftOutlined, EnvironmentOutlined, HeartOutlined, HomeOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import c from './MobileNavigation.module.scss';
-import { Drawer } from 'antd';
+import { Badge, Drawer } from 'antd';
 import { SearchComponent } from '../SearchComponent/SearchComponent';
+import { useDispatch, useSelector } from 'react-redux';
+import { initFavourites } from '../../redux/favouritesSlice';
+import { initShoppingCart } from '../../redux/shoppingCartSlice';
 
 export const MobileNavigation = () => {
   const location = useLocation();
   const [drawerVisible, setDrawerVisible] = useState(false);
+  const dispatch = useDispatch();
+  const favouritesCountState = useSelector(state => state.favourites.count);
+  const shoppingCartCountState = useSelector(state => state.shoppingCart.count);
+  
+  useEffect(() => {
+    const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites')) || [];
+    dispatch(initFavourites(favoritesFromStorage))
+    const shoppingCartFromStorage = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    dispatch(initShoppingCart(shoppingCartFromStorage))
+  }, [dispatch]);
 
   const toggleDrawer = () => {
     setDrawerVisible(!drawerVisible);
   };
 
   const mobileNavigationData = [
-    { title: 'Главная', link: '/', icon: <HomeOutlined style={{ fontSize: '20px' }} /> },
-    { title: 'Каталог', link: '/catalog', onClick: toggleDrawer, icon: <AlignLeftOutlined style={{ fontSize: '20px' }} /> },
-    { title: 'Корзина', link: '/cart', icon: <ShoppingCartOutlined style={{ fontSize: '20px' }} /> },
-    { title: 'Избранное', link: '/favourites', icon: <HeartOutlined style={{ fontSize: '20px' }} /> },
-    { title: 'Контакты', link: '/contacts', icon: <EnvironmentOutlined style={{ fontSize: '20px' }} /> }
+    { 
+      title: 'Главная', 
+      link: '/', 
+      icon: <HomeOutlined style={{ fontSize: '20px' }} /> 
+    },
+    { 
+      title: 'Каталог', 
+      link: '/catalog', onClick: toggleDrawer, 
+      icon: <AlignLeftOutlined style={{ fontSize: '20px' }} /> 
+    },
+    { 
+      title: 'Корзина', 
+      link: '/cart', 
+      icon: <Badge size='small' count={shoppingCartCountState}><ShoppingCartOutlined style={{ fontSize: '20px' }} /></Badge>
+    },
+    { 
+      title: 'Избранное', 
+      link: '/favourites', 
+      icon: <Badge size='small' count={favouritesCountState}><HeartOutlined style={{ fontSize: '20px' }} /></Badge>
+    },
+    { 
+      title: 'Контакты', 
+      link: '/contacts', 
+      icon: <EnvironmentOutlined style={{ fontSize: '20px' }} /> 
+    }
   ];
 
   return (

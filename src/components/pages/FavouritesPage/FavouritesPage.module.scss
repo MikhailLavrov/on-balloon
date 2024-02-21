@@ -33,10 +33,45 @@
 
 .favourites__listContainer {
   padding: 10px 0 15px;
-
+  
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
   gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+  
+  @include vp-500 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  @include vp-768 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @include vp-1260 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.styledBadge {
+  padding: 5px;
+  
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  
+  font-size: 12px;
+  font-family: $ff-tilda;
+
+  @include vp-500 {
+    padding: 0 8px;
+
+    height: auto;
+
+    display: block;
+
+    font-size: 14px;
+  }
 }
 
 // ===========Empty=============
@@ -65,7 +100,11 @@
   align-items: center;
   gap: 20px;
 
-  font-size: $fz-m;
+  font-size: $fz-s;
+
+  @include vp-1260 {
+    font-size: $fz-m;
+  }
 }
 
 // .favourites__emptyTitle {}

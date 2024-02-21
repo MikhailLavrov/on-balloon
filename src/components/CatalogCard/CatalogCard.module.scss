@@ -4,7 +4,9 @@
 .catalogCard {
   width: 100%;
   height: auto;
-  display: block;
+
+  display: flex;
+  flex-direction: column;
 
   color: $base-dark-color;
   font-family: $ff-tilda;
@@ -20,7 +22,6 @@
 }
 
 .catalogCard__imageWrapper {
-  
   & img {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -34,40 +35,63 @@
 }
 
 .catalogCard__priceBox {
-  padding: 10px;
+  padding: 5px;
 
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-evenly;
+  gap: 10px;
+
   background-color: $color-2-grey;
+  
+  @include vp-1260 {
+    padding: 10px;
+  }
 }
 
 .catalogCard__price {
   margin: 0;
 
-  font-weight: 600;
-  font-size: $fz-s;
+  font-size: calc($fz-s - 1px);
+
+  @include vp-1260 {
+    font-weight: 600;
+    font-size: $fz-s;
+  }
 }
 
 .catalogCard__oldPrice {
+  display: none;
+
   margin: 0;
 
   color: rgba($base-dark-color, 0.5);
   text-decoration: line-through;
   font-weight: 500;
   font-size: $fz-s;
+
+  @include vp-768 {
+    display: block;
+  }
 }
 
 .catalogCard__text {
-  padding: 10px;
+  padding: 5px;
+  
+  flex-grow: 1;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  
+  @include vp-500 {
+    padding: 10px;
+    justify-content: center;
+  }
 }
 
 .catalogCard__title {
   margin: 0;
+  flex-grow: 1;
   font-size: $fz-s;
   font-weight: 500;
 }

@@ -34,6 +34,7 @@ export const MobileSearch = () => {
         />
       </div>
       <Drawer
+        size='default'
         title="Поиск"
         placement="top"
         closable={true}

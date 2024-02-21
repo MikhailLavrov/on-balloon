@@ -9,6 +9,7 @@ export const attractionsData = [
     title: 'Сладкая вата',
     description: 'Аппарат сладкой ваты и оператор в аренду',
     price: 23000,
+    oldPrice: 25000,
     image: IMG_111542123,
     hit: true,
     count: 1,
