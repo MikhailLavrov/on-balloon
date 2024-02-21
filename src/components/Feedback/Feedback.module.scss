@@ -242,6 +242,10 @@
     display: flex;
 
     background-color: $color-1-violet;
+    background-image: url('../../assets/hero/map.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 }
 

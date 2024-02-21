@@ -42,9 +42,12 @@
 }
 
 .catalog__innerContainer {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  gap: 10px;
+
+  @include vp-1260 {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 10px;
+  }
 }
 
 .catalog__content {

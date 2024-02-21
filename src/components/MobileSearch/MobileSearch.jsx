@@ -1,17 +1,28 @@
+// MobileSearch.jsx
+
 import c from './MobileSearch.module.scss';
 import { SearchOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import { Button, Drawer } from 'antd';
-import SearchComponent from '../SearchComponent/SearchComponent';
+import { SearchComponent } from '../SearchComponent/SearchComponent';
 
-const MobileSearch = () => {
+export const MobileSearch = () => {
   const [open, setOpen] = useState(false);
+
   const showDrawer = () => {
     setOpen(true);
   };
+
   const onClose = () => {
     setOpen(false);
   };
+
+  const handleSearch = (searchValue) => {
+    if (searchValue.trim() !== '') {
+      onClose(); // Закрыть Drawer
+    }
+  };
+
   return (
     <div className={c.mobileSearch}>
       <div>
@@ -28,11 +39,10 @@ const MobileSearch = () => {
         closable={true}
         onClose={onClose}
         open={open}
-        
+        bodyStyle={{height: 'auto'}}
       >
-        <SearchComponent />
+        <SearchComponent onSearch={handleSearch} /> {/* Передача функции */}
       </Drawer>
     </div>
   );
 };
-export default MobileSearch;

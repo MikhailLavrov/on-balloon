@@ -2,6 +2,12 @@
 @import '../../../../styles/mixins.scss';
 
 .menu {
+  display: none;
+
+  @include vp-1260 {
+    display: block;
+  }
+
   & > li:first-child {
     background-color: rgb(174, 233, 57);
     text-transform: uppercase;

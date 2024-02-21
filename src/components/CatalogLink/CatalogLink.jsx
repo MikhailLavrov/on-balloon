@@ -4,7 +4,8 @@ import { Button } from 'antd';
 import { AlignLeftOutlined, CloseOutlined } from '@ant-design/icons';
 import c from './CatalogLink.module.scss';
 
-const Catalog = () => {
+// Линк для хедера
+export const CatalogLink = () => {
   const location = useLocation();
 
   return (
@@ -22,5 +23,3 @@ const Catalog = () => {
     </div>
   );
 };
-
-export default Catalog;

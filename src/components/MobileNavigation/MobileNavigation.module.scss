@@ -4,7 +4,7 @@
 .mobileNavigation {
   position: sticky;
   bottom: 0;
-  z-index: 15;
+  z-index: 9999;
   background-color: $base-light-color;
 
   @include vp-1260 {
@@ -44,8 +44,13 @@
   color: $base-dark-color;
 
   &.active {
-  color: $color-6-red;
+    color: $color-6-red;
+  }
 }
+
+.searchComp {
+  
+  margin-bottom: 15px;
 }
 
 
