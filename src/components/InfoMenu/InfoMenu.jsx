@@ -1,5 +1,5 @@
 import { ConfigProvider, Menu } from 'antd';
-import { infoMenuData } from '../../../../data/infoMenuData';
+import { infoMenuData } from '../../data/infoMenuData';
 import c from './InfoMenu.module.scss';
 import { useSelector } from 'react-redux';
 

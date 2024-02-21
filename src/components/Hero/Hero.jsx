@@ -1,11 +1,11 @@
 import c from './Hero.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { HeroSlide } from './HeroSlide/HeroSlide';
-import { heroData } from '../../../../data/heroData';
+import { HeroSlide } from '../HeroSlide/HeroSlide';
+import { heroData } from '../../data/heroData';
 import { Link } from 'react-router-dom';
-import { collectionsData } from '../../../../data/collectionsData';
-import { heroSwiperParams } from '../../../../data/swiperParams';
-import { setCurrentCategory } from '../../../../redux/outerCatalogNavSlice';
+import { collectionsData } from '../../data/collectionsData';
+import { heroSwiperParams } from '../../data/swiperParams';
+import { setCurrentCategory } from '../../redux/outerCatalogNavSlice';
 import { useDispatch } from 'react-redux';
 
 const CollectionsTiles = () => {

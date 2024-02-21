@@ -1,8 +1,8 @@
 import c from './GallerySection.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { galleryData } from '../../../../data/galleryData';
+import { galleryData } from '../../data/galleryData';
 import { Link } from 'react-router-dom';
-import { gallerySwiperParams } from '../../../../data/swiperParams';
+import { gallerySwiperParams } from '../../data/swiperParams';
 
 export const GallerySection = () => {
 

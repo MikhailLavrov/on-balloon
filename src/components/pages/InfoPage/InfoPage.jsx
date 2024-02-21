@@ -1,5 +1,5 @@
 import c from './InfoPage.module.scss';
-import { InfoMenu } from './InfoMenu/InfoMenu';
+import { InfoMenu } from '../../InfoMenu/InfoMenu';
 import { Breadcrumb } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
 import { infoData } from '../../../data/infoData';

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'antd';
-import c from './CallMeBackModal.module.scss';
+import c from './CallBackModal.module.scss';
 import { CallbackForm } from '../CallbackForm/CallbackForm';
 import { useSelector } from 'react-redux';
 
-const CallMeBackModal = () => {
+export const CallBackModal = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted);
 
@@ -46,5 +46,3 @@ const CallMeBackModal = () => {
     </>
   );
 };
-
-export default CallMeBackModal;

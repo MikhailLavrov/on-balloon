@@ -1,5 +1,3 @@
-// SearchComponent.jsx
-
 import React, { useState } from 'react';
 import { Input, ConfigProvider } from 'antd';
 import { useNavigate } from 'react-router-dom';

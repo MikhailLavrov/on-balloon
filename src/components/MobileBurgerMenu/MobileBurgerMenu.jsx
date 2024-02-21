@@ -4,7 +4,7 @@ import { MenuOutlined } from '@ant-design/icons';
 import c from './MobileBurgerMenu.module.scss';
 import { Link } from 'react-router-dom';
 
-const MobileBurgerMenu = () => {
+export const MobileBurgerMenu = () => {
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
     setOpen(true);
@@ -29,5 +29,3 @@ const MobileBurgerMenu = () => {
     </div>
   );
 };
-
-export default MobileBurgerMenu;

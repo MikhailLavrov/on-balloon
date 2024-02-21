@@ -7,7 +7,7 @@ import { animationData } from '../../../data/catalogData/animationData';
 import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
-import { CatalogMenu } from './CatalogMenu/CatalogMenu';
+import { CatalogMenu } from '../../CatalogMenu/CatalogMenu';
 import { useSelector } from 'react-redux';
 import { catalogMenuData } from '../../../data/catalogMenuData';
 import { topLevelTranslations, sublevelTranslations } from '../../../data/catalogData/catalogMenuTranslations';

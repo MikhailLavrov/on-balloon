@@ -2,10 +2,10 @@ import c from './Header.module.scss';
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { HeartOutlined, UserOutlined, ShoppingCartOutlined, MobileOutlined, EnvironmentOutlined } from '@ant-design/icons';
-import CallMeBackModal from '../CallMeBackModal/CallMeBackModal';
+import { CallBackModal } from '../CallBackModal/CallBackModal';
 import { CatalogLink } from '../CatalogLink/CatalogLink';
 import { SearchComponent } from '../SearchComponent/SearchComponent';
-import MobileBurgerMenu from '../MobileBurgerMenu/MobileBurgerMenu';
+import { MobileBurgerMenu } from '../MobileBurgerMenu/MobileBurgerMenu';
 import { MobileSearch } from '../MobileSearch/MobileSearch';
 import { TopMenu } from '../TopMenu/TopMenu';
 import { personalData } from '../../data/personalData';
@@ -41,7 +41,7 @@ export const HeaderComponent = () => {
             </div>
             <div className={c.topMenu__contacts}>
               <a  href={`tel:${personalData.phone}`}><MobileOutlined />{personalData.phone}</a>
-              <CallMeBackModal />
+              <CallBackModal />
               <p><EnvironmentOutlined /> Гатчина, CПб</p>
             </div>
           </div>

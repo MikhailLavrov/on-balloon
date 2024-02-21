@@ -8,12 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { initFavourites } from '../../redux/favouritesSlice';
 import { initShoppingCart } from '../../redux/shoppingCartSlice';
 import { MobileCatalogMenu } from '../MobileCatalogMenu/MobileCatalogMenu';
-import { CatalogCard } from '../CatalogCard/CatalogCard';
-import { catalogMenuData } from '../../data/catalogMenuData';
-import { balloonsData } from '../../data/catalogData/balloonsData';
-import { photozoneData } from '../../data/catalogData/photozoneData';
-import { animationData } from '../../data/catalogData/animationData';
-import { attractionsData } from '../../data/catalogData/attractionsData';
 import { setCurrentCategory } from '../../redux/outerCatalogNavSlice';
 
 export const MobileNavigation = () => {

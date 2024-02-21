@@ -1,5 +1,3 @@
-// MobileSearch.jsx
-
 import c from './MobileSearch.module.scss';
 import { SearchOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
