@@ -12,6 +12,7 @@ import { FloatButton } from 'antd';
 import { ArrowUpOutlined } from '@ant-design/icons';
 import { SearchResultsPage } from '../pages/SearchResultsPage/SearchResultsPage';
 import { InfoPage } from '../pages/InfoPage/InfoPage';
+import { MobileContactsPage } from '../pages/MobileContactsPage/MobileContactsPage';
 
 const MainPage = () => {
   return (
@@ -36,6 +37,7 @@ export const App = () => {
         <Route path="cart" element={<ShoppingCartPage />} />
         <Route path="search" element={<SearchResultsPage />} />
         <Route path="info" element={<InfoPage />} />
+        <Route path="contacts" element={<MobileContactsPage />} />
       </Route>
     </Routes>
   );

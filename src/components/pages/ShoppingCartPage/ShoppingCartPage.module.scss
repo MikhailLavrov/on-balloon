@@ -136,6 +136,7 @@
   align-items: flex-start;
 
   @include vp-1260 {
+    align-items: flex-end;
     padding: 10px 50px;
     text-align: right;
   }
