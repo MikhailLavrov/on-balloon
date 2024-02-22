@@ -59,10 +59,14 @@
 }
 
 .advantages__item {
-  padding: 10px;
+  padding: 5px;
   height: 100%;
   
   box-shadow: 0 0 0 1px $color-2-greyDarker inset;
+
+  @include vp-500 {
+    padding: 10px;
+  }
 }
 
 .advantages__image {

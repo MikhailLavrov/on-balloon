@@ -23,7 +23,7 @@ export const SearchComponent = ({ className, onSearch, onCloseDrawer }) => { // 
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: '#f83939'
+          colorPrimary: '#FA3D03'
         },
       }}
     >
