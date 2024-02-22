@@ -17,7 +17,7 @@ export const MobileBurgerMenu = () => {
       <Button type="button" onClick={showDrawer} icon={<MenuOutlined style={{fontSize: '20px'}} />}  className={c.burgerButton}></Button>
       <Drawer
         title="Мобильное меню"
-        placement={'top'}
+        placement={'left'}
         closable={true}
         onClose={onClose}
         open={open}

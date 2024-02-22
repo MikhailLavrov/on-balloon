@@ -1,6 +1,27 @@
 @import '../../styles/vars.scss';
 @import '../../styles/mixins.scss';
 
+.cardModal__topWrap {
+  @media (max-width: $vp-500) {
+    background-color: $base-light-color;
+    
+    & > div {
+      margin: 0 !important;
+      max-width: 100% !important;
+    }
+  }
+}
+
+.cardModal__top {
+  @media (max-width: $vp-500) {
+  padding-bottom: 60px;
+  top: 0;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: scroll;
+  }
+}
+
 .cardModal {
   width: 100%;
 
@@ -8,11 +29,18 @@
 }
 
 .cardModal__main {
-  margin-bottom: 15px;
 
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  @include vp-500 {
+    margin-bottom: 15px;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
 }
 
 .cardModal__image {
@@ -33,15 +61,21 @@
 
 .cardModal__title {
   margin: 0;
-  margin-bottom: 15px;
-
+  margin-bottom: 10px;
+  
   line-height: 1;
-  font-size: $fz-l;
   font-weight: 600;
+  font-size: $fz-m;
+  
+  @include vp-500 {
+    margin-bottom: 15px;
+
+    font-size: $fz-l;
+  }
 }
 
 .cardModal__priceBox {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -49,6 +83,10 @@
 
   font-size: $fz-m;
   font-weight: 600;
+
+  @include vp-500 {
+    margin-bottom: 15px;
+  }
 }
 
 .cardModal__price {
@@ -102,10 +140,18 @@
 }
 
 .cardModal__userActionsInner {
-  padding: 10px;
-  display: flex;
-  align-items: center;
+  padding: 15px 0 0;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
+
+  @include vp-500 {
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+  }
 }
 
 .cardModal__userActionsOuter {

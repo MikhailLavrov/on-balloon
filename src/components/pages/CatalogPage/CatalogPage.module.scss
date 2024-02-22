@@ -2,6 +2,7 @@
 @import '../../../styles/mixins.scss';
 
 .catalog {
+  padding-bottom: 20px;
   min-height: 100%;
   
   text-align: start;
@@ -56,7 +57,7 @@
   
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   align-items: stretch;
   
   @include vp-500 {
