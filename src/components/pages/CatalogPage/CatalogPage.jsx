@@ -11,6 +11,7 @@ import { CatalogMenu } from '../../CatalogMenu/CatalogMenu';
 import { useSelector } from 'react-redux';
 import { catalogMenuData } from '../../../data/catalogMenuData';
 import { topLevelTranslations, sublevelTranslations } from '../../../data/catalogData/catalogMenuTranslations';
+import { MobileCatalogTreeSelect } from '../../MobileCatalogTreeSelect/MobileCatalogTreeSelect';
 
 const Breadcrumbs = () => (
   <Breadcrumb
@@ -117,6 +118,7 @@ export const CatalogPage = () => {
       <div className={`${c.catalog__container} container`}>
         <Breadcrumbs />
         <h2 className={c.catalog__title}>Каталог</h2>
+        <MobileCatalogTreeSelect />
         <div className={c.catalog__innerContainer}>
           <CatalogMenu
             handleMenuClick={onClick}

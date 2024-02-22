@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Input, ConfigProvider } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 const { Search } = Input;
 
-export const SearchComponent = ({ className, onSearch, onCloseDrawer }) => { // Принятие функции
+export const SearchComponent = ({ className, onSearch, onCloseDrawer, autoFocus }) => {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
+  const inputRef = useRef();
+
+  const sharedProps = {
+    ref: inputRef,
+  };
+
+  useEffect(() => {
+    if (autoFocus) {
+      inputRef.current.focus();
+    }
+  }, [inputRef]);
 
   const handleSearch = (value) => {
     if (value.trim() !== '') {
@@ -15,8 +26,8 @@ export const SearchComponent = ({ className, onSearch, onCloseDrawer }) => { // 
     } else {
       console.log('Введите значение для поиска');
     }
-    onSearch && onSearch(value); // Вызов функции для обработки поиска
-    onCloseDrawer && onCloseDrawer(); // Вызов функции для закрытия Drawer
+    onSearch && onSearch(value);
+    onCloseDrawer && onCloseDrawer();
   };
 
   return (
@@ -28,6 +39,7 @@ export const SearchComponent = ({ className, onSearch, onCloseDrawer }) => { // 
       }}
     >
       <Search
+        ref={inputRef}
         className={className}
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
@@ -36,7 +48,8 @@ export const SearchComponent = ({ className, onSearch, onCloseDrawer }) => { // 
         size={'large'}
         enterButton
         required
-        onSearch={handleSearch} // Использование локальной функции
+        onSearch={handleSearch}
+        {...sharedProps}
       />
     </ConfigProvider>
   );

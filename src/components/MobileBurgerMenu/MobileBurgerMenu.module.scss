@@ -6,3 +6,29 @@
     display: none;
   }
 }
+
+.menu__links {
+  display: flex;
+  flex-direction: column;
+
+  &:first-child {
+    border-top: 1px $color-2-greyDarker solid;
+  }
+
+  & a {
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: $base-dark-color;
+    font-size: $fz-m;
+
+    border-bottom: 1px $color-2-greyDarker solid;
+  }
+
+  & svg {
+    font-size: 15px;
+  }
+}
