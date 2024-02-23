@@ -1,24 +1,9 @@
 import c from './ShoppingCartPage.module.scss';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
 import { useSelector } from 'react-redux';
-import { Badge, Breadcrumb, Button, Divider } from 'antd';
-import { HomeOutlined } from '@ant-design/icons';
+import { Badge, Button, Divider } from 'antd';
 import { Link } from 'react-router-dom';
-
-const Breadcrumbs = () => (
-  <Breadcrumb
-    items={[
-      {
-        href: '/',
-        title: <HomeOutlined />,
-      },
-      {
-        title: 'Корзина',
-      },
-    ]}
-    style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}}
-  />
-);
+import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 
 export const ShoppingCartPage = () => {
   const shoppingCartState = useSelector(state => state.shoppingCart.items)
@@ -63,7 +48,7 @@ export const ShoppingCartPage = () => {
   return (
     <section className={c.shoppingCart}>
       <div className={`${c.shoppingCart__container} ${c.container}`}>
-        <Breadcrumbs />
+        <BreadcrumbsComponent pageName={'Корзина'} />
         <h1 className={c.shoppingCart__title}>Корзина</h1>
         {shoppingCartState && shoppingCartState.length !== 0 && (
           <>

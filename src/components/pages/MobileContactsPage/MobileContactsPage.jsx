@@ -1,28 +1,13 @@
 import c from './MobileContactsPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { Breadcrumb } from 'antd';
-import { EnvironmentOutlined, HomeOutlined, MailOutlined, MobileOutlined } from '@ant-design/icons';
+import { EnvironmentOutlined, MailOutlined, MobileOutlined } from '@ant-design/icons';
 import { personalData } from '../../../data/personalData';
 import { SocialLinks } from '../../SocialLinks/SocialLinks';
 import { YMapComponent } from '../../YMapComponent/YMapComponent';
 import { CallbackForm } from '../../CallbackForm/CallbackForm';
 import { useEffect } from 'react';
 import { callMeBackSubmit } from '../../../redux/callMeBackSlice';
-
-const Breadcrumbs = () => (
-  <Breadcrumb
-    items={[
-      {
-        href: '/',
-        title: <HomeOutlined />,
-      },
-      {
-        title: 'Контакты',
-      },
-    ]}
-    style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}}
-  />
-);
+import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 
 export const MobileContactsPage = () => {
   const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted);
@@ -38,7 +23,7 @@ export const MobileContactsPage = () => {
   return (
     <section className={c.contactsPage}>
       <div className={`${c.contactsPage__container} container`}>
-        <Breadcrumbs />
+        <BreadcrumbsComponent pageName={'Контакты'} />
         <h1 className={c.contactsPage__title}>Контакты</h1>
         <div className={c.contactsPage__content}>
           <h2 className={c.contactsPage__subTitle}>Всегда на связи:</h2>

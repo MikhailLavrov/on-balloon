@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Badge, Breadcrumb } from 'antd';
+import { Badge } from 'antd';
 import c from './CatalogPage.module.scss';
-import { HomeOutlined } from '@ant-design/icons';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
 import { animationData } from '../../../data/catalogData/animationData';
 import { attractionsData } from '../../../data/catalogData/attractionsData';
@@ -12,21 +11,7 @@ import { useSelector } from 'react-redux';
 import { catalogMenuData } from '../../../data/catalogMenuData';
 import { topLevelTranslations, sublevelTranslations } from '../../../data/catalogData/catalogMenuTranslations';
 import { MobileCatalogTreeSelect } from '../../MobileCatalogTreeSelect/MobileCatalogTreeSelect';
-
-const Breadcrumbs = () => (
-  <Breadcrumb
-    items={[
-      {
-        href: '/',
-        title: <HomeOutlined />,
-      },
-      {
-        title: 'Каталог',
-      },
-    ]}
-    style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}}
-  />
-);
+import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
 
 export const CatalogPage = () => {
   const currentTopCategoryState = useSelector(state => state.outerCatalogNav.currentTopCategory);
@@ -116,9 +101,9 @@ export const CatalogPage = () => {
   return (
     <section className={c.catalog}>
       <div className={`${c.catalog__container} container`}>
-        <Breadcrumbs />
+        <BreadcrumbsComponent pageName={'Каталог'} />
         <h2 className={c.catalog__title}>Каталог</h2>
-        <MobileCatalogTreeSelect />
+        {/* <MobileCatalogTreeSelect /> */}
         <div className={c.catalog__innerContainer}>
           <CatalogMenu
             handleMenuClick={onClick}
@@ -132,9 +117,9 @@ export const CatalogPage = () => {
               },
             }}
           />
-          <h3 className={c.catalog__razdelTitle}>
+          {/* <h3 className={c.catalog__razdelTitle}>
             Категория: {translatedTopCategory} {translatedCurrentCategory && `(${translatedCurrentCategory})`}
-          </h3>
+          </h3> */}
           <div className={c.catalog__content}>
             {catalogItems}
           </div>

@@ -1,24 +1,9 @@
 import c from './FavouritesPage.module.scss';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
 import { useSelector } from 'react-redux';
-import { Badge, Breadcrumb } from 'antd';
-import { HomeOutlined } from '@ant-design/icons';
+import { Badge } from 'antd';
 import { Link } from 'react-router-dom';
-
-const Breadcrumbs = () => (
-  <Breadcrumb
-    items={[
-      {
-        href: '/',
-        title: <HomeOutlined />,
-      },
-      {
-        title: 'Избранное',
-      },
-    ]}
-    style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}}
-  />
-);
+import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
 
 export const FavouritesPage = () => {
   const favouritesState = useSelector(state => state.favourites.items)
@@ -40,7 +25,7 @@ export const FavouritesPage = () => {
   return (
     <section className={c.favourites}>
       <div className={`${c.favourites__container} ${c.container}`}>
-        <Breadcrumbs />
+        <BreadcrumbsComponent pageName={'Избранное'} />
         <h1 className={c.favourites__title}>Избранное</h1>
         {favouritesState && favouritesState.length !== 0 && (
           <div className={c.favourites__listContainer}>

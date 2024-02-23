@@ -1,23 +1,9 @@
-import { Image, FloatButton, Breadcrumb, ConfigProvider } from 'antd';
+import { Image, FloatButton, ConfigProvider } from 'antd';
 import c from './GalleryPage.module.scss';
 import '../../../styles/global.scss';
-import { ArrowUpOutlined, HomeOutlined } from '@ant-design/icons';
+import { ArrowUpOutlined } from '@ant-design/icons';
 import { galleryData } from '../../../data/galleryData';
-
-const Breadcrumbs = () => (
-  <Breadcrumb
-    items={[
-      {
-        href: '/',
-        title: <HomeOutlined />,
-      },
-      {
-        title: 'Галерея',
-      },
-    ]}
-    style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}}
-  />
-);
+import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
 
 const galleryImages = galleryData.map((image, index) => (
   <Image 
@@ -30,7 +16,7 @@ const galleryImages = galleryData.map((image, index) => (
 export const GalleryPage = () => (
   <section className={c.gallery}>
     <div className='container'>
-    <Breadcrumbs />
+      <BreadcrumbsComponent pageName={'Галерея'} />
       <div className={c.gallery__info}>
         <h2 className={c.gallery__title}>Галерея наших работ</h2>
         <p className={c.gallery__subtitle}>Делимся событиями, в которых принимали непосредственное участие, создавая ту самую торжественную атмосферу.</p>

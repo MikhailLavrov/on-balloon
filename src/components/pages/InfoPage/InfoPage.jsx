@@ -1,26 +1,10 @@
 import c from './InfoPage.module.scss';
 import { InfoMenu } from '../../InfoMenu/InfoMenu';
-import { Breadcrumb } from 'antd';
-import { HomeOutlined } from '@ant-design/icons';
 import { infoData } from '../../../data/infoData';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentMenu } from '../../../redux/menuNavSlice';
-
-const Breadcrumbs = () => (
-  <Breadcrumb
-    items={[
-      {
-        href: '/',
-        title: <HomeOutlined />,
-      },
-      {
-        title: 'Информация для клиентов',
-      },
-    ]}
-    style={{ fontFamily: 'Tilda Sans, Arial, sans-serif' }}
-  />
-);
+import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
 
 export const InfoPage = () => {
   const currentTopMenuState = useSelector(state => state.menuNav.currentTopMenu);
@@ -43,7 +27,7 @@ export const InfoPage = () => {
   return (
     <section className={c.infoPage}>
       <div className={`${c.infoPage__container} container`}>
-        <Breadcrumbs />
+      <BreadcrumbsComponent pageName={'Информация для клиентов'} />
         <h1 className={c.infoPage__title}>Информация для клиентов</h1>
         <div className={c.infoPage__innerContainer}>
           <InfoMenu 
