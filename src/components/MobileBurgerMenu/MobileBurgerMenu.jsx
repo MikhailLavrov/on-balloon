@@ -32,7 +32,7 @@ export const MobileBurgerMenu = () => {
         placement={'left'}
         closable={true}
         onClose={onClose}
-        visible={open} // Заменено на visible
+        open={open}
       >
         <div className={c.menu__links}>
           <Link to={'/'} onClick={handleLinkClick}><HomeOutlined /> Главная</Link>

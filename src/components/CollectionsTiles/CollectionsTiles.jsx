@@ -4,13 +4,13 @@ import { setCurrentCategory } from "../../redux/outerCatalogNavSlice";
 import c from './CollectionsTiles.module.scss';
 import { Link } from "react-router-dom";
 
-export const CollectionsTiles = ({anotherHandler}) => {
+export const CollectionsTiles = ({outerHandler}) => {
   const dispatch = useDispatch();
 
-  const onClickHandler = (tile, anotherHandler) => {
+  const onClickHandler = (tile) => {
     dispatch(setCurrentCategory({currentTopCategory: tile.key}));
-    if (anotherHandler) {
-      anotherHandler();
+    if (outerHandler) {
+      outerHandler(tile.key);
     }
   }
 

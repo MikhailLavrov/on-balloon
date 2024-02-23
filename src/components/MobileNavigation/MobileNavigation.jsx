@@ -7,14 +7,19 @@ import { SearchComponent } from '../SearchComponent/SearchComponent';
 import { useDispatch, useSelector } from 'react-redux';
 import { initFavourites } from '../../redux/favouritesSlice';
 import { initShoppingCart } from '../../redux/shoppingCartSlice';
-import { MobileCatalogMenu } from '../MobileCatalogMenu/MobileCatalogMenu';
 import { setCurrentCategory } from '../../redux/outerCatalogNavSlice';
+import { CollectionsTiles } from '../CollectionsTiles/CollectionsTiles';
+import { catalogMenuData } from '../../data/catalogMenuData';
 
 export const MobileNavigation = () => {
   // Счетчики Корзина + Избранное
   const favouritesCountState = useSelector(state => state.favourites.count);
   const shoppingCartCountState = useSelector(state => state.shoppingCart.count);
+  const currentTopCategoryState = useSelector(state => state.outerCatalogNav.currentTopCategory);
+
+  const [currentTopCategory, setCurrentTopCategory] = useState(null);
   const dispatch = useDispatch();
+
   useEffect(() => {
     const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites')) || [];
     dispatch(initFavourites(favoritesFromStorage))
@@ -23,12 +28,20 @@ export const MobileNavigation = () => {
   }, [dispatch]);
 
   const location = useLocation();
-  const navigate = useNavigate();
   
   // Drawer
   const [drawerVisible, setDrawerVisible] = useState(false);
+  const [childrenDrawerVisible, setChildrenDrawerVisible] = useState(false);
+
   const toggleDrawer = () => {
     setDrawerVisible(!drawerVisible);
+    childrenDrawerVisible && setChildrenDrawerVisible(false);
+  };
+  const showChildrenDrawer = () => {
+    setChildrenDrawerVisible(true);
+  };
+  const onChildrenDrawerClose = () => {
+    setChildrenDrawerVisible(false);
   };
 
   const mobileNavigationData = [
@@ -61,20 +74,19 @@ export const MobileNavigation = () => {
   
   // =============================== Каталог меню ===============================
 
-  const onClick = (e) => {
-    dispatch(setCurrentCategory(
-      {
-        currentTopCategory: e.keyPath[e.keyPath.length - 1],
-        currentCategory: e.key,
-      }
-    ));
-    
-    navigate('/catalog');
-    setDrawerVisible(false);
+  // Функция для обработки выбора тайла
+  const onCollectionClick = (key) => {
+    setCurrentTopCategory(key);
+    showChildrenDrawer();
   };
+  const topLevelCategory = catalogMenuData.find(item => item.key === currentTopCategory);
 
+  // topLevelCategory && topLevelCategory?.children?.map(item => console.log(item))
+  
   return (
     <div className={c.mobileNavigation}>
+
+  {/* Сами пункты меню */}
       <div className={c.mobileNavigation__container}>
         {mobileNavigationData.map(item => (
           <div className={c.mobileNavigation__linkWrapper} key={item.title}>
@@ -97,6 +109,8 @@ export const MobileNavigation = () => {
           </div>
         ))}
       </div>
+
+  {/* Первый дравер */}
       <Drawer
         title="Каталог"
         placement="left"
@@ -106,18 +120,27 @@ export const MobileNavigation = () => {
         bodyStyle={{paddingBottom: 80}}
       >
         <SearchComponent onCloseDrawer={() => setDrawerVisible(false)} className={c.searchComp} />
-        <MobileCatalogMenu
-          handleMenuClick={onClick}
-          theme={{
-            components: {
-              Menu: {
-                itemSelectedColor: 'black',
-                itemSelectedBg: '#cdcdcd',
-                fontFamily: 'Tilda Sans, Arial, sans-serif',
-              },
-            },
-          }}
-        />
+        <div className={c.mobileNavigation__tiles}>
+  {/* Передаем функцию для обработки нажатия на тайл и ключ текущего тайла */}
+          <CollectionsTiles outerHandler={(key) => onCollectionClick(key)} />
+        </div>
+
+  {/* Второй дравер с пунктами подменю */}
+        <Drawer
+          title="Подраздел"
+          placement="left"
+          closable={true}
+          onClose={onChildrenDrawerClose}
+          open={childrenDrawerVisible}
+          bodyStyle={{paddingBottom: 80}}
+        >
+    {/* Отображаем пункты подменю в зависимости от текущего подраздела */}
+          {/* {currentTopCategory && catalogMenuData.children.map((item, index) => (
+            <div key={index}>
+              <Link to={item.link}>{item.title}</Link>
+            </div>
+          ))} */}
+        </Drawer>
       </Drawer>
     </div>
   );

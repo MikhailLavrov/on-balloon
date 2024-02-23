@@ -58,4 +58,25 @@
   margin-bottom: 15px;
 }
 
+.mobileNavigation__tiles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  & a {
+    padding: 10px 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    border-radius: 8px;
+ 
+    & p {
+      padding: 0 10px;
+      font-size: calc($fz-m - 2px);
+      line-height: 1;
+    }
+  }
+}
+
 

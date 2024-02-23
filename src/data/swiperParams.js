@@ -30,7 +30,7 @@ export const gallerySwiperParams = {
   },
   breakpoints: {
     0: {
-      slidesPerView: 3.5,
+      slidesPerView: 3,
     },
     500: {
       slidesPerView: 3,
