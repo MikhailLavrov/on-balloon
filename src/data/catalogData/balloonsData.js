@@ -1,126 +1,3 @@
-import IMG_girl_1_23374_1 from '../../assets/catalog/balloons/girl/girl_1_23374_1.webp';
-import IMG_girl_1_23374_3 from '../../assets/catalog/balloons/girl/girl_1_23374_3.webp';
-import IMG_girl_1_23374_4 from '../../assets/catalog/balloons/girl/girl_1_23374_4.webp';
-import IMG_girl_1_23374_5 from '../../assets/catalog/balloons/girl/girl_1_23374_5.webp';
-import IMG_girl_1_901761PP_1 from '../../assets/catalog/balloons/girl/girl_1_901761PP_1.webp';
-import IMG_girl_1_901761PP_2 from '../../assets/catalog/balloons/girl/girl_1_901761PP_2.webp';
-import IMG_girl_1_901761PP_4 from '../../assets/catalog/balloons/girl/girl_1_901761PP_4.webp';
-import IMG_girl_1_B901761RG_1 from '../../assets/catalog/balloons/girl/girl_1_B901761RG_1.webp';
-import IMG_girl_2_901767OP_1 from '../../assets/catalog/balloons/girl/girl_2_901767OP_1.webp';
-import IMG_girl_2_901767OP_2 from '../../assets/catalog/balloons/girl/girl_2_901767OP_2.webp';
-import IMG_girl_2_901767OP_3 from '../../assets/catalog/balloons/girl/girl_2_901767OP_3.webp';
-import IMG_girl_3_901763FP_1 from '../../assets/catalog/balloons/girl/girl_3_901763FP_1.webp';
-import IMG_girl_3_901763FP_2 from '../../assets/catalog/balloons/girl/girl_3_901763FP_2.webp';
-import IMG_girl_3_901763FP_3 from '../../assets/catalog/balloons/girl/girl_3_901763FP_3.webp';
-import IMG_girl_3_901763FP_4 from '../../assets/catalog/balloons/girl/girl_3_901763FP_4.webp';
-import IMG_girl_3_B901763P_1 from '../../assets/catalog/balloons/girl/girl_3_B901763P_1.webp';
-import IMG_girl_4_901764PP_1 from '../../assets/catalog/balloons/girl/girl_4_901764PP_1.webp';
-import IMG_girl_5_901765FP_1 from '../../assets/catalog/balloons/girl/girl_5_901765FP_1.webp';
-import IMG_girl_6_B901766O_1 from '../../assets/catalog/balloons/girl/girl_6_B901766O_1.webp';
-import IMG_girl_8_901768OP_1 from '../../assets/catalog/balloons/girl/girl_8_901768OP_1.webp';
-import IMG_girl_8_901768RG_1 from '../../assets/catalog/balloons/girl/girl_8_901768RG_1.webp';
-import IMG_girl_bear_901856_1 from '../../assets/catalog/balloons/girl/girl_bear_901856_1.webp';
-import IMG_girl_bunny_23360_1 from '../../assets/catalog/balloons/girl/girl_bunny_23360_1.webp';
-import IMG_girl_cat_19772_1 from '../../assets/catalog/balloons/girl/girl_cat_19772_1.webp';
-import IMG_girl_cat_19772_2 from '../../assets/catalog/balloons/girl/girl_cat_19772_2.webp';
-import IMG_girl_unicorn_19184_1 from '../../assets/catalog/balloons/girl/girl_unicorn_19184_1.webp';
-import IMG_girl_unicorn_19184_2 from '../../assets/catalog/balloons/girl/girl_unicorn_19184_2.webp';
-import IMG_boy_1_901761OP_1 from '../../assets/catalog/balloons/boy/boy_1_901761OP_1.webp';
-import IMG_boy_1_901761PP_3 from '../../assets/catalog/balloons/boy/boy_1_901761PP_3.webp';
-import IMG_boy_2_901762OP_1 from '../../assets/catalog/balloons/boy/boy_2_901762OP_1.webp';
-import IMG_boy_2_901762OP_2 from '../../assets/catalog/balloons/boy/boy_2_901762OP_2.webp';
-import IMG_boy_2_901762PP_1 from '../../assets/catalog/balloons/boy/boy_2_901762PP_1.webp';
-import IMG_boy_2_B901762A_1 from '../../assets/catalog/balloons/boy/boy_2_B901762A_1.webp';
-import IMG_boy_2_B901762A_2 from '../../assets/catalog/balloons/boy/boy_2_B901762A_2.webp';
-import IMG_boy_7_901767AP_1 from '../../assets/catalog/balloons/boy/boy_7_901767AP_1.webp';
-import IMG_boy_7_B901767P_1 from '../../assets/catalog/balloons/boy/boy_7_B901767P_1.webp';
-import IMG_her_30_B901763P_1 from '../../assets/catalog/balloons/her/her_30_B901763P_1.webp';
-import IMG_her_18_901761OP_1 from '../../assets/catalog/balloons/her/her_18_901761OP_1.webp';
-import IMG_her_18_901761PP_1 from '../../assets/catalog/balloons/her/her_18_901761PP_1.webp';
-import IMG_her_18_901761PP_2 from '../../assets/catalog/balloons/her/her_18_901761PP_2.webp';
-import IMG_her_18_B901761RG_2 from '../../assets/catalog/balloons/her/her_18_B901761RG_2.webp';
-import IMG_her_21_901761PP_1 from '../../assets/catalog/balloons/her/her_21_901761PP_1.webp';
-import IMG_her_21_901762PP_1 from '../../assets/catalog/balloons/her/her_21_901762PP_1.webp';
-import IMG_her_23_901762OP_1 from '../../assets/catalog/balloons/her/her_23_901762OP_1.webp';
-import IMG_number_0_901760AP from '../../assets/catalog/balloons/number/number_0_901760AP.webp';
-import IMG_number_0_901760FP from '../../assets/catalog/balloons/number/number_0_901760FP.webp';
-import IMG_number_0_901760OP from '../../assets/catalog/balloons/number/number_0_901760OP.webp';
-import IMG_number_0_901760P from '../../assets/catalog/balloons/number/number_0_901760P.webp';
-import IMG_number_0_901760TFP from '../../assets/catalog/balloons/number/number_0_901760TFP.webp';
-import IMG_number_0_B901760RG from '../../assets/catalog/balloons/number/number_0_B901760RG.webp';
-import IMG_number_1_23374 from '../../assets/catalog/balloons/number/number_1_23374.webp';
-import IMG_number_1_901761OP from '../../assets/catalog/balloons/number/number_1_901761OP.webp';
-import IMG_number_1_901761PP from '../../assets/catalog/balloons/number/number_1_901761PP.webp';
-import IMG_number_1_901761TFP from '../../assets/catalog/balloons/number/number_1_901761TFP.webp';
-import IMG_number_1_B901761N from '../../assets/catalog/balloons/number/number_1_B901761N.webp';
-import IMG_number_1_B901761RG from '../../assets/catalog/balloons/number/number_1_B901761RG.webp';
-import IMG_number_2_901762OP from '../../assets/catalog/balloons/number/number_2_901762OP.webp';
-import IMG_number_2_901762PP from '../../assets/catalog/balloons/number/number_2_901762PP.webp';
-import IMG_number_2_901762TFP from '../../assets/catalog/balloons/number/number_2_901762TFP.webp';
-import IMG_number_2_901767OP from '../../assets/catalog/balloons/number/number_2_901767OP.webp';
-import IMG_number_2_B901762A from '../../assets/catalog/balloons/number/number_2_B901762A.webp';
-import IMG_number_2_B901762N from '../../assets/catalog/balloons/number/number_2_B901762N.webp';
-import IMG_number_2_B901762RG from '../../assets/catalog/balloons/number/number_2_B901762RG.webp';
-import IMG_number_3_901763FP from '../../assets/catalog/balloons/number/number_3_901763FP.webp';
-import IMG_number_3_901763OP from '../../assets/catalog/balloons/number/number_3_901763OP.webp';
-import IMG_number_3_901763TFP from '../../assets/catalog/balloons/number/number_3_901763TFP.webp';
-import IMG_number_3_B901763A from '../../assets/catalog/balloons/number/number_3_B901763A.webp';
-import IMG_number_3_B901763P from '../../assets/catalog/balloons/number/number_3_B901763P.webp';
-import IMG_number_3_B901763RG from '../../assets/catalog/balloons/number/number_3_B901763RG.webp';
-import IMG_number_4_901764FP from '../../assets/catalog/balloons/number/number_4_901764FP.webp';
-import IMG_number_4_901764OP from '../../assets/catalog/balloons/number/number_4_901764OP.webp';
-import IMG_number_4_901764PP from '../../assets/catalog/balloons/number/number_4_901764PP.webp';
-import IMG_number_4_901764RGP from '../../assets/catalog/balloons/number/number_4_901764RGP.webp';
-import IMG_number_4_901764TFP from '../../assets/catalog/balloons/number/number_4_901764TFP.webp';
-import IMG_number_5_901765FP from '../../assets/catalog/balloons/number/number_5_901765FP.webp';
-import IMG_number_5_901765RGP from '../../assets/catalog/balloons/number/number_5_901765RGP.webp';
-import IMG_number_5_901765TFP from '../../assets/catalog/balloons/number/number_5_901765TFP.webp';
-import IMG_number_5_B901765A from '../../assets/catalog/balloons/number/number_5_B901765A.webp';
-import IMG_number_5_B901768P from '../../assets/catalog/balloons/number/number_5_B901768P.webp';
-import IMG_number_6_901766RGP from '../../assets/catalog/balloons/number/number_6_901766RGP.webp';
-import IMG_number_6_901766TFP from '../../assets/catalog/balloons/number/number_6_901766TFP.webp';
-import IMG_number_6_B901766O from '../../assets/catalog/balloons/number/number_6_B901766O.webp';
-import IMG_number_6_B901766P from '../../assets/catalog/balloons/number/number_6_B901766P.webp';
-import IMG_number_7_901767AP from '../../assets/catalog/balloons/number/number_7_901767AP.webp';
-import IMG_number_7_901767OP from '../../assets/catalog/balloons/number/number_7_901767OP.webp';
-import IMG_number_7_901767RGP from '../../assets/catalog/balloons/number/number_7_901767RGP.webp';
-import IMG_number_7_901767TFP from '../../assets/catalog/balloons/number/number_7_901767TFP.webp';
-import IMG_number_7_B901767P from '../../assets/catalog/balloons/number/number_7_B901767P.webp';
-import IMG_number_8_901768FP from '../../assets/catalog/balloons/number/number_8_901768FP.webp';
-import IMG_number_8_901768OP from '../../assets/catalog/balloons/number/number_8_901768OP.webp';
-import IMG_number_8_901768PP from '../../assets/catalog/balloons/number/number_8_901768PP.webp';
-import IMG_number_8_901768RGP from '../../assets/catalog/balloons/number/number_8_901768RGP.webp';
-import IMG_number_8_B901768A from '../../assets/catalog/balloons/number/number_8_B901768A.webp';
-import IMG_number_9_901769FP from '../../assets/catalog/balloons/number/number_9_901769FP.webp';
-import IMG_number_9_901769OP from '../../assets/catalog/balloons/number/number_9_901769OP.webp';
-import IMG_number_9_901769PP from '../../assets/catalog/balloons/number/number_9_901769PP.webp';
-import IMG_number_9_901769TFP from '../../assets/catalog/balloons/number/number_9_901769TFP.webp';
-import IMG_222186 from '../../assets/catalog/balloons/additional/222186.webp';
-import IMG_501200 from '../../assets/catalog/balloons/additional/501200.webp';
-import IMG_501524 from '../../assets/catalog/balloons/additional/501524.webp';
-import IMG_501625 from '../../assets/catalog/balloons/additional/501625.webp';
-import IMG_501909 from '../../assets/catalog/balloons/additional/501909.webp';
-import IMG_521321 from '../../assets/catalog/balloons/additional/521321.webp';
-import IMG_521343 from '../../assets/catalog/balloons/additional/521343.webp';
-import IMG_615192 from '../../assets/catalog/balloons/additional/615192.webp';
-import IMG_615192_1 from '../../assets/catalog/balloons/additional/615192_1.webp';
-import IMG_617704 from '../../assets/catalog/balloons/additional/617704.webp';
-import IMG_617739 from '../../assets/catalog/balloons/additional/617739.webp';
-import IMG_6014369 from '../../assets/catalog/balloons/additional/6014369.webp';
-import IMG_6014413 from '../../assets/catalog/balloons/additional/6014413.webp';
-import IMG_6014978 from '../../assets/catalog/balloons/additional/6014978.webp';
-import IMG_6014979 from '../../assets/catalog/balloons/additional/6014979.webp';
-import IMG_6015341 from '../../assets/catalog/balloons/additional/6015341.webp';
-import IMG_6230884 from '../../assets/catalog/balloons/additional/6230884.webp';
-import IMG_6230888 from '../../assets/catalog/balloons/additional/6230888.webp';
-import IMG_6230995 from '../../assets/catalog/balloons/additional/6230995.webp';
-import IMG_6231164 from '../../assets/catalog/balloons/additional/6231164.webp';
-import IMG_6231805 from '../../assets/catalog/balloons/additional/6231805.webp';
-import IMG_6231806 from '../../assets/catalog/balloons/additional/6231806.webp';
-import IMG_6231809 from '../../assets/catalog/balloons/additional/6231809.webp';
-import IMG_6232504 from '../../assets/catalog/balloons/additional/6232504.webp';
-import IMG_6521334 from '../../assets/catalog/balloons/additional/6521334.webp';
-
 export const balloonsData = [
   // girl
   {
@@ -130,7 +7,7 @@ export const balloonsData = [
     description: 'Композиция из шаров: - 2 фонтана по 7 шаров с декором кисточками тассел (звезда 45 см + 1 с конфетти + 2 пастель + 3 макарун). Гарантированное время полета шаров 2е суток. В составе сета 2 фонтана по 7 шаров в розово-голубых оттенках с декором кисточками тассел: звезда 45 см + 1 с конфетти + 2 пастель + 3 макарун. Шары надуты гелием. Гендерные фонтаны могут украсить праздник как самостоятельный элемент декора, так и стать частью композиции вместе с гендерным шаром или коробкой-сюрприз.',
     price: 1500,
     oldPrice: 1800,
-    image: IMG_girl_1_23374_1,
+    image: require('../../assets/catalog/balloons/girl/girl_1_23374_1.webp'),
     hit: false,
     count: 0,
   },
@@ -140,7 +17,7 @@ export const balloonsData = [
     title: 'girl_1_23374_3',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_1_23374_3,
+    image: require('../../assets/catalog/balloons/girl/girl_1_23374_3.webp'),
     hit: false,
     count: 0,
   },
@@ -151,7 +28,7 @@ export const balloonsData = [
     description: 'Композиция из шаров: - 2 фонтана по 7 шаров с декором кисточками тассел (звезда 45 см + 1 с конфетти + 2 пастель + 3 макарун). Гарантированное время полета шаров 2е суток. В составе сета 2 фонтана по 7 шаров в розово-голубых оттенках с декором кисточками тассел: звезда 45 см + 1 с конфетти + 2 пастель + 3 макарун. Шары надуты гелием. Гендерные фонтаны могут украсить праздник как самостоятельный элемент декора, так и стать частью композиции вместе с гендерным шаром или коробкой-сюрприз.',
     price: 1500,
     oldPrice: 1800,
-    image: IMG_girl_1_23374_4,
+    image: require('../../assets/catalog/balloons/girl/girl_1_23374_4.webp'),
     hit: false,
     count: 0,
   },
@@ -161,7 +38,7 @@ export const balloonsData = [
     title: 'girl_1_23374_5',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_1_23374_5,
+    image: require('../../assets/catalog/balloons/girl/girl_1_23374_5.webp'),
     hit: false,
     count: 0,
   },
@@ -171,7 +48,7 @@ export const balloonsData = [
     title: 'girl_1_901761PP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_1_901761PP_1,
+    image: require('../../assets/catalog/balloons/girl/girl_1_901761PP_1.webp'),
     hit: true,
     count: 0,
   },
@@ -181,7 +58,7 @@ export const balloonsData = [
     title: 'girl_1_901761PP_2',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_1_901761PP_2,
+    image: require('../../assets/catalog/balloons/girl/girl_1_901761PP_2.webp'),
     hit: true,
     count: 0,
   },
@@ -191,7 +68,7 @@ export const balloonsData = [
     title: 'girl_1_901761PP_4',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_1_901761PP_4,
+    image: require('../../assets/catalog/balloons/girl/girl_1_901761PP_4.webp'),
     hit: false,
     count: 0,
   },
@@ -201,7 +78,7 @@ export const balloonsData = [
     title: 'girl_1_B901761RG_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_1_B901761RG_1,
+    image: require('../../assets/catalog/balloons/girl/girl_1_B901761RG_1.webp'),
     hit: true,
     count: 0,
   },
@@ -211,7 +88,7 @@ export const balloonsData = [
     title: 'girl_2_901767OP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_2_901767OP_1,
+    image: require('../../assets/catalog/balloons/girl/girl_2_901767OP_1.webp'),
     hit: false,
     count: 0,
   },
@@ -221,7 +98,7 @@ export const balloonsData = [
     title: 'girl_2_901767OP_2',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_2_901767OP_2,
+    image: require('../../assets/catalog/balloons/girl/girl_2_901767OP_2.webp'),
     hit: false,
     count: 0,
   },
@@ -232,7 +109,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 1500,
     oldPrice: 1800,
-    image: IMG_girl_2_901767OP_3,
+    image: require('../../assets/catalog/balloons/girl/girl_2_901767OP_3.webp'),
     hit: false,
     count: 0,
   },
@@ -242,7 +119,7 @@ export const balloonsData = [
     title: 'girl_3_901763FP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_3_901763FP_1,
+    image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_1.webp'),
     hit: true,
     count: 0,
   },
@@ -252,7 +129,7 @@ export const balloonsData = [
     title: 'girl_3_901763FP_2',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_3_901763FP_2,
+    image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_2.webp'),
     hit: true,
     count: 0,
   },
@@ -262,7 +139,7 @@ export const balloonsData = [
     title: 'girl_3_901763FP_3',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_3_901763FP_3,
+    image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_3.webp'),
     hit: false,
     count: 0,
   },
@@ -272,7 +149,7 @@ export const balloonsData = [
     title: 'girl_3_901763FP_4',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_3_901763FP_4,
+    image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_4.webp'),
     hit: false,
     count: 0,
   },
@@ -282,7 +159,7 @@ export const balloonsData = [
     title: 'girl_3_B901763P_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_3_B901763P_1,
+    image: require('../../assets/catalog/balloons/girl/girl_3_B901763P_1.webp'),
     hit: true,
     count: 0,
   },
@@ -292,7 +169,7 @@ export const balloonsData = [
     title: 'girl_4_901764PP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_4_901764PP_1,
+    image: require('../../assets/catalog/balloons/girl/girl_4_901764PP_1.webp'),
     hit: true,
     count: 0,
   },
@@ -302,7 +179,7 @@ export const balloonsData = [
     title: 'girl_5_901765FP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_5_901765FP_1,
+    image: require('../../assets/catalog/balloons/girl/girl_5_901765FP_1.webp'),
     hit: true,
     count: 0,
   },
@@ -312,7 +189,7 @@ export const balloonsData = [
     title: 'girl_6_B901766O_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_6_B901766O_1,
+    image: require('../../assets/catalog/balloons/girl/girl_6_B901766O_1.webp'),
     hit: false,
     count: 0,
   },
@@ -323,7 +200,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 1500,
     oldPrice: 1800,
-    image: IMG_girl_8_901768OP_1,
+    image: require('../../assets/catalog/balloons/girl/girl_8_901768OP_1.webp'),
     hit: false,
     count: 0,
   },
@@ -333,7 +210,7 @@ export const balloonsData = [
     title: 'girl_8_901768RG_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_8_901768RG_1,
+    image: require('../../assets/catalog/balloons/girl/girl_8_901768RG_1.webp'),
     hit: false,
     count: 0,
   },
@@ -343,7 +220,7 @@ export const balloonsData = [
     title: 'girl_bear_901856_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_bear_901856_1,
+    image: require('../../assets/catalog/balloons/girl/girl_bear_901856_1.webp'),
     hit: false,
     count: 0,
   },
@@ -353,7 +230,7 @@ export const balloonsData = [
     title: 'girl_bunny_23360_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_bunny_23360_1,
+    image: require('../../assets/catalog/balloons/girl/girl_bunny_23360_1.webp'),
     hit: true,
     count: 0,
   },
@@ -364,7 +241,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 1500,
     oldPrice: 1800,
-    image: IMG_girl_cat_19772_1,
+    image: require('../../assets/catalog/balloons/girl/girl_cat_19772_1.webp'),
     hit: true,
     count: 0,
   },
@@ -374,7 +251,7 @@ export const balloonsData = [
     title: 'girl_cat_19772_2',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_cat_19772_2,
+    image: require('../../assets/catalog/balloons/girl/girl_cat_19772_2.webp'),
     hit: true,
     count: 0,
   },
@@ -384,7 +261,7 @@ export const balloonsData = [
     title: 'girl_unicorn_19184_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_unicorn_19184_1,
+    image: require('../../assets/catalog/balloons/girl/girl_unicorn_19184_1.webp'),
     hit: false,
     count: 0,
   },
@@ -394,7 +271,7 @@ export const balloonsData = [
     title: 'girl_unicorn_19184_2',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_girl_unicorn_19184_2,
+    image: require('../../assets/catalog/balloons/girl/girl_unicorn_19184_2.webp'),
     hit: true,
     count: 0,
   },
@@ -405,7 +282,7 @@ export const balloonsData = [
     title: 'boy_1_901761OP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_boy_1_901761OP_1,
+    image: require('../../assets/catalog/balloons/boy/boy_1_901761OP_1.webp'),
     hit: false,
     count: 0,
   },
@@ -415,7 +292,7 @@ export const balloonsData = [
     title: 'boy_1_901761PP_3',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_boy_1_901761PP_3,
+    image: require('../../assets/catalog/balloons/boy/boy_1_901761PP_3.webp'),
     hit: false,
     count: 0,
   },
@@ -425,7 +302,7 @@ export const balloonsData = [
     title: 'boy_2_901762OP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_boy_2_901762OP_1,
+    image: require('../../assets/catalog/balloons/boy/boy_2_901762OP_1.webp'),
     hit: true,
     count: 0,
   },
@@ -436,7 +313,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 1500,
     oldPrice: 1800,
-    image: IMG_boy_2_901762OP_2,
+    image: require('../../assets/catalog/balloons/boy/boy_2_901762OP_2.webp'),
     hit: false,
     count: 0,
   },
@@ -446,7 +323,7 @@ export const balloonsData = [
     title: 'boy_2_901762PP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_boy_2_901762PP_1,
+    image: require('../../assets/catalog/balloons/boy/boy_2_901762PP_1.webp'),
     hit: true,
     count: 0,
   },
@@ -456,7 +333,7 @@ export const balloonsData = [
     title: 'boy_2_B901762A_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_boy_2_B901762A_1,
+    image: require('../../assets/catalog/balloons/boy/boy_2_B901762A_1.webp'),
     hit: false,
     count: 0,
   },
@@ -466,7 +343,7 @@ export const balloonsData = [
     title: 'boy_2_B901762A_2',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_boy_2_B901762A_2,
+    image: require('../../assets/catalog/balloons/boy/boy_2_B901762A_2.webp'),
     hit: false,
     count: 0,
   },
@@ -476,7 +353,7 @@ export const balloonsData = [
     title: 'boy_7_901767AP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_boy_7_901767AP_1,
+    image: require('../../assets/catalog/balloons/boy/boy_7_901767AP_1.webp'),
     hit: false,
     count: 0,
   },
@@ -486,7 +363,7 @@ export const balloonsData = [
     title: 'boy_7_B901767P_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_boy_7_B901767P_1,
+    image: require('../../assets/catalog/balloons/boy/boy_7_B901767P_1.webp'),
     hit: false,
     count: 0,
   },
@@ -497,7 +374,7 @@ export const balloonsData = [
     title: 'her_30_B901763P_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_her_30_B901763P_1,
+    image: require('../../assets/catalog/balloons/her/her_30_B901763P_1.webp'),
     hit: false,
     count: 0,
   },
@@ -507,7 +384,7 @@ export const balloonsData = [
     title: 'her_18_901761OP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_her_18_901761OP_1,
+    image: require('../../assets/catalog/balloons/her/her_18_901761OP_1.webp'),
     hit: false,
     count: 0,
   },
@@ -517,7 +394,7 @@ export const balloonsData = [
     title: 'her_18_901761PP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_her_18_901761PP_1,
+    image: require('../../assets/catalog/balloons/her/her_18_901761PP_1.webp'),
     hit: true,
     count: 0,
   },
@@ -527,7 +404,7 @@ export const balloonsData = [
     title: 'her_18_901761PP_2',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_her_18_901761PP_2,
+    image: require('../../assets/catalog/balloons/her/her_18_901761PP_2.webp'),
     hit: false,
     count: 0,
   },
@@ -537,7 +414,7 @@ export const balloonsData = [
     title: 'her_18_B901761RG_2',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_her_18_B901761RG_2,
+    image: require('../../assets/catalog/balloons/her/her_18_B901761RG_2.webp'),
     hit: false,
     count: 0,
   },
@@ -547,7 +424,7 @@ export const balloonsData = [
     title: 'her_21_901761PP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_her_21_901761PP_1,
+    image: require('../../assets/catalog/balloons/her/her_21_901761PP_1.webp'),
     hit: true,
     count: 0,
   },
@@ -557,7 +434,7 @@ export const balloonsData = [
     title: 'her_21_901762PP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_her_21_901762PP_1,
+    image: require('../../assets/catalog/balloons/her/her_21_901762PP_1.webp'),
     hit: true,
     count: 0,
   },
@@ -567,7 +444,7 @@ export const balloonsData = [
     title: 'her_23_901762OP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_her_23_901762OP_1,
+    image: require('../../assets/catalog/balloons/her/her_23_901762OP_1.webp'),
     hit: false,
     count: 0,
   },
@@ -578,7 +455,7 @@ export const balloonsData = [
     title: 'number_0_901760AP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_0_901760AP,
+    image: require('../../assets/catalog/balloons/number/number_0_901760AP.webp'),
     hit: true,
     count: 0,
   },
@@ -588,7 +465,7 @@ export const balloonsData = [
     title: 'number_0_901760FP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_0_901760FP,
+    image: require('../../assets/catalog/balloons/number/number_0_901760FP.webp'),
     hit: false,
     count: 0,
   },
@@ -598,7 +475,7 @@ export const balloonsData = [
     title: 'number_0_901760OP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_0_901760OP,
+    image: require('../../assets/catalog/balloons/number/number_0_901760OP.webp'),
     hit: false,
     count: 0,
   },
@@ -608,7 +485,7 @@ export const balloonsData = [
     title: 'number_0_901760P',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_0_901760P,
+    image: require('../../assets/catalog/balloons/number/number_0_901760P.webp'),
     hit: false,
     count: 0,
   },
@@ -618,7 +495,7 @@ export const balloonsData = [
     title: 'number_0_901760TFP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_0_901760TFP,
+    image: require('../../assets/catalog/balloons/number/number_0_901760TFP.webp'),
     hit: false,
     count: 0,
   },
@@ -628,7 +505,7 @@ export const balloonsData = [
     title: 'number_0_B901760RG',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_0_B901760RG,
+    image: require('../../assets/catalog/balloons/number/number_0_B901760RG.webp'),
     hit: false,
     count: 0,
   },
@@ -638,7 +515,7 @@ export const balloonsData = [
     title: 'number_1_23374',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_1_23374,
+    image: require('../../assets/catalog/balloons/number/number_1_23374.webp'),
     hit: false,
     count: 0,
   },
@@ -648,7 +525,7 @@ export const balloonsData = [
     title: 'number_1_901761OP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_1_901761OP,
+    image: require('../../assets/catalog/balloons/number/number_1_901761OP.webp'),
     hit: false,
     count: 0,
   },
@@ -658,7 +535,7 @@ export const balloonsData = [
     title: 'number_1_901761PP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_1_901761PP,
+    image: require('../../assets/catalog/balloons/number/number_1_901761PP.webp'),
     hit: false,
     count: 0,
   },
@@ -668,7 +545,7 @@ export const balloonsData = [
     title: 'number_1_901761TFP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_1_901761TFP,
+    image: require('../../assets/catalog/balloons/number/number_1_901761TFP.webp'),
     hit: false,
     count: 0,
   },
@@ -678,7 +555,7 @@ export const balloonsData = [
     title: 'number_1_B901761N',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_1_B901761N,
+    image: require('../../assets/catalog/balloons/number/number_1_B901761N.webp'),
     hit: false,
     count: 0,
   },
@@ -688,7 +565,7 @@ export const balloonsData = [
     title: 'number_1_B901761RG',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_1_B901761RG,
+    image: require('../../assets/catalog/balloons/number/number_1_B901761RG.webp'),
     hit: false,
     count: 0,
   },
@@ -698,7 +575,7 @@ export const balloonsData = [
     title: 'number_2_901762OP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_2_901762OP,
+    image: require('../../assets/catalog/balloons/number/number_2_901762OP.webp'),
     hit: false,
     count: 0,
   },
@@ -708,7 +585,7 @@ export const balloonsData = [
     title: 'number_2_901762PP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_2_901762PP,
+    image: require('../../assets/catalog/balloons/number/number_2_901762PP.webp'),
     hit: false,
     count: 0,
   },
@@ -718,7 +595,7 @@ export const balloonsData = [
     title: 'number_2_901762TFP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_2_901762TFP,
+    image: require('../../assets/catalog/balloons/number/number_2_901762TFP.webp'),
     hit: false,
     count: 0,
   },
@@ -728,7 +605,7 @@ export const balloonsData = [
     title: 'number_2_901767OP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_2_901767OP,
+    image: require('../../assets/catalog/balloons/number/number_2_901767OP.webp'),
     hit: false,
     count: 0,
   },
@@ -738,7 +615,7 @@ export const balloonsData = [
     title: 'number_2_B901762A',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_2_B901762A,
+    image: require('../../assets/catalog/balloons/number/number_2_B901762A.webp'),
     hit: false,
     count: 0,
   },
@@ -748,7 +625,7 @@ export const balloonsData = [
     title: 'number_2_B901762N',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_2_B901762N,
+    image: require('../../assets/catalog/balloons/number/number_2_B901762N.webp'),
     hit: false,
     count: 0,
   },
@@ -758,7 +635,7 @@ export const balloonsData = [
     title: 'number_2_B901762RG',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_2_B901762RG,
+    image: require('../../assets/catalog/balloons/number/number_2_B901762RG.webp'),
     hit: false,
     count: 0,
   },
@@ -768,7 +645,7 @@ export const balloonsData = [
     title: 'number_3_901763FP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_3_901763FP,
+    image: require('../../assets/catalog/balloons/number/number_3_901763FP.webp'),
     hit: false,
     count: 0,
   },
@@ -778,7 +655,7 @@ export const balloonsData = [
     title: 'number_3_901763OP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_3_901763OP,
+    image: require('../../assets/catalog/balloons/number/number_3_901763OP.webp'),
     hit: false,
     count: 0,
   },
@@ -788,7 +665,7 @@ export const balloonsData = [
     title: 'number_3_901763TFP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_3_901763TFP,
+    image: require('../../assets/catalog/balloons/number/number_3_901763TFP.webp'),
     hit: false,
     count: 0,
   },
@@ -798,7 +675,7 @@ export const balloonsData = [
     title: 'number_3_B901763A',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_3_B901763A,
+    image: require('../../assets/catalog/balloons/number/number_3_B901763A.webp'),
     hit: false,
     count: 0,
   },
@@ -808,7 +685,7 @@ export const balloonsData = [
     title: 'number_3_B901763P',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_3_B901763P,
+    image: require('../../assets/catalog/balloons/number/number_3_B901763P.webp'),
     hit: false,
     count: 0,
   },
@@ -818,7 +695,7 @@ export const balloonsData = [
     title: 'number_3_B901763RG',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_3_B901763RG,
+    image: require('../../assets/catalog/balloons/number/number_3_B901763RG.webp'),
     hit: false,
     count: 0,
   },
@@ -828,7 +705,7 @@ export const balloonsData = [
     title: 'number_4_901764FP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_4_901764FP,
+    image: require('../../assets/catalog/balloons/number/number_4_901764FP.webp'),
     hit: false,
     count: 0,
   },
@@ -838,7 +715,7 @@ export const balloonsData = [
     title: 'number_4_901764OP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_4_901764OP,
+    image: require('../../assets/catalog/balloons/number/number_4_901764OP.webp'),
     hit: false,
     count: 0,
   },
@@ -848,7 +725,7 @@ export const balloonsData = [
     title: 'number_4_901764PP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_4_901764PP,
+    image: require('../../assets/catalog/balloons/number/number_4_901764PP.webp'),
     hit: false,
     count: 0,
   },
@@ -858,7 +735,7 @@ export const balloonsData = [
     title: 'number_4_901764RGP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_4_901764RGP,
+    image: require('../../assets/catalog/balloons/number/number_4_901764RGP.webp'),
     hit: false,
     count: 0,
   },
@@ -868,7 +745,7 @@ export const balloonsData = [
     title: 'number_4_901764TFP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_4_901764TFP,
+    image: require('../../assets/catalog/balloons/number/number_4_901764TFP.webp'),
     hit: false,
     count: 0,
   },
@@ -878,7 +755,7 @@ export const balloonsData = [
     title: 'number_5_901765FP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_5_901765FP,
+    image: require('../../assets/catalog/balloons/number/number_5_901765FP.webp'),
     hit: false,
     count: 0,
   },
@@ -888,7 +765,7 @@ export const balloonsData = [
     title: 'number_5_901765RGP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_5_901765RGP,
+    image: require('../../assets/catalog/balloons/number/number_5_901765RGP.webp'),
     hit: false,
     count: 0,
   },
@@ -898,7 +775,7 @@ export const balloonsData = [
     title: 'number_5_901765TFP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_5_901765TFP,
+    image: require('../../assets/catalog/balloons/number/number_5_901765TFP.webp'),
     hit: false,
     count: 0,
   },
@@ -908,7 +785,7 @@ export const balloonsData = [
     title: 'number_5_B901765A',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_5_B901765A,
+    image: require('../../assets/catalog/balloons/number/number_5_B901765A.webp'),
     hit: false,
     count: 0,
   },
@@ -918,7 +795,7 @@ export const balloonsData = [
     title: 'number_5_B901768P',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_5_B901768P,
+    image: require('../../assets/catalog/balloons/number/number_5_B901768P.webp'),
     hit: false,
     count: 0,
   },
@@ -928,7 +805,7 @@ export const balloonsData = [
     title: 'number_6_901766RGP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_6_901766RGP,
+    image: require('../../assets/catalog/balloons/number/number_6_901766RGP.webp'),
     hit: false,
     count: 0,
   },
@@ -938,7 +815,7 @@ export const balloonsData = [
     title: 'number_6_901766TFP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_6_901766TFP,
+    image: require('../../assets/catalog/balloons/number/number_6_901766TFP.webp'),
     hit: false,
     count: 0,
   },
@@ -948,7 +825,7 @@ export const balloonsData = [
     title: 'number_6_B901766O',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_6_B901766O,
+    image: require('../../assets/catalog/balloons/number/number_6_B901766O.webp'),
     hit: false,
     count: 0,
   },
@@ -958,7 +835,7 @@ export const balloonsData = [
     title: 'number_6_B901766P',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_6_B901766P,
+    image: require('../../assets/catalog/balloons/number/number_6_B901766P.webp'),
     hit: false,
     count: 0,
   },
@@ -968,7 +845,7 @@ export const balloonsData = [
     title: 'number_7_901767AP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_7_901767AP,
+    image: require('../../assets/catalog/balloons/number/number_7_901767AP.webp'),
     hit: false,
     count: 0,
   },
@@ -978,7 +855,7 @@ export const balloonsData = [
     title: 'number_7_901767OP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_7_901767OP,
+    image: require('../../assets/catalog/balloons/number/number_7_901767OP.webp'),
     hit: false,
     count: 0,
   },
@@ -988,7 +865,7 @@ export const balloonsData = [
     title: 'number_7_901767RGP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_7_901767RGP,
+    image: require('../../assets/catalog/balloons/number/number_7_901767RGP.webp'),
     hit: false,
     count: 0,
   },
@@ -998,7 +875,7 @@ export const balloonsData = [
     title: 'number_7_901767TFP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_7_901767TFP,
+    image: require('../../assets/catalog/balloons/number/number_7_901767TFP.webp'),
     hit: false,
     count: 0,
   },
@@ -1008,7 +885,7 @@ export const balloonsData = [
     title: 'number_7_B901767P',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_7_B901767P,
+    image: require('../../assets/catalog/balloons/number/number_7_B901767P.webp'),
     hit: false,
     count: 0,
   },
@@ -1018,7 +895,7 @@ export const balloonsData = [
     title: 'number_8_901768FP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_8_901768FP,
+    image: require('../../assets/catalog/balloons/number/number_8_901768FP.webp'),
     hit: false,
     count: 0,
   },
@@ -1028,7 +905,7 @@ export const balloonsData = [
     title: 'number_8_901768OP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_8_901768OP,
+    image: require('../../assets/catalog/balloons/number/number_8_901768OP.webp'),
     hit: false,
     count: 0,
   },
@@ -1038,7 +915,7 @@ export const balloonsData = [
     title: 'number_8_901768PP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_8_901768PP,
+    image: require('../../assets/catalog/balloons/number/number_8_901768PP.webp'),
     hit: false,
     count: 0,
   },
@@ -1048,7 +925,7 @@ export const balloonsData = [
     title: 'number_8_901768RGP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_8_901768RGP,
+    image: require('../../assets/catalog/balloons/number/number_8_901768RGP.webp'),
     hit: false,
     count: 0,
   },
@@ -1058,7 +935,7 @@ export const balloonsData = [
     title: 'number_8_B901768A',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_8_B901768A,
+    image: require('../../assets/catalog/balloons/number/number_8_B901768A.webp'),
     hit: false,
     count: 0,
   },
@@ -1068,7 +945,7 @@ export const balloonsData = [
     title: 'number_9_901769FP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_9_901769FP,
+    image: require('../../assets/catalog/balloons/number/number_9_901769FP.webp'),
     hit: false,
     count: 0,
   },
@@ -1078,7 +955,7 @@ export const balloonsData = [
     title: 'number_9_901769OP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_9_901769OP,
+    image: require('../../assets/catalog/balloons/number/number_9_901769OP.webp'),
     hit: false,
     count: 0,
   },
@@ -1088,7 +965,7 @@ export const balloonsData = [
     title: 'number_9_901769PP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_9_901769PP,
+    image: require('../../assets/catalog/balloons/number/number_9_901769PP.webp'),
     hit: false,
     count: 0,
   },
@@ -1098,7 +975,7 @@ export const balloonsData = [
     title: 'number_9_901769TFP',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_number_9_901769TFP,
+    image: require('../../assets/catalog/balloons/number/number_9_901769TFP.webp'),
     hit: false,
     count: 0,
   },
@@ -1109,7 +986,7 @@ export const balloonsData = [
     title: '222186',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_222186,
+    image: require('../../assets/catalog/balloons/additional/222186.webp'),
     hit: false,
     count: 0,
   },
@@ -1119,7 +996,7 @@ export const balloonsData = [
     title: '501200',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_501200,
+    image: require('../../assets/catalog/balloons/additional/501200.webp'),
     hit: false,
     count: 0,
   },
@@ -1129,7 +1006,7 @@ export const balloonsData = [
     title: '501524',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_501524,
+    image: require('../../assets/catalog/balloons/additional/501524.webp'),
     hit: false,
     count: 0,
   },
@@ -1139,7 +1016,7 @@ export const balloonsData = [
     title: '501625',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_501625,
+    image: require('../../assets/catalog/balloons/additional/501625.webp'),
     hit: false,
     count: 0,
   },
@@ -1149,7 +1026,7 @@ export const balloonsData = [
     title: '501909',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_501909,
+    image: require('../../assets/catalog/balloons/additional/501909.webp'),
     hit: false,
     count: 0,
   },
@@ -1159,7 +1036,7 @@ export const balloonsData = [
     title: '521321',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_521321,
+    image: require('../../assets/catalog/balloons/additional/521321.webp'),
     hit: false,
     count: 0,
   },
@@ -1169,7 +1046,7 @@ export const balloonsData = [
     title: '521343',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_521343,
+    image: require('../../assets/catalog/balloons/additional/521343.webp'),
     hit: false,
     count: 0,
   },
@@ -1179,7 +1056,7 @@ export const balloonsData = [
     title: '615192',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_615192,
+    image: require('../../assets/catalog/balloons/additional/615192.webp'),
     hit: false,
     count: 0,
   },
@@ -1189,7 +1066,7 @@ export const balloonsData = [
     title: '615192_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_615192_1,
+    image: require('../../assets/catalog/balloons/additional/615192_1.webp'),
     hit: false,
     count: 0,
   },
@@ -1199,7 +1076,7 @@ export const balloonsData = [
     title: '617704',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_617704,
+    image: require('../../assets/catalog/balloons/additional/617704.webp'),
     hit: false,
     count: 0,
   },
@@ -1209,7 +1086,7 @@ export const balloonsData = [
     title: '617739',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_617739,
+    image: require('../../assets/catalog/balloons/additional/617739.webp'),
     hit: false,
     count: 0,
   },
@@ -1219,7 +1096,7 @@ export const balloonsData = [
     title: '6014369',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6014369,
+    image: require('../../assets/catalog/balloons/additional/6014369.webp'),
     hit: false,
     count: 0,
   },
@@ -1229,7 +1106,7 @@ export const balloonsData = [
     title: '6014413',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6014413,
+    image: require('../../assets/catalog/balloons/additional/6014413.webp'),
     hit: false,
     count: 0,
   },
@@ -1239,7 +1116,7 @@ export const balloonsData = [
     title: '6014978',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6014978,
+    image: require('../../assets/catalog/balloons/additional/6014978.webp'),
     hit: false,
     count: 0,
   },
@@ -1249,7 +1126,7 @@ export const balloonsData = [
     title: '6014979',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6014979,
+    image: require('../../assets/catalog/balloons/additional/6014979.webp'),
     hit: false,
     count: 0,
   },
@@ -1259,7 +1136,7 @@ export const balloonsData = [
     title: '6015341',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6015341,
+    image: require('../../assets/catalog/balloons/additional/6015341.webp'),
     hit: false,
     count: 0,
   },
@@ -1269,7 +1146,7 @@ export const balloonsData = [
     title: '6230884',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6230884,
+    image: require('../../assets/catalog/balloons/additional/6230884.webp'),
     hit: false,
     count: 0,
   },
@@ -1279,7 +1156,7 @@ export const balloonsData = [
     title: '6230888',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6230888,
+    image: require('../../assets/catalog/balloons/additional/6230888.webp'),
     hit: false,
     count: 0,
   },
@@ -1289,7 +1166,7 @@ export const balloonsData = [
     title: '6230995',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6230995,
+    image: require('../../assets/catalog/balloons/additional/6230995.webp'),
     hit: false,
     count: 0,
   },
@@ -1299,7 +1176,7 @@ export const balloonsData = [
     title: '6231164',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6231164,
+    image: require('../../assets/catalog/balloons/additional/6231164.webp'),
     hit: false,
     count: 0,
   },
@@ -1309,7 +1186,7 @@ export const balloonsData = [
     title: '6231805',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6231805,
+    image: require('../../assets/catalog/balloons/additional/6231805.webp'),
     hit: false,
     count: 0,
   },
@@ -1319,7 +1196,7 @@ export const balloonsData = [
     title: '6231806',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6231806,
+    image: require('../../assets/catalog/balloons/additional/6231806.webp'),
     hit: false,
     count: 0,
   },
@@ -1329,7 +1206,7 @@ export const balloonsData = [
     title: '6231809',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6231809,
+    image: require('../../assets/catalog/balloons/additional/6231809.webp'),
     hit: false,
     count: 0,
   },
@@ -1339,7 +1216,7 @@ export const balloonsData = [
     title: '6232504',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6232504,
+    image: require('../../assets/catalog/balloons/additional/6232504.webp'),
     hit: false,
     count: 0,
   },
@@ -1349,7 +1226,7 @@ export const balloonsData = [
     title: '6521334',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
-    image: IMG_6521334,
+    image: require('../../assets/catalog/balloons/additional/6521334.webp'),
     hit: false,
     count: 0,
   },

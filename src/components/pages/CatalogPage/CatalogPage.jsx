@@ -9,8 +9,8 @@ import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { CatalogMenu } from '../../CatalogMenu/CatalogMenu';
 import { useSelector } from 'react-redux';
 import { catalogMenuData } from '../../../data/catalogMenuData';
-import { topLevelTranslations, sublevelTranslations } from '../../../data/catalogData/catalogMenuTranslations';
-import { MobileCatalogTreeSelect } from '../../MobileCatalogTreeSelect/MobileCatalogTreeSelect';
+// import { topLevelTranslations, sublevelTranslations } from '../../../data/catalogData/catalogMenuTranslations';
+// import { MobileCatalogTreeSelect } from '../../MobileCatalogTreeSelect/MobileCatalogTreeSelect';
 import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
 
 export const CatalogPage = () => {
@@ -88,22 +88,21 @@ export const CatalogPage = () => {
       break;
   }
 
-  let translatedTopCategory;
-    if (selectedTopCategory) {
-      translatedTopCategory = topLevelTranslations[selectedTopCategory];
-    }
+  // let translatedTopCategory;
+  //   if (selectedTopCategory) {
+  //     translatedTopCategory = topLevelTranslations[selectedTopCategory];
+  //   }
 
-    let translatedCurrentCategory;
-    if (selectedCategory) {
-      translatedCurrentCategory = sublevelTranslations[selectedCategory];
-    }
+  //   let translatedCurrentCategory;
+  //   if (selectedCategory) {
+  //     translatedCurrentCategory = sublevelTranslations[selectedCategory];
+  //   }
 
   return (
     <section className={c.catalog}>
       <div className={`${c.catalog__container} container`}>
         <BreadcrumbsComponent pageName={'Каталог'} />
         <h2 className={c.catalog__title}>Каталог</h2>
-        {/* <MobileCatalogTreeSelect /> */}
         <div className={c.catalog__innerContainer}>
           <CatalogMenu
             handleMenuClick={onClick}

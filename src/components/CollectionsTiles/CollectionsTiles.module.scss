@@ -46,7 +46,7 @@
   display: flex;
   align-items: center;
   
-  background-color: $base-light-color;
+  // background-color: $base-light-color;
   z-index: 1;
   
   font-size: calc($fz-s - 3px);
@@ -78,5 +78,5 @@
   height: 100%;
   width: 100%;
   
-  object-fit: cover;
+  object-fit: contain;
 }

@@ -1,13 +1,7 @@
 import { AppstoreOutlined, BulbOutlined, BuildOutlined, SmileOutlined, FireFilled } from '@ant-design/icons';
 
 function getItem(label, key, icon, children, type) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  };
+  return { key, icon, children, label, type };
 }
 
 export const catalogMenuData = [

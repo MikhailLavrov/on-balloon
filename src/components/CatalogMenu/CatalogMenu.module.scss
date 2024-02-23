@@ -9,12 +9,13 @@
   }
 
   & > li:first-child {
-    background-color: rgb(174, 233, 57);
+    box-shadow: 0 0 3px 0 $color-6-red inset;
+    background-color: $base-light-color;
     text-transform: uppercase;
     
-    &:hover {
-      background-color: yellowgreen;
-    }
+    // &:hover {
+    //   background-color: yellowgreen;
+    // }
   }
 
   & li {
