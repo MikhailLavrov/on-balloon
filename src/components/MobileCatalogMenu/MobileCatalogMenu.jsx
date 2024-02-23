@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { catalogMenuData } from '../../data/catalogMenuData';
 import c from './MobileCatalogMenu.module.scss';
 import { useSelector } from 'react-redux';
+import { CollectionsTiles } from '../CollectionsTiles/CollectionsTiles';
 
 // Get submenu keys of first level from catalogMenuData
 const rootSubmenuKeys = catalogMenuData.reduce((acc, item) => {

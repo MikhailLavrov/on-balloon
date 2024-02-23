@@ -19,8 +19,8 @@ export const heroSwiperParams = {
 
 export const gallerySwiperParams = {
   modules: [Thumbs, Navigation, Pagination, Autoplay],
-  spaceBetween: 15,
-  speed: 5000,
+  spaceBetween: 10,
+  speed: 7000,
   // allowTouchMove: false,
   loop: true,
   autoplay: {
@@ -30,7 +30,7 @@ export const gallerySwiperParams = {
   },
   breakpoints: {
     0: {
-      slidesPerView: 2,
+      slidesPerView: 3.5,
     },
     500: {
       slidesPerView: 3,

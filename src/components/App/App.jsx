@@ -18,8 +18,8 @@ const MainPage = () => {
   return (
     <>
       <Hero />
-      <Advantages />
       <GallerySection />
+      <Advantages />
       <Feedback />
       <FloatButton.BackTop icon={<ArrowUpOutlined />} />
     </>

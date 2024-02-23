@@ -1,6 +1,6 @@
 import { HeaderComponent } from '../Header/Header';
 import { FooterComponent } from '../Footer/Footer';
-import { MobileNavigation } from '../MobileNavigation/MobileNavigation';
+import { MobileNavigation } from '../MobileNavigationCopy/MobileNavigation';
 import { Outlet } from 'react-router-dom';
 import { Layout } from 'antd';
 import c from './Layout.module.scss';

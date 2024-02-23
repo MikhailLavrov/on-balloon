@@ -11,7 +11,7 @@ import { ToFavouritesAction } from '../ToFavouritesAction/ToFavouritesAction';
 import { ToShoppingCartAction } from '../ToShoppingCartAction/ToShoppingCartAction';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-const {delivery, payment} = termsData;
+const {delivery, payment, guarantee} = termsData;
 
 export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen}) => {
   const { article, title, description, price, oldPrice, image, hit, count } = item;
@@ -25,21 +25,21 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen}) => {
 
   const tabsItems = [
     {
-      key: 'description',
-      label: 'Описание',
-      children: description,
-      icon: <ReadOutlined />,
-    },
-    {
       key: 'delivery',
       label: 'Доставка',
       children: delivery,
-      icon: <TruckOutlined />,
+      icon: <ReadOutlined />,
     },
     {
       key: 'payment',
       label: 'Оплата',
       children: payment,
+      icon: <TruckOutlined />,
+    },
+    {
+      key: 'guarantee',
+      label: 'Гарантия',
+      children: guarantee,
       icon: <ShoppingCartOutlined />,
     },
   ];
@@ -62,7 +62,11 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen}) => {
             <img src={image} width={400} alt={title} />
           </div>
           <div className={c.cardModal__mainInfo}>
+
+        {/* Заголовок */}
             <p className={c.cardModal__title}>{title}</p>
+
+        {/* Прайсбокс */}
             <div className={c.cardModal__priceBox}>
               <p className={c.cardModal__price}>{price} &#8381;</p>
               {oldPrice && <p className={c.cardModal__oldPrice}>{oldPrice} &#8381;</p>}
@@ -71,6 +75,14 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen}) => {
                 {hit && <span style={{backgroundColor: 'rgb(77, 182, 40)'}}>Хит</span>}
               </div>
             </div>
+
+        {/* Количество */}
+              {count>=1 ? 
+                <div className={c.cardModal__inStockWrapper}><Badge status="success" /><span className={c.cardModal__inStock}>Есть в наличии</span></div> 
+              : <div className={c.cardModal__inStockWrapper}><Badge status="warning" /><span className={c.cardModal__inStock}>Доступно для заказа</span></div>
+              }
+
+        {/* Артикул */}
             <p className={c.cardModal__article}>
               Артикул:
               <CopyToClipboard 
@@ -80,10 +92,14 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen}) => {
                   <span style={{ cursor: 'pointer', marginLeft: '5px' }}>{article}</span>
               </CopyToClipboard>, {count}
             </p>
-            {count>=1 ? 
-              <div className={c.cardModal__inStockWrapper}><Badge status="success" /><span className={c.cardModal__inStock}>Есть в наличии</span></div> 
-            : <div className={c.cardModal__inStockWrapper}><Badge status="warning" /><span className={c.cardModal__inStock}>Доступно для заказа</span></div>}
+
+        {/* Описание */}
+            <div className={c.cardModal__description}>
+              {description}
+            </div>
+
             <div className={c.cardModal__userActions}>
+        {/* В избранное и В корзину */}
               <div className={c.cardModal__userActionsInner}>
                 <ToFavouritesAction item={item} text />
                 <ToShoppingCartAction item={item} text />
@@ -108,26 +124,28 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen}) => {
             </div>
           </div>
         </div>
+
+      {/* Табы */}
         <div className={c.cardModal__additional}>
-        <ConfigProvider
-          theme={{
-            components: {
-              Tabs: {
-                inkBarColor: '#bebebe',
-                itemSelectedColor: '#000000',
-                itemHoverColor: '#000000',
-                itemColor: '#909090',
+          <ConfigProvider
+            theme={{
+              components: {
+                Tabs: {
+                  inkBarColor: '#bebebe',
+                  itemSelectedColor: '#000000',
+                  itemHoverColor: '#000000',
+                  itemColor: '#909090',
+                },
               },
-            },
-          }}
-        >
-          <Tabs
-            defaultActiveKey="1"
-            centered
-            items={tabsItems}
-            className={`catalogCardModal__tabs`}
-          />
-        </ConfigProvider>
+            }}
+          >
+            <Tabs
+              defaultActiveKey="1"
+              centered
+              items={tabsItems}
+              className={`catalogCardModal__tabs`}
+            />
+          </ConfigProvider>
         </div>
       </div>
     </Modal>

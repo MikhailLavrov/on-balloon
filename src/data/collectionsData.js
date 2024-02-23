@@ -11,7 +11,7 @@ export const collectionsData = catalogMenuData
       key: item.key,
       icon: item.icon,
       label: item.label,
-      image: getImageForItem(item.key), // Add image path for top level item
+      image: getImageForItem(item.key),
       children: [],
     };
 
@@ -19,7 +19,7 @@ export const collectionsData = catalogMenuData
       key: child.key,
       icon: child.icon,
       label: child.label,
-      image: getImageForItem(child.key), // Add image path for child item
+      image: getImageForItem(child.key),
     }));
 
     return topLevelItem;

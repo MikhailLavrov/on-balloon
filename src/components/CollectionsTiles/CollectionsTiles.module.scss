@@ -5,25 +5,20 @@
 .collectionsTile {
   position: relative;
   
-  display: flex;
-  align-items: center;
-  
-  box-shadow: 0 0 0 1px $color-2-greyDarker;
-}
-
-.collectionsTile__link {
-  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 60px;
 
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
-  width: 100%;
-  height: 100%;
-  min-height: 60px;
+  
+  color: $base-dark-color;
+  box-shadow: 0 0 0 1px $color-2-greyDarker;
   transition: all 200ms ease-in-out;
   
   &:hover {
+    color: $base-dark-color;
     box-shadow: 0 0 0 2px $color-2-greyDarker;
   }
   
@@ -50,7 +45,6 @@
   z-index: 1;
   
   font-size: calc($fz-s - 3px);
-  color: $base-dark-color;
   
   @include vp-768 {
     font-size: calc($fz-s - 1px);
