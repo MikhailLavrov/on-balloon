@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AlignLeftOutlined, EnvironmentOutlined, HeartOutlined, HomeOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { AlignLeftOutlined, EnvironmentOutlined, HeartOutlined, HomeOutlined, RightOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import c from './MobileNavigation.module.scss';
 import { Badge, Drawer } from 'antd';
 import { SearchComponent } from '../SearchComponent/SearchComponent';
@@ -10,6 +10,30 @@ import { initShoppingCart } from '../../redux/shoppingCartSlice';
 import { setCurrentCategory } from '../../redux/outerCatalogNavSlice';
 import { CollectionsTiles } from '../CollectionsTiles/CollectionsTiles';
 import { catalogMenuData } from '../../data/catalogMenuData';
+
+const InnerDrawer = ({currentTopCategory, outerHandler}) => {
+  const category = catalogMenuData.find(item => item.key === currentTopCategory)
+  const dispatch = useDispatch();
+
+  const onClickHandler = (key) => {
+    dispatch(setCurrentCategory({currentCategory: key, currentTopCategory: currentTopCategory}))
+    if (outerHandler) {
+      outerHandler();
+    }
+  }
+  
+  return (
+    <div className={c.innerDrawer__content}>
+      {category.children.map((item, index) => {
+        return (
+          <Link to={'/catalog'} key={index} onClick={() => onClickHandler(item.key)}>
+            {item.label} <RightOutlined style={{fontSize: '12px', color: '#888888'}} />
+          </Link>
+        )})
+      }
+    </div>
+  )
+}
 
 export const MobileNavigation = () => {
   // Счетчики Корзина + Избранное
@@ -25,7 +49,9 @@ export const MobileNavigation = () => {
     dispatch(initFavourites(favoritesFromStorage))
     const shoppingCartFromStorage = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     dispatch(initShoppingCart(shoppingCartFromStorage))
-  }, [dispatch]);
+
+    // console.log(currentTopCategoryState)
+  }, [dispatch, currentTopCategoryState]);
 
   const location = useLocation();
   
@@ -79,7 +105,11 @@ export const MobileNavigation = () => {
     setCurrentTopCategory(key);
     showChildrenDrawer();
   };
-  const topLevelCategory = catalogMenuData.find(item => item.key === currentTopCategory);
+
+  const outerDrawerHandler = () => {
+    onChildrenDrawerClose();
+    toggleDrawer();
+  }
 
   // topLevelCategory && topLevelCategory?.children?.map(item => console.log(item))
   
@@ -135,11 +165,8 @@ export const MobileNavigation = () => {
           bodyStyle={{paddingBottom: 80}}
         >
     {/* Отображаем пункты подменю в зависимости от текущего подраздела */}
-          {/* {currentTopCategory && catalogMenuData.children.map((item, index) => (
-            <div key={index}>
-              <Link to={item.link}>{item.title}</Link>
-            </div>
-          ))} */}
+          <InnerDrawer currentTopCategory={currentTopCategory} outerHandler={outerDrawerHandler} />
+          
         </Drawer>
       </Drawer>
     </div>

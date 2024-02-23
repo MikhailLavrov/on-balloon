@@ -79,4 +79,20 @@
   }
 }
 
+.innerDrawer__content {
+  display: flex;
+  flex-direction: column;
+
+  & a {
+    color: $base-dark-color;
+    font-size: $fz-m;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+
+    box-shadow: 0 1px 1px 0 #dbdbdb inset;
+  }
+}
+
 

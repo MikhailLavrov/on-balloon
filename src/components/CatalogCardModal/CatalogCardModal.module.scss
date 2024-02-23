@@ -49,7 +49,7 @@
   
   & img {
     width: 100%;
-    height: 100%;
+    height: auto;
     aspect-ratio: 1/1;
   }
 }
@@ -57,6 +57,7 @@
 .cardModal__mainInfo {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .cardModal__title {

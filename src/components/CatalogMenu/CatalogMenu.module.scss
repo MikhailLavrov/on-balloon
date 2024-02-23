@@ -9,7 +9,7 @@
   }
 
   & > li:first-child {
-    box-shadow: 0 0 3px 0 $color-6-red inset;
+    box-shadow: 0 0 3px 0 rgb(0, 69, 0) inset;
     background-color: $base-light-color;
     text-transform: uppercase;
     
@@ -26,7 +26,7 @@
 
     &:hover {
       & svg {
-        color: $color-6-red;
+        color: rgb(1, 194, 1);
       }
     }
   }
