@@ -7,19 +7,19 @@
 }
 
 .hero__container {
-  padding-bottom: 15px;
+  // padding-bottom: 15px;
 
   @include vp-768 {
     padding-bottom: 20px;
   }
 }
 
-.hero__collections {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+// .hero__collections {
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr);
+//   gap: 10px;
 
-  @include vp-768 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
+//   @include vp-768 {
+//     grid-template-columns: repeat(4, 1fr);
+//   }
+// }

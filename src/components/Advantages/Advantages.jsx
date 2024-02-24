@@ -16,7 +16,7 @@ export const Advantages = () => {
   return (
     <section className={c.advantages}>
       <div className="container">
-        <h2 className={c.advantages__title}>Преимущества работы с&nbsp;нами</h2>
+        {/* <h2 className={c.advantages__title}>Преимущества работы с&nbsp;нами</h2> */}
         <ul className={c.advantages__list}>
           {advantagesList}
         </ul>

@@ -124,7 +124,7 @@ export const MobileNavigation = () => {
     },
     { 
       title: 'Каталог', 
-      link: '/catalog', onClick: toggleDrawer, 
+      link: '/catalog', onClick: toggleDrawer,
       icon: <AlignLeftOutlined style={{ fontSize: '20px' }} /> 
     },
     { 

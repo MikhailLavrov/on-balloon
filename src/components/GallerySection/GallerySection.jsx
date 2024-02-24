@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { galleryData } from '../../data/galleryData';
 import { Link } from 'react-router-dom';
 import { gallerySwiperParams } from '../../data/swiperParams';
+import { RightOutlined } from '@ant-design/icons';
 
 export const GallerySection = () => {
 
@@ -18,7 +19,13 @@ export const GallerySection = () => {
   return (
     <section className={c.gallery} id='gallery_section'>
       <div className='container'>
-        <h2 className={c.gallery__title}>Наши работы</h2>
+        <h2 className={c.gallery__title}>
+          Наши работы
+        </h2>
+        <Link className={c.gallery__titleLink} to={'/gallery'}>
+          <span>Наши работы</span>
+          <RightOutlined className={c.gallery__titleIcon} />
+        </Link>
         <div className='gallery__slider gallery__slider--main'>
           <Swiper {...gallerySwiperParams}>
             {gallerySlide}

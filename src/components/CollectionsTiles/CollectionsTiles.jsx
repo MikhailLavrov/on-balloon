@@ -21,7 +21,7 @@ export const CollectionsTiles = ({outerHandler}) => {
   const collection = collectionsData.map((tile, index) => {
     return (
       <Link className={c.collectionsTile} key={index} onClick={(e) => {
-        e.preventDefault(); // Предотвращаем действие по умолчанию
+        e.preventDefault();
         onClickHandler(tile);
       }}>
         <p className={c.collectionsTile__title}>{tile.label}</p>

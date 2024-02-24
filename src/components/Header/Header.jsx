@@ -6,7 +6,7 @@ import { CallBackModal } from '../CallBackModal/CallBackModal';
 import { CatalogLink } from '../CatalogLink/CatalogLink';
 import { SearchComponent } from '../SearchComponent/SearchComponent';
 import { MobileBurgerMenu } from '../MobileBurgerMenu/MobileBurgerMenu';
-import { MobileSearch } from '../MobileSearch/MobileSearch';
+// import { MobileSearch } from '../MobileSearch/MobileSearch';
 import { TopMenu } from '../TopMenu/TopMenu';
 import { personalData } from '../../data/personalData';
 import { SocialLinks } from '../SocialLinks/SocialLinks';
@@ -48,10 +48,10 @@ export const HeaderComponent = () => {
         </div>
         <div className={c.headerMain}>
          <div className={`${c.headerMain__container} ${c.container}`} ref={headerRef}>
-          <MobileBurgerMenu />
           <Link className={c.header__logo} to={''}>
             <img src={LOGO_IMG} width={100} alt="Логотип" />
           </Link>
+          <MobileBurgerMenu />
           <CatalogLink />
           <SearchComponent className={c.searchComponent} />
           <div className={c.header__mainControls}>
@@ -72,7 +72,7 @@ export const HeaderComponent = () => {
               <span>Войти</span>
             </Link>
           </div>
-          <MobileSearch />
+          {/* <MobileSearch /> */}
         </div>
       </div>
     </header>
