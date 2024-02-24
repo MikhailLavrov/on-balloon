@@ -1,18 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Drawer } from 'antd';
 import { AlignLeftOutlined, EnvironmentOutlined, HeartOutlined, HomeOutlined, MenuOutlined, PictureOutlined, RightOutlined } from '@ant-design/icons';
 import c from './MobileBurgerMenu.module.scss';
 import { Link } from 'react-router-dom';
+import { setBurgerIsOpened } from '../../redux/burgerMenuSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const MobileBurgerMenu = () => {
+  const dispatch = useDispatch();
+  const isBurgerOpenedState = useSelector(state => state.burgerMenu.isOpened);
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(isBurgerOpenedState);
+  }, [isBurgerOpenedState]);
 
   const showDrawer = () => {
     setOpen(true);
+    !isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: true }));
   };
 
   const onClose = () => {
     setOpen(false);
+    isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
   };
 
   const handleLinkClick = () => {
