@@ -1,0 +1,12 @@
+@import '../../styles/styles.scss';
+@import '../../styles/mixins.scss';
+
+.floatButton {
+  inset-inline-end: 15px;
+  inset-block-end: 62px;
+
+  @include vp-1260 {
+    inset-inline-end: 24px;
+    inset-block-end: 48px;
+  }
+}

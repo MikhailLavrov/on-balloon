@@ -8,8 +8,6 @@ import { Hero } from '../Hero/Hero';
 import { Advantages } from '../Advantages/Advantages';
 import { GallerySection } from '../GallerySection/GallerySection';
 import { Feedback } from '../Feedback/Feedback';
-import { FloatButton } from 'antd';
-import { ArrowUpOutlined } from '@ant-design/icons';
 import { SearchResultsPage } from '../pages/SearchResultsPage/SearchResultsPage';
 import { InfoPage } from '../pages/InfoPage/InfoPage';
 import { MobileContactsPage } from '../pages/MobileContactsPage/MobileContactsPage';
@@ -21,7 +19,6 @@ const MainPage = () => {
       <GallerySection />
       <Advantages />
       <Feedback />
-      <FloatButton.BackTop icon={<ArrowUpOutlined />} />
     </>
   );
 }

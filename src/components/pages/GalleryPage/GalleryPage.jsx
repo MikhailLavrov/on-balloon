@@ -1,9 +1,9 @@
-import { Image, FloatButton, ConfigProvider } from 'antd';
+import { Image, ConfigProvider } from 'antd';
 import c from './GalleryPage.module.scss';
 import '../../../styles/global.scss';
-import { ArrowUpOutlined } from '@ant-design/icons';
 import { galleryData } from '../../../data/galleryData';
-import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
+import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent';
+import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
 const galleryImages = galleryData.map((image, index) => (
   <Image 
@@ -34,7 +34,7 @@ export const GalleryPage = () => (
         </Image.PreviewGroup>
         </ConfigProvider>
       </div>
-      <FloatButton.BackTop icon={<ArrowUpOutlined />} />
+      <FloatButtonComponent />
     </div>
   </section>
 );
