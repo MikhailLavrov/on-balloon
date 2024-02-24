@@ -9,9 +9,10 @@ import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { CatalogMenu } from '../../CatalogMenu/CatalogMenu';
 import { useSelector } from 'react-redux';
 import { catalogMenuData } from '../../../data/catalogMenuData';
-// import { topLevelTranslations, sublevelTranslations } from '../../../data/catalogData/catalogMenuTranslations';
-// import { MobileCatalogTreeSelect } from '../../MobileCatalogTreeSelect/MobileCatalogTreeSelect';
-import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
+import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent';
+import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
+
+const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
 export const CatalogPage = () => {
   const currentTopCategoryState = useSelector(state => state.outerCatalogNav.currentTopCategory);
@@ -63,12 +64,21 @@ export const CatalogPage = () => {
 
   let catalogItems;
   switch (selectedTopCategory) {
-    case 'hot':
+    case 'hit':
       catalogItems = [
-        ...filterCatalogData(balloonsData),
-        ...filterCatalogData(photozoneData),
-        ...filterCatalogData(animationData),
-        ...filterCatalogData(attractionsData)
+        allData.filter(item => item.hit).map((item) => (
+          item.oldPrice ? (
+            <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
+              <CatalogCard {...item} />
+            </Badge.Ribbon>
+          ) : item.hit ? (
+            <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
+              <CatalogCard {...item} />
+            </Badge.Ribbon>
+          ) : (
+            <CatalogCard key={item.article} {...item} />
+          )
+        ))
       ];
       break;
     case 'balloons':
@@ -88,15 +98,7 @@ export const CatalogPage = () => {
       break;
   }
 
-  // let translatedTopCategory;
-  //   if (selectedTopCategory) {
-  //     translatedTopCategory = topLevelTranslations[selectedTopCategory];
-  //   }
-
-  //   let translatedCurrentCategory;
-  //   if (selectedCategory) {
-  //     translatedCurrentCategory = sublevelTranslations[selectedCategory];
-  //   }
+  console.log(`${selectedTopCategory} ${selectedCategory}`)
 
   return (
     <section className={c.catalog}>
@@ -116,13 +118,11 @@ export const CatalogPage = () => {
               },
             }}
           />
-          {/* <h3 className={c.catalog__razdelTitle}>
-            Категория: {translatedTopCategory} {translatedCurrentCategory && `(${translatedCurrentCategory})`}
-          </h3> */}
           <div className={c.catalog__content}>
             {catalogItems}
           </div>
         </div>
+        <FloatButtonComponent />
       </div>
     </section>
   );

@@ -33,6 +33,7 @@ export const MobileBurgerMenu = () => {
         closable={true}
         onClose={onClose}
         open={open}
+        className={c.drawer}
       >
         <div className={c.menu__links}>
 

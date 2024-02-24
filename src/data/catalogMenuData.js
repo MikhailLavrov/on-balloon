@@ -1,11 +1,11 @@
-import { AppstoreOutlined, BulbOutlined, BuildOutlined, SmileOutlined, FireFilled, ThunderboltOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, BulbOutlined, BuildOutlined, SmileOutlined, FireTwoTone } from '@ant-design/icons';
 
 function getItem(label, key, icon, children, type) {
   return { key, icon, children, label, type };
 }
 
 export const catalogMenuData = [
-  getItem('Хит', 'hot', <ThunderboltOutlined style={{color: 'green'}} />),
+  getItem('Хит', 'hit',<FireTwoTone twoToneColor="#FA3D03" />),
   getItem('Воздушные шары', 'balloons', <BulbOutlined />, [
     getItem('Для девочек', 'girl'),
     getItem('Для мальчиков', 'boy'),

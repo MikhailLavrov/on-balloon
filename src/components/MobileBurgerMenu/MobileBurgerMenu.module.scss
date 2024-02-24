@@ -16,7 +16,7 @@
   }
 
   & a {
-    padding: 15px;
+    padding: 25px 15px;
 
     display: flex;
     align-items: center;
@@ -32,3 +32,17 @@
     font-size: 15px;
   }
 }
+
+// Меняем расположение header в дравере меню
+// .drawer {
+//   & > div:first-child {
+//     // padding: 16px 39px;
+//     & div {
+//       flex-direction: row-reverse;
+
+//       & button {
+//         margin: 0;
+//       }
+//     }
+//   }
+// }

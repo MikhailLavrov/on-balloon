@@ -6,14 +6,14 @@ import IMG_965664ad223 from '../../assets/catalog/balloons/additional/6014369.we
 
 export const animationData = [
   {
-    category: ['chemical', 'crio', 'bubbles', 'hot'],
+    category: ['chemical', 'crio', 'bubbles', 'hit'],
     article: '2312-42r3',
     title: 'Шоу мыльных пузырей',
     description: 'Огромные мыльные пузыри оООоОоОо',
     price: 1300,
     oldPrice: 1900,
     image: IMG_965664d223,
-    hit: true,
+    hit: false,
     count: 1,
   },
   {
@@ -27,14 +27,14 @@ export const animationData = [
     count: 1,
   },
   {
-    category: ['chemical', 'crio', 'bubbles', 'hot'],
+    category: ['chemical', 'crio', 'bubbles', 'hit'],
     article: '2312-4re23',
     title: 'Шоу мыльных пузырей',
     description: 'Огромные мыльные пузыри оООоОоОо',
     price: 1300,
     oldPrice: 1900,
     image: IMG_965664ad223,
-    hit: true,
+    hit: false,
     count: 1,
   },
   {
@@ -48,14 +48,14 @@ export const animationData = [
     count: 1,
   },
   {
-    category: ['chemical', 'crio', 'bubbles', 'hot'],
+    category: ['chemical', 'crio', 'bubbles', 'hit'],
     article: '23sad12-423',
     title: 'Шоу мыльных пузырей',
     description: 'Огромные мыльные пузыри оООоОоОо',
     price: 1300,
     oldPrice: 1900,
     image: IMG_32432423,
-    hit: true,
+    hit: false,
     count: 1,
   },
   {

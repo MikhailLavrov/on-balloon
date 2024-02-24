@@ -9,9 +9,14 @@
   }
 
   & > li:first-child {
-    box-shadow: 0 0 3px 0 rgb(0, 69, 0) inset;
+    box-shadow: 0 0 5px 1px #fa6000 inset;
     background-color: $base-light-color;
     text-transform: uppercase;
+    // color: $base-light-color;
+    font-weight: 800;
+    & svg {
+      font-size: 18px;
+    }
     
     // &:hover {
     //   background-color: yellowgreen;

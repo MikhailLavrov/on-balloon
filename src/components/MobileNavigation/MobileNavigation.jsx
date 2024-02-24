@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { AlignLeftOutlined, EnvironmentOutlined, HeartOutlined, HomeOutlined, RightOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { AlignLeftOutlined, EnvironmentOutlined, HeartOutlined, HomeOutlined, LeftOutlined, RightOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import c from './MobileNavigation.module.scss';
 import { Badge, Drawer } from 'antd';
 import { SearchComponent } from '../SearchComponent/SearchComponent';
@@ -66,12 +66,13 @@ const MobileNavigationDrawer = ({drawerVisible, childrenDrawerVisible, toggleDra
       </div>
 
       <Drawer
-        title="Подраздел"
+        title="Категория"
         placement="left"
         closable={true}
         onClose={onChildrenDrawerClose}
         open={childrenDrawerVisible}
         bodyStyle={{paddingBottom: 80}}
+        closeIcon={<LeftOutlined />}
       >
         <SubMenuContent currentTopCategory={currentTopCategory} outerHandler={outerDrawerHandler} />
         
@@ -79,7 +80,6 @@ const MobileNavigationDrawer = ({drawerVisible, childrenDrawerVisible, toggleDra
     </Drawer>
   )
 }
-
 
 export const MobileNavigation = () => {
   // Счетчики Корзина + Избранное
