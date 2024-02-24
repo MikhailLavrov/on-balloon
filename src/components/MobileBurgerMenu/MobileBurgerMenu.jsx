@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Drawer } from 'antd';
-import { AlignLeftOutlined, EnvironmentOutlined, HeartOutlined, HomeOutlined, MenuOutlined, PictureOutlined, RightOutlined } from '@ant-design/icons';
+import { EnvironmentOutlined, HeartOutlined, HomeOutlined, MenuOutlined, PictureOutlined, RightOutlined } from '@ant-design/icons';
 import c from './MobileBurgerMenu.module.scss';
 import { Link } from 'react-router-dom';
 import { setBurgerIsOpened } from '../../redux/burgerMenuSlice';
@@ -50,12 +50,6 @@ export const MobileBurgerMenu = () => {
           <Link to={'/'} onClick={handleLinkClick}>
             <HomeOutlined /> 
             Главная 
-            <RightOutlined style={{fontSize: '12px', color: '#888888', marginLeft: 'auto'}} />
-          </Link>
-
-          <Link to={'/catalog'} onClick={handleLinkClick}>
-            <AlignLeftOutlined /> 
-            Каталог 
             <RightOutlined style={{fontSize: '12px', color: '#888888', marginLeft: 'auto'}} />
           </Link>
 

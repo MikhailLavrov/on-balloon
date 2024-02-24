@@ -49,7 +49,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_1_901761PP_1.webp'),
-    hit: true,
+    hit: false,
     count: 0,
   },
   {
@@ -59,7 +59,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_1_901761PP_2.webp'),
-    hit: true,
+    hit: false,
     count: 0,
   },
   {
@@ -79,7 +79,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_1_B901761RG_1.webp'),
-    hit: true,
+    hit: false,
     count: 0,
   },
   {
@@ -120,7 +120,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_1.webp'),
-    hit: true,
+    hit: false,
     count: 0,
   },
   {
@@ -130,7 +130,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_2.webp'),
-    hit: true,
+    hit: false,
     count: 0,
   },
   {
@@ -160,7 +160,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_3_B901763P_1.webp'),
-    hit: true,
+    hit: false,
     count: 0,
   },
   {
@@ -170,7 +170,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_4_901764PP_1.webp'),
-    hit: true,
+    hit: false,
     count: 0,
   },
   {
@@ -180,7 +180,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_5_901765FP_1.webp'),
-    hit: true,
+    hit: false,
     count: 0,
   },
   {
@@ -231,7 +231,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_bunny_23360_1.webp'),
-    hit: true,
+    hit: false,
     count: 0,
   },
   {
@@ -242,7 +242,7 @@ export const balloonsData = [
     price: 1500,
     oldPrice: 1800,
     image: require('../../assets/catalog/balloons/girl/girl_cat_19772_1.webp'),
-    hit: true,
+    hit: false,
     count: 0,
   },
   {
@@ -252,7 +252,7 @@ export const balloonsData = [
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_cat_19772_2.webp'),
-    hit: true,
+    hit: false,
     count: 0,
   },
   {
@@ -434,6 +434,7 @@ export const balloonsData = [
     title: 'her_21_901762PP_1',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
+    oldPrice: 2500,
     image: require('../../assets/catalog/balloons/her/her_21_901762PP_1.webp'),
     hit: true,
     count: 0,

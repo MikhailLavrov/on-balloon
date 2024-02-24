@@ -12,7 +12,7 @@ import { CollectionsTiles } from '../CollectionsTiles/CollectionsTiles';
 import { catalogMenuData } from '../../data/catalogMenuData';
 import { setBurgerIsOpened } from '../../redux/burgerMenuSlice';
 
-const SubMenuContent = ({ currentTopCategory, outerHandler }) => {
+export const SubMenuContent = ({ currentTopCategory, outerHandler }) => {
   const category = catalogMenuData.find(item => item.key === currentTopCategory)
   const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ const SubMenuContent = ({ currentTopCategory, outerHandler }) => {
 
   return (
     <div className={c.innerDrawer__content}>
-      {category.children.map((item, index) => {
+      {category.children?.map((item, index) => {
         return (
           <Link to={'/catalog'} key={index} onClick={() => onClickHandler(item.key)}>
             {item.label} <RightOutlined style={{ fontSize: '12px', color: '#888888' }} />
@@ -37,7 +37,7 @@ const SubMenuContent = ({ currentTopCategory, outerHandler }) => {
   )
 }
 
-const MobileNavigationDrawer = ({ drawerVisible, childrenDrawerVisible, toggleDrawer, showChildrenDrawer, onChildrenDrawerClose }) => {
+export const MobileNavigationDrawer = ({ drawerVisible, childrenDrawerVisible, toggleDrawer, showChildrenDrawer, onChildrenDrawerClose }) => {
   const [currentTopCategory, setCurrentTopCategory] = useState(null);
 
   const outerDrawerHandler = () => {
@@ -87,7 +87,6 @@ export const MobileNavigation = () => {
   // Счетчики Корзина + Избранное
   const favouritesCountState = useSelector(state => state.favourites.count);
   const shoppingCartCountState = useSelector(state => state.shoppingCart.count);
-  const currentTopCategoryState = useSelector(state => state.outerCatalogNav.currentTopCategory);
   const isBurgerOpenedState = useSelector(state => state.burgerMenu.isOpened)
 
   const dispatch = useDispatch();
