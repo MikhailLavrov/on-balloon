@@ -11,13 +11,15 @@ import { Feedback } from '../Feedback/Feedback';
 import { SearchResultsPage } from '../pages/SearchResultsPage/SearchResultsPage';
 import { InfoPage } from '../pages/InfoPage/InfoPage';
 import { MobileContactsPage } from '../pages/MobileContactsPage/MobileContactsPage';
+import { HitsSection } from '../HitsSection/HitsSection';
 
 const MainPage = () => {
   return (
     <>
       <Hero />
-      <GallerySection />
+      <HitsSection />
       <Advantages />
+      <GallerySection />
       <Feedback />
     </>
   );

@@ -13,7 +13,7 @@ export const ToFavouritesAction = ({item, text}) => {
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setIsFavorite(favorites.some(favorite => favorite.article === article));
-  }, [article, isFavorite, dispatch]);
+  }, [article, isFavorite]);
 
   const toggleFavorites = () => {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];

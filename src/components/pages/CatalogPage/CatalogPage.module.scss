@@ -83,28 +83,21 @@
 
 .catalog__content {
   display: grid;
-  gap: 10px;
-  
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  grid-template-columns: repeat(3, minmax(25%, 1fr));
   align-items: stretch;
+  justify-content: center;
   
   @include vp-500 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  @include vp-768 {
-    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    grid-template-columns: repeat(4, minmax(20%, 4fr));
   }
 
   @include vp-1260 {
-    grid-column: 2/-1;
-    
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: min-content;
   }
 }
+
 
 .styledBadge {
   padding: 5px;
@@ -129,7 +122,6 @@
 }
 
 .catalogMenu {
-  
   background-color: $color-6-red;
 
   &:first-child {

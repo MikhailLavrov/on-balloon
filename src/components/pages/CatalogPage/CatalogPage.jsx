@@ -22,7 +22,7 @@ export const CatalogPage = () => {
   
   const [selectedTopCategory, setSelectedTopCategory] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
-
+  
   useEffect(() => {
     if (currentTopCategoryState && currentTopCategoryState !== '') {
       setSelectedTopCategory(currentTopCategoryState);

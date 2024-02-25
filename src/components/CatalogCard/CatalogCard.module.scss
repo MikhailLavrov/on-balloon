@@ -7,13 +7,15 @@
 
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   color: $base-dark-color;
   font-family: $ff-tilda;
-  aspect-ratio: 1/1;
-  box-shadow: 0 0 0 1px $color-2-grey inset;
+
+  box-shadow: 0 0 0 1px $color-3-blue;
   border-radius: 5px;
   cursor: pointer;
+  overflow: hidden;
   
   &:hover {
     color: $base-dark-color;
@@ -22,27 +24,40 @@
 }
 
 .catalogCard__imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   & img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    width: 100%;
-    aspect-ratio: 1/1;
   }
 }
 
 .catalogCard__content {
-  font-family: $ff-tilda;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .catalogCard__priceBox {
   padding: 5px;
 
+  width: 100%;
+
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: space-evenly;
   gap: 10px;
 
-  background-color: $color-2-grey;
+  background-color: $color-3-blue;
   
   @include vp-1260 {
     padding: 10px;
@@ -61,9 +76,9 @@
 }
 
 .catalogCard__oldPrice {
-  display: none;
-
   margin: 0;
+
+  display: none;
 
   color: rgba($base-dark-color, 0.5);
   text-decoration: line-through;
@@ -77,22 +92,29 @@
 
 .catalogCard__text {
   padding: 5px;
-  
-  flex-grow: 1;
 
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  max-width: inherit;
   
-  @include vp-500 {
+  display: flex;
+  
+  @include vp-1260 {
     padding: 10px;
-    justify-content: center;
   }
 }
 
 .catalogCard__title {
   margin: 0;
-  flex-grow: 1;
+
+  max-width: inherit;
+  width: inherit;
+
+  text-align: center;
   font-size: $fz-s;
   font-weight: 500;
-  text-align: center;
+  min-width: 0; /* Разрешить сужение контейнера */
+  flex: 1; /* Добавляем гибкость для растягивания */
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }

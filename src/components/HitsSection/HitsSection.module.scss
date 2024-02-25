@@ -1,0 +1,169 @@
+@import '../../styles/styles.scss';
+@import '../../styles/mixins.scss';
+
+.hits {
+  padding: 15px 0;
+
+  text-align: center;
+  font-family: $ff-tilda;
+  background-color: $color-2-grey;
+
+  overflow: hidden;
+
+  & * {
+    user-select: none;
+  }
+
+  @include vp-768 {
+    padding: 20px 0;
+  }
+  
+  @include vp-1260 {
+    padding: 40px 0;
+  }
+}
+
+.hits__title {
+  display: none;
+
+  margin: 0;
+  margin-bottom: 10px;
+
+  font-size: $fz-m;
+  font-weight: 500;
+  
+  @include vp-1260 {
+    display: block;
+
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+}
+
+.hits__titleIcon {
+  margin-left: auto;
+
+  font-size: 12px;
+
+  @include vp-1260 {
+    // display: none;
+  }
+}
+
+.hits__titleLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  margin-bottom: 15px;
+
+  color: $base-dark-color;
+  font-size: $fz-s;
+  font-weight: 500;
+
+  & span {
+    margin-left: auto;
+  }
+
+  @include vp-768 {
+    margin-bottom: 20px;
+
+    font-size: $fz-m;
+  }
+
+  @include vp-1260 {
+    // display: none;
+  }
+}
+
+.hits__image {
+  max-height: 700px;
+  height: 100%;
+  display: flex;
+  aspect-ratio: 1/1;
+  cursor: default;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+.hits__link {
+  display: none;
+
+  margin: 0 auto;
+  padding: 13px 30px;
+
+  max-width: 350px;
+
+  font-family: $ff-tilda;
+  font-size: $fz-s;
+  font-weight: 500;
+  color: $base-light-color;
+  
+  background-color: $color-6-red;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $color-6-red-lighter;
+    color: $base-light-color;
+  }
+
+  @include vp-768 {
+    margin: 0 auto;
+  }
+  
+  @include vp-1260 {
+    display: block;
+    font-size: calc($fz-m - 3px);
+  }
+}
+
+.hits__content {
+  padding: 0 10px;
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: repeat(3, minmax(20%, 1fr));
+  grid-template-rows: 1fr;
+  grid-auto-rows: 0;
+  overflow: hidden;
+  align-items: stretch;
+  justify-content: center;
+  
+  @include vp-500 {
+    column-gap: 20px;
+    grid-template-columns: repeat(4, minmax(20%, 4fr));
+  }
+
+  @include vp-1260 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+
+.styledBadge {
+  padding: 5px;
+  
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  
+  font-size: 12px;
+  font-family: $ff-tilda;
+
+  @include vp-500 {
+    padding: 0 8px;
+
+    height: auto;
+
+    display: block;
+
+    font-size: 14px;
+  }
+}
