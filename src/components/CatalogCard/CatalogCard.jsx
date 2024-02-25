@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import c from './CatalogCard.module.scss';
 import { CatalogCardModal } from '../CatalogCardModal/CatalogCardModal';
+import { ToFavouritesAction } from '../ToFavouritesAction/ToFavouritesAction';
 
 export const CatalogCard = ({...item}) => {
   const {category, article, title, description, price, oldPrice, image, hit, count} = item;
@@ -14,6 +15,7 @@ export const CatalogCard = ({...item}) => {
   return (
     <>
       <div className={c.catalogCard} onClick={showModal}>
+        <ToFavouritesAction item={{...item}} />
         <div className={c.catalogCard__imageWrapper}>
           <img src={image} width={200} alt={title} />
         </div>

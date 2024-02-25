@@ -13,9 +13,9 @@ export const ToFavouritesAction = ({item, text}) => {
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setIsFavorite(favorites.some(favorite => favorite.article === article));
-  }, [article]);
+  }, [article, isFavorite, dispatch]);
 
-  const addToFavorites = () => {
+  const toggleFavorites = () => {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const index = favorites.findIndex(favorite => favorite.article === article);
     if (index !== -1) {
@@ -34,5 +34,6 @@ export const ToFavouritesAction = ({item, text}) => {
   const favoritesButtonIcon = isFavorite ? <HeartFilled style={{color: 'red'}} /> : <HeartOutlined />;
 
   return (
-    <Button onClick={addToFavorites}>{text && favoritesButtonText }{favoritesButtonIcon}</Button>
-)};
+    <Button onClick={toggleFavorites}>{text && favoritesButtonText }{favoritesButtonIcon}</Button>
+  )
+};
