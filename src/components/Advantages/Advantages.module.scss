@@ -2,7 +2,7 @@
 @import '../../styles/mixins.scss';
 
 .advantages {
-  padding: 15px 0;
+  padding: 10px 0 25px;
 
   text-align: center;
   font-family: $ff-tilda;
@@ -10,11 +10,11 @@
   background-color: $base-light-color;
 
   @include vp-768 {
-    padding: 20px 0;
+    padding: 20px 0 30px;
   }
 
   @include vp-1260 {
-    padding: 40px 0;
+    padding: 20px 0 40px;
   }
 }
 
@@ -47,6 +47,10 @@
   gap: 10px;
 
   list-style: none;
+
+  @include vp-500 {
+    gap: 15px;
+  }
 
   @include vp-768 {
     grid-template-columns: repeat(4, 1fr);

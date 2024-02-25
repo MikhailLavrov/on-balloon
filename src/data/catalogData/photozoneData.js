@@ -5,7 +5,7 @@ export const photozoneData = [
   {
     category: ['payetki'],
     article: 'photozone_0_901760P_1',
-    title: 'photozone_0_901760P_1',
+    title: 'Фотозона Современная',
     description: 'Самая блестящая из всех фотозон',
     price: 11500,
     image: IMG_photozone_0_901760P_1,
@@ -15,11 +15,11 @@ export const photozoneData = [
   {
     category: ['payetki'],
     article: 'photozone_12_901762OP_1',
-    title: 'photozone_12_901762OP_1',
+    title: 'Фотозона шариковая с гирляндами',
     description: 'Самая блестящая из всех фотозон',
-    price: 11500,
+    price: 9800,
     image: IMG_photozone_12_901762OP_1,
-    hit: false,
+    hit: true,
     count: 1,
   },
 ]

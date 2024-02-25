@@ -9,7 +9,7 @@ import { CatalogCard } from '../CatalogCard/CatalogCard';
 import { Badge } from 'antd';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
-const hitsData = allData.filter((item) => item.hit).slice(0, 5);
+const hitsData = allData.filter((item) => item.hit).slice(0, 10);
 
 export const HitsSection = () => {
 
@@ -24,7 +24,7 @@ export const HitsSection = () => {
       <div className='container'>
         {/* <h2 className={c.hits__title}>Хиты</h2> */}
         <Link className={c.hits__titleLink} to={'/catalog'}>
-          <span>Хиты</span>
+          <span>Популярные товары</span>
           <RightOutlined className={c.hits__titleIcon} />
         </Link>
         <div className={c.hits__content}>

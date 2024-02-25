@@ -1,0 +1,79 @@
+@import '../../styles/styles.scss';
+@import '../../styles/mixins.scss';
+
+.reviews {
+  padding: 20px 0;
+  background-color: $base-light-color;
+}
+
+.reviews__title {
+  margin: 0;
+  margin-bottom: 15px;
+
+  color: $base-dark-color;
+  font-size: $fz-s;
+  font-weight: 500;
+  font-family: $ff-tilda;
+  text-align: center;
+
+  @include vp-768 {
+    margin-bottom: 20px;
+
+    font-size: $fz-m;
+  }
+}
+
+.reviews__content {
+  display: grid;
+  gap: 20px;
+}
+
+.reviewItem {
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 15px;
+  align-items: flex-start;
+
+  box-shadow: 0 0 5px 1px $color-2-greyDarker;
+  border-radius: 8px;
+}
+
+.reviewItem__photo {
+  width: 100%;
+  max-width: 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  & img {
+    // width: 100%;
+
+    border-radius: 50%;
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+.reviewItem__content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-family: $ff-tilda;
+}
+
+.reviewItem__name {
+  margin: 0;
+
+  font-weight: 600;
+  font-size: $fz-s;
+  user-select: none;
+}
+
+.reviewItem__text {
+  font-size: $fz-s;
+  user-select: none;
+}

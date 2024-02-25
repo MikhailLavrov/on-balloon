@@ -12,6 +12,7 @@ import { SearchResultsPage } from '../pages/SearchResultsPage/SearchResultsPage'
 import { InfoPage } from '../pages/InfoPage/InfoPage';
 import { MobileContactsPage } from '../pages/MobileContactsPage/MobileContactsPage';
 import { HitsSection } from '../HitsSection/HitsSection';
+import { ReviewsSection } from '../ReviewsSection/ReviewsSection';
 
 const MainPage = () => {
   return (
@@ -20,6 +21,7 @@ const MainPage = () => {
       <HitsSection />
       <Advantages />
       <GallerySection />
+      <ReviewsSection />
       <Feedback />
     </>
   );

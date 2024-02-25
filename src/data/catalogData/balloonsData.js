@@ -289,12 +289,12 @@ export const balloonsData = [
   {
     category: ['boy'],
     article: 'boy_1_901761PP_3',
-    title: 'boy_1_901761PP_3',
+    title: 'Набор шаров на 1 год',
     description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
+    price: 1900,
     image: require('../../assets/catalog/balloons/boy/boy_1_901761PP_3.webp'),
-    hit: false,
-    count: 0,
+    hit: true,
+    count: 1,
   },
   {
     category: ['boy'],
@@ -432,7 +432,7 @@ export const balloonsData = [
   {
     category: ['her'],
     article: 'her_21_901762PP_1',
-    title: 'her_21_901762PP_1',
+    title: 'Композиция на 21 год, Звезды',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
     oldPrice: 2500,

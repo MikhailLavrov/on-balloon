@@ -12,14 +12,16 @@
   color: $base-dark-color;
   font-family: $ff-tilda;
 
-  box-shadow: 0 0 0 1px $color-3-blue;
+  box-shadow: 0 0 5px 0 $color-2-greyDarker;
+
   border-radius: 5px;
   cursor: pointer;
   overflow: hidden;
+  transition: all 300ms ease-in-out;
   
   &:hover {
     color: $base-dark-color;
-    box-shadow: 0 0 5px 1px #dedddd;
+    box-shadow: 0 0 5px 2px $color-2-greyDarker;
   }
 }
 
