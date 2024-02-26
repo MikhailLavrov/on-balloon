@@ -19,6 +19,7 @@
   font-weight: 500;
   font-family: $ff-tilda;
   text-align: center;
+  user-select: none;
 
   @include vp-768 {
     margin-bottom: 20px;

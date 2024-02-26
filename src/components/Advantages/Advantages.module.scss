@@ -67,7 +67,7 @@
   height: 100%;
   
   background-color: #f7f8f9;
-  // box-shadow: 0 0 0 1px $color-2-greyDarker inset;
+  user-select: none;
 
   @include vp-500 {
     padding: 10px;

@@ -140,6 +140,12 @@
 
     font-size: $fz-s;
     color: $base-dark-color;
+
+    transition: all 300ms ease-in-out;
+
+    &:hover:not(:last-child) {
+      background-color: $color-2-grey;
+    }
   }
 }
 

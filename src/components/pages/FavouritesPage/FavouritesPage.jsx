@@ -4,9 +4,24 @@ import { useSelector } from 'react-redux';
 import { Badge } from 'antd';
 import { Link } from 'react-router-dom';
 import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
+import { MobileNavigationDrawer } from '../../MobileNavigation/MobileNavigation';
+import { useState } from 'react';
 
 export const FavouritesPage = () => {
   const favouritesState = useSelector(state => state.favourites.items)
+
+  const [drawerVisible, setDrawerVisible] = useState(false);
+  const [childrenDrawerVisible, setChildrenDrawerVisible] = useState(false);
+  const toggleDrawer = () => {
+    setDrawerVisible(!drawerVisible);
+    childrenDrawerVisible && setChildrenDrawerVisible(false);
+  };
+  const showChildrenDrawer = () => {
+    setChildrenDrawerVisible(true);
+  };
+  const onChildrenDrawerClose = () => {
+    setChildrenDrawerVisible(false);
+  };
 
   const favouritesList = favouritesState.map(item => (
     item.oldPrice ? (
@@ -40,10 +55,12 @@ export const FavouritesPage = () => {
             <div className={c.favourites__emptyContent}>
               <p className={c.favourites__emptyTitle}>Добавьте товары в избранное</p>
               <Link className={c.favourites__emptyLink} to={'/catalog'}>Перейти в каталог</Link>
+              <button className={c.favourites__emptyLinkMobile} onClick={toggleDrawer}>Перейти в каталог</button>
             </div>
           </div>
         )}
       </div>
+      <MobileNavigationDrawer toggleDrawer={toggleDrawer} drawerVisible={drawerVisible} childrenDrawerVisible={childrenDrawerVisible} showChildrenDrawer={showChildrenDrawer} onChildrenDrawerClose={onChildrenDrawerClose} />
     </section>
   )
 }

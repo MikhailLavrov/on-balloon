@@ -7,6 +7,7 @@ import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComp
 import { deleteFromShoppingCart } from '../../../redux/shoppingCartSlice';
 import { useEffect, useState } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
+import { MobileNavigationDrawer } from '../../MobileNavigation/MobileNavigation';
 
 export const ShoppingCartPage = () => {
   const shoppingCartState = useSelector(state => state.shoppingCart.items)
@@ -26,6 +27,19 @@ export const ShoppingCartPage = () => {
     }
     localStorage.setItem('shoppingCart', JSON.stringify(goods));
   }
+
+  const [drawerVisible, setDrawerVisible] = useState(false);
+  const [childrenDrawerVisible, setChildrenDrawerVisible] = useState(false);
+  const toggleDrawer = () => {
+    setDrawerVisible(!drawerVisible);
+    childrenDrawerVisible && setChildrenDrawerVisible(false);
+  };
+  const showChildrenDrawer = () => {
+    setChildrenDrawerVisible(true);
+  };
+  const onChildrenDrawerClose = () => {
+    setChildrenDrawerVisible(false);
+  };
 
   const shoppingCartList = currentCartItems.map((item) => (
     item.oldPrice ? (
@@ -100,10 +114,12 @@ export const ShoppingCartPage = () => {
             <div className={c.shoppingCart__emptyContent}>
               <p className={c.shoppingCart__emptyTitle}>Добавьте товары в корзину</p>
               <Link className={c.shoppingCart__emptyLink} to={'/catalog'}>Перейти в каталог</Link>
+              <button className={c.shoppingCart__emptyLinkMobile} onClick={toggleDrawer}>Перейти в каталог</button>
             </div>
           </div>
           )}
       </div>
+      <MobileNavigationDrawer toggleDrawer={toggleDrawer} drawerVisible={drawerVisible} childrenDrawerVisible={childrenDrawerVisible} showChildrenDrawer={showChildrenDrawer} onChildrenDrawerClose={onChildrenDrawerClose} />
     </section>
   )
 }
