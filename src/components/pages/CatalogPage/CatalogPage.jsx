@@ -12,7 +12,7 @@ import { catalogMenuData } from '../../../data/catalogMenuData';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 import { LeftOutlined } from '@ant-design/icons';
-import { SubMenuContent } from '../../MobileNavigation/MobileNavigation';
+import { InnerDrawerItems } from '../../MobileNavigation/InnerDrawerItems';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
@@ -134,7 +134,7 @@ export const CatalogPage = () => {
           bodyStyle={{ paddingBottom: 80 }}
           closeIcon={<LeftOutlined />}
         >
-          <SubMenuContent currentTopCategory={currentTopCategoryState} outerHandler={outerDrawerHandler} />
+          <InnerDrawerItems currentTopCategory={currentTopCategoryState} outerHandler={outerDrawerHandler} />
 
         </Drawer>
 

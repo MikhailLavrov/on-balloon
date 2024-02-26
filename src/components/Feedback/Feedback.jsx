@@ -66,7 +66,7 @@ export const Feedback = () => {
             </div>
           </div>
           <div className={c.feedback__contactsMapWrapper}>
-            <YMapComponent  />
+            {/* <YMapComponent  /> */}
           </div>
         </div>
       </div>

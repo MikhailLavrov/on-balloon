@@ -7,7 +7,7 @@ import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComp
 import { deleteFromShoppingCart } from '../../../redux/shoppingCartSlice';
 import { useEffect, useState } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
-import { MobileNavigationDrawer } from '../../MobileNavigation/MobileNavigation';
+import { MobileCatalogDrawer } from '../../MobileNavigation/MobileCatalogDrawer';
 
 export const ShoppingCartPage = () => {
   const shoppingCartState = useSelector(state => state.shoppingCart.items)
@@ -119,7 +119,7 @@ export const ShoppingCartPage = () => {
           </div>
           )}
       </div>
-      <MobileNavigationDrawer toggleDrawer={toggleDrawer} drawerVisible={drawerVisible} childrenDrawerVisible={childrenDrawerVisible} showChildrenDrawer={showChildrenDrawer} onChildrenDrawerClose={onChildrenDrawerClose} />
+      <MobileCatalogDrawer toggleDrawer={toggleDrawer} drawerVisible={drawerVisible} childrenDrawerVisible={childrenDrawerVisible} showChildrenDrawer={showChildrenDrawer} onChildrenDrawerClose={onChildrenDrawerClose} />
     </section>
   )
 }

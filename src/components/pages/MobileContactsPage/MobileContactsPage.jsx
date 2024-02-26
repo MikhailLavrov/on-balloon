@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { EnvironmentOutlined, MailOutlined, MobileOutlined } from '@ant-design/icons';
 import { personalData } from '../../../data/personalData';
 import { SocialLinks } from '../../SocialLinks/SocialLinks';
-import { YMapComponent } from '../../YMapComponent/YMapComponent';
 import { CallbackForm } from '../../CallbackForm/CallbackForm';
 import { useEffect } from 'react';
 import { callMeBackSubmit } from '../../../redux/callMeBackSlice';
@@ -36,7 +35,7 @@ export const MobileContactsPage = () => {
           </div>
           <div className={c.contactsPage__location}>
             <p><EnvironmentOutlined /> ЛО, г. Гатчина, ул. Киевская, 17Б</p>
-            <YMapComponent />
+            {/* <YMapComponent /> */}
           </div>
           <div className={c.contactsPage__callbackWrapper}>
             <h2 className={c.contactsPage__formTitle}>Возникли вопросы?</h2>

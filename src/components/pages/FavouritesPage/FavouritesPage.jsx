@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Badge } from 'antd';
 import { Link } from 'react-router-dom';
 import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
-import { MobileNavigationDrawer } from '../../MobileNavigation/MobileNavigation';
+import { MobileCatalogDrawer } from '../../MobileNavigation/MobileCatalogDrawer';
 import { useState } from 'react';
 
 export const FavouritesPage = () => {
@@ -60,7 +60,7 @@ export const FavouritesPage = () => {
           </div>
         )}
       </div>
-      <MobileNavigationDrawer toggleDrawer={toggleDrawer} drawerVisible={drawerVisible} childrenDrawerVisible={childrenDrawerVisible} showChildrenDrawer={showChildrenDrawer} onChildrenDrawerClose={onChildrenDrawerClose} />
+      <MobileCatalogDrawer toggleDrawer={toggleDrawer} drawerVisible={drawerVisible} childrenDrawerVisible={childrenDrawerVisible} showChildrenDrawer={showChildrenDrawer} onChildrenDrawerClose={onChildrenDrawerClose} />
     </section>
   )
 }
