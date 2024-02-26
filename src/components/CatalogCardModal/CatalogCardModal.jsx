@@ -1,19 +1,18 @@
 import React from 'react';
 import c from './CatalogCardModal.module.scss';
 import { Link } from 'react-router-dom';
-import { Badge, ConfigProvider, message, Modal, Tabs } from 'antd';
+import { Badge, Button, ConfigProvider, message, Modal, Tabs } from 'antd';
 import LOGO_IMG from '../../assets/logo.png';
-import { ReadOutlined, ShoppingCartOutlined, TruckOutlined } from '@ant-design/icons';
+import { HeartFilled, HeartOutlined, ReadOutlined, ShoppingCartOutlined, TruckOutlined } from '@ant-design/icons';
 import { personalData } from '../../data/personalData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { termsData } from '../../data/termsData';
-import { ToFavouritesAction } from '../ToFavouritesAction/ToFavouritesAction';
 import { ToShoppingCartAction } from '../ToShoppingCartAction/ToShoppingCartAction';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const {delivery, payment, guarantee} = termsData;
 
-export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, isFavouriteCard, setIsFavouriteCard}) => {
+export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavorites, isFavorite}) => {
   const { article, title, description, price, oldPrice, image, hit, count } = item;
   
   const handleOk = () => {
@@ -43,6 +42,9 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, isFavourite
       icon: <ShoppingCartOutlined />,
     },
   ];
+
+  const favoritesButtonText = isFavorite ? 'В избранном' : 'В избранное';
+  const favoritesButtonIcon = isFavorite ? <HeartFilled style={{color: 'red'}} /> : <HeartOutlined />;
 
   return (
     <Modal 
@@ -101,7 +103,7 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, isFavourite
             <div className={c.cardModal__userActions}>
         {/* В избранное и В корзину */}
               <div className={c.cardModal__userActionsInner}>
-                <ToFavouritesAction item={item} text />
+                <Button onClick={toggleFavorites}>{favoritesButtonIcon} {favoritesButtonText}</Button>
                 <ToShoppingCartAction item={item} text />
               </div>
               <div className={c.cardModal__userActionsOuter}>
