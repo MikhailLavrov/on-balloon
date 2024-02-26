@@ -141,7 +141,7 @@
   }
 
   @include vp-1260 {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(15%, 4fr));
   }
 }
 

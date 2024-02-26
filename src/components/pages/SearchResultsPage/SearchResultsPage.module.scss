@@ -43,6 +43,28 @@
   }
 
   @include vp-1260 {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(20px, 4fr));
+  }
+}
+
+.styledBadge {
+  padding: 5px;
+  
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  
+  font-size: 12px;
+  font-family: $ff-tilda;
+
+  @include vp-500 {
+    padding: 0 8px;
+
+    height: auto;
+
+    display: block;
+
+    font-size: 14px;
   }
 }
