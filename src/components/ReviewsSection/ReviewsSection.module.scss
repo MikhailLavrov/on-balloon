@@ -4,6 +4,10 @@
 .reviews {
   padding: 20px 0;
   background-color: $base-light-color;
+
+  @include vp-1260 {
+    padding: 40px 0;
+  }
 }
 
 .reviews__title {
@@ -26,6 +30,11 @@
 .reviews__content {
   display: grid;
   gap: 20px;
+
+  @include vp-1260 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px;
+  }
 }
 
 .reviewItem {

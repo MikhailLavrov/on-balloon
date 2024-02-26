@@ -6,7 +6,6 @@ import { CallBackModal } from '../CallBackModal/CallBackModal';
 import { CatalogLink } from '../CatalogLink/CatalogLink';
 import { SearchComponent } from '../SearchComponent/SearchComponent';
 import { MobileBurgerMenu } from '../MobileBurgerMenu/MobileBurgerMenu';
-// import { MobileSearch } from '../MobileSearch/MobileSearch';
 import { TopMenu } from '../TopMenu/TopMenu';
 import { personalData } from '../../data/personalData';
 import { SocialLinks } from '../SocialLinks/SocialLinks';
@@ -72,7 +71,6 @@ export const HeaderComponent = () => {
               <span>Войти</span>
             </Link>
           </div>
-          {/* <MobileSearch /> */}
         </div>
       </div>
     </header>

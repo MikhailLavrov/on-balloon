@@ -62,6 +62,10 @@
     margin-left: auto;
   }
 
+  &:hover {
+    color: $base-dark-color;
+  }
+
   @include vp-768 {
     margin-bottom: 20px;
 

@@ -7,7 +7,8 @@ import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
 import { Empty } from 'antd';
 import c from './SearchResultsPage.module.scss';
-import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
+import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent';
+import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
@@ -55,6 +56,7 @@ export const SearchResultsPage = () => {
           />
         )}
       </div>
+      <FloatButtonComponent />
     </section>
   );
 };

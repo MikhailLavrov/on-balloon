@@ -2,6 +2,7 @@
 @import '../../../styles/mixins.scss';
 
 .searchResults {
+  padding-bottom: 20px;
   min-height: 100%;
   
   text-align: start;
@@ -18,7 +19,7 @@
   margin: 0 auto;
   margin-bottom: 10px;
   
-  font-size: $fz-m;
+  font-size: $fz-s;
   font-weight: 600;
   text-align: center;
 
@@ -31,6 +32,17 @@
 
 .searchResults__innerContainer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 15px;
+  grid-template-columns: repeat(3, minmax(25%, 1fr));
+  align-items: stretch;
+  justify-content: center;
+  
+  @include vp-500 {
+    gap: 20px;
+    grid-template-columns: repeat(4, minmax(20%, 4fr));
+  }
+
+  @include vp-1260 {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
