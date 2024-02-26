@@ -131,7 +131,7 @@ export const CatalogPage = () => {
           closable={true}
           onClose={onChildrenDrawerClose}
           open={childrenDrawerVisible}
-          bodyStyle={{ paddingBottom: 80 }}
+          className={`catalog__drawer`}
           closeIcon={<LeftOutlined />}
         >
           <InnerDrawerItems currentTopCategory={currentTopCategoryState} outerHandler={outerDrawerHandler} />

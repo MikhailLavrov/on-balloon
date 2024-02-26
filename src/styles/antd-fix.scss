@@ -24,3 +24,10 @@
     }
   }
 }
+
+.catalog__drawer {
+  & .ant-drawer-body {
+    padding-bottom: 80px;
+  }
+}
+

@@ -27,7 +27,7 @@ export const MobileCatalogDrawer = ({ drawerVisible, childrenDrawerVisible, togg
       closable={true}
       onClose={() => toggleDrawer()}
       open={drawerVisible}
-      bodyStyle={{ paddingBottom: 80 }}
+      className={`catalog__drawer`}
     >
 
       <SearchComponent onCloseDrawer={() => toggleDrawer()} className={c.searchComp} />
@@ -42,7 +42,7 @@ export const MobileCatalogDrawer = ({ drawerVisible, childrenDrawerVisible, togg
         closable={true}
         onClose={onChildrenDrawerClose}
         open={childrenDrawerVisible}
-        bodyStyle={{ paddingBottom: 80 }}
+        className={`catalog__drawer`}
         closeIcon={<LeftOutlined />}
       >
         <InnerDrawerItems currentTopCategory={currentTopCategory} outerHandler={outerDrawerHandler} />

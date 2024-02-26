@@ -4,6 +4,8 @@
 
 .hero__slider .swiper-button-prev,
 .hero__slider .swiper-button-next {
+  display: none;
+
   margin-top: 0;
   
   height: 40px;
@@ -32,6 +34,10 @@
 
     color: $base-dark-color;
     font-size: 12px;
+  }
+
+  @include vp-1260 {
+    display: block;
   }
 }
 
