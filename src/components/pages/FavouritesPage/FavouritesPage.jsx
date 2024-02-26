@@ -10,8 +10,10 @@ import { useState } from 'react';
 export const FavouritesPage = () => {
   const favouritesState = useSelector(state => state.favourites.items)
 
+  // Для открытия Drawer с каталогом при пустой странице (Мобил)
   const [drawerVisible, setDrawerVisible] = useState(false);
   const [childrenDrawerVisible, setChildrenDrawerVisible] = useState(false);
+
   const toggleDrawer = () => {
     setDrawerVisible(!drawerVisible);
     childrenDrawerVisible && setChildrenDrawerVisible(false);

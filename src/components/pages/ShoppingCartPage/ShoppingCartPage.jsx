@@ -43,22 +43,22 @@ export const ShoppingCartPage = () => {
 
   const shoppingCartList = currentCartItems.map((item) => (
     item.oldPrice ? (
-      <div className={c.outerCatalogCardWraper}>
-        <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
+      <div className={c.outerCatalogCardWraper} key={item.article}>
+        <Badge.Ribbon className={c.styledBadge} text="Акция" color="red">
           <CatalogCard {...item} />
         </Badge.Ribbon>
         <button className={c.catalogCard__delButton} onClick={() => deleteFromCartHandler(item)}><CloseOutlined /></button>
       </div>
     ) : item.hit ? (
-      <div className={c.outerCatalogCardWraper}>
-        <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
+      <div className={c.outerCatalogCardWraper} key={item.article}>
+        <Badge.Ribbon className={c.styledBadge} text="Хит" color="green">
           <CatalogCard {...item} />
         </Badge.Ribbon>
         <button className={c.catalogCard__delButton} onClick={() => deleteFromCartHandler(item)}><CloseOutlined /></button>
       </div>
     ) : (
-      <div className={c.outerCatalogCardWraper}>
-        <CatalogCard key={item.article} {...item} />
+      <div className={c.outerCatalogCardWraper} key={item.article}>
+        <CatalogCard {...item} />
         <button className={c.catalogCard__delButton} onClick={() => deleteFromCartHandler(item)}><CloseOutlined /></button>
       </div>
     )

@@ -1,7 +1,7 @@
 import React from 'react';
 import c from './CatalogCardModal.module.scss';
 import { Link } from 'react-router-dom';
-import { Badge, ConfigProvider, message, Modal, Tabs } from 'antd'; // Импортируем message из antd
+import { Badge, ConfigProvider, message, Modal, Tabs } from 'antd';
 import LOGO_IMG from '../../assets/logo.png';
 import { ReadOutlined, ShoppingCartOutlined, TruckOutlined } from '@ant-design/icons';
 import { personalData } from '../../data/personalData';
@@ -13,7 +13,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const {delivery, payment, guarantee} = termsData;
 
-export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen}) => {
+export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, isFavouriteCard, setIsFavouriteCard}) => {
   const { article, title, description, price, oldPrice, image, hit, count } = item;
   
   const handleOk = () => {
