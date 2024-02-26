@@ -1,0 +1,11 @@
+@import '../../styles/vars.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/global.scss';
+
+.menu {
+  
+
+  & > li {
+    background-color: $color-2-grey;
+  }
+}

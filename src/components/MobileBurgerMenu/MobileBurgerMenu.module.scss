@@ -11,19 +11,15 @@
   display: flex;
   flex-direction: column;
 
-  &:first-child {
-    border-top: 1px $color-2-greyDarker solid;
-  }
-
   & a {
-    padding: 25px 15px;
+    padding: 18px 15px;
 
     display: flex;
     align-items: center;
     gap: 10px;
 
     color: $base-dark-color;
-    font-size: $fz-m;
+    font-size: $fz-s;
 
     border-bottom: 1px $color-2-greyDarker solid;
   }

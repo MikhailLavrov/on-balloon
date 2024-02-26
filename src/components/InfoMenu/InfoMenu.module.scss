@@ -2,6 +2,8 @@
 @import '../../styles/mixins.scss';
 
 .menu {
+  display: none;
+
   & li {
 
     & svg {
@@ -13,5 +15,9 @@
         color: $color-6-red;
       }
     }
+  }
+
+  @include vp-1260 {
+    display: block;
   }
 }

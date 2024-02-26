@@ -27,7 +27,7 @@ export const InfoPage = () => {
   return (
     <section className={c.infoPage}>
       <div className={`${c.infoPage__container} container`}>
-      <BreadcrumbsComponent pageName={'Информация для клиентов'} />
+      <BreadcrumbsComponent pageName={'Информация для клиентов'} className={c.infoPage__breadcrumbs} />
         <h1 className={c.infoPage__title}>Информация для клиентов</h1>
         <div className={c.infoPage__innerContainer}>
           <InfoMenu 
@@ -44,8 +44,8 @@ export const InfoPage = () => {
           />
           {infoItems.map((item, index) => (
             <div key={index} className={c.infoPage__item}>
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
+              <h2 className={c.infoPage__subTitle}>{item.title}</h2>
+              <p className={c.infoPage__description}>{item.description}</p>
             </div>
           ))}
         </div>
