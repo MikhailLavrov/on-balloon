@@ -54,23 +54,19 @@
 }
 
 .shoppingCart__listContainer {
-  padding: 10px 0 15px;
-  
   display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  grid-template-columns: repeat(3, minmax(25%, 1fr));
   align-items: stretch;
+  justify-content: center;
   
   @include vp-500 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  @include vp-768 {
-    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    grid-template-columns: repeat(4, minmax(20%, 4fr));
   }
 
   @include vp-1260 {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, minmax(15%, 4fr));
   }
 }
 
@@ -162,4 +158,22 @@
 
   color: $base-light-color;
   font-family: $ff-tilda;
+}
+
+.outerCatalogCardWraper {
+  position: relative;
+}
+
+.catalogCard__delButton {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }

@@ -1,24 +1,52 @@
 import c from './ShoppingCartPage.module.scss';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Badge, Button, Divider } from 'antd';
 import { Link } from 'react-router-dom';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
+import { deleteFromShoppingCart } from '../../../redux/shoppingCartSlice';
+import { useEffect, useState } from 'react';
+import { CloseOutlined } from '@ant-design/icons';
 
 export const ShoppingCartPage = () => {
   const shoppingCartState = useSelector(state => state.shoppingCart.items)
+  const [currentCartItems, setCurrentCartItems] = useState(shoppingCartState);
+  const dispatch = useDispatch();
 
-  const shoppingCartList = shoppingCartState.map((item) => (
+  useEffect(() => {
+    setCurrentCartItems(shoppingCartState);
+  }, [shoppingCartState])
+
+  const deleteFromCartHandler = (item) => {
+    let goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    const index = goods.findIndex(product => product.article === item.article);
+    if (index !== -1) {
+      goods = goods.filter((_, i) => i !== index);
+      dispatch(deleteFromShoppingCart(item))
+    }
+    localStorage.setItem('shoppingCart', JSON.stringify(goods));
+  }
+
+  const shoppingCartList = currentCartItems.map((item) => (
     item.oldPrice ? (
-      <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
-        <CatalogCard {...item} />
-      </Badge.Ribbon>
+      <div className={c.outerCatalogCardWraper}>
+        <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
+          <CatalogCard {...item} />
+        </Badge.Ribbon>
+        <button className={c.catalogCard__delButton} onClick={() => deleteFromCartHandler(item)}><CloseOutlined /></button>
+      </div>
     ) : item.hit ? (
-      <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
-        <CatalogCard {...item} />
-      </Badge.Ribbon>
+      <div className={c.outerCatalogCardWraper}>
+        <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
+          <CatalogCard {...item} />
+        </Badge.Ribbon>
+        <button className={c.catalogCard__delButton} onClick={() => deleteFromCartHandler(item)}><CloseOutlined /></button>
+      </div>
     ) : (
-      <CatalogCard key={item.article} {...item} />
+      <div className={c.outerCatalogCardWraper}>
+        <CatalogCard key={item.article} {...item} />
+        <button className={c.catalogCard__delButton} onClick={() => deleteFromCartHandler(item)}><CloseOutlined /></button>
+      </div>
     )
   ));
 
