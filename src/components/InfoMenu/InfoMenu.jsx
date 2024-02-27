@@ -12,7 +12,7 @@ return acc;
 }, []);
 
 export const InfoMenu = ({style, handleMenuClick, theme}) => {
-  const currentSelectedKey = useSelector(state => state.menuNav.currentMenu);
+  const currentMenuState = useSelector(state => state.menuNav.currentMenu);
 
   // Get the first key from infoMenuData
   const defaultKey = infoMenuData.length > 0 ? infoMenuData[0].children[0].key : null;
@@ -22,7 +22,7 @@ export const InfoMenu = ({style, handleMenuClick, theme}) => {
       <Menu
         onClick={handleMenuClick}
         style={style}
-        defaultSelectedKeys={currentSelectedKey && currentSelectedKey !== '' ? currentSelectedKey : defaultKey}
+        selectedKeys={[currentMenuState && currentMenuState !== '' ? currentMenuState : defaultKey]}
         defaultOpenKeys={rootSubmenuKeys}
         mode="inline"
         items={infoMenuData}

@@ -9,8 +9,8 @@ import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsCompon
 export const InfoPage = () => {
   const currentTopMenuState = useSelector(state => state.menuNav.currentTopMenu);
   const currentMenuState = useSelector(state => state.menuNav.currentMenu);
-  const [selectedTopCategory, setSelectedTopCategory] = useState(currentTopMenuState);
-  const [selectedCategory, setSelectedCategory] = useState(currentMenuState);
+  const [selectedTopCategory, setSelectedTopCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const dispatch = useDispatch();
   
   useEffect(() => {
