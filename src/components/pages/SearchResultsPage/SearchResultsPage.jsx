@@ -6,9 +6,9 @@ import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
 import { Badge, Empty } from 'antd';
-import c from './SearchResultsPage.module.scss';
-import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent';
+import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
+import c from './SearchResultsPage.module.scss';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
@@ -27,18 +27,23 @@ export const SearchResultsPage = () => {
       const lowerTitle = title && title.toLowerCase();
       const lowerDescription = description && description.toLowerCase();
   
+      // Проверяем, содержатся ли все слова из запроса в артикуле
+      const containsWholeArticle = words.every(word =>
+        article && article.toLowerCase() === word
+      );
+  
       // Проверяем, содержатся ли оба слова из запроса в имени или описании
       const containsBothWords = words.every(word =>
-        (article && article.toLowerCase().includes(word)) ||
         (lowerTitle && lowerTitle.includes(word)) ||
         (lowerDescription && lowerDescription.includes(word))
       );
   
-      return lowerQuery && containsBothWords;
+      return lowerQuery && (containsWholeArticle || containsBothWords);
     });
   
     setSearchResults(filteredResults);
   }, [query]);
+  
   
   
 

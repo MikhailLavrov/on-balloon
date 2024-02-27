@@ -14,7 +14,7 @@ const {delivery, payment, guarantee} = termsData;
 
 export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavorites, isFavorite}) => {
   const { article, title, description, price, oldPrice, image, hit, count } = item;
-  
+
   const handleOk = () => {
     setIsModalOpen(false);
   };

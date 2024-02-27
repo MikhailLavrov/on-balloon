@@ -39,7 +39,7 @@ export const CatalogPage = () => {
       setSelectedTopCategory(catalogMenuData[0].key || '');
       setSelectedCategory(catalogMenuData[0].key || ''); // Установим первый подраздел первой категории по умолчанию
     }
-  }, [currentTopCategoryState, currentCategoryState, setSelectedTopCategory, setSelectedCategory]);
+  }, [currentTopCategoryState, currentCategoryState]);
   
   const onClick = (e) => {
     setSelectedTopCategory(e.keyPath[e.keyPath.length - 1]);
