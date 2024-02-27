@@ -13,16 +13,16 @@ export const InfoPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(currentMenuState);
   const dispatch = useDispatch();
   
+  useEffect(() => {
+    setSelectedTopCategory(currentTopMenuState);
+    setSelectedCategory(currentMenuState);
+  }, [dispatch, currentTopMenuState, currentMenuState])
+  
   const onClick = (e) => {
-    setSelectedTopCategory(e.keyPath[e.keyPath.length - 1]);
-    setSelectedCategory(e.key);
+    dispatch(setCurrentMenu({ currentTopMenu: e.keyPath[e.keyPath.length - 1], currentMenu: e.key }));
   };
 
-  useEffect(() => {
-    dispatch(setCurrentMenu({ currentTopMenu: selectedTopCategory, currentMenu: selectedCategory }));
-  }, [dispatch, selectedCategory, selectedTopCategory])
-
-  const infoItems = selectedCategory ? infoData[selectedTopCategory].filter(item => item.key === selectedCategory) : [];
+  const infoItems = selectedTopCategory ? infoData[selectedTopCategory].filter(item => item.key === selectedCategory) : [];
 
   return (
     <section className={c.infoPage}>
