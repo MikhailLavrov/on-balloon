@@ -1,0 +1,66 @@
+@import '../../styles/vars.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/global.scss';
+
+.callbackForm {
+  width: 100%;
+  max-width: 350px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
+  
+
+  & label {
+    font-family: $ff-tilda;
+  }
+
+  & input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: $fz-s;
+    line-height: 1;
+    border-radius: 6px;
+    outline: none;
+    border: 1px solid $color-2-greyDarker;
+    
+    &::placeholder {
+      color: $color-2-greyDarker;
+    }
+  }
+  
+  & button {
+    margin-bottom: 0;
+    padding: 13px 30px;
+
+    width: 100%;
+    
+    font-size: $fz-s;
+    font-family: $ff-tilda;
+    font-weight: 500;
+    
+    border: none;
+    cursor: pointer;
+    background-color: $color-6-red;
+    color: $base-light-color;
+    transition: all 0.2s ease-in-out;
+  
+    &:hover {
+      background-color: $color-6-red-lighter;
+      color: $base-light-color;
+    }
+
+    &:disabled {
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.5;
+    }
+
+    @include vp-1260 {
+      font-size: calc($fz-m - 3px);
+    }
+  }
+}

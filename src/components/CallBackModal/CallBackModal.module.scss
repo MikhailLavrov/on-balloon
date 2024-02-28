@@ -6,47 +6,18 @@
   font-size: $fz-s;
 }
 
-.callMeBack__form {
+.callMeBack__modal {
   width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  & input {
-    display: block;
-    width: 50%;
-    padding: 10px;
-    margin-bottom: 15px;
-    font-size: $fz-s;
-  }
-  
-  & input[type="submit"] {
-    font-family: $ff-tilda;
-    
-    border: none;
-    cursor: pointer;
-    background-color: $color-6-red;
-    color: $base-light-color;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      background-color: $base-dark-color;
-    }
-
-    &:disabled {
-      pointer-events: none;
-      user-select: none;
-    }
-
-    @include vp-1260 {
-      font-size: $fz-m;
-    }
-  }
+  max-width: 500px;
 }
 
-.callMeBack__modal {
-  position: relative;
+.callMeBack__wrapper {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
 }
 
 .callMeBack__submitCover {
@@ -63,10 +34,71 @@
   justify-content: center;
 }
 
-// .callMeBack__submitTitle {
+.callMeBack__form {
+  padding: 10px;
+  width: 100%;
+  max-width: 350px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  align-self: center;
 
-// }
+  & div {
+    align-items: center;
+  }
+  
+  & label {
+    font-family: $ff-tilda;
+  }
 
-// .callMeBack__submitSubtitle {
+  & input {
+    padding: 10px;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: $fz-s;
+    line-height: 1;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: 0 0 0 1px $color-2-greyDarker;
+    border: none;
+    
+    &::placeholder {
+      color: $color-2-greyDarker;
+    }
+  }
+  
+  & button {
+    margin-bottom: 0;
+    padding: 13px 30px;
 
-// }
+    width: 100%;
+    
+    font-size: $fz-s;
+    font-family: $ff-tilda;
+    font-weight: 500;
+    
+    border: none;
+    cursor: pointer;
+    background-color: $color-6-red;
+    color: $base-light-color;
+    transition: all 0.2s ease-in-out;
+  
+    &:hover {
+      background-color: $color-6-red-lighter;
+      color: $base-light-color;
+    }
+
+    &:disabled {
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.5;
+    }
+
+    @include vp-1260 {
+      font-size: calc($fz-m - 3px);
+    }
+  }
+}

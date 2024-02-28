@@ -26,13 +26,14 @@ export const Feedback = () => {
         <p className={c.feedback__formSubtitle}>Заполните форму ниже, мы вам перезвоним. <br />Поможем с концепцией, воплотим любую идею!</p>
 
         <div className={c.feedback__callback}>
-          <CallbackForm className={c.feedback__form} />
-          {isSubmittedState && (
-            <div className={c.feedback__submitCover}>
-              <h2 className={c.feedback__submitTitle}>Заявка отправлена!</h2>
-              <p className={c.feedback__submitSubtitle}>Мы вам перезвоним</p>
+          {isSubmittedState ? (
+            <div className={c.callMeBack__submitCover}>
+              <h2 className={c.callMeBack__submitTitle}>Заявка отправлена!</h2>
+              <p className={c.callMeBack__submitSubtitle}>Мы вам перезвоним</p>
             </div>
-          )}
+          )
+          : <CallbackForm className={c.callMeBack__form} />
+          }
         </div>
       </div>
       <div className={c.feedback__contacts}>

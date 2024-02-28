@@ -34,14 +34,18 @@ export const CallBackModal = () => {
         footer={null}
         open={modalOpen}
         onCancel={handleModalClose}
-      >
-        {isSubmittedState && (
-          <div className={c.callMeBack__submitCover}>
-            <h2 className={c.callMeBack__submitTitle}>Заявка отправлена!</h2>
-            <p className={c.callMeBack__submitSubtitle}>Мы вам перезвоним</p>
-          </div>
-        )}
-        <CallbackForm className={c.callMeBack__form} />
+        >
+        <div className={c.callMeBack__wrapper}>
+          {isSubmittedState ? (
+            <div className={c.callMeBack__submitCover}>
+              <h2 className={c.callMeBack__submitTitle}>Заявка отправлена!</h2>
+              <p className={c.callMeBack__submitSubtitle}>Мы вам перезвоним</p>
+            </div>
+          )
+              : 
+            <CallbackForm className={c.callMeBack__form} />
+          }
+        </div>
       </Modal>
     </>
   );

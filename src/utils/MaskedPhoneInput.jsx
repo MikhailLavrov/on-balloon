@@ -1,28 +1,22 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import InputMask from 'react-input-mask';
 
-export const MaskedPhoneInput = ({phoneEntry, ...props}) => {
-  const [card, setCard] = useState('');
-  const inputCard = useRef(null);
+export const MaskedPhoneInput = ({name}) => {
+  const [inputValue, setInputValue] = useState('');
 
   const handleChange = (event) => {
-    setCard(event.target.value.replace(/\D/g, ''));
+    setInputValue(event.target.value.replace(/\D/g, ''));
   };
 
   return (
-    <>
       <InputMask
-        disabled={props.disabled}
-        name={phoneEntry}
-        id='phone'
+        name={name}
         type='text'
         mask='+7 (999) 999-99-99'
-        value={card}
+        value={inputValue}
         onChange={handleChange}
-        ref={inputCard}
         required
         placeholder='+7 (___) ___-__-__'
       />
-    </>
   );
 };
