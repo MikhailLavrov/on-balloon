@@ -14,6 +14,7 @@ const {delivery, payment, guarantee} = termsData;
 
 export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavorites, isFavorite}) => {
   const { article, title, description, price, oldPrice, image, hit, count } = item;
+  const whatsappLinkData = `https://api.whatsapp.com/send/?phone=${personalData.phone}&text=Здравствуйте, меня заинтересовал товар: \n${title}. \nАртикул: ${article} &type=phone_number&app_absent=0.`;
 
   const handleOk = () => {
     setIsModalOpen(false);
@@ -112,7 +113,7 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavor
                   <Link target = "_blank" to={personalData.telegram}>
                     <SvgIcon icon='telegram' />
                   </Link>
-                  <Link target = "_blank" to={personalData.whatsapp}>
+                  <Link target = "_blank" to={whatsappLinkData}>
                     <SvgIcon icon='whatsapp' />
                   </Link>
                   <Link target = "_blank" to={personalData.vkontakte}>

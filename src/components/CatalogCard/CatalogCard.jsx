@@ -39,7 +39,7 @@ export const CatalogCard = ({...item}) => {
   const showModal = () => {
     setIsModalOpen(true);
   };
-
+  
   const favoritesButtonIcon = isFavorite ? <HeartFilled style={{color: 'red'}} /> : <HeartOutlined />;
 
   return (
