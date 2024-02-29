@@ -2,7 +2,7 @@ import c from './ShoppingCartPage.module.scss';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Divider } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { deleteFromShoppingCart } from '../../../redux/shoppingCartSlice';
 import { useEffect, useState } from 'react';
@@ -13,6 +13,7 @@ export const ShoppingCartPage = () => {
   const shoppingCartState = useSelector(state => state.shoppingCart.items)
   const [currentCartItems, setCurrentCartItems] = useState(shoppingCartState);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCurrentCartItems(shoppingCartState);
@@ -71,6 +72,10 @@ export const ShoppingCartPage = () => {
     totalDescription = `${itemCount} товаров на сумму ${price.toLocaleString('ru-RU')} руб.`;
   }
 
+  const toOrderHandler = () => {
+    navigate('/cart/order');
+  }
+
   return (
     <section className={c.shoppingCart}>
       <div className={`${c.shoppingCart__container} ${c.container}`}>
@@ -86,7 +91,7 @@ export const ShoppingCartPage = () => {
               <div className={c.shoppingCart__totalDescription}>
                 {totalDescription}
               </div>
-              <Button size='large' className={c.shoppingCart__checkoutLink}>Оформить заказ</Button>
+              <Button size='large' className={c.shoppingCart__toOrderLink} onClick={toOrderHandler}>Перейти к оформлению</Button>
             </div>
           </>
         )}

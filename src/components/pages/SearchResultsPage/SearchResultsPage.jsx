@@ -25,7 +25,7 @@ export const SearchResultsPage = () => {
     const filteredResults = allData.filter(item => {
       const { article, title, description } = item;
       const lowerTitle = title && title.toLowerCase();
-      const lowerDescription = description && description.toLowerCase();
+      const lowerDescription = description && description.toLowerCase(); // Разделение запроса на отдельные слова;
   
       // Проверяем, содержатся ли все слова из запроса в артикуле
       const containsWholeArticle = words.every(word =>
@@ -36,15 +36,13 @@ export const SearchResultsPage = () => {
       const containsBothWords = words.every(word =>
         (lowerTitle && lowerTitle.includes(word)) ||
         (lowerDescription && lowerDescription.includes(word))
-      );
-  
+    );
+      
       return lowerQuery && (containsWholeArticle || containsBothWords);
     });
   
     setSearchResults(filteredResults);
   }, [query]);
-  
-  
   
 
   return (

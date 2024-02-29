@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TelegramChatButton } from '../TelegramChatButton/TelegramChatButton ';
 import { useState } from 'react';
 import ReactInputMask from 'react-input-mask';
-import c from './CallbackForm.module.scss';
 
 const openNotification = () => {
   notification.open({
@@ -15,13 +14,13 @@ const openNotification = () => {
 
 export const CallbackForm = ({className}) => {
   const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted)
-  const [phoneValue, setInputValue] = useState('');
+  const [phoneValue, setPhoneValue] = useState('');
   const [form] = Form.useForm();
   const nameValue = Form.useWatch('name', form);
   const dispatch = useDispatch();
 
   const onMaskChangeHandler = (e) => {
-    setInputValue(e.target.value.replace(/\D/g, ''));
+    setPhoneValue(e.target.value.replace(/\D/g, ''));
   };
   
   const onSubmitHandler = () => {
@@ -33,15 +32,15 @@ export const CallbackForm = ({className}) => {
   return (
     <Form form={form} className={className}>
 
-      <Form.Item label="Имя" name="name" rules={[{ required: true, message: 'Заполните поле' }]}>
+      <Form.Item label="Имя" name="name">
         <Input placeholder='Ваше имя' required />
       </Form.Item>
 
-      <Form.Item label="Телефон"  name="phone" rules={[{ required: true, message: 'Заполните поле' }]}>
+      <Form.Item label="Телефон"  name="phone">
         <ReactInputMask
           type='text'
           mask='+7 (999) 999-99-99'
-          value={phoneValue}
+          value={phoneValue > 0 ? phoneValue : ''}
           onChange={onMaskChangeHandler}
           required
           placeholder='+7 (___) ___-__-__'

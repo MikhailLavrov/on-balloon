@@ -46,7 +46,7 @@ export const CatalogCard = ({...item}) => {
     <>
       <div className={c.catalogCard} onClick={showModal}>
         <div className={c.catalogCard__imageWrapper}>
-          <img src={image} width={200} alt={title} />
+          <img src={image} width={200} height={200} alt={title} />
             <Button className={c.catalogCard__toFavouritesButton} onClick={toggleFavorites}>{favoritesButtonIcon}</Button>
         </div>
         <div className={c.catalogCard__content}>

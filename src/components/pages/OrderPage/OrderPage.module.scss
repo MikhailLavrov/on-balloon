@@ -1,0 +1,50 @@
+@import '../../../styles/styles.scss';
+@import '../../../styles/mixins.scss';
+
+.orderPage__title {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  
+  font-size: $fz-m;
+  font-weight: 600;
+  text-align: center;
+
+  @include vp-1260 {
+    margin-bottom: 15px;
+
+    font-size: $fz-l;
+  }
+}
+
+.orderPage__clientInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.orderPage__form {
+  
+  & label {
+    font-family: $ff-tilda;
+  }
+
+  & input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: $fz-s;
+    line-height: 1;
+    border-radius: 6px;
+    outline: none;
+    border: 1px solid $color-2-greyDarker;
+    
+    &::placeholder {
+      color: $color-2-greyDarker;
+    }
+  }
+
+  & textarea {
+    resize: none;
+    height: 80px;
+    min-height: 80px;
+  }
+}

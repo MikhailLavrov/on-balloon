@@ -6,7 +6,6 @@ import { CallbackForm } from '../CallbackForm/CallbackForm';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { callMeBackSubmit } from '../../redux/callMeBackSlice';
-import { YMapComponent } from '../YMapComponent/YMapComponent';
 
 export const Feedback = () => {
   const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted);

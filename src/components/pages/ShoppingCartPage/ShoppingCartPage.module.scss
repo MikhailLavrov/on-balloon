@@ -173,7 +173,7 @@
   }
 }
 
-.shoppingCart__checkoutLink {
+.shoppingCart__toOrderLink {
   width: 100%;
   max-width: 360px;
 
@@ -181,6 +181,14 @@
 
   color: $base-light-color;
   font-family: $ff-tilda;
+  
+  &:hover {
+    color: $base-light-color !important;
+    background-color: $color-6-red-lighter !important;
+
+    outline: none;
+    border: none;
+  }
 }
 
 .outerCatalogCardWraper {
