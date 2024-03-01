@@ -58,18 +58,18 @@
   
   display: grid;
   gap: 15px;
-  grid-template-columns: repeat(3, minmax(25%, 1fr));
-  align-items: stretch;
-  justify-content: center;
+  // grid-template-columns: repeat(3, minmax(25%, 1fr));
+  // align-items: stretch;
+  // justify-content: center;
   
-  @include vp-500 {
-    gap: 20px;
-    grid-template-columns: repeat(4, minmax(20%, 4fr));
-  }
+  // @include vp-500 {
+  //   gap: 20px;
+    // grid-template-columns: repeat(4, minmax(20%, 4fr));
+  // }
 
-  @include vp-1260 {
-    grid-template-columns: repeat(5, minmax(15%, 4fr));
-  }
+  // @include vp-1260 {
+    // grid-template-columns: repeat(5, minmax(15%, 4fr));
+  // }
 }
 
 // ===========Empty=============

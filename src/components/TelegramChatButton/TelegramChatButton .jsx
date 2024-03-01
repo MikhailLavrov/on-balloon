@@ -7,22 +7,21 @@ export const TelegramChatButton = ({ buttonText, className, message, outerHandle
   const sendToTelegramChat = async () => {
     const POST_REQUEST_URL = `${BASE_URL}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
     
-    try {
-      await fetch(POST_REQUEST_URL);
-      outerHandler();
-    } catch (error) {
-      console.error('Произошла ошибка при отправке сообщения:', error);
-    }
+    if (message) {
+
+        try {
+        await fetch(POST_REQUEST_URL);
+        outerHandler();
+      } catch (error) {
+        console.error('Произошла ошибка при отправке сообщения:', error);
+      }}
+    
   };
   
   return (
-    <>
-      {message &&
-      <button onClick={sendToTelegramChat} className={className} disabled={disabled} type="submit">
-        {buttonText}
-      </button>
-      }
-    </>
+    <button onClick={sendToTelegramChat} className={className} disabled={disabled} htmlType="submit">
+      {buttonText}
+    </button>
   );
 };
 

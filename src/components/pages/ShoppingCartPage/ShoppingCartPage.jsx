@@ -1,5 +1,5 @@
 import c from './ShoppingCartPage.module.scss';
-import { CatalogCard } from '../../CatalogCard/CatalogCard';
+import { CatalogRowCard } from '../../CatalogRowCard/CatalogRowCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Divider } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
@@ -44,8 +44,8 @@ export const ShoppingCartPage = () => {
 
   const shoppingCartList = currentCartItems.map((item) => (
     <div className={c.outerCatalogCardWraper} key={item.article}>
-      <CatalogCard {...item} />
-      <button className={c.catalogCard__delButton} onClick={() => deleteFromCartHandler(item)}><CloseOutlined /></button>
+      <CatalogRowCard {...item} />
+      {/* <button className={c.catalogCard__delButton} onClick={() => deleteFromCartHandler(item)}><CloseOutlined /></button> */}
     </div>
   ));
 

@@ -161,7 +161,7 @@ export const OrderPage = () => {
                 </div>
                 <div>
                   <p>Всего товаров: {currentCartItems.length}</p>
-                  <p>Итоговая стоимость: {}</p>
+                  <p>Итоговая цена: {}</p>
                   <p>Тип получения: {deliveryTypeValue === 'delivery' ? 'Доставка' : 'Самовывоз'}
                     {deliveryTypeValue === 'delivery' && <i style={{display: 'flex'}}>*Стоимость доставки уточнит менеджер после согласования заказа</i>}
                   </p>
@@ -184,8 +184,7 @@ export const OrderPage = () => {
                   
               <Form.Item >
                 <TelegramChatButton 
-                  htmlType="submit"
-                  buttonText="Отправить"
+                  buttonText="Подтвердить заказ"
                   message={textMessage}
                   />
               </Form.Item>

@@ -14,7 +14,7 @@ export const balloonsData = [
   {
     category: ['girl'],
     article: 'girl_1_23374_3',
-    title: 'girl_1_23374_3',
+    title: 'Ко дню влюбленных волшебный набор',
     description: 'Ко дню влюбленных волшебный набор',
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_3.webp'),
