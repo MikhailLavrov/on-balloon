@@ -86,8 +86,8 @@ export const ShoppingCartPage = () => {
             <div className={c.shoppingCart__listContainer}>
               {shoppingCartList}
             </div>
-            <Divider orientation="right">Всего в корзине:</Divider>
             <div className={c.shoppingCart__footer}>
+              <p className={c.shoppingCart__footerTitle}>Ваша корзина</p>
               <div className={c.shoppingCart__totalDescription}>
                 {totalDescription}
               </div>

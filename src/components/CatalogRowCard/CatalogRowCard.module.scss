@@ -13,6 +13,16 @@
 
   box-shadow: 0 0 5px 1px $color-2-greyDarker;
   border-radius: 8px;
+
+  @include vp-500 {
+    grid-template-columns: auto 1fr auto;
+    row-gap: 20px;
+  }
+
+  @include vp-768 {
+    grid-template-columns: auto 1fr 1fr;
+    column-gap: 30px;
+  }
 }
 
 .catalogCard__imageWrapper {
@@ -31,6 +41,10 @@
 
     aspect-ratio: 1/1;
   }
+
+  @include vp-500 {
+    grid-row: 1/-1;
+  }
 }
 
 
@@ -38,6 +52,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
+  @include vp-500 {
+    grid-column: 2/-1;
+  }
 }
 
 .catalogCard__article {
@@ -49,9 +67,17 @@
 
 .catalogCard__actions {}
 
-.catalogCard__toFavouritesButton {}
+.catalogCard__toFavouritesButton {
+  @include vp-500 {
+    padding: 4px 10px;
+  }
+}
 
-.catalogCard__delButton {}
+.catalogCard__delButton {
+  @include vp-500 {
+    padding: 4px 10px;
+  }
+}
 
 
 .catalogCard__titleWrapper {
@@ -61,6 +87,11 @@
 
   display: flex;
   align-items: stretch;
+
+  @include vp-500 {
+    grid-column: 2/3;
+    grid-row: 2/-1;
+  }
 }
 
 .catalogCard__title {
@@ -79,10 +110,25 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: space-between;
+
+  @include vp-500 {
+    grid-column: 3/-1;
+    grid-row: 2/-1;
+
+    grid-template-columns: minmax(70px, auto) 1fr;
+    grid-template-rows: repeat(2, auto);
+    column-gap: 20px;
+    row-gap: 10px;
+    align-items: flex-start;
+  }
+
+  @include vp-768 {
+    grid-template-columns: repeat(2, auto);
+  }
 }
 
 .catalogCard__price,
-  .catalogCard__sum {
+.catalogCard__sum {
   margin: 0;
   
   display: flex;
@@ -100,18 +146,59 @@
   }
 }
 
+.catalogCard__price {
+  
+  & span {
+
+    &:first-child,
+    &:last-child {
+      @include vp-500 {
+        font-size: calc($fz-s - 2px);
+        font-weight: 400;
+      }
+    }
+
+    &:last-child {
+      @include vp-500 {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  @include vp-500 {
+    grid-column: 2/-1;
+    grid-row: 2/-1;
+
+    flex-direction: row;
+  }
+}
+
+.catalogCard__sum {
+  @include vp-500 {
+    & span {
+      align-items: center;
+    }
+  }
+}
+
 .catalogCard__sumCounter {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   
   & button {
-  
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     font-size: calc($fz-m - 2px);
+
+    @include vp-500 {
+      padding: 4px 10px;
+
+      min-width: 36px;
+      width: fit-content;
+    }
   }
 
   & span {
@@ -121,5 +208,9 @@
 
     font-weight: 700;
     font-size: calc($fz-m - 4px);
+  }
+
+  @include vp-500 {
+    width: fit-content;
   }
 }
