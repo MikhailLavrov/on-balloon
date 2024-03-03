@@ -78,8 +78,8 @@ export const CatalogRowCard = ({...item}) => {
         <div className={c.catalogCard__header}>
           <p className={c.catalogCard__article}>Арт. {article}</p>
           <div className={c.catalogCard__actions}>
-            <Button className={c.catalogCard__toFavouritesButton} onClick={toggleFavorites}>{favoritesButtonIcon}</Button>
-            <Button className={c.catalogCard__delButton} onClick={() => deleteFromCartHandler(item)}><CloseOutlined /></Button>
+            <Button size='small' className={c.catalogCard__toFavouritesButton} onClick={toggleFavorites}>{favoritesButtonIcon}</Button>
+            <Button size='small' className={c.catalogCard__delButton} onClick={() => deleteFromCartHandler(item)}><CloseOutlined /></Button>
           </div>
         </div>
         <div className={c.catalogCard__titleWrapper}>

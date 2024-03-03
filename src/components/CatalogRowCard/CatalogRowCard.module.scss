@@ -65,15 +65,26 @@
   font-size: calc($fz-s - 2px);
 }
 
-.catalogCard__actions {}
+.catalogCard__actions {
+  display: flex;
+  gap: 5px;
+}
 
 .catalogCard__toFavouritesButton {
+  padding: 0 5px;
+  border: none;
+  font-size: calc($fz-s + 2px);
+
   @include vp-500 {
     padding: 4px 10px;
   }
 }
 
 .catalogCard__delButton {
+  padding: 0 5px;
+  border: none;
+  font-size: calc($fz-s + 2px);
+
   @include vp-500 {
     padding: 4px 10px;
   }
@@ -184,14 +195,26 @@
 .catalogCard__sumCounter {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  background-color: $color-2-grey;
   
   & button {
+    padding: 5px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    font-size: calc($fz-m - 2px);
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+
+    &:active,
+    &:hover,
+    &:focus {
+      background-color: transparent !important;
+      color: $base-dark-color !important;
+    }
 
     @include vp-500 {
       padding: 4px 10px;

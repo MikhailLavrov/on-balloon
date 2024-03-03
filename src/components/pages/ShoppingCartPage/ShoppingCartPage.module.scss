@@ -2,6 +2,8 @@
 @import '../../../styles/mixins.scss';
 
 .shoppingCart {
+  padding: 10px 0;
+  
   height: 100%;
   
   font-family: $ff-tilda;
@@ -11,30 +13,6 @@
   
   @include vp-1260 {
     padding: 20px 0;
-  }
-}
-
-// .shoppingCart__container {}
-
-.styledBadge {
-  padding: 5px;
-  
-  height: 18px;
-
-  display: flex;
-  align-items: center;
-  
-  font-size: 12px;
-  font-family: $ff-tilda;
-
-  @include vp-500 {
-    padding: 0 8px;
-
-    height: auto;
-
-    display: block;
-
-    font-size: 14px;
   }
 }
 
@@ -52,6 +30,17 @@
     font-size: $fz-l;
   }
 }
+
+// ===========mainContent=============
+
+.shoppingCart__mainContent {
+  @include vp-1260 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+// ===========listContainer=============
 
 .shoppingCart__listContainer {
   padding: 10px 0 15px;
@@ -71,6 +60,121 @@
     // grid-template-columns: repeat(5, minmax(15%, 4fr));
   // }
 }
+// ===========footer=============
+
+.shoppingCart__footer {
+  padding: 10px;
+
+  box-shadow: 0 0 0 1px $color-2-greyDarker;
+}
+
+.shoppingCart__footerTitle {
+  margin: 0;
+  margin-bottom: 20px;
+
+  font-weight: 600;
+  font-size: $fz-m;
+}
+
+.shoppingCart__countRow {
+  margin-bottom: 20px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 5px;
+
+  & p {
+    margin: 0;
+
+    font-size: $fz-m;
+  }
+
+  & span {
+    display: block;
+    width: 100%;
+    border-bottom: 1px $color-2-greyDarker dashed;
+  }
+}
+
+.shoppingCart__discountRow {
+  margin-bottom: 20px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 5px;
+
+  & p {
+    margin: 0;
+
+    font-size: $fz-m;
+  }
+
+  & span {
+    display: block;
+    width: 100%;
+    border-bottom: 1px $color-2-greyDarker dashed;
+  }
+}
+
+.shoppingCart__totalRow {
+  margin-bottom: 20px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 5px;
+  align-items: flex-end;
+
+  & p {
+    margin: 0;
+
+    font-size: $fz-m;
+  }
+
+  & span {
+    display: block;
+    width: 100%;
+    border-bottom: 1px $color-2-greyDarker dashed;
+  }
+}
+
+.shoppingCart__totalRowLabel {
+  font-weight: 700;
+}
+
+.shoppingCart__totalRowPriceBox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.shoppingCart__totalDiscountPrice {
+  font-weight: 300;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.shoppingCart__totalPrice {
+  font-weight: 700;
+}
+
+.shoppingCart__toOrderLink {
+  width: 100%;
+  max-width: 360px;
+
+  background-color: $color-6-red;
+
+  color: $base-light-color;
+  font-family: $ff-tilda;
+  
+  &:hover {
+    color: $base-light-color !important;
+    background-color: $color-6-red-lighter !important;
+
+    outline: none;
+    border: none;
+  }
+}
+
 
 // ===========Empty=============
 
@@ -86,7 +190,6 @@
 }
 
 .shoppingCart__emptyImageWrapper {
-
 
   & img {
     width: 300px;
@@ -105,8 +208,6 @@
     font-size: $fz-m;
   }
 }
-
-// .shoppingCart__emptyTitle {}
 
 .shoppingCart__emptyLink {
   padding: 10px 15px;
@@ -148,69 +249,3 @@
   }
 }
 
-.shoppingCart__footer {
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  @include vp-1260 {
-    align-items: flex-end;
-    padding: 10px 50px;
-    text-align: right;
-  }
-}
-
-.shoppingCart__totalDescription {
-  margin-bottom: 20px;
-  
-  font-size: calc($fz-s + 2px);
-
-  @include vp-1260 {
-    margin-bottom: 30px;
-    
-    font-size: $fz-m;
-  }
-}
-
-.shoppingCart__toOrderLink {
-  width: 100%;
-  max-width: 360px;
-
-  background-color: $color-6-red;
-
-  color: $base-light-color;
-  font-family: $ff-tilda;
-  
-  &:hover {
-    color: $base-light-color !important;
-    background-color: $color-6-red-lighter !important;
-
-    outline: none;
-    border: none;
-  }
-}
-
-.outerCatalogCardWraper {
-  position: relative;
-}
-
-.catalogCard__delButton {
-  padding: 0;
-  width: 20px;
-  height: 20px;
-
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  border: none;
-  border-radius: 50%;
-  background-color: rgba($base-light-color, 0.5);
-  cursor: pointer;
-
-  @include vp-768 {
-    width: 30px;
-    height: 30px;
-  }
-}

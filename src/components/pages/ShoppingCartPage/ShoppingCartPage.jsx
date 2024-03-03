@@ -43,10 +43,7 @@ export const ShoppingCartPage = () => {
   };
 
   const shoppingCartList = currentCartItems.map((item) => (
-    <div className={c.outerCatalogCardWraper} key={item.article}>
-      <CatalogRowCard {...item} />
-      {/* <button className={c.catalogCard__delButton} onClick={() => deleteFromCartHandler(item)}><CloseOutlined /></button> */}
-    </div>
+    <CatalogRowCard {...item} key={item.article} />
   ));
 
   let totalPrice = (array) => {
@@ -63,13 +60,13 @@ export const ShoppingCartPage = () => {
   
   const { price, itemCount } = totalPrice(shoppingCartState);
   
-  let totalDescription = '';
+  let countRow = '';
   if (itemCount === 1) {
-    totalDescription = `${itemCount} товар на сумму ${price.toLocaleString('ru-RU')} руб.`;
+    countRow = `${itemCount} товар`;
   } else if (itemCount > 1 && itemCount < 5) {
-    totalDescription = `${itemCount} товара на сумму ${price.toLocaleString('ru-RU')} руб.`;
+    countRow = `${itemCount} товара`;
   } else {
-    totalDescription = `${itemCount} товаров на сумму ${price.toLocaleString('ru-RU')} руб.`;
+    countRow = `${itemCount} товаров`;
   }
 
   const toOrderHandler = () => {
@@ -82,18 +79,33 @@ export const ShoppingCartPage = () => {
         <BreadcrumbsComponent pageName={'Корзина'} />
         <h1 className={c.shoppingCart__title}>Корзина</h1>
         {shoppingCartState && shoppingCartState.length !== 0 && (
-          <>
+          <div className={c.shoppingCart__mainContent}>
             <div className={c.shoppingCart__listContainer}>
               {shoppingCartList}
             </div>
             <div className={c.shoppingCart__footer}>
               <p className={c.shoppingCart__footerTitle}>Ваша корзина</p>
-              <div className={c.shoppingCart__totalDescription}>
-                {totalDescription}
+              <div className={c.shoppingCart__countRow}>
+                <p>{countRow}</p>
+                <span></span>
+                <p>{price.toLocaleString('ru-RU')} руб.</p>
+              </div>
+              <div className={c.shoppingCart__discountRow}>
+                <p>Скидка</p>
+                <span></span>
+                <p>{price.toLocaleString('ru-RU')} руб.</p>
+              </div>
+              <div className={c.shoppingCart__totalRow}>
+                <p className={c.shoppingCart__totalRowLabel}>Итого:</p>
+                <span></span>
+                <div className={c.shoppingCart__totalRowPriceBox}>
+                  <p className={c.shoppingCart__totalDiscountPrice}>{price.toLocaleString('ru-RU')} руб.</p>
+                  <p className={c.shoppingCart__totalPrice}>{price.toLocaleString('ru-RU')} руб.</p>
+                </div>
               </div>
               <Button size='large' className={c.shoppingCart__toOrderLink} onClick={toOrderHandler}>Перейти к оформлению</Button>
             </div>
-          </>
+          </div>
         )}
         {(!shoppingCartState || shoppingCartState.length === 0) && (
           <div className={c.shoppingCart__emptyContainer}>
