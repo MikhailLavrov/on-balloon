@@ -9,16 +9,21 @@ import { MobileCatalogDrawer } from '../../MobileNavigation/MobileCatalogDrawer'
 
 export const ShoppingCartPage = () => {
   const shoppingCartState = useSelector(state => state.shoppingCart.items)
-
   const [currentCartItems, setCurrentCartItems] = useState(shoppingCartState);
+  const [drawerVisible, setDrawerVisible] = useState(false);
+  const [childrenDrawerVisible, setChildrenDrawerVisible] = useState(false);
   const navigate = useNavigate();
 
+  // Инициализируем состав корзины из state
   useEffect(() => {
     setCurrentCartItems(shoppingCartState);
   }, [shoppingCartState])
-  
-  const [drawerVisible, setDrawerVisible] = useState(false);
-  const [childrenDrawerVisible, setChildrenDrawerVisible] = useState(false);
+
+  const shoppingCartList = currentCartItems.map((item) => (
+    <CatalogRowCard {...item} key={item.article} />
+  ));
+
+  // Открытие Drawer каталога (мобилка) при пустой корзине
   const toggleDrawer = () => {
     setDrawerVisible(!drawerVisible);
     childrenDrawerVisible && setChildrenDrawerVisible(false);
@@ -30,65 +35,62 @@ export const ShoppingCartPage = () => {
     setChildrenDrawerVisible(false);
   };
 
-  const shoppingCartList = currentCartItems.map((item) => (
-    <CatalogRowCard {...item} key={item.article} />
-  ));
-
-  let totalOldPrice = (array) => {
-    let wholeOldPrice = 0;
-    const itemCount = array.length; // Получаем количество товаров в корзине
+  // Получаем общую стоимость корзины С УЧЕТОМ ЦЕНЫ БЕЗ СКИДКИ
+  let getTotalPrice = (array) => {
+    let totalPrice = 0;
+    const itemCount = array.length;
     
     for (let i = 0; i < itemCount; i++) {
       if (array[i].oldPrice) {
-        wholeOldPrice += (array[i].oldPrice * array[i].count);
+        totalPrice += (array[i].oldPrice * array[i].count);
       } else {
-        wholeOldPrice += (array[i].price * array[i].count);
+        totalPrice += (array[i].price * array[i].count);
       }
     }
     
-    return { wholeOldPrice };
+    return totalPrice;
   }
+  const totalPrice = getTotalPrice(shoppingCartState);
   
-  const { wholeOldPrice } = totalOldPrice(shoppingCartState);
-
-  let totalPrice = (array) => {
-    let price = 0;
-    const itemCount = array.length; // Получаем количество товаров в корзине
-  
-    for (let i = 0; i < itemCount; i++) {
-      const itemPrice = array[i].price;
-      const itemCount = array[i].count;
-      price += (itemPrice * itemCount);
-    }
-  
-    return { price, itemCount };
-  }
-  
-  const { price, itemCount } = totalPrice(shoppingCartState);
-  
-  let totalDiscount = (array) => {
-    let wholeDiscount = 0;
-    const itemCount = array.length; // Получаем количество товаров в корзине
+  // Получаем ОБЩУЮ СКИДКУ
+  let getTotalDiscount = (array) => {
+    let totalDiscount = 0;
+    const itemCount = array.length;
     
     for (let i = 0; i < itemCount; i++) {
       if (array[i].oldPrice) {
         const discount = array[i].oldPrice - array[i].price;
-        wholeDiscount += (discount * array[i].count);
+        totalDiscount += (discount * array[i].count);
       }
     }
     
-    return { wholeDiscount };
+    return totalDiscount;
   }
+  const totalDiscount = getTotalDiscount(shoppingCartState);
+
+  // Получаем общую стоимость корзины С УЧЕТОМ СКИДКИ
+  let getTotalPriceWithDiscount = (array) => {
+    let totalPriceWithDiscount = 0;
+    const itemCount = array.length;
   
-  const { wholeDiscount } = totalDiscount(shoppingCartState);
-    
-  let countRow = '';
+    for (let i = 0; i < itemCount; i++) {
+      const itemPrice = array[i].price;
+      const itemCount = array[i].count;
+      totalPriceWithDiscount += (itemPrice * itemCount);
+    }
+  
+    return { totalPriceWithDiscount, itemCount };
+  }
+  const { totalPriceWithDiscount, itemCount } = getTotalPriceWithDiscount(shoppingCartState);
+  
+  // Количество позиций в корзине
+  let itemsAmount = '';
   if (itemCount === 1) {
-    countRow = `${itemCount} товар`;
+    itemsAmount = `${itemCount} товар`;
   } else if (itemCount > 1 && itemCount < 5) {
-    countRow = `${itemCount} товара`;
+    itemsAmount = `${itemCount} товара`;
   } else {
-    countRow = `${itemCount} товаров`;
+    itemsAmount = `${itemCount} товаров`;
   }
 
   const toOrderHandler = () => {
@@ -108,25 +110,29 @@ export const ShoppingCartPage = () => {
             <div className={c.shoppingCart__footer}>
               <p className={c.shoppingCart__footerTitle}>Ваша корзина</p>
               <div className={c.shoppingCart__countRow}>
-                <p>{countRow}</p>
+                <p>{itemsAmount}</p>
                 <span></span>
-                <p>{wholeOldPrice.toLocaleString('ru-RU')} руб.</p>
+                <p>{totalPrice.toLocaleString('ru-RU')} руб.</p>
               </div>
               {
-              wholeDiscount ?
-              <div className={c.shoppingCart__discountRow}>
-                <p>Скидка</p>
-                <span></span>
-                <p>{wholeDiscount.toLocaleString('ru-RU')} руб.</p>
-              </div>
-              : null
+                totalDiscount 
+                ? <div className={c.shoppingCart__discountRow}>
+                    <p>Скидка</p>
+                    <span></span>
+                    <p>{totalDiscount.toLocaleString('ru-RU')} руб.</p>
+                  </div>
+                : null
               }
               <div className={c.shoppingCart__totalRow}>
                 <p className={c.shoppingCart__totalRowLabel}>Итого:</p>
                 <span></span>
                 <div className={c.shoppingCart__totalRowPriceBox}>
-                  {wholeDiscount ? <p className={c.shoppingCart__totalDiscountPrice}>{wholeOldPrice.toLocaleString('ru-RU')} руб.</p> : null}
-                  <p className={c.shoppingCart__totalPrice}>{price.toLocaleString('ru-RU')} руб.</p>
+                  {
+                    totalDiscount 
+                    ? <p className={c.shoppingCart__totalDiscountPrice}>{totalPrice.toLocaleString('ru-RU')} руб.</p> 
+                    : null
+                  }
+                  <p className={c.shoppingCart__totalPrice}>{totalPriceWithDiscount.toLocaleString('ru-RU')} руб.</p>
                 </div>
               </div>
               <Button size='large' className={c.shoppingCart__toOrderLink} onClick={toOrderHandler}>Перейти к оформлению</Button>

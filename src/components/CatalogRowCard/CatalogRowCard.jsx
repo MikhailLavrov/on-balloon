@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react';
 import c from './CatalogRowCard.module.scss';
 import { Button } from 'antd';
 import { CloseOutlined, HeartFilled, HeartOutlined } from '@ant-design/icons';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToFavourites, deleteFromFavourites } from '../../redux/favouritesSlice';
 import { deleteFromShoppingCart, updateItemInShoppingCart } from '../../redux/shoppingCartSlice';
 import { CatalogCardModal } from '../CatalogCardModal/CatalogCardModal';
 
 export const CatalogRowCard = ({...item}) => {
-  const { article, title, price, oldPrice, image, count } = item;
+  const { article, title, price, image, count } = item;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   let [amount, setAmount] = useState(count);
-  let sumPrice = amount * price;
+  const dispatch = useDispatch();
 
+  // Количество +/-
   const incrementAmount = (event) => {
     event.stopPropagation();
     if (amount < 20) {
@@ -30,10 +31,8 @@ export const CatalogRowCard = ({...item}) => {
     }
   };
 
-  const dispatch = useDispatch();
-
+  // Избранное
   useEffect(() => {
-    // Проверяем, есть ли товар в списке избранных при загрузке компонента
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setIsFavorite(favorites.some(favorite => favorite.article === article));
   }, [article]);
@@ -55,10 +54,14 @@ export const CatalogRowCard = ({...item}) => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   };
   
+  const favoritesButtonIcon = isFavorite ? <HeartFilled style={{color: 'red'}} /> : <HeartOutlined />;
+  
+  // Открытие модалки
   const showModal = () => {
     setIsModalOpen(true);
   };
 
+  // Удалить из корзины
   const deleteFromCartHandler = (item) => {
     let goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     const index = goods.findIndex(product => product.article === item.article);
@@ -68,8 +71,8 @@ export const CatalogRowCard = ({...item}) => {
     }
     localStorage.setItem('shoppingCart', JSON.stringify(goods));
   }
-  
-  const favoritesButtonIcon = isFavorite ? <HeartFilled style={{color: 'red'}} /> : <HeartOutlined />;
+
+  let totalItemPrice = amount * price;
 
   return (
     <>
@@ -93,7 +96,7 @@ export const CatalogRowCard = ({...item}) => {
             <span>за шт.</span>
           </p>
           <p className={c.catalogCard__sum}>
-            <span>{sumPrice} &#8381;</span> 
+            <span>{totalItemPrice} &#8381;</span> 
             <span>сумма</span>
           </p>
           <div className={c.catalogCard__sumCounter}>
