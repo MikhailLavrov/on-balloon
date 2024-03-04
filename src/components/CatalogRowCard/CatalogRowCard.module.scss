@@ -23,6 +23,11 @@
     grid-template-columns: auto 1fr 1fr;
     column-gap: 30px;
   }
+
+  @include vp-1260 {
+    grid-template-columns: auto 2fr 1.5fr;
+    box-shadow: 0 0 0 1px $color-2-greyDarker;
+  }
 }
 
 .catalogCard__imageWrapper {
@@ -113,7 +118,6 @@
   line-height: 1;
 }
 
-
 .catalogCard__priceWrapper {
   grid-column: 1/-1;
   
@@ -153,6 +157,10 @@
     }
     &:last-child {
       font-size: calc($fz-s - 2px);
+
+      @include vp-1260 {
+        font-size: $fz-s;
+      }
     }
   }
 }
@@ -166,6 +174,10 @@
       @include vp-500 {
         font-size: calc($fz-s - 2px);
         font-weight: 400;
+      }
+
+      @include vp-1260 {
+        font-size: $fz-s;
       }
     }
 

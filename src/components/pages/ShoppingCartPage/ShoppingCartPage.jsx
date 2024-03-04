@@ -1,34 +1,22 @@
 import c from './ShoppingCartPage.module.scss';
 import { CatalogRowCard } from '../../CatalogRowCard/CatalogRowCard';
-import { useDispatch, useSelector } from 'react-redux';
-import { Button, Divider } from 'antd';
+import { useSelector } from 'react-redux';
+import { Button } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
-import { deleteFromShoppingCart } from '../../../redux/shoppingCartSlice';
 import { useEffect, useState } from 'react';
-import { CloseOutlined } from '@ant-design/icons';
 import { MobileCatalogDrawer } from '../../MobileNavigation/MobileCatalogDrawer';
 
 export const ShoppingCartPage = () => {
   const shoppingCartState = useSelector(state => state.shoppingCart.items)
+
   const [currentCartItems, setCurrentCartItems] = useState(shoppingCartState);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     setCurrentCartItems(shoppingCartState);
   }, [shoppingCartState])
-
-  const deleteFromCartHandler = (item) => {
-    let goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-    const index = goods.findIndex(product => product.article === item.article);
-    if (index !== -1) {
-      goods = goods.filter((_, i) => i !== index);
-      dispatch(deleteFromShoppingCart(item))
-    }
-    localStorage.setItem('shoppingCart', JSON.stringify(goods));
-  }
-
+  
   const [drawerVisible, setDrawerVisible] = useState(false);
   const [childrenDrawerVisible, setChildrenDrawerVisible] = useState(false);
   const toggleDrawer = () => {
@@ -46,13 +34,31 @@ export const ShoppingCartPage = () => {
     <CatalogRowCard {...item} key={item.article} />
   ));
 
+  let totalOldPrice = (array) => {
+    let wholeOldPrice = 0;
+    const itemCount = array.length; // Получаем количество товаров в корзине
+    
+    for (let i = 0; i < itemCount; i++) {
+      if (array[i].oldPrice) {
+        wholeOldPrice += (array[i].oldPrice * array[i].count);
+      } else {
+        wholeOldPrice += (array[i].price * array[i].count);
+      }
+    }
+    
+    return { wholeOldPrice };
+  }
+  
+  const { wholeOldPrice } = totalOldPrice(shoppingCartState);
+
   let totalPrice = (array) => {
     let price = 0;
     const itemCount = array.length; // Получаем количество товаров в корзине
   
     for (let i = 0; i < itemCount; i++) {
       const itemPrice = array[i].price;
-      price += itemPrice;
+      const itemCount = array[i].count;
+      price += (itemPrice * itemCount);
     }
   
     return { price, itemCount };
@@ -60,6 +66,22 @@ export const ShoppingCartPage = () => {
   
   const { price, itemCount } = totalPrice(shoppingCartState);
   
+  let totalDiscount = (array) => {
+    let wholeDiscount = 0;
+    const itemCount = array.length; // Получаем количество товаров в корзине
+    
+    for (let i = 0; i < itemCount; i++) {
+      if (array[i].oldPrice) {
+        const discount = array[i].oldPrice - array[i].price;
+        wholeDiscount += (discount * array[i].count);
+      }
+    }
+    
+    return { wholeDiscount };
+  }
+  
+  const { wholeDiscount } = totalDiscount(shoppingCartState);
+    
   let countRow = '';
   if (itemCount === 1) {
     countRow = `${itemCount} товар`;
@@ -88,18 +110,22 @@ export const ShoppingCartPage = () => {
               <div className={c.shoppingCart__countRow}>
                 <p>{countRow}</p>
                 <span></span>
-                <p>{price.toLocaleString('ru-RU')} руб.</p>
+                <p>{wholeOldPrice.toLocaleString('ru-RU')} руб.</p>
               </div>
+              {
+              wholeDiscount ?
               <div className={c.shoppingCart__discountRow}>
                 <p>Скидка</p>
                 <span></span>
-                <p>{price.toLocaleString('ru-RU')} руб.</p>
+                <p>{wholeDiscount.toLocaleString('ru-RU')} руб.</p>
               </div>
+              : null
+              }
               <div className={c.shoppingCart__totalRow}>
                 <p className={c.shoppingCart__totalRowLabel}>Итого:</p>
                 <span></span>
                 <div className={c.shoppingCart__totalRowPriceBox}>
-                  <p className={c.shoppingCart__totalDiscountPrice}>{price.toLocaleString('ru-RU')} руб.</p>
+                  {wholeDiscount ? <p className={c.shoppingCart__totalDiscountPrice}>{wholeOldPrice.toLocaleString('ru-RU')} руб.</p> : null}
                   <p className={c.shoppingCart__totalPrice}>{price.toLocaleString('ru-RU')} руб.</p>
                 </div>
               </div>

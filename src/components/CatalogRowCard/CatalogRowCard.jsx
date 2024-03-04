@@ -2,22 +2,23 @@ import React, { useEffect, useState } from 'react';
 import c from './CatalogRowCard.module.scss';
 import { Button } from 'antd';
 import { CloseOutlined, HeartFilled, HeartOutlined } from '@ant-design/icons';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToFavourites, deleteFromFavourites } from '../../redux/favouritesSlice';
-import { deleteFromShoppingCart } from '../../redux/shoppingCartSlice';
+import { deleteFromShoppingCart, updateItemInShoppingCart } from '../../redux/shoppingCartSlice';
 import { CatalogCardModal } from '../CatalogCardModal/CatalogCardModal';
 
 export const CatalogRowCard = ({...item}) => {
-  const { article, title, price, oldPrice, image } = item;
+  const { article, title, price, oldPrice, image, count } = item;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
-  let [amount, setAmount] = useState(1);
+  let [amount, setAmount] = useState(count);
   let sumPrice = amount * price;
 
   const incrementAmount = (event) => {
     event.stopPropagation();
     if (amount < 20) {
       setAmount(amount => amount + 1);
+      dispatch(updateItemInShoppingCart({ article, newCount: amount + 1 }));
     }
   };
 
@@ -25,6 +26,7 @@ export const CatalogRowCard = ({...item}) => {
     event.stopPropagation();
     if (amount > 1) {
       setAmount(prevAmount => prevAmount - 1);
+      dispatch(updateItemInShoppingCart({ article, newCount: amount - 1 }));
     }
   };
 

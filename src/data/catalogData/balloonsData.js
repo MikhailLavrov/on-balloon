@@ -9,7 +9,7 @@ export const balloonsData = [
     oldPrice: 1800,
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -19,7 +19,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_3.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -30,7 +30,7 @@ export const balloonsData = [
     oldPrice: 1800,
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_4.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -40,7 +40,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_5.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -50,7 +50,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_1_901761PP_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -60,7 +60,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_1_901761PP_2.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -70,7 +70,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_1_901761PP_4.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -80,7 +80,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_1_B901761RG_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -90,7 +90,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_2_901767OP_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -100,7 +100,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_2_901767OP_2.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -111,7 +111,7 @@ export const balloonsData = [
     oldPrice: 1800,
     image: require('../../assets/catalog/balloons/girl/girl_2_901767OP_3.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -121,7 +121,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -131,7 +131,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_2.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -141,7 +141,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_3.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -151,7 +151,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_4.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -161,7 +161,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_3_B901763P_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -171,7 +171,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_4_901764PP_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -181,7 +181,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_5_901765FP_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -191,7 +191,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_6_B901766O_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -202,7 +202,7 @@ export const balloonsData = [
     oldPrice: 1800,
     image: require('../../assets/catalog/balloons/girl/girl_8_901768OP_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -212,7 +212,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_8_901768RG_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -222,7 +222,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_bear_901856_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -232,7 +232,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_bunny_23360_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -243,7 +243,7 @@ export const balloonsData = [
     oldPrice: 1800,
     image: require('../../assets/catalog/balloons/girl/girl_cat_19772_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -253,7 +253,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_cat_19772_2.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -263,7 +263,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_unicorn_19184_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['girl'],
@@ -273,7 +273,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/girl/girl_unicorn_19184_2.webp'),
     hit: true,
-    count: 0,
+    count: 1,
   },
   // boy
   {
@@ -284,7 +284,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/boy/boy_1_901761OP_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['boy'],
@@ -304,7 +304,7 @@ export const balloonsData = [
     price: 3200,
     image: require('../../assets/catalog/balloons/boy/boy_2_901762OP_1.webp'),
     hit: true,
-    count: 0,
+    count: 1,
   },
   {
     category: ['boy'],
@@ -315,7 +315,7 @@ export const balloonsData = [
     oldPrice: 1800,
     image: require('../../assets/catalog/balloons/boy/boy_2_901762OP_2.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['boy'],
@@ -325,7 +325,7 @@ export const balloonsData = [
     price: 1700,
     image: require('../../assets/catalog/balloons/boy/boy_2_901762PP_1.webp'),
     hit: true,
-    count: 0,
+    count: 1,
   },
   {
     category: ['boy'],
@@ -335,7 +335,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/boy/boy_2_B901762A_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['boy'],
@@ -345,7 +345,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/boy/boy_2_B901762A_2.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['boy'],
@@ -355,7 +355,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/boy/boy_7_901767AP_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['boy'],
@@ -365,7 +365,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/boy/boy_7_B901767P_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   // her
   {
@@ -376,7 +376,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/her/her_30_B901763P_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['her'],
@@ -386,7 +386,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/her/her_18_901761OP_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['her'],
@@ -396,7 +396,7 @@ export const balloonsData = [
     price: 2000,
     image: require('../../assets/catalog/balloons/her/her_18_901761PP_1.webp'),
     hit: true,
-    count: 0,
+    count: 1,
   },
   {
     category: ['her'],
@@ -406,7 +406,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/her/her_18_901761PP_2.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['her'],
@@ -416,7 +416,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/her/her_18_B901761RG_2.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['her'],
@@ -427,7 +427,7 @@ export const balloonsData = [
     oldPrice: 5200,
     image: require('../../assets/catalog/balloons/her/her_21_901761PP_1.webp'),
     hit: true,
-    count: 0,
+    count: 1,
   },
   {
     category: ['her'],
@@ -438,7 +438,7 @@ export const balloonsData = [
     oldPrice: 2500,
     image: require('../../assets/catalog/balloons/her/her_21_901762PP_1.webp'),
     hit: true,
-    count: 0,
+    count: 1,
   },
   {
     category: ['her'],
@@ -448,7 +448,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/her/her_23_901762OP_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   // number
   {
@@ -559,7 +559,7 @@ export const balloonsData = [
   price: 1000,
   image: require('../../assets/catalog/balloons/number/number_1_B901761N.webp'),
   hit: false,
-  count: 2,
+  count: 1,
   },
   {
   category: ['number'],
@@ -629,7 +629,7 @@ export const balloonsData = [
   price: 1000,
   image: require('../../assets/catalog/balloons/number/number_2_B901762N.webp'),
   hit: false,
-  count: 2,
+  count: 1,
   },
   {
   category: ['number'],
@@ -639,7 +639,7 @@ export const balloonsData = [
   price: 1000,
   image: require('../../assets/catalog/balloons/number/number_2_B901762RG.webp'),
   hit: false,
-  count: 2,
+  count: 1,
   },
   {
   category: ['number'],
@@ -749,7 +749,7 @@ export const balloonsData = [
   price: 1000,
   image: require('../../assets/catalog/balloons/number/number_4_901764TFP.webp'),
   hit: false,
-  count: 0,
+  count: 1,
   },
   {
   category: ['number'],
@@ -929,7 +929,7 @@ export const balloonsData = [
   price: 1000,
   image: require('../../assets/catalog/balloons/number/number_8_901768RGP.webp'),
   hit: false,
-  count: 2,
+  count: 1,
   },
   {
   category: ['number'],
@@ -990,7 +990,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/222186.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1000,7 +1000,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/501200.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1010,7 +1010,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/501524.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1020,7 +1020,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/501625.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1030,7 +1030,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/501909.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1040,7 +1040,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/521321.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1050,7 +1050,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/521343.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1060,7 +1060,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/615192.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1070,7 +1070,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/615192_1.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1080,7 +1080,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/617704.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1090,7 +1090,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/617739.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1100,7 +1100,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6014369.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1110,7 +1110,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6014413.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1120,7 +1120,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6014978.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1130,7 +1130,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6014979.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1140,7 +1140,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6015341.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1150,7 +1150,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6230884.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1160,7 +1160,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6230888.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1170,7 +1170,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6230995.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1180,7 +1180,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6231164.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1190,7 +1190,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6231805.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1200,7 +1200,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6231806.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1210,7 +1210,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6231809.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1220,7 +1220,7 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6232504.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
   {
     category: ['additional'],
@@ -1230,6 +1230,6 @@ export const balloonsData = [
     price: 2300,
     image: require('../../assets/catalog/balloons/additional/6521334.webp'),
     hit: false,
-    count: 0,
+    count: 1,
   },
 ]
