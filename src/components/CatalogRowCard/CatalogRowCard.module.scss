@@ -103,7 +103,7 @@
 
   display: flex;
   align-items: stretch;
-
+  
   @include vp-500 {
     grid-column: 2/3;
     grid-row: 2/-1;
@@ -112,10 +112,11 @@
 
 .catalogCard__title {
   margin: 0;
-
+  
   font-size: calc($fz-m - 2px);
   font-weight: 500;
   line-height: 1;
+  cursor: pointer;
 }
 
 .catalogCard__priceWrapper {

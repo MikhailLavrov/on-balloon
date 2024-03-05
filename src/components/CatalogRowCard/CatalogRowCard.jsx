@@ -89,7 +89,7 @@ export const CatalogRowCard = ({...item}) => {
 
   return (
     <>
-      <div className={c.catalogCard} onClick={showModal}>
+      <div className={c.catalogCard}>
         <div className={c.catalogCard__imageWrapper}>
           <img src={image} width={50} height={50} alt={title} />
         </div>
@@ -101,7 +101,7 @@ export const CatalogRowCard = ({...item}) => {
           </div>
         </div>
         <div className={c.catalogCard__titleWrapper}>
-          <p className={c.catalogCard__title}>{title}</p>
+          <p className={c.catalogCard__title} onClick={showModal}>{title}</p>
         </div>
         <div className={c.catalogCard__priceWrapper}>
           <p className={c.catalogCard__price}>

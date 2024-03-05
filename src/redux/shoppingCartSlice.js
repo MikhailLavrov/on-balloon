@@ -29,9 +29,13 @@ export const shoppingCartSlice = createSlice({
         state.items[index].count = newCount;
       }
     },
+    deleteAllItemsFromShoppingCart: (state) => {
+      state.items = [];
+      state.count = 0;
+    },
   },
 });
 
-export const { initShoppingCart, addToShoppingCart, deleteFromShoppingCart, updateItemInShoppingCart } = shoppingCartSlice.actions;
+export const { initShoppingCart, addToShoppingCart, deleteFromShoppingCart, updateItemInShoppingCart, deleteAllItemsFromShoppingCart } = shoppingCartSlice.actions;
 
 export default shoppingCartSlice.reducer;
