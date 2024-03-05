@@ -1498,7 +1498,7 @@ export const balloonsData = [
     article: '180634',
     title: 'Самолет',
     description: 'Шар (89 см) фигура, Самолет, Красный, с гелием',
-    price: 1000,
+    price: 850,
     image: require('../../assets/catalog/balloons/figure/car_180634.webp'),
     hit: false,
     count: 1,

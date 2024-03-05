@@ -39,7 +39,6 @@
     grid-template-columns: 2fr 1fr;
     gap: 40px;
     grid-template-rows: auto auto;
-    grid-auto-flow: dense;
   }
 }
 
@@ -53,8 +52,8 @@
 
   @include vp-1260 {
     padding: 0;
-
-    grid-row: 1/-1;
+    
+    align-self: flex-start;
   }
 }
 
@@ -68,6 +67,10 @@
 
   @include vp-768 {
     padding: 20px;
+  }
+
+  @include vp-1260 {
+    align-self: flex-start;
   }
 }
 
