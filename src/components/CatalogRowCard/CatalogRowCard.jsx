@@ -18,16 +18,29 @@ export const CatalogRowCard = ({...item}) => {
   const incrementAmount = (event) => {
     event.stopPropagation();
     if (amount < 20) {
-      setAmount(amount => amount + 1);
-      dispatch(updateItemInShoppingCart({ article, newCount: amount + 1 }));
+      const newAmount = amount + 1;
+      setAmount(newAmount);
+      dispatch(updateItemInShoppingCart({ article, newCount: newAmount }));
+      updateLocalStorage(newAmount);
     }
   };
-
+  
   const decrementAmount = (event) => {
     event.stopPropagation();
     if (amount > 1) {
-      setAmount(prevAmount => prevAmount - 1);
-      dispatch(updateItemInShoppingCart({ article, newCount: amount - 1 }));
+      const newAmount = amount - 1;
+      setAmount(newAmount);
+      dispatch(updateItemInShoppingCart({ article, newCount: newAmount }));
+      updateLocalStorage(newAmount);
+    }
+  };
+
+  const updateLocalStorage = (newAmount) => {
+    let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    const index = shoppingCart.findIndex(product => product.article === article);
+    if (index !== -1) {
+      shoppingCart[index].count = newAmount;
+      localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
     }
   };
 
