@@ -7,8 +7,8 @@ import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComp
 import { useEffect, useState } from 'react';
 import { MobileCatalogDrawer } from '../../MobileNavigation/MobileCatalogDrawer';
 import { deleteAllItemsFromShoppingCart } from '../../../redux/shoppingCartSlice';
-import ReactInputMask from 'react-input-mask';
 import { setCurrentMenu } from '../../../redux/menuNavSlice';
+import ReactInputMask from 'react-input-mask';
 
 const chatId23 = '-112030425060768293011924354';
 const BOT_TOKEN44 = 'w103517816:AAG86TXNqQRxBOFDdwQkKe7Bs__cKgo9H17';

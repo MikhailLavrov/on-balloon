@@ -42,6 +42,15 @@ export const CatalogCard = ({...item}) => {
   
   const favoritesButtonIcon = isFavorite ? <HeartFilled style={{color: 'red'}} /> : <HeartOutlined />;
 
+  const calculateDiscountPercentage = (price, oldPrice) => {
+    if (oldPrice && oldPrice > price) {
+      const discountPercentage = ((oldPrice - price) / oldPrice) * 100;
+      return discountPercentage.toFixed(0); // Округляем до целого числа
+    }
+    return 0;
+  };
+  const discountPercentage = calculateDiscountPercentage(price, oldPrice);
+
   return (
     <>
       <div className={c.catalogCard} onClick={showModal}>
@@ -55,7 +64,7 @@ export const CatalogCard = ({...item}) => {
           </div>
           <div className={c.catalogCard__priceBox}>
             <p className={c.catalogCard__price}>{price} руб.</p>
-            {oldPrice && <p className={c.catalogCard__oldPrice}>{oldPrice} руб.</p>}
+            {oldPrice && <><p className={c.catalogCard__oldPrice}>{oldPrice} руб. </p><span className={c.catalogCard__discountPercent}>-{discountPercentage}%</span></>}
           </div>
         </div>
       </div>

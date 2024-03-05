@@ -61,7 +61,7 @@
   justify-content: space-evenly;
   gap: 10px;
 
-  background-color: $color-3-blue;
+  // background-color: $color-3-blue;
   
   @include vp-1260 {
     padding: 10px;
@@ -74,8 +74,8 @@
   font-size: calc($fz-s - 1px);
 
   @include vp-1260 {
-    font-weight: 600;
-    font-size: $fz-s;
+    font-size: calc($fz-m - 2px);
+    font-weight: 700;
   }
 }
 
@@ -85,9 +85,22 @@
   display: none;
 
   color: rgba($base-dark-color, 0.5);
-  text-decoration: line-through;
   font-weight: 500;
-  font-size: $fz-s;
+  font-size: calc($fz-s - 1px);
+  text-decoration: line-through;
+
+  @include vp-768 {
+    display: block;
+  }
+}
+
+.catalogCard__discountPercent {
+  display: none;
+  padding: 4px 8px;
+
+  border-radius: 5px;
+  background-color: $color-6-red;
+  color: $base-light-color;
 
   @include vp-768 {
     display: block;
@@ -138,7 +151,7 @@
   width: inherit;
 
   text-align: center;
-  font-size: $fz-s;
+  font-size: calc($fz-s - 1px);
   font-weight: 500;
   min-width: 0; /* Разрешить сужение контейнера */
   flex: 1; /* Добавляем гибкость для растягивания */
