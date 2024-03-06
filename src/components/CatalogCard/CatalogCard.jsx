@@ -63,8 +63,13 @@ export const CatalogCard = ({...item}) => {
             <p className={c.catalogCard__title}>{title}</p>
           </div>
           <div className={c.catalogCard__priceBox}>
-            <p className={c.catalogCard__price}>{price} руб.</p>
-            {oldPrice && <><p className={c.catalogCard__oldPrice}>{oldPrice} руб. </p><span className={c.catalogCard__discountPercent}>-{discountPercentage}%</span></>}
+            <p className={c.catalogCard__price}>{price}<span>&#8381;</span></p>
+            {oldPrice && 
+              <div className={c.catalogCard__oldPriceBox}>
+                <p className={c.catalogCard__oldPrice}>{oldPrice}<span>&#8381;</span></p>
+                <span className={c.catalogCard__discountPercent}>-{discountPercentage}%</span>
+              </div>
+            }
           </div>
         </div>
       </div>

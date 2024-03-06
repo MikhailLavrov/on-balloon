@@ -9,19 +9,31 @@
   }
 }
 
-.catalog__button {
+.catalog__link {
+  padding: 12px;
   height: 100%;
+  
+  display: flex;
 
   font-size: 17px;
   font-weight: 500;
   font-family: $ff-tilda;
-
   color: $base-light-color;
+
   border-radius: 8px;
   background-color: $color-6-red;
   
   &:hover {
     color: $base-light-color;
     background-color: $color-6-red-lighter;
+  }
+
+  & span {
+    margin-right: 5px;
+
+    & svg {
+      width: 14px;
+      height: 14px;
+    }
   }
 }

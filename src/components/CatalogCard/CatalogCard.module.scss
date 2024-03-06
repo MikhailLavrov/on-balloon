@@ -56,10 +56,10 @@
 
   width: 100%;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 5px;
 
   // background-color: $color-3-blue;
   
@@ -72,11 +72,26 @@
   margin: 0;
 
   font-size: calc($fz-s - 1px);
+  text-align: left;
+  line-height: 1;
+  
+  & span {
+    font-weight: 400;
+    line-height: 1.4;
+    font-size: $fz-s;
+    vertical-align: text-top;
+  }
 
   @include vp-1260 {
     font-size: calc($fz-m - 2px);
     font-weight: 700;
   }
+}
+
+.catalogCard__oldPriceBox {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .catalogCard__oldPrice {
@@ -89,6 +104,11 @@
   font-size: calc($fz-s - 1px);
   text-decoration: line-through;
 
+  & span {
+    vertical-align: text-top;
+    font-size: calc($fz-s - 4px);
+  }
+
   @include vp-768 {
     display: block;
   }
@@ -96,11 +116,12 @@
 
 .catalogCard__discountPercent {
   display: none;
-  padding: 4px 8px;
+  padding: 2.5px 5px;
 
   border-radius: 5px;
-  background-color: $color-6-red;
+  background-color: $color-5-green;
   color: $base-light-color;
+  font-size: calc($fz-s - 2px);
 
   @include vp-768 {
     display: block;
@@ -150,7 +171,8 @@
   max-width: inherit;
   width: inherit;
 
-  text-align: center;
+  // text-align: center;
+  text-align: start;
   font-size: calc($fz-s - 1px);
   font-weight: 500;
   min-width: 0; /* Разрешить сужение контейнера */
