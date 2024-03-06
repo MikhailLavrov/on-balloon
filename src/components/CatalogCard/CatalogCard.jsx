@@ -2,23 +2,46 @@ import React, { useEffect, useState } from 'react';
 import c from './CatalogCard.module.scss';
 import { CatalogCardModal } from '../CatalogCardModal/CatalogCardModal';
 import { Button } from 'antd';
-import { HeartFilled, HeartOutlined } from '@ant-design/icons';
+import { CheckCircleFilled, HeartFilled, HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { addToFavourites, deleteFromFavourites } from '../../redux/favouritesSlice';
+import { addToShoppingCart, deleteFromShoppingCart } from '../../redux/shoppingCartSlice';
 
 export const CatalogCard = ({...item}) => {
   const { article, title, price, oldPrice, image } = item;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
-
+  const [isInCart, setIsInCart] = useState(false);
   const dispatch = useDispatch();
 
+// Корзина
+  useEffect(() => {
+    const goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    setIsInCart(goods.some(product => product.article === article));
+  }, [article]);
+  const handleAddToShoppingCart = (event) => {
+    event.stopPropagation();
+    let goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    const index = goods.findIndex(product => product.article === article);
+    if (index !== -1) {
+      goods = goods.filter((_, i) => i !== index);
+      setIsInCart(false); // Устанавливаем в false только для текущего товара
+      dispatch(deleteFromShoppingCart(item))
+    } else {
+      goods.push(item);
+      setIsInCart(true); // Устанавливаем в true только для текущего товара
+      dispatch(addToShoppingCart(item))
+    }
+    localStorage.setItem('shoppingCart', JSON.stringify(goods));
+  };
+  const shoppingCartButtonIcon = isInCart ? <CheckCircleFilled style={{color: '#fff'}} /> : <ShoppingCartOutlined />;
+
+// Избранное
   useEffect(() => {
     // Проверяем, есть ли товар в списке избранных при загрузке компонента
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setIsFavorite(favorites.some(favorite => favorite.article === article));
   }, [article]);
-
   const toggleFavorites = (event) => {
     event.stopPropagation();
     // Переключаем статус избранного и обновляем локальное хранилище
@@ -35,13 +58,14 @@ export const CatalogCard = ({...item}) => {
     }
     localStorage.setItem('favorites', JSON.stringify(favorites));
   };
+  const favoritesButtonIcon = isFavorite ? <HeartFilled style={{color: 'red'}} /> : <HeartOutlined />;
   
+// Модалка
   const showModal = () => {
     setIsModalOpen(true);
   };
   
-  const favoritesButtonIcon = isFavorite ? <HeartFilled style={{color: 'red'}} /> : <HeartOutlined />;
-
+// Скидка
   const calculateDiscountPercentage = (price, oldPrice) => {
     if (oldPrice && oldPrice > price) {
       const discountPercentage = ((oldPrice - price) / oldPrice) * 100;
@@ -70,9 +94,20 @@ export const CatalogCard = ({...item}) => {
                 <span className={c.catalogCard__discountPercent}>-{discountPercentage}%</span>
               </div>
             }
+            <Button onClick={handleAddToShoppingCart} size='medium' className={isInCart ? `${c.catalogCard__toCartButton} ${c.inCart}` : `${c.catalogCard__toCartButton} ${c.notInCart}`}>
+              {shoppingCartButtonIcon}
+            </Button>
           </div>
         </div>
       </div>
-      <CatalogCardModal item={item} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} toggleFavorites={toggleFavorites} isFavorite={isFavorite} />
+      <CatalogCardModal 
+        item={item} 
+        isModalOpen={isModalOpen} 
+        setIsModalOpen={setIsModalOpen} 
+        toggleFavorites={toggleFavorites} 
+        isFavorite={isFavorite}
+        handleAddToShoppingCart={handleAddToShoppingCart}
+        isInCart={isInCart}
+      />
     </>
 )};
