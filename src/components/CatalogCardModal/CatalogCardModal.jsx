@@ -11,7 +11,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const {delivery, payment, guarantee} = termsData;
 
-export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavorites, isFavorite, handleAddToShoppingCart, isInCart}) => {
+export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavorites, isFavorite, togglePurchases, isInCart}) => {
   const { article, title, description, price, oldPrice, image, hit, count } = item;
   const whatsappLinkData = `https://api.whatsapp.com/send/?phone=${personalData.phone}&text=Здравствуйте, меня заинтересовал товар: \n${title}. \nАртикул: ${article} &type=phone_number&app_absent=0.`;
 
@@ -106,7 +106,7 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavor
         {/* В избранное и В корзину */}
               <div className={c.cardModal__userActionsInner}>
                 <Button onClick={toggleFavorites}>{favoritesButtonIcon} {favoritesButtonText}</Button>
-                <Button onClick={handleAddToShoppingCart}>{shoppingCartButtonIcon} {shoppingCartButtonText}</Button>
+                <Button onClick={togglePurchases}>{shoppingCartButtonIcon} {shoppingCartButtonText}</Button>
               </div>
               <div className={c.cardModal__userActionsOuter}>
                 <p className={c.cardModal__userActionsOuterNotation}>Задать вопрос:</p>

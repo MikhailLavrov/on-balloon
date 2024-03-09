@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import c from './CatalogCard.module.scss';
 import { CatalogCardModal } from '../CatalogCardModal/CatalogCardModal';
 import { Button } from 'antd';
 import { CheckCircleFilled, HeartFilled, HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { addToFavourites, deleteFromFavourites } from '../../redux/favouritesSlice';
 import { addToShoppingCart, deleteFromShoppingCart } from '../../redux/shoppingCartSlice';
+import c from './CatalogCard.module.scss';
 
 export const CatalogCard = ({...item}) => {
   const { article, title, price, oldPrice, image } = item;
@@ -19,7 +19,7 @@ export const CatalogCard = ({...item}) => {
     const goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     setIsInCart(goods.some(product => product.article === article));
   }, [article]);
-  const handleAddToShoppingCart = (event) => {
+  const togglePurchases = (event) => {
     event.stopPropagation();
     let goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     const index = goods.findIndex(product => product.article === article);
@@ -94,7 +94,7 @@ export const CatalogCard = ({...item}) => {
                 <span className={c.catalogCard__discountPercent}>-{discountPercentage}%</span>
               </div>
             }
-            <Button onClick={handleAddToShoppingCart} size='medium' className={isInCart ? `${c.catalogCard__toCartButton} ${c.inCart}` : `${c.catalogCard__toCartButton} ${c.notInCart}`}>
+            <Button onClick={togglePurchases} size='medium' className={isInCart ? `${c.catalogCard__toCartButton} ${c.inCart}` : `${c.catalogCard__toCartButton} ${c.notInCart}`}>
               {shoppingCartButtonIcon}
             </Button>
           </div>
@@ -106,7 +106,7 @@ export const CatalogCard = ({...item}) => {
         setIsModalOpen={setIsModalOpen} 
         toggleFavorites={toggleFavorites} 
         isFavorite={isFavorite}
-        handleAddToShoppingCart={handleAddToShoppingCart}
+        togglePurchases={togglePurchases}
         isInCart={isInCart}
       />
     </>

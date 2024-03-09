@@ -99,9 +99,13 @@
 }
 
 .catalogCard__oldPriceBox {
-  display: flex;
+  display: none;
   align-items: self-start;
   gap: 4px;
+  
+  @include vp-1260 {
+    display: flex;
+  }
 }
 
 .catalogCard__oldPrice {
@@ -110,13 +114,14 @@
   display: none;
 
   color: rgba($base-dark-color, 0.5);
-  font-weight: 500;
+  font-weight: 800;
   font-size: calc($fz-s - 1px);
   text-decoration: line-through;
+  line-height: 1;
 
   & span {
     vertical-align: text-top;
-    font-size: calc($fz-s - 4px);
+    font-size: calc($fz-s - 1px);
   }
 
   @include vp-768 {
@@ -126,13 +131,13 @@
 
 .catalogCard__discountPercent {
   display: none;
-  padding: 2px 4px;
+  padding: 0 4px;
 
   border-radius: 5px;
-  background-color: $color-6-red;
-  color: $base-light-color;
-  font-size: calc($fz-s - 2px);
+  color: $color-6-red;
+  font-size: calc($fz-s - 1px);
   line-height: 1;
+  font-weight: 800;
 
   @include vp-768 {
     display: block;
@@ -228,8 +233,7 @@
 
   max-width: inherit;
   width: inherit;
-
-  // text-align: center;
+  
   text-align: start;
   font-size: calc($fz-s - 1px);
   font-weight: 500;

@@ -1,7 +1,7 @@
 import c from './ShoppingCartPage.module.scss';
 import { CatalogRowCard } from '../../CatalogRowCard/CatalogRowCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Checkbox, Form, Input, Result } from 'antd';
+import { Button, Checkbox, Form, Input, Result, Segmented } from 'antd';
 import { Link } from 'react-router-dom';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { useEffect, useState } from 'react';
@@ -182,27 +182,34 @@ export const ShoppingCartPage = () => {
   const agreementNavigate = (e) => {
     dispatch(setCurrentMenu({ currentTopMenu: 'forclients', currentMenu: 'agreement' }));
   }
+  const [deliveryTypeValue, setDeliveryTypeValue] = useState('Доставка');
+  const onDeliveryTypeChange = (value) => {
+    setDeliveryTypeValue(value);
+  };
+// Отправка в Телеграм
   const onValuesChange = (changedValues, allValues) => {
-    let textMessage = 
-      `
+    let textMessage = `
       Информация о клиенте:
       Имя: ${allValues.name}
       Телефон: ${allValues.phone}
+      Доставка: ${changedValues.deliveryType || allValues.deliveryType || ''}
+      Адрес: ${allValues.deliveryAddress}
       Комментарий: ${changedValues.comment || allValues.comment || ''}
-      `;
-      setClientData(textMessage)
+    `;
+    setClientData(textMessage)
   }
+    
   const sendToTelegramChat = async (message) => {
     const POST_REQUEST_URL = `${BASE_URL}/sendMessage?chat_id=${chatId14}&text=${encodeURIComponent(message)}`;
     
     if (message) {
-
-        try {
+      try {
         await fetch(POST_REQUEST_URL);
         clearShoppingCart();
       } catch (error) {
         console.error('Произошла ошибка при отправке сообщения:', error);
-      }}
+      }
+    }
   };
   const onFinish = () => {
     sendToTelegramChat(message);
@@ -289,6 +296,30 @@ export const ShoppingCartPage = () => {
                       className={c.reactInputMask}
                     />
                   </Form.Item>
+                  <Form.Item name="deliveryType">
+                    <Segmented
+                      options={['Доставка', 'Самовывоз']}
+                      onChange={onDeliveryTypeChange}
+                      block
+                    />
+                  </Form.Item>
+                  {deliveryTypeValue === 'Доставка' ?
+                    <Form.Item 
+                      name="deliveryAddress"
+                      label="Адрес доставки"
+                      rules={[
+                        {
+                          required: true,
+                          message: 'Укажите адрес доставки'
+                        },
+                      ]}
+                      >
+                      <Input placeholder='Адрес доставки' />
+                    </Form.Item>
+                  : <Form.Item>
+                      <span>Пункт выдачи: ЛО, г. Гатчина, ул. Киевская, д. 17кБ</span>
+                    </Form.Item> 
+                  }
                   <Form.Item
                     name="comment"
                     label="Комментарий"
