@@ -14,18 +14,17 @@ export const TelegramChatButton = ({ buttonText, className, message, outerHandle
     const POST_REQUEST_URL = `${BASE_URL}/sendMessage?chat_id=${chatId14}&text=${encodeURIComponent(message)}`;
     
     if (message) {
-
-        try {
+      try {
         await fetch(POST_REQUEST_URL);
         outerHandler();
       } catch (error) {
         console.error('Произошла ошибка при отправке сообщения:', error);
-      }}
-    
+      }
+    }
   };
   
   return (
-    <button onClick={sendToTelegramChat} className={className} disabled={disabled} htmlType="submit">
+    <button onClick={sendToTelegramChat} className={className} disabled={disabled} htmltype="submit">
       {buttonText}
     </button>
   );

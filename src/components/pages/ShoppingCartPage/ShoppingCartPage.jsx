@@ -304,6 +304,7 @@ export const ShoppingCartPage = () => {
                     />
                   </Form.Item>
                   {deliveryTypeValue === 'Доставка' ?
+                  <>
                     <Form.Item 
                       name="deliveryAddress"
                       label="Адрес доставки"
@@ -316,6 +317,10 @@ export const ShoppingCartPage = () => {
                       >
                       <Input placeholder='Адрес доставки' />
                     </Form.Item>
+                    <Form.Item>
+                      <span>* Стоимость доставки уточнит менеджер после подтверждения заказа</span>
+                    </Form.Item>
+                  </>
                   : <Form.Item>
                       <span>Пункт выдачи: ЛО, г. Гатчина, ул. Киевская, д. 17кБ</span>
                     </Form.Item> 
