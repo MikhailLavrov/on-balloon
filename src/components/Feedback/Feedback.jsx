@@ -43,17 +43,17 @@ export const Feedback = () => {
 
               <div className={c.feedback__contactsItem}>
                 <div className={c.feedback__contactsIcon}>
-                  <PhoneOutlined style={{transform: 'scale(-1, 1)'}} />
+                  <PhoneOutlined style={{transform: 'scale(-0.8, 0.8)', padding: '2px'}} />
                 </div>
                 <div className={c.feedback__contactsInfo}>
                   <a href={`tel:${personalData.phone}`}>{personalData.phone}</a>
-                  <span>8:00 - 20:00 (МСК)</span>
+                  <span>8:00 - 20:00 МСК</span>
                 </div>
               </div>
 
               <div className={c.feedback__contactsItem}>
                 <div className={c.feedback__contactsIcon}>
-                  <MailOutlined />
+                  <MailOutlined style={{transform: 'scale(-0.8, 0.8)', padding: '2px'}} />
                 </div>
                 <div className={c.feedback__contactsInfo}>
                   <a href={`mailto:${personalData.mail}`}>{personalData.mail}</a>

@@ -2,8 +2,20 @@
 @import '../../styles/mixins.scss';
 @import '../../styles/global.scss';
 
-a {
+.socialLink {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 5px;
+
+  color: $base-dark-color;
+  font-weight: 500;
+  
+  & svg {
+    border-radius: 50%;
+  }
+
+  &:hover {
+    color: $base-dark-color;
+  }
 }

@@ -135,22 +135,25 @@
 }
 
 .feedback__contactsInner {
-  margin: 0 auto;
+  margin-bottom: 15px;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
+  gap: 15px;
 
   @include vp-500 {
+    margin-bottom: 30px;
     flex-direction: row;
     justify-content: space-evenly;
   }
     
   @include vp-1260 {
     margin: 0;
-    margin: auto;
     
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
   }
 }
 
@@ -172,11 +175,9 @@
 }
 
 .feedback__contactsItem {
-  margin-bottom: 15px;
-
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .feedback__contactsIcon {
@@ -205,10 +206,6 @@
     letter-spacing: 0.5px;
     
     color: $base-dark-color;
-    
-    @include vp-1260 {
-      font-size: calc($fz-s + 2px);
-    }
   }
   
   & span {
@@ -218,21 +215,35 @@
 }
 
 .feedback__socials {
-  margin-top: 10px;
+  width: 100%;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 15px;
 
-  & svg {
-    width: 25px;
-    height: auto;
-    border-radius: 50%;
-    
+  & a {
+    font-size: 16px;
+
     @include vp-1260 {
-      width: 30px;
+      font-size: $fz-s;
     }
+  }
+
+  & svg {
+    padding: 5px;
+
+    width: 23px;
+    height: 23px;
+  }
+
+  @include vp-500 {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  @include vp-1260 {
+    flex-direction: column;
   }
 }
 
@@ -257,78 +268,14 @@
 .feedback__callback {
   max-width: 100%;
   width: 100%;
+
   display: flex;
   justify-content: center;
-  position: relative;
-}
-
-.callMeBack__form {
-  width: 100%;
-  max-width: 350px;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-self: center;
-  align-self: center;
-  
-
-  & label {
-    font-family: $ff-tilda;
-  }
-
-  & input {
-    box-sizing: border-box;
-    display: flex;
-    width: 100%;
-    padding: 10px;
-    font-size: $fz-s;
-    line-height: 1;
-    border-radius: 6px;
-    outline: none;
-    border: 1px solid $color-2-greyDarker;
-    
-    &::placeholder {
-      color: $color-2-greyDarker;
-    }
-  }
-  
-  & button {
-    margin-bottom: 0;
-    padding: 13px 30px;
-
-    width: 100%;
-    
-    font-size: $fz-s;
-    font-family: $ff-tilda;
-    font-weight: 500;
-    
-    border: none;
-    cursor: pointer;
-    background-color: $color-6-red;
-    color: $base-light-color;
-    transition: all 0.2s ease-in-out;
-  
-    &:hover {
-      background-color: $color-6-red-lighter;
-      color: $base-light-color;
-    }
-
-    &:disabled {
-      pointer-events: none;
-      user-select: none;
-      opacity: 0.5;
-    }
-
-    @include vp-1260 {
-      font-size: calc($fz-m - 3px);
-    }
-  }
 }
 
 .callMeBack__submitCover {
   height: 100%;
-  min-height: 200px;
+  min-height: 151px;
   text-align: center;
   
   width: 100%;

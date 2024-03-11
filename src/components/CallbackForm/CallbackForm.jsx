@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TelegramChatButton } from '../TelegramChatButton/TelegramChatButton ';
 import { useState } from 'react';
 import ReactInputMask from 'react-input-mask';
+import c from './CallbackForm.module.scss';
 
 const openNotification = () => {
   notification.open({
@@ -12,7 +13,7 @@ const openNotification = () => {
   });
 };
 
-export const CallbackForm = ({className}) => {
+export const CallbackForm = () => {
   const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted)
   const [phoneValue, setPhoneValue] = useState('');
   const [form] = Form.useForm();
@@ -30,13 +31,13 @@ export const CallbackForm = ({className}) => {
   }
   
   return (
-    <Form form={form} className={className}>
+    <Form form={form} className={c.callbackForm}>
 
-      <Form.Item label="Имя" name="name">
+      <Form.Item name="name">
         <Input placeholder='Ваше имя' required />
       </Form.Item>
 
-      <Form.Item label="Телефон"  name="phone">
+      <Form.Item name="phone">
         <ReactInputMask
           type='text'
           mask='+7 (999) 999-99-99'
