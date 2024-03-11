@@ -14,6 +14,7 @@ import { MobileContactsPage } from '../pages/MobileContactsPage/MobileContactsPa
 import { HitsSection } from '../HitsSection/HitsSection';
 import { ReviewsSection } from '../ReviewsSection/ReviewsSection';
 import { OrderPage } from '../pages/OrderPage/OrderPage';
+import { ReviewsPage } from '../pages/ReviewsPage/ReviewsPage';
 
 const MainPage = () => {
   return (
@@ -40,6 +41,7 @@ export const App = () => {
         <Route path="cart/order" element={<OrderPage />} />
         <Route path="search" element={<SearchResultsPage />} />
         <Route path="info" element={<InfoPage />} />
+        <Route path="reviews" element={<ReviewsPage />} />
         <Route path="contacts" element={<MobileContactsPage />} />
       </Route>
     </Routes>

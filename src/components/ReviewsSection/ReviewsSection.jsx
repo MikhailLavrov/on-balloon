@@ -1,12 +1,13 @@
 import c from './ReviewsSection.module.scss';
 import { reviewsData } from '../../data/reviewsData';
+import { Link } from 'react-router-dom';
 
 export const ReviewsSection = () => {
 
   const reviewItems = reviewsData.map((item, index) => (
       <div className={c.reviewItem} key={index}>
         <div className={c.reviewItem__photo}>
-          <img width={100} src={item.photo} alt="Фото" />
+          <img width={100} src={item.userPhoto} alt="Фото" />
         </div>
         <div className={c.reviewItem__content}>
           <p className={c.reviewItem__name}>{item.name}</p>
@@ -22,6 +23,7 @@ export const ReviewsSection = () => {
         <div className={c.reviews__content}>
           {reviewItems}
         </div>
+        <Link to={'/reviews'} className={c.reviews__link}>Читать все</Link>
       </div>
     </section>
   )
