@@ -43,3 +43,21 @@ export const gallerySwiperParams = {
     }
   }
 };
+
+export const hitsSwiperParams = {
+  spaceBetween: 10,
+  breakpoints: {
+    0: {
+      slidesPerView: 3,
+    },
+    500: {
+      slidesPerView: 3,
+    },
+    768: {
+      slidesPerView: 4,
+    },
+    1260: {
+      slidesPerView: 5,
+    }
+  }
+};

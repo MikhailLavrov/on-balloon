@@ -6,29 +6,35 @@ import { attractionsData } from '../../data/catalogData/attractionsData';
 import { balloonsData } from '../../data/catalogData/balloonsData';
 import { photozoneData } from '../../data/catalogData/photozoneData';
 import { CatalogCard } from '../CatalogCard/CatalogCard';
-// import { Badge } from 'antd';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { hitsSwiperParams } from '../../data/swiperParams';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
-const hitsData = allData.filter((item) => item.hit).slice(0, 10);
+const hitsData = allData.filter((item) => item.hit);
 
 export const HitsSection = () => {
 
   const hitsSlide = hitsData.map((item, index) => (
-      // <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={index}>
-        <CatalogCard {...item} />
-      // </Badge.Ribbon>
+    <SwiperSlide className='gallery__slide' key={index}>
+      <CatalogCard {...item} />
+    </SwiperSlide>
   ))
   
   return (
     <section className={c.hits}>
       <div className='container'>
-        {/* <h2 className={c.hits__title}>Хиты</h2> */}
-        <Link className={c.hits__titleLink} to={'/catalog'}>
-          <span>Популярные товары</span>
-          <RightOutlined className={c.hits__titleIcon} />
-        </Link>
+        <h2 className={c.hits__title}>
+          Популярные товары
+          <Link className={c.hits__showMoreLink} to={'/catalog'}>
+            <RightOutlined />
+          </Link>
+        </h2>
         <div className={c.hits__content}>
-          {hitsSlide}
+          <div className='gallery__slider gallery__slider--main'>
+            <Swiper {...hitsSwiperParams}>
+              {hitsSlide}
+            </Swiper>
+          </div>
         </div>
       </div>
     </section>
