@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/on-balloon/static/css/main.80d01162.css",
-    "main.js": "/on-balloon/static/js/main.f613fa15.js",
+    "main.js": "/on-balloon/static/js/main.aab733df.js",
     "static/js/787.47eb2e1f.chunk.js": "/on-balloon/static/js/787.47eb2e1f.chunk.js",
     "static/media/15 Syaskelevo Village Day 2019 2.webp": "/on-balloon/static/media/15 Syaskelevo Village Day 2019 2.bd28292e166bd94b1b89.webp",
     "static/media/7 Day of Russia Klopitsy village 2.webp": "/on-balloon/static/media/7 Day of Russia Klopitsy village 2.71f7b66a6b53907cf12e.webp",
@@ -303,11 +303,11 @@
     "static/media/cat_19772.webp": "/on-balloon/static/media/cat_19772.21eb638513ccd658e147.webp",
     "index.html": "/on-balloon/index.html",
     "main.80d01162.css.map": "/on-balloon/static/css/main.80d01162.css.map",
-    "main.f613fa15.js.map": "/on-balloon/static/js/main.f613fa15.js.map",
+    "main.aab733df.js.map": "/on-balloon/static/js/main.aab733df.js.map",
     "787.47eb2e1f.chunk.js.map": "/on-balloon/static/js/787.47eb2e1f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.80d01162.css",
-    "static/js/main.f613fa15.js"
+    "static/js/main.aab733df.js"
   ]
 }
