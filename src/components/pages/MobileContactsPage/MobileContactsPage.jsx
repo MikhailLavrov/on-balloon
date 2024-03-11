@@ -1,12 +1,13 @@
 import c from './MobileContactsPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { EnvironmentOutlined, MailOutlined, MobileOutlined } from '@ant-design/icons';
+import { MailOutlined, MobileOutlined } from '@ant-design/icons';
 import { personalData } from '../../../data/personalData';
 import { SocialLinks } from '../../SocialLinks/SocialLinks';
 import { CallbackForm } from '../../CallbackForm/CallbackForm';
 import { useEffect } from 'react';
 import { callMeBackSubmit } from '../../../redux/callMeBackSlice';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
+import { YMapComponent } from '../../YMapComponent/YMapComponent';
 
 export const MobileContactsPage = () => {
   const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted);
@@ -25,17 +26,19 @@ export const MobileContactsPage = () => {
         <BreadcrumbsComponent pageName={'Контакты'} />
         <h1 className={c.contactsPage__title}>Контакты</h1>
         <div className={c.contactsPage__content}>
-          <h2 className={c.contactsPage__subTitle}>Всегда на связи:</h2>
+          <div className={c.contactsPage__phoneMail}>
+            <a href={`tel:${personalData.phone}`}><MobileOutlined style={{transform: 'scale(-0.8, 0.8)', padding: '2px'}} /> {personalData.phone}</a>
+            <a href={`mailto:${personalData.mail}`}><MailOutlined style={{transform: 'scale(-0.8, 0.8)', padding: '2px'}} /> {personalData.mail}</a>
+          </div>
           <div className={c.contactsPage__socialLinks}>
             <SocialLinks />
           </div>
-          <div className={c.contactsPage__phoneMail}>
-            <a href={`tel:${personalData.phone}`}><MobileOutlined /> {personalData.phone}</a>
-            <a href={`mailto:${personalData.mail}`}><MailOutlined /> {personalData.mail}</a>
-          </div>
           <div className={c.contactsPage__location}>
-            <p><EnvironmentOutlined /> ЛО, г. Гатчина, ул. Киевская, 17Б</p>
-            {/* <YMapComponent /> */}
+            <p className={c.contactsPage__locationTitle}>Пункт выдачи заказов:</p>
+            <p className={c.contactsPage__locationAddress}>{personalData.address}</p>
+          </div>
+          <div className={c.contactsPage__locationWrapper}>
+            <YMapComponent />
           </div>
           <div className={c.contactsPage__callbackWrapper}>
             <h2 className={c.contactsPage__formTitle}>Возникли вопросы?</h2>

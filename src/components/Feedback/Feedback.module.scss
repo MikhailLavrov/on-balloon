@@ -130,7 +130,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    // justify-content: space-between;
   }
 }
 
@@ -144,13 +144,9 @@
 
   @include vp-500 {
     margin-bottom: 30px;
-    flex-direction: row;
-    justify-content: space-evenly;
   }
     
   @include vp-1260 {
-    margin: 0;
-    
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -238,8 +234,6 @@
   }
 
   @include vp-500 {
-    flex-direction: row;
-    justify-content: space-evenly;
   }
 
   @include vp-1260 {

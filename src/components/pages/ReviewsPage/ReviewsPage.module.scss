@@ -34,6 +34,12 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
 }
 
 .reviewItem {
@@ -42,26 +48,32 @@
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 10px;
+  align-items: center;
 
   box-shadow: 0 0 0 1px $color-2-greyDarker;
   border-radius: 6px;
+
+  @include vp-768 {
+    padding: 15px;
+  }
 }
 
 .reviewItem__userPhoto {
   & img {
     width: 50px;
-
+    
+    border-radius: 50%;
     aspect-ratio: 1/1;
   }
 }
 
 .reviewItem__content {
-
+  grid-column: 1/-1;
 }
 
 .reviewItem__name {
   margin: 0;
-  margin-bottom: 10px;
+  padding: 10px 0;
 
   font-size: calc($fz-m - 3px);
   font-weight: 500;

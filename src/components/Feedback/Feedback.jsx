@@ -6,6 +6,7 @@ import { CallbackForm } from '../CallbackForm/CallbackForm';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { callMeBackSubmit } from '../../redux/callMeBackSlice';
+import { YMapComponent } from '../YMapComponent/YMapComponent';
 
 export const Feedback = () => {
   const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted);
@@ -66,7 +67,7 @@ export const Feedback = () => {
             </div>
           </div>
           <div className={c.feedback__contactsMapWrapper}>
-            {/* <YMapComponent  /> */}
+            <YMapComponent />
           </div>
         </div>
       </div>

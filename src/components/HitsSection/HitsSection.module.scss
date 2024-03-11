@@ -15,7 +15,7 @@
   }
   
   @include vp-1260 {
-    padding: 30px 0 0;
+    padding: 20px 0 0;
   }
 }
 
@@ -46,8 +46,4 @@
 
   font-size: $fz-s;
   color: $base-dark-color;
-}
-
-.hits__content {
-  padding: 0 10px;
 }

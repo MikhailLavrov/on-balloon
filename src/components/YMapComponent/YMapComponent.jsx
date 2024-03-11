@@ -7,11 +7,12 @@ export const YMapComponent = () => {
     zoom: 10,
   };
 
-  // Вставьте ваш API ключ вместо 'your_api_key'
-  const apiKey = '20797a51-973a-44bf-b1a3-5e254e56e40a&lang=ru_RU';
+  const apiKey = 'c1f44217-9f44-4e0e-878e-7b1b89f393a8';
 
   return (
-    <YMaps apiKey={apiKey}>
+    <YMaps query={{
+      apikey: apiKey
+    }}>
       <Map defaultState={defaultState} height={257}>
         <Placemark geometry={[59.553954, 30.104746]} />
       </Map>

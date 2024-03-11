@@ -7,7 +7,7 @@
   font-family: $ff-tilda;
   background-color: $color-2-grey;
   color: $base-dark-color;
-  font-size: calc($fz-s - 2px);
+  font-size: $fz-s;
 
   box-shadow: 0 20px 15px -25px $base-dark-color inset;
 }

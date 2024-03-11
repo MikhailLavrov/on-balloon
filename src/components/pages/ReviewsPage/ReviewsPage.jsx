@@ -10,8 +10,8 @@ const reviewItems = reviewsData.map((item, index) => (
     <div className={c.reviewItem__userPhoto}>
       <img width={100} src={item.userPhoto} alt="Фото" />
     </div>
+    <p className={c.reviewItem__name}>{item.name}</p>
     <div className={c.reviewItem__content}>
-      <p className={c.reviewItem__name}>{item.name}</p>
       <p className={c.reviewItem__text}> {item.text} </p>
       <div className={c.reviewItem__productPhoto}>
         <Image width={150} src={item.productPhoto} alt="Результат" />

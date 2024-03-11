@@ -21,11 +21,10 @@ export const GallerySection = () => {
       <div className='container'>
         <h2 className={c.gallery__title}>
           Наши работы
+          <Link className={c.gallery__showMoreLink} to={'/gallery'}>
+            <RightOutlined />
+          </Link>
         </h2>
-        <Link className={c.gallery__titleLink} to={'/gallery'}>
-          <span>Наши работы</span>
-          <RightOutlined className={c.gallery__titleIcon} />
-        </Link>
         <div className='gallery__slider gallery__slider--main'>
           <Swiper {...gallerySwiperParams}>
             {gallerySlide}
