@@ -1,6 +1,7 @@
 {
   "name": "on-balloon",
   "version": "0.1.0",
+  "homepage": "https://MikhailLavrov.github.io/on-balloon",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.3.0",

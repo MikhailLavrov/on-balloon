@@ -95,7 +95,7 @@ export const OrderPage = () => {
                       },
                       {
                         max: 60, 
-                        message: 'Максимум ${max} символов'
+                        message: 'Слишком длинное сообщение'
                       },
                     ]}
                   >
@@ -143,7 +143,7 @@ export const OrderPage = () => {
                       },
                       {
                         max: 100, 
-                        message: 'Максимум ${max} символов'
+                        message: 'Слишком длинное сообщение'
                       },
                     ]}
                     >
