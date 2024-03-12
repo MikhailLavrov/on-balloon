@@ -13,7 +13,6 @@ import { InfoPage } from '../pages/InfoPage/InfoPage';
 import { MobileContactsPage } from '../pages/MobileContactsPage/MobileContactsPage';
 import { HitsSection } from '../HitsSection/HitsSection';
 import { ReviewsSection } from '../ReviewsSection/ReviewsSection';
-import { OrderPage } from '../pages/OrderPage/OrderPage';
 import { ReviewsPage } from '../pages/ReviewsPage/ReviewsPage';
 
 const MainPage = () => {
@@ -38,7 +37,6 @@ export const App = () => {
         <Route path="catalog" element={<CatalogPage />} />
         <Route path="favourites" element={<FavouritesPage />} />
         <Route path="cart" element={<ShoppingCartPage />} />
-        <Route path="cart/order" element={<OrderPage />} />
         <Route path="search" element={<SearchResultsPage />} />
         <Route path="info" element={<InfoPage />} />
         <Route path="reviews" element={<ReviewsPage />} />

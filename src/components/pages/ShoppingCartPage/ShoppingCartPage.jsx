@@ -1,7 +1,7 @@
 import c from './ShoppingCartPage.module.scss';
 import { CatalogRowCard } from '../../CatalogRowCard/CatalogRowCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Checkbox, Form, Input, Result, Segmented } from 'antd';
+import { Button, Checkbox, Form, Input, Result } from 'antd';
 import { Link } from 'react-router-dom';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { useEffect, useState } from 'react';
@@ -182,18 +182,15 @@ export const ShoppingCartPage = () => {
   const agreementNavigate = (e) => {
     dispatch(setCurrentMenu({ currentTopMenu: 'forclients', currentMenu: 'agreement' }));
   }
-  const [deliveryTypeValue, setDeliveryTypeValue] = useState('Доставка');
-  const onDeliveryTypeChange = (value) => {
-    setDeliveryTypeValue(value);
-  };
+
 // Отправка в Телеграм
   const onValuesChange = (changedValues, allValues) => {
     let textMessage = `
       Информация о клиенте:
       Имя: ${allValues.name}
       Телефон: ${allValues.phone}
-      Доставка: ${changedValues.deliveryType || allValues.deliveryType || ''}
       Адрес: ${allValues.deliveryAddress}
+      Дата: ${allValues.deliveryTime}
       Комментарий: ${changedValues.comment || allValues.comment || ''}
     `;
     setClientData(textMessage)
@@ -268,7 +265,7 @@ export const ShoppingCartPage = () => {
                 >
                   <Form.Item
                     name="name"
-                    label="ФИО"
+                    label="Имя"
                     rules={[
                       {
                         required: true,
@@ -296,35 +293,33 @@ export const ShoppingCartPage = () => {
                       className={c.reactInputMask}
                     />
                   </Form.Item>
-                  <Form.Item name="deliveryType">
-                    <Segmented
-                      options={['Доставка', 'Самовывоз']}
-                      onChange={onDeliveryTypeChange}
-                      block
-                    />
+                  <Form.Item 
+                    name="deliveryAddress"
+                    label="Адрес доставки"
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Укажите адрес доставки'
+                      },
+                    ]}
+                    >
+                    <Input placeholder='Адрес доставки' />
                   </Form.Item>
-                  {deliveryTypeValue === 'Доставка' ?
-                  <>
-                    <Form.Item 
-                      name="deliveryAddress"
-                      label="Адрес доставки"
-                      rules={[
-                        {
-                          required: true,
-                          message: 'Укажите адрес доставки'
-                        },
-                      ]}
-                      >
-                      <Input placeholder='Адрес доставки' />
-                    </Form.Item>
-                    <Form.Item>
-                      <span>* Стоимость доставки уточнит менеджер после подтверждения заказа</span>
-                    </Form.Item>
-                  </>
-                  : <Form.Item>
-                      <span>Пункт выдачи: ЛО, г. Гатчина, ул. Киевская, д. 17кБ</span>
-                    </Form.Item> 
-                  }
+                  <Form.Item 
+                    name="deliveryTime"
+                    label="Дата мероприятия"
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Укажите дату мероприятия'
+                      },
+                    ]}
+                    >
+                    <Input placeholder='Дата мероприятия' />
+                  </Form.Item>
+                  <Form.Item>
+                    <span>* Стоимость доставки уточнит менеджер после подтверждения заказа</span>
+                  </Form.Item>
                   <Form.Item
                     name="comment"
                     label="Комментарий"
