@@ -30,16 +30,19 @@ export const MobileNavigation = () => {
     setDrawerVisible(!drawerVisible);
     childrenDrawerVisible && setChildrenDrawerVisible(false);
   };
-  const showChildrenDrawer = () => {
+  const closeDrawer = () => {
+    setDrawerVisible(false);
+  }
+  const openChildrenDrawer = () => {
     setChildrenDrawerVisible(true);
   };
-  const onChildrenDrawerClose = () => {
+  const closeChildrenDrawer = () => {
     setChildrenDrawerVisible(false);
   };
 
   const onNavLinkClick = () => {
-    setDrawerVisible(false);
-    onChildrenDrawerClose();
+    closeDrawer();
+    closeChildrenDrawer();
     isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
   }
 
@@ -52,10 +55,12 @@ export const MobileNavigation = () => {
       </div>
       <MobileCatalogDrawer
         drawerVisible={drawerVisible}
+
         childrenDrawerVisible={childrenDrawerVisible}
+        openChildrenDrawer={openChildrenDrawer}
+        closeChildrenDrawer={closeChildrenDrawer}
+
         toggleDrawer={toggleDrawer}
-        showChildrenDrawer={showChildrenDrawer}
-        onChildrenDrawerClose={onChildrenDrawerClose}
       />
     </div>
   );

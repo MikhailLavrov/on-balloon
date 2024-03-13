@@ -6,18 +6,39 @@ import { SearchComponent } from "../SearchComponent/SearchComponent";
 import c from './MobileNavigation.module.scss';
 import { useState } from "react";
 
-export const MobileCatalogDrawer = ({ drawerVisible, childrenDrawerVisible, toggleDrawer, showChildrenDrawer, onChildrenDrawerClose }) => {
-  const [currentTopCategory, setCurrentTopCategory] = useState(null);
+export const InnerMobileCatalogDrawer = (props) => {
+  const {childrenDrawerVisible, currentTopCategory, closeChildrenDrawer, toggleDrawer} = props;
 
   const outerDrawerHandler = () => {
-    onChildrenDrawerClose();
+    closeChildrenDrawer();
     toggleDrawer();
   }
+
+  return (
+    <Drawer
+        title="Категория"
+        placement="left"
+        closable={true}
+        onClose={closeChildrenDrawer}
+        open={childrenDrawerVisible}
+        className={`catalog__drawer`}
+        closeIcon={<LeftOutlined onClick={() => console.log('close')} />}
+      >
+        <InnerDrawerItems currentTopCategory={currentTopCategory} outerHandler={outerDrawerHandler} />
+
+    </Drawer>
+  )
+}
+
+export const MobileCatalogDrawer = (props) => {
+  const { drawerVisible, childrenDrawerVisible, openChildrenDrawer, closeChildrenDrawer, toggleDrawer } = props;
+
+  const [currentTopCategory, setCurrentTopCategory] = useState(null);
 
   // Функция для обработки выбора тайла
   const onCollectionClick = (key) => {
     setCurrentTopCategory(key);
-    showChildrenDrawer();
+    openChildrenDrawer();
   };
 
   return (
@@ -36,18 +57,14 @@ export const MobileCatalogDrawer = ({ drawerVisible, childrenDrawerVisible, togg
         <CollectionsTiles outerHandler={(key) => onCollectionClick(key)} />
       </div>
 
-      <Drawer
-        title="Категория"
-        placement="left"
-        closable={true}
-        onClose={onChildrenDrawerClose}
-        open={childrenDrawerVisible}
-        className={`catalog__drawer`}
-        closeIcon={<LeftOutlined />}
-      >
-        <InnerDrawerItems currentTopCategory={currentTopCategory} outerHandler={outerDrawerHandler} />
+      <InnerMobileCatalogDrawer 
+        childrenDrawerVisible={childrenDrawerVisible}
+        closeChildrenDrawer={closeChildrenDrawer}
 
-      </Drawer>
+        currentTopCategory={currentTopCategory}
+
+        toggleDrawer={toggleDrawer}
+      />
     </Drawer>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Badge, Drawer } from 'antd';
+import { Badge } from 'antd';
 import c from './CatalogPage.module.scss';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
 import { animationData } from '../../../data/catalogData/animationData';
@@ -12,7 +12,7 @@ import { catalogMenuData } from '../../../data/catalogMenuData';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 import { LeftOutlined } from '@ant-design/icons';
-import { InnerDrawerItems } from '../../MobileNavigation/InnerDrawerItems';
+import { InnerMobileCatalogDrawer } from '../../MobileNavigation/MobileCatalogDrawer';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
@@ -102,15 +102,13 @@ export const CatalogPage = () => {
 
   // Логика открытия drawer с подкатегориями при действии НАЗАД
   const [childrenDrawerVisible, setChildrenDrawerVisible] = useState(false);
-  const onChildrenDrawerClose = () => {
+
+  const openChildrenDrawer = () => {
+    setChildrenDrawerVisible(true);
+  };
+  const closeChildrenDrawer = () => {
     setChildrenDrawerVisible(false);
   };
-  const outerDrawerHandler = () => {
-    onChildrenDrawerClose();
-  }
-  const onClickHandler = () => {
-    setChildrenDrawerVisible(true)
-  }
 
   return (
     <section className={c.catalog}>
@@ -118,25 +116,19 @@ export const CatalogPage = () => {
         <BreadcrumbsComponent pageName={'Каталог'} />
         <h2 className={c.catalog__title}>
           {currentTopCategoryState && 
-          <button className={c.catalog__backToCategoryLink} onClick={onClickHandler}>
+          <button className={c.catalog__backToCategoryLink} onClick={openChildrenDrawer}>
             <LeftOutlined className={c.catalog__titleIcon} />
           </button>
           }
           <span>Каталог</span>
         </h2>
 
-        <Drawer
-          title="Категория"
-          placement="left"
-          closable={true}
-          onClose={onChildrenDrawerClose}
-          open={childrenDrawerVisible}
-          className={`catalog__drawer`}
-          closeIcon={<LeftOutlined />}
-        >
-          <InnerDrawerItems currentTopCategory={currentTopCategoryState} outerHandler={outerDrawerHandler} />
-
-        </Drawer>
+        <InnerMobileCatalogDrawer
+          childrenDrawerVisible={childrenDrawerVisible} 
+          currentTopCategory={currentTopCategoryState}
+          closeChildrenDrawer={closeChildrenDrawer}
+          toggleDrawer={closeChildrenDrawer}
+        />
 
         <div className={c.catalog__innerContainer}>
           <CatalogMenu
