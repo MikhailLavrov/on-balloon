@@ -78,6 +78,7 @@
   @include vp-1260 {
     display: grid;
     grid-template-columns: 1fr 4fr;
+    align-items: flex-start;
     gap: 10px;
   }
 }
@@ -91,14 +92,17 @@
   
   @include vp-500 {
     gap: 20px;
-    grid-template-columns: repeat(4, minmax(20%, 4fr));
+    grid-template-columns: repeat(3, minmax(20%, 4fr));
+  }
+
+  @include vp-768 {
+    grid-template-columns: repeat(4, minmax(10%, 4fr));
   }
 
   @include vp-1260 {
-    grid-template-columns: repeat(4, minmax(20px, 4fr));
+    grid-template-columns: repeat(4, minmax(15%, 1fr));
   }
 }
-
 
 .styledBadge {
   padding: 5px;
@@ -111,15 +115,15 @@
   font-size: 12px;
   font-family: $ff-tilda;
 
-  @include vp-500 {
-    padding: 0 8px;
+  // @include vp-500 {
+  //   padding: 0 8px;
 
-    height: auto;
+  //   height: auto;
 
-    display: block;
+  //   display: block;
 
-    font-size: 14px;
-  }
+  //   font-size: 14px;
+  // }
 }
 
 .catalogMenu {
