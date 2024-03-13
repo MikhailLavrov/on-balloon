@@ -10,7 +10,7 @@ import { GallerySection } from '../GallerySection/GallerySection';
 import { Feedback } from '../Feedback/Feedback';
 import { SearchResultsPage } from '../pages/SearchResultsPage/SearchResultsPage';
 import { InfoPage } from '../pages/InfoPage/InfoPage';
-import { MobileContactsPage } from '../pages/MobileContactsPage/MobileContactsPage';
+import { ContactsPage } from '../pages/ContactsPage/ContactsPage';
 import { HitsSection } from '../HitsSection/HitsSection';
 import { ReviewsSection } from '../ReviewsSection/ReviewsSection';
 import { ReviewsPage } from '../pages/ReviewsPage/ReviewsPage';
@@ -40,7 +40,7 @@ export const App = () => {
         <Route path="search" element={<SearchResultsPage />} />
         <Route path="info" element={<InfoPage />} />
         <Route path="reviews" element={<ReviewsPage />} />
-        <Route path="contacts" element={<MobileContactsPage />} />
+        <Route path="contacts" element={<ContactsPage />} />
       </Route>
     </Routes>
   );

@@ -1,4 +1,4 @@
-import c from './MobileContactsPage.module.scss';
+import c from './ContactsPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { MailOutlined, MobileOutlined } from '@ant-design/icons';
 import { personalData } from '../../../data/personalData';
@@ -9,7 +9,7 @@ import { callMeBackSubmit } from '../../../redux/callMeBackSlice';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { YMapComponent } from '../../YMapComponent/YMapComponent';
 
-export const MobileContactsPage = () => {
+export const ContactsPage = () => {
   const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted);
   const dispatch = useDispatch();
 
@@ -32,10 +32,6 @@ export const MobileContactsPage = () => {
           </div>
           <div className={c.contactsPage__socialLinks}>
             <SocialLinks />
-          </div>
-          <div className={c.contactsPage__location}>
-            <p className={c.contactsPage__locationTitle}>Пункт выдачи заказов:</p>
-            <p className={c.contactsPage__locationAddress}>{personalData.address}</p>
           </div>
           <div className={c.contactsPage__locationWrapper}>
             <YMapComponent />

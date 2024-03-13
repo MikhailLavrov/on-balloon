@@ -37,7 +37,7 @@ export const Feedback = () => {
         </div>
       </div>
       <div className={c.feedback__contacts}>
-        <p className={c.feedback__contactsTitle}>Всегда на связи</p>
+        <p className={c.feedback__contactsTitle}>Контакты</p>
         <div className={c.feedback__contactsMainWrapper}>
           <div className={c.feedback__contactsMainContent}>
             <div className={c.feedback__contactsInner}>
