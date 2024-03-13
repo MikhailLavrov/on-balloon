@@ -127,7 +127,7 @@ export const CatalogPage = () => {
           childrenDrawerVisible={childrenDrawerVisible} 
           currentTopCategory={currentTopCategoryState}
           closeChildrenDrawer={closeChildrenDrawer}
-          toggleDrawer={closeChildrenDrawer}
+          closeAllDrawers={closeChildrenDrawer}
         />
 
         <div className={c.catalog__innerContainer}>

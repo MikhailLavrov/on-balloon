@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import c from './MobileNavigation.module.scss';
 import { initFavourites } from '../../redux/favouritesSlice';
 import { initShoppingCart } from '../../redux/shoppingCartSlice';
 import { setBurgerIsOpened } from '../../redux/burgerMenuSlice';
+import { MobileCatalogDrawer } from './MobileCatalogDrawer';
 import { MobileNavigationItem } from './MobileNavigationItem';
 import { MobileNavigationData } from '../../data/mobileNavigationData';
 import { useDispatch, useSelector } from 'react-redux';
-import { MobileCatalogDrawer } from './MobileCatalogDrawer';
+import { setDrawerState } from '../../redux/catalogDrawerSlice';
 
 export const MobileNavigation = () => {
   const isBurgerOpenedState = useSelector(state => state.burgerMenu.isOpened)
@@ -23,26 +24,17 @@ export const MobileNavigation = () => {
   }, [dispatch]);
 
   // Drawer
-  const [drawerVisible, setDrawerVisible] = useState(false);
-  const [childrenDrawerVisible, setChildrenDrawerVisible] = useState(false);
-
+  const drawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
+  const childrenDrawerVisibleState = useSelector(state => state.catalogDrawer.childrenDrawerIsOpened)
+  
   const toggleDrawer = () => {
-    setDrawerVisible(!drawerVisible);
-    childrenDrawerVisible && setChildrenDrawerVisible(false);
+    !drawerVisibleState ? dispatch(setDrawerState({mainDrawerIsOpened: true})) : dispatch(setDrawerState({mainDrawerIsOpened: false}))
+    isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
   };
-  const closeDrawer = () => {
-    setDrawerVisible(false);
-  }
-  const openChildrenDrawer = () => {
-    setChildrenDrawerVisible(true);
-  };
-  const closeChildrenDrawer = () => {
-    setChildrenDrawerVisible(false);
-  };
-
+  
   const onNavLinkClick = () => {
-    closeDrawer();
-    closeChildrenDrawer();
+    drawerVisibleState && dispatch(setDrawerState({mainDrawerIsOpened: false}))
+    childrenDrawerVisibleState && dispatch(setDrawerState({childrenDrawerIsOpened: false}))
     isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
   }
 
@@ -50,16 +42,15 @@ export const MobileNavigation = () => {
     <div className={c.mobileNavigation}>
       <div className={c.mobileNavigation__container}>
         {mobileNavigationData.map((item, index) => (
-          <MobileNavigationItem item={item} onNavLinkClick={onNavLinkClick} drawerLinkAction={toggleDrawer} key={index} />
+          <MobileNavigationItem 
+            key={index} 
+            item={item} 
+            onNavLinkClick={onNavLinkClick} 
+            drawerLinkAction={toggleDrawer} 
+          />
         ))}
       </div>
       <MobileCatalogDrawer
-        drawerVisible={drawerVisible}
-
-        childrenDrawerVisible={childrenDrawerVisible}
-        openChildrenDrawer={openChildrenDrawer}
-        closeChildrenDrawer={closeChildrenDrawer}
-
         toggleDrawer={toggleDrawer}
       />
     </div>

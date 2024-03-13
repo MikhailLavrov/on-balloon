@@ -5,6 +5,7 @@ import shoppingCartReducer from './shoppingCartSlice'
 import menuNavReducer from './menuNavSlice'
 import outerCatalogNavReducer from './outerCatalogNavSlice'
 import burgerMenuReducer from './burgerMenuSlice'
+import catalogDrawerReducer from './catalogDrawerSlice'
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     menuNav: menuNavReducer,
     outerCatalogNav: outerCatalogNavReducer,
     burgerMenu: burgerMenuReducer,
+    catalogDrawer: catalogDrawerReducer,
   },
 });
 
