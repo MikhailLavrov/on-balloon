@@ -14,6 +14,7 @@ import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComp
 import { LeftOutlined } from '@ant-design/icons';
 import { InnerMobileCatalogDrawer } from '../../MobileCatalogDrawer/InnerMobileCatalogDrawer';
 import { setDrawerState } from '../../../redux/catalogDrawerSlice';
+import { topLevelTranslations, sublevelTranslations } from '../../../data/catalogData/catalogMenuTranslations';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
@@ -104,23 +105,36 @@ export const CatalogPage = () => {
   }
 
   // Логика открытия drawer с подкатегориями при действии НАЗАД
+  const mainDrawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
   const childrenDrawerVisibleState = useSelector(state => state.catalogDrawer.childrenDrawerIsOpened)
 
   const openChildrenDrawer = () => {
     !childrenDrawerVisibleState && dispatch(setDrawerState({childrenDrawerIsOpened: true}))
   };
 
+  const openDrawer = () => {
+    !mainDrawerVisibleState && dispatch(setDrawerState({mainDrawerIsOpened: true}))
+  };
+
   return (
     <section className={c.catalog}>
       <div className={`${c.catalog__container} container`}>
         <BreadcrumbsComponent pageName={'Каталог'} />
-        <h2 className={c.catalog__title}>
-          {/* {currentTopCategoryState &&  */}
-          <button className={c.catalog__backToCategoryLink} onClick={openChildrenDrawer}>
-            <LeftOutlined className={c.catalog__titleIcon} />
+        <div className={c.catalog__backToCategoryLink}>
+          {currentTopCategoryState ?
+          <button onClick={openChildrenDrawer}>
+            <LeftOutlined className={c.catalog__titleIcon} /> Назад
           </button>
-          {/* } */}
-          <span>Каталог</span>
+          : <button onClick={openDrawer}>
+            <LeftOutlined className={c.catalog__titleIcon} /> Назад
+          </button>
+          }
+        </div>
+        <h2 className={c.catalog__title}>
+          {currentTopCategoryState && currentCategoryState ? 
+            `${topLevelTranslations[currentTopCategoryState]}: ${sublevelTranslations[currentCategoryState]}`
+          : `Хиты`
+          }
         </h2>
 
         <InnerMobileCatalogDrawer />

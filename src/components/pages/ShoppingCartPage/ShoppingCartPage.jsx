@@ -9,6 +9,8 @@ import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDraw
 import { deleteAllItemsFromShoppingCart } from '../../../redux/shoppingCartSlice';
 import { setCurrentMenu } from '../../../redux/topMenuNavSlice';
 import ReactInputMask from 'react-input-mask';
+import { setDrawerState } from '../../../redux/catalogDrawerSlice';
+import { setBurgerIsOpened } from '../../../redux/burgerMenuSlice';
 
 const chatId23 = '-112030425060768293011924354';
 const BOT_TOKEN44 = 'w103517816:AAG86TXNqQRxBOFDdwQkKe7Bs__cKgo9H17';
@@ -22,8 +24,6 @@ const BASE_URL = `https://api.telegram.org/bot${BOT_TOKEN24}`;
 export const ShoppingCartPage = () => {
   const shoppingCartState = useSelector(state => state.shoppingCart.items)
   const [currentCartItems, setCurrentCartItems] = useState(shoppingCartState);
-  const [drawerVisible, setDrawerVisible] = useState(false);
-  const [childrenDrawerVisible, setChildrenDrawerVisible] = useState(false);
   const [orderSuccess, setOrderSuccess] = useState(false);
   const [phoneValue, setPhoneValue] = useState('');
   const [clientData, setClientData] = useState('');
@@ -39,15 +39,13 @@ export const ShoppingCartPage = () => {
   ));
 
   // Открытие Drawer каталога (мобилка) при пустой корзине
+  const drawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
+  const childrenDrawerVisibleState = useSelector(state => state.catalogDrawer.childrenDrawerIsOpened)
+  const isBurgerOpenedState = useSelector(state => state.burgerMenu.isOpened)
   const toggleDrawer = () => {
-    setDrawerVisible(!drawerVisible);
-    childrenDrawerVisible && setChildrenDrawerVisible(false);
-  };
-  const showChildrenDrawer = () => {
-    setChildrenDrawerVisible(true);
-  };
-  const onChildrenDrawerClose = () => {
-    setChildrenDrawerVisible(false);
+    !drawerVisibleState ? dispatch(setDrawerState({mainDrawerIsOpened: true})) : dispatch(setDrawerState({mainDrawerIsOpened: false}))
+    isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
+    childrenDrawerVisibleState && dispatch(setDrawerState({childrenDrawerIsOpened: false}))
   };
 
   // Получаем общую стоимость корзины С УЧЕТОМ ЦЕНЫ БЕЗ СКИДКИ
@@ -369,7 +367,7 @@ export const ShoppingCartPage = () => {
           extra={[ <Link className={c.onSuccessHomeLink} to={'/'}>На главную</Link>, ]} />
           )}
       </div>
-      <MobileCatalogDrawer toggleDrawer={toggleDrawer} drawerVisible={drawerVisible} childrenDrawerVisible={childrenDrawerVisible} showChildrenDrawer={showChildrenDrawer} onChildrenDrawerClose={onChildrenDrawerClose} />
+      <MobileCatalogDrawer />
     </section>
   )
 }

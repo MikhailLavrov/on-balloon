@@ -6,13 +6,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDrawerState } from "../../redux/catalogDrawerSlice";
 import { setCurrentCategory } from "../../redux/catalogNavSlice";
 import { InnerMobileCatalogDrawer } from "./InnerMobileCatalogDrawer";
+import { setBurgerIsOpened } from "../../redux/burgerMenuSlice";
 
-export const MobileCatalogDrawer = ({toggleDrawer}) => {
+export const MobileCatalogDrawer = () => {
   const drawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
   const childrenDrawerVisibleState = useSelector(state => state.catalogDrawer.childrenDrawerIsOpened)
+  const isBurgerOpenedState = useSelector(state => state.burgerMenu.isOpened)
   const dispatch = useDispatch()
   
-  // Функция для обработки выбора тайла
+  const toggleDrawer = () => {
+    !drawerVisibleState ? dispatch(setDrawerState({mainDrawerIsOpened: true})) : dispatch(setDrawerState({mainDrawerIsOpened: false}))
+    isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
+    childrenDrawerVisibleState && dispatch(setDrawerState({childrenDrawerIsOpened: false}))
+  }
   const onCollectionClick = (key) => {
     dispatch(setCurrentCategory({currentTopCategory: key}))
     !childrenDrawerVisibleState && dispatch(setDrawerState({childrenDrawerIsOpened: true}))

@@ -51,9 +51,7 @@ export const MobileNavigation = () => {
           />
         ))}
       </div>
-      <MobileCatalogDrawer
-        toggleDrawer={toggleDrawer}
-      />
+      <MobileCatalogDrawer />
     </div>
   );
 };

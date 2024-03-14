@@ -1,28 +1,26 @@
 import c from './FavouritesPage.module.scss';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Badge } from 'antd';
 import { Link } from 'react-router-dom';
-import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
+import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
 import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDrawer';
-import { useState } from 'react';
+import { setBurgerIsOpened } from '../../../redux/burgerMenuSlice';
+import { setDrawerState } from '../../../redux/catalogDrawerSlice';
 
 export const FavouritesPage = () => {
   const favouritesState = useSelector(state => state.favourites.items)
+  const dispatch = useDispatch();
 
   // Для открытия Drawer с каталогом при пустой странице (Мобил)
-  const [drawerVisible, setDrawerVisible] = useState(false);
-  const [childrenDrawerVisible, setChildrenDrawerVisible] = useState(false);
-
+  const drawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
+  const childrenDrawerVisibleState = useSelector(state => state.catalogDrawer.childrenDrawerIsOpened)
+  const isBurgerOpenedState = useSelector(state => state.burgerMenu.isOpened)
+  
   const toggleDrawer = () => {
-    setDrawerVisible(!drawerVisible);
-    childrenDrawerVisible && setChildrenDrawerVisible(false);
-  };
-  const showChildrenDrawer = () => {
-    setChildrenDrawerVisible(true);
-  };
-  const onChildrenDrawerClose = () => {
-    setChildrenDrawerVisible(false);
+    !drawerVisibleState ? dispatch(setDrawerState({mainDrawerIsOpened: true})) : dispatch(setDrawerState({mainDrawerIsOpened: false}))
+    isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
+    childrenDrawerVisibleState && dispatch(setDrawerState({childrenDrawerIsOpened: false}))
   };
 
   const favouritesList = favouritesState.map(item => (
@@ -62,7 +60,7 @@ export const FavouritesPage = () => {
           </div>
         )}
       </div>
-      <MobileCatalogDrawer toggleDrawer={toggleDrawer} drawerVisible={drawerVisible} childrenDrawerVisible={childrenDrawerVisible} showChildrenDrawer={showChildrenDrawer} onChildrenDrawerClose={onChildrenDrawerClose} />
+      <MobileCatalogDrawer />
     </section>
   )
 }
