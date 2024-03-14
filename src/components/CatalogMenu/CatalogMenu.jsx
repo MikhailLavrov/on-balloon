@@ -13,7 +13,7 @@ const rootSubmenuKeys = catalogMenuData.reduce((acc, item) => {
 }, []);
 
 export const CatalogMenu = ({style, handleMenuClick, theme}) => {
-  const currentTopCategoryState = useSelector(state => state.outerCatalogNav.currentTopCategory)
+  const currentTopCategoryState = useSelector(state => state.catalogNav.currentTopCategory)
   
   // Only one menu opened logic
   const [openKeys, setOpenKeys] = useState(

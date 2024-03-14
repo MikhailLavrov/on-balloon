@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const outerCatalogNavSlice = createSlice({
-  name: 'outerCatalogNav',
+export const catalogNavSlice = createSlice({
+  name: 'catalogNav',
   initialState: {
     currentTopCategory: '',
     currentCategory: '',
@@ -14,6 +14,6 @@ export const outerCatalogNavSlice = createSlice({
   },
 });
 
-export const { setCurrentCategory } = outerCatalogNavSlice.actions;
+export const { setCurrentCategory } = catalogNavSlice.actions;
 
-export default outerCatalogNavSlice.reducer;
+export default catalogNavSlice.reducer;

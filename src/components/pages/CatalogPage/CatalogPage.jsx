@@ -7,21 +7,24 @@ import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { CatalogMenu } from '../../CatalogMenu/CatalogMenu';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { catalogMenuData } from '../../../data/catalogMenuData';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 import { LeftOutlined } from '@ant-design/icons';
-import { InnerMobileCatalogDrawer } from '../../MobileNavigation/MobileCatalogDrawer';
+import { InnerMobileCatalogDrawer } from '../../MobileCatalogDrawer/InnerMobileCatalogDrawer';
+import { setDrawerState } from '../../../redux/catalogDrawerSlice';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
 export const CatalogPage = () => {
-  const currentTopCategoryState = useSelector(state => state.outerCatalogNav.currentTopCategory);
-  const currentCategoryState = useSelector(state => state.outerCatalogNav.currentCategory);
+  const currentTopCategoryState = useSelector(state => state.catalogNav.currentTopCategory);
+  const currentCategoryState = useSelector(state => state.catalogNav.currentCategory);
   
   const [selectedTopCategory, setSelectedTopCategory] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
+
+  const dispatch = useDispatch()
   
   useEffect(() => {
     if (currentTopCategoryState && currentTopCategoryState !== '') {
@@ -101,13 +104,10 @@ export const CatalogPage = () => {
   }
 
   // Логика открытия drawer с подкатегориями при действии НАЗАД
-  const [childrenDrawerVisible, setChildrenDrawerVisible] = useState(false);
+  const childrenDrawerVisibleState = useSelector(state => state.catalogDrawer.childrenDrawerIsOpened)
 
   const openChildrenDrawer = () => {
-    setChildrenDrawerVisible(true);
-  };
-  const closeChildrenDrawer = () => {
-    setChildrenDrawerVisible(false);
+    !childrenDrawerVisibleState && dispatch(setDrawerState({childrenDrawerIsOpened: true}))
   };
 
   return (
@@ -115,20 +115,15 @@ export const CatalogPage = () => {
       <div className={`${c.catalog__container} container`}>
         <BreadcrumbsComponent pageName={'Каталог'} />
         <h2 className={c.catalog__title}>
-          {currentTopCategoryState && 
+          {/* {currentTopCategoryState &&  */}
           <button className={c.catalog__backToCategoryLink} onClick={openChildrenDrawer}>
             <LeftOutlined className={c.catalog__titleIcon} />
           </button>
-          }
+          {/* } */}
           <span>Каталог</span>
         </h2>
 
-        <InnerMobileCatalogDrawer
-          childrenDrawerVisible={childrenDrawerVisible} 
-          currentTopCategory={currentTopCategoryState}
-          closeChildrenDrawer={closeChildrenDrawer}
-          closeAllDrawers={closeChildrenDrawer}
-        />
+        <InnerMobileCatalogDrawer />
 
         <div className={c.catalog__innerContainer}>
           <CatalogMenu

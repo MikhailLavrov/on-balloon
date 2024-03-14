@@ -1,6 +1,6 @@
 import { Menu, ConfigProvider } from 'antd';
 import { useDispatch } from 'react-redux';
-import { setCurrentMenu } from '../../redux/menuNavSlice';
+import { setCurrentMenu } from '../../redux/topMenuNavSlice';
 import { topMenuData } from '../../data/topMenuData';
 import c from './MobileTopMenu.module.scss';
 import { useState } from 'react';
@@ -28,7 +28,7 @@ export const MobileTopMenu = ({handleLinkClick, isBurgerOpened}) => {
   };
 
   const onClick = (e) => {
-    dispatch(setCurrentMenu({ currentTopMenu: e.keyPath[e.keyPath.length - 1], currentMenu: e.key }));
+    dispatch(setCurrentMenu({ currentTopMenu: e.keyPath[e.keyPath.length - 1], currentSubMenu: e.key }));
     handleLinkClick(!isBurgerOpened)
   };
 

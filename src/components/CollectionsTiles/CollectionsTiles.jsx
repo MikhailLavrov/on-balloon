@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { collectionsData } from "../../data/collectionsData";
-import { setCurrentCategory } from "../../redux/outerCatalogNavSlice";
+import { setCurrentCategory } from "../../redux/catalogNavSlice";
 import c from './CollectionsTiles.module.scss';
 import { Link, useNavigate } from "react-router-dom";
 

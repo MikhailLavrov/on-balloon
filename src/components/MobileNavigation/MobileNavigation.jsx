@@ -3,7 +3,7 @@ import c from './MobileNavigation.module.scss';
 import { initFavourites } from '../../redux/favouritesSlice';
 import { initShoppingCart } from '../../redux/shoppingCartSlice';
 import { setBurgerIsOpened } from '../../redux/burgerMenuSlice';
-import { MobileCatalogDrawer } from './MobileCatalogDrawer';
+import { MobileCatalogDrawer } from '../MobileCatalogDrawer/MobileCatalogDrawer';
 import { MobileNavigationItem } from './MobileNavigationItem';
 import { MobileNavigationData } from '../../data/mobileNavigationData';
 import { useDispatch, useSelector } from 'react-redux';
@@ -30,6 +30,7 @@ export const MobileNavigation = () => {
   const toggleDrawer = () => {
     !drawerVisibleState ? dispatch(setDrawerState({mainDrawerIsOpened: true})) : dispatch(setDrawerState({mainDrawerIsOpened: false}))
     isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
+    childrenDrawerVisibleState && dispatch(setDrawerState({childrenDrawerIsOpened: false}))
   };
   
   const onNavLinkClick = () => {

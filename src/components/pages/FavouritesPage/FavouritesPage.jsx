@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Badge } from 'antd';
 import { Link } from 'react-router-dom';
 import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
-import { MobileCatalogDrawer } from '../../MobileNavigation/MobileCatalogDrawer';
+import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDrawer';
 import { useState } from 'react';
 
 export const FavouritesPage = () => {

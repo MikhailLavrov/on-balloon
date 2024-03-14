@@ -5,9 +5,9 @@ import { Button, Checkbox, Form, Input, Result } from 'antd';
 import { Link } from 'react-router-dom';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { useEffect, useState } from 'react';
-import { MobileCatalogDrawer } from '../../MobileNavigation/MobileCatalogDrawer';
+import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDrawer';
 import { deleteAllItemsFromShoppingCart } from '../../../redux/shoppingCartSlice';
-import { setCurrentMenu } from '../../../redux/menuNavSlice';
+import { setCurrentMenu } from '../../../redux/topMenuNavSlice';
 import ReactInputMask from 'react-input-mask';
 
 const chatId23 = '-112030425060768293011924354';
@@ -180,7 +180,7 @@ export const ShoppingCartPage = () => {
     setPhoneValue(e.target.value.replace(/\D/g, ''));
   };
   const agreementNavigate = (e) => {
-    dispatch(setCurrentMenu({ currentTopMenu: 'forclients', currentMenu: 'agreement' }));
+    dispatch(setCurrentMenu({ currentTopMenu: 'forclients', currentSubMenu: 'agreement' }));
   }
 
 // Отправка в Телеграм

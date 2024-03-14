@@ -1,13 +1,13 @@
 import { Menu, ConfigProvider } from 'antd';
 import { useDispatch } from 'react-redux';
-import { setCurrentMenu } from '../../redux/menuNavSlice';
+import { setCurrentMenu } from '../../redux/topMenuNavSlice';
 import { topMenuData } from '../../data/topMenuData';
 
 export const TopMenu = () => {
   const dispatch = useDispatch();
 
   const onClick = (e) => {
-    dispatch(setCurrentMenu({ currentTopMenu: e.keyPath[e.keyPath.length - 1], currentMenu: e.key }));
+    dispatch(setCurrentMenu({ currentTopMenu: e.keyPath[e.keyPath.length - 1], currentSubMenu: e.key }));
   };
   
   const theme = {

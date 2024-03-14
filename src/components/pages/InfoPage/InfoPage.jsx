@@ -3,23 +3,23 @@ import { InfoMenu } from '../../InfoMenu/InfoMenu';
 import { infoData } from '../../../data/infoData';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentMenu } from '../../../redux/menuNavSlice';
+import { setCurrentMenu } from '../../../redux/topMenuNavSlice';
 import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
 
 export const InfoPage = () => {
-  const currentTopMenuState = useSelector(state => state.menuNav.currentTopMenu);
-  const currentMenuState = useSelector(state => state.menuNav.currentMenu);
+  const currentTopMenuState = useSelector(state => state.topMenuNav.currentTopMenu);
+  const currentSubMenuState = useSelector(state => state.topMenuNav.currentSubMenu);
   const [selectedTopCategory, setSelectedTopCategory] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const dispatch = useDispatch();
   
   useEffect(() => {
     setSelectedTopCategory(currentTopMenuState);
-    setSelectedCategory(currentMenuState);
-  }, [dispatch, currentTopMenuState, currentMenuState])
+    setSelectedCategory(currentSubMenuState);
+  }, [dispatch, currentTopMenuState, currentSubMenuState])
   
   const onClick = (e) => {
-    dispatch(setCurrentMenu({ currentTopMenu: e.keyPath[e.keyPath.length - 1], currentMenu: e.key }));
+    dispatch(setCurrentMenu({ currentTopMenu: e.keyPath[e.keyPath.length - 1], currentSubMenu: e.key }));
   };
 
   const infoItems = selectedTopCategory ? infoData[selectedTopCategory].filter(item => item.key === selectedCategory) : [];
