@@ -15,7 +15,7 @@ const hitsData = allData.filter((item) => item.hit);
 export const HitsSection = () => {
 
   const hitsSlide = hitsData.map((item, index) => (
-    <SwiperSlide className='gallery__slide' key={index}>
+    <SwiperSlide className='hits__slide' key={index}>
       <CatalogCard {...item} />
     </SwiperSlide>
   ))
@@ -30,7 +30,7 @@ export const HitsSection = () => {
           </Link>
         </h2>
         <div className={c.hits__content}>
-          <div className='gallery__slider gallery__slider--main'>
+          <div className='hits__slider hits__slider--main'>
             <Swiper {...hitsSwiperParams}>
               {hitsSlide}
             </Swiper>

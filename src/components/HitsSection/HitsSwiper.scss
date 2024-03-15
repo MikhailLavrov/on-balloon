@@ -1,0 +1,33 @@
+.hits__slider {
+  &--main {
+    margin-bottom: 5px;
+    
+    & .swiper-wrapper {
+      padding-bottom: 15px;
+    }
+    
+    & .hits__slide {
+        padding: 0 2px;
+        
+        opacity: 1;
+        cursor: pointer;
+      }
+  }
+}
+
+// Кнопки
+.hits__slider .swiper-button-prev,
+.hits__slider .swiper-button-next {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  background-color: rgba($base-light-color, 0.5);
+
+  &::after,
+  &::before {
+    font-size: 16px;
+    font-weight: 600;
+    color: $base-dark-color;
+  }
+}

@@ -27,7 +27,7 @@ export const InfoPage = () => {
   return (
     <section className={c.infoPage}>
       <div className={`${c.infoPage__container} container`}>
-      <BreadcrumbsComponent pageName={'Информация для клиентов'} className={c.infoPage__breadcrumbs} />
+        <BreadcrumbsComponent pageName={'Информация для клиентов'} />
         <h1 className={c.infoPage__title}>Информация для клиентов</h1>
         <div className={c.infoPage__innerContainer}>
           <InfoMenu 

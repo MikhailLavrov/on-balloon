@@ -14,7 +14,7 @@ export const BreadcrumbsComponent = ({pageName}) => {
           title: pageName,
         },
       ]}
-      style={{fontFamily: 'Tilda Sans, Arial, sans-serif'}}
+      style={{fontFamily: 'Tilda Sans, Arial, sans-serif', marginBottom: '15px'}}
       className={c.breadcrumbs}
     />
   )

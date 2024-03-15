@@ -2,19 +2,18 @@
 @import '../../../styles/mixins.scss';
 
 .favourites {
+  padding: 10px 0;
+  
   height: 100%;
   
   font-family: $ff-tilda;
 
   background-color: $base-light-color;
-  // background-color: $color-6-red;
   
   @include vp-1260 {
     padding: 20px 0;
   }
 }
-
-// .favourites__container {}
 
 .favourites__title {
   margin: 0 auto;

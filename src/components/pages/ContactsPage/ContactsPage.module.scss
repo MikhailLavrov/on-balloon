@@ -2,15 +2,17 @@
 @import '../../../styles/mixins.scss';
 
 .contactsPage {
+  padding: 10px 0;
+
   height: 100%;
   
   font-family: $ff-tilda;
 
   background-color: $base-light-color;
-  
-  // @include vp-1260 {
-  //   display: none;
-  // }
+
+  @include vp-1260 {
+    padding: 20px 0;
+  }
 }
 
 .contactsPage__title {

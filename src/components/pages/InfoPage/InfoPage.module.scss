@@ -4,6 +4,7 @@
 
 .infoPage {
   padding: 10px 0;
+  
   min-height: 100%;
   
   text-align: start;
@@ -35,8 +36,6 @@
 .infoPage__innerContainer {
 
   @include vp-1260 {
-    margin-top: 20px;
-    
     display: grid;
     grid-template-columns: 1fr 4fr;
     gap: 20px;
