@@ -26,12 +26,14 @@ export const ContactsPage = () => {
         <BreadcrumbsComponent pageName={'Контакты'} />
         <h1 className={c.contactsPage__title}>Контакты</h1>
         <div className={c.contactsPage__content}>
-          <div className={c.contactsPage__phoneMail}>
-            <a href={`tel:${personalData.phone}`}><MobileOutlined style={{transform: 'scale(-0.8, 0.8)', padding: '2px'}} /> {personalData.phone}</a>
-            <a href={`mailto:${personalData.mail}`}><MailOutlined style={{transform: 'scale(-0.8, 0.8)', padding: '2px'}} /> {personalData.mail}</a>
-          </div>
-          <div className={c.contactsPage__socialLinks}>
-            <SocialLinks />
+          <div className={c.contactsPage__contactsWrapper}>
+            <div className={c.contactsPage__phoneMail}>
+              <a href={`tel:${personalData.phone}`}><MobileOutlined style={{transform: 'scale(-0.8, 0.8)', padding: '2px'}} /> {personalData.phone}</a>
+              <a href={`mailto:${personalData.mail}`}><MailOutlined style={{transform: 'scale(-0.8, 0.8)', padding: '2px'}} /> {personalData.mail}</a>
+            </div>
+            <div className={c.contactsPage__socialLinks}>
+              <SocialLinks />
+            </div>
           </div>
           <div className={c.contactsPage__locationWrapper}>
             <YMapComponent />

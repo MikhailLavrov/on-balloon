@@ -9,7 +9,7 @@ import c from './CallbackForm.module.scss';
 const openNotification = () => {
   notification.open({
     message: 'Информация отправлена',
-    description: 'Мы свяжемся с Вами в ближайшее время.',
+    description: 'Мы свяжемся с Вами в ближайшее время',
   });
 };
 
@@ -51,7 +51,7 @@ export const CallbackForm = () => {
       <Form.Item>
         <TelegramChatButton 
           buttonText={isSubmittedState ? "Данные отправлены" : "Отправить"}
-          message={`Заявка с сайта на обратный звонок.\n Имя: ${nameValue}\n Телефон: ${phoneValue}`}
+          message={`Заявка с сайта на обратный звонок\n Имя: ${nameValue}\n Телефон: ${phoneValue}`}
           disabled={!phoneValue || phoneValue.length < 11 || !nameValue || nameValue < 2}
           outerHandler={onSubmitHandler}
           />
