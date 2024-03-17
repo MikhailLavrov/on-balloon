@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { CatalogCardModal } from '../CatalogCardModal/CatalogCardModal';
-import { Button } from 'antd';
+import { Button, Image } from 'antd';
 import { CheckCircleFilled, HeartFilled, HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { addToFavourites, deleteFromFavourites } from '../../redux/favouritesSlice';
 import { addToShoppingCart, deleteFromShoppingCart } from '../../redux/shoppingCartSlice';
 import c from './CatalogCard.module.scss';
+import FALLBACK from '../../assets/catalog/fallback.webp';
 
 export const CatalogCard = ({...item}) => {
   const { article, title, price, oldPrice, image } = item;
@@ -79,8 +80,15 @@ export const CatalogCard = ({...item}) => {
     <>
       <div className={c.catalogCard} onClick={showModal}>
         <div className={c.catalogCard__imageWrapper}>
-          <img src={image} width={200} height={200} alt={title} />
-            <Button className={c.catalogCard__toFavouritesButton} onClick={toggleFavorites}>{favoritesButtonIcon}</Button>
+          <Image
+            src={image}
+            width={200}
+            height={200}
+            alt={title}
+            preview={false}
+            fallback={FALLBACK}
+          />
+          <Button className={c.catalogCard__toFavouritesButton} onClick={toggleFavorites}>{favoritesButtonIcon}</Button>
         </div>
         <div className={c.catalogCard__content}>
           <div className={c.catalogCard__text}>
