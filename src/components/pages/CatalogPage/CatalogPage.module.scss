@@ -3,6 +3,7 @@
 
 .catalog {
   padding: 10px 0;
+  padding-top: 0;
   
   min-height: 100%;
   
@@ -22,8 +23,32 @@
   }
 }
 
+.catalog__mobileHeader {
+  padding: 10px;
+
+  width: 100%;
+
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+
+  background-color: $base-light-color;
+
+  @include vp-768 {
+    padding: 15px;
+  }
+
+  @include vp-1260 {
+    display: none;
+  }
+}
+
 .catalog__backToCategoryLink {
   margin-bottom: 5px;
+
+  display: flex;
+  align-items: center;
 
   & button {
     padding: 5px 0;
@@ -36,25 +61,18 @@
 
     font-size: $fz-s;
   }
-
-  @include vp-1260 {
-    display: none;
-  }
 }
 
 .catalog__title {
-  margin: 0;
-  margin-bottom: 15px;
+  margin: 0 auto;
+
+  transform: translateX(-7px);
 
   font-size: calc($fz-m - 2px);
-  font-weight: 500;
+  font-weight: 400;
 
   & span {
     margin: 0 auto;
-  }
-
-  @include vp-1260 {
-    display: none;
   }
 }
 

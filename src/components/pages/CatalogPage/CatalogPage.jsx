@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Badge } from 'antd';
+import { Badge, Affix } from 'antd';
 import c from './CatalogPage.module.scss';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
 import { animationData } from '../../../data/catalogData/animationData';
@@ -26,6 +26,10 @@ export const CatalogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
 
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [selectedCategory]);
   
   useEffect(() => {
     if (currentTopCategoryState && currentTopCategoryState !== '') {
@@ -118,24 +122,28 @@ export const CatalogPage = () => {
 
   return (
     <section className={c.catalog}>
+      <Affix>
+        <div className={c.catalog__mobileHeader}>
+          <div className={c.catalog__backToCategoryLink}>
+            {currentTopCategoryState ?
+            <button onClick={openChildrenDrawer}>
+              <LeftOutlined className={c.catalog__titleIcon} />
+            </button>
+            : <button onClick={openDrawer}>
+              <LeftOutlined className={c.catalog__titleIcon} />
+            </button>
+            }
+          </div>
+          <h2 className={c.catalog__title}>
+            {currentTopCategoryState && currentCategoryState ? 
+              `${topLevelTranslations[currentTopCategoryState]}: ${sublevelTranslations[currentCategoryState]}`
+            : `Хиты`
+            }
+          </h2>
+        </div>
+      </Affix>
       <div className={`${c.catalog__container} container`}>
         <BreadcrumbsComponent pageName={'Каталог'} />
-        <div className={c.catalog__backToCategoryLink}>
-          {currentTopCategoryState ?
-          <button onClick={openChildrenDrawer}>
-            <LeftOutlined className={c.catalog__titleIcon} /> Назад
-          </button>
-          : <button onClick={openDrawer}>
-            <LeftOutlined className={c.catalog__titleIcon} /> Назад
-          </button>
-          }
-        </div>
-        <h2 className={c.catalog__title}>
-          {currentTopCategoryState && currentCategoryState ? 
-            `${topLevelTranslations[currentTopCategoryState]}: ${sublevelTranslations[currentCategoryState]}`
-          : `Хиты`
-          }
-        </h2>
 
         <InnerMobileCatalogDrawer />
 
