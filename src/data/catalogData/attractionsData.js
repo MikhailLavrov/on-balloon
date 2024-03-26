@@ -11,7 +11,7 @@ export const attractionsData = [
     price: 23000,
     oldPrice: 25000,
     image: IMG_111542123,
-    hit: false,
+    hit: true,
     count: 1,
   },
   {
@@ -32,7 +32,7 @@ export const attractionsData = [
     price: 11400,
     oldPrice: 12000,
     image: IMG_155542423,
-    hit: false,
+    hit: true,
     count: 1,
   },
 ]

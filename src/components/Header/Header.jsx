@@ -28,6 +28,9 @@ export const HeaderComponent = () => {
     dispatch(initShoppingCart(shoppingCartFromStorage))
   }, [dispatch]);
 
+  
+  const isDesktop = window.innerWidth >= 768;
+
   return (
     <header className={c.header}>
       <div className={c.header__topMenu}>
@@ -45,36 +48,66 @@ export const HeaderComponent = () => {
           </div>
         </div>
       </div>
-    <Affix>
-      <div className={c.headerMain}>
-        <div className={`${c.headerMain__container} ${c.container}`} ref={headerRef}>
-          <Link className={c.header__logo} to={''}>
-            <img src={LOGO_IMG} width={100} alt="Логотип" />
-          </Link>
-          <MobileBurgerMenu />
-          <CatalogLink />
-          <SearchComponent className={c.searchComponent} />
-          <div className={c.header__mainControls}>
-            <Link to={'/favourites'} title='Перейти в избранное'>
-            <Badge count={favouritesCountState}>
-              <HeartOutlined style={{ fontSize: '20px' }} />
-            </Badge>
-              <span>Избранное</span>
+      {isDesktop ?
+      <Affix>
+        <div className={c.headerMain}>
+          <div className={`${c.headerMain__container} ${c.container}`} ref={headerRef}>
+            <Link className={c.header__logo} to={''}>
+              <img src={LOGO_IMG} width={100} alt="Логотип" />
             </Link>
-            <Link to={'/cart'} title='Перейти в корзину'>
-              <Badge count={shoppingCartCountState}>
-                <ShoppingCartOutlined style={{ fontSize: '20px' }} />
+            <MobileBurgerMenu />
+            <CatalogLink />
+            <SearchComponent className={c.searchComponent} />
+            <div className={c.header__mainControls}>
+              <Link to={'/favourites'} title='Перейти в избранное'>
+              <Badge count={favouritesCountState}>
+                <HeartOutlined style={{ fontSize: '20px' }} />
               </Badge>
-              <span>Корзина</span>
-            </Link>
-            <Link disabled style={{opacity: '0.3'}}>
-              <UserOutlined style={{ fontSize: '20px' }} />
-              <span>Войти</span>
-            </Link>
+                <span>Избранное</span>
+              </Link>
+              <Link to={'/cart'} title='Перейти в корзину'>
+                <Badge count={shoppingCartCountState}>
+                  <ShoppingCartOutlined style={{ fontSize: '20px' }} />
+                </Badge>
+                <span>Корзина</span>
+              </Link>
+              <Link disabled style={{opacity: '0.3'}}>
+                <UserOutlined style={{ fontSize: '20px' }} />
+                <span>Войти</span>
+              </Link>
+            </div>
           </div>
         </div>
+      </Affix>
+      : <div className={c.headerMain}>
+      <div className={`${c.headerMain__container} ${c.container}`} ref={headerRef}>
+        <Link className={c.header__logo} to={''}>
+          <img src={LOGO_IMG} width={100} alt="Логотип" />
+        </Link>
+        <MobileBurgerMenu />
+        <CatalogLink />
+        <SearchComponent className={c.searchComponent} />
+        <div className={c.header__mainControls}>
+          <Link to={'/favourites'} title='Перейти в избранное'>
+          <Badge count={favouritesCountState}>
+            <HeartOutlined style={{ fontSize: '20px' }} />
+          </Badge>
+            <span>Избранное</span>
+          </Link>
+          <Link to={'/cart'} title='Перейти в корзину'>
+            <Badge count={shoppingCartCountState}>
+              <ShoppingCartOutlined style={{ fontSize: '20px' }} />
+            </Badge>
+            <span>Корзина</span>
+          </Link>
+          <Link disabled style={{opacity: '0.3'}}>
+            <UserOutlined style={{ fontSize: '20px' }} />
+            <span>Войти</span>
+          </Link>
+        </div>
       </div>
-    </Affix>
+    </div>
+      }
     </header>
   )
 }

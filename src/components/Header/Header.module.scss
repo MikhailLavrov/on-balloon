@@ -12,6 +12,8 @@
 
   background-color: $base-light-color;
 
+  z-index: 20;
+
   @include vp-768 {
     min-height: 60px;
   }

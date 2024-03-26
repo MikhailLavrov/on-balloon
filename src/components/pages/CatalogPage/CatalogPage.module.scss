@@ -34,6 +34,8 @@
   gap: 10px;
 
   background-color: $base-light-color;
+  
+  z-index: 21;
 
   @include vp-768 {
     padding: 15px;
