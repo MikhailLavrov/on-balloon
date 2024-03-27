@@ -94,7 +94,7 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavor
                 onCopy={() => message.info('Артикул скопирован в буфер обмена')}
               >
                   <span style={{ cursor: 'pointer', marginLeft: '5px' }}>{article}</span>
-              </CopyToClipboard>, {count}
+              </CopyToClipboard>
             </p>
 
         {/* Описание */}

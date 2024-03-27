@@ -398,7 +398,7 @@ export const balloonsData = [
     title: 'На 21 год, розовый',
     description: 'Цифра с гелием, 2 фонтана по 9 шаров с гелием (в каждом фонтане 2 шара с конфетти, 2 агат, 3 хром, 2 пастель). Цветовая гамма: розовый, бордовый, серебро.',
     price: 6000,
-    image: require('../../assets/catalog/balloons/her/her_18_901761PP_2.webp'),
+    image: require('../../assets/catalog/balloons/her/her_21_901761PP_1.webp'),
     hit: false,
     count: 1,
   },
