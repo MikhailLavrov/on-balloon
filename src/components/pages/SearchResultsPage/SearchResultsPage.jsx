@@ -21,22 +21,22 @@ export const SearchResultsPage = () => {
   useEffect(() => {
     const lowerQuery = query && query.toLowerCase();
     const words = lowerQuery && lowerQuery.split(/\s+/); // Разделение запроса на отдельные слова
-  
-    const filteredResults = allData.filter(item => {
-      const { article, title, description } = item;
-      const lowerTitle = title && title.toLowerCase();
-      const lowerDescription = description && description.toLowerCase(); // Разделение запроса на отдельные слова;
-  
+    
+  const filteredResults = allData.filter(item => {
+    const { article, title, description } = item;
+    
+    const lowerTitle = title && title.toLowerCase();
+    const lowerDescription = description && description.toLowerCase();
+    
       // Проверяем, содержатся ли все слова из запроса в артикуле
-      const containsWholeArticle = words.every(word =>
+      const containsWholeArticle = words.some(word =>
         article && article.toLowerCase() === word
       );
   
       // Проверяем, содержатся ли оба слова из запроса в имени или описании
-      const containsBothWords = words.every(word =>
-        (lowerTitle && lowerTitle.includes(word)) ||
-        (lowerDescription && lowerDescription.includes(word))
-    );
+      const containsBothWords = words.some(word =>
+        (lowerTitle && lowerTitle.includes(word)) || (lowerDescription && lowerDescription.includes(word))
+      );
       
       return lowerQuery && (containsWholeArticle || containsBothWords);
     });
