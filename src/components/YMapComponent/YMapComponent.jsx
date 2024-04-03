@@ -6,12 +6,10 @@ export const YMapComponent = () => {
     center: [59.553954, 30.104746],
     zoom: 10,
   };
-
-  const apiKey = 'c1f44217-9f44-4e0e-878e-7b1b89f393a8';
-
+  
   return (
     <YMaps query={{
-      apikey: apiKey
+      apikey: process.env.YMAPS_APIKEY
     }}>
       <Map defaultState={defaultState} height={200}>
         <Placemark geometry={[59.553954, 30.104746]} />
