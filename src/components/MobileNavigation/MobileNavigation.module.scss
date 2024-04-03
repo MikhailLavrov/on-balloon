@@ -45,10 +45,10 @@
   color: $base-dark-color;
 
   &.active {
-    color: $color-6-red;
+    color: $color-red;
 
     & svg {
-      fill: $color-6-red;
+      fill: $color-red;
     }
   }
 }

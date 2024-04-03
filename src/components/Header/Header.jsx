@@ -1,7 +1,8 @@
 import c from './Header.module.scss';
+import LOGO_IMG from '../../assets/logotext.png';
+import { HeartOutlined, UserOutlined, ShoppingCartOutlined, MobileOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { HeartOutlined, UserOutlined, ShoppingCartOutlined, MobileOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import { CallBackModal } from '../CallBackModal/CallBackModal';
 import { CatalogLink } from '../CatalogLink/CatalogLink';
 import { SearchComponent } from '../SearchComponent/SearchComponent';
@@ -9,17 +10,18 @@ import { MobileBurgerMenu } from '../MobileBurgerMenu/MobileBurgerMenu';
 import { TopMenu } from '../TopMenu/TopMenu';
 import { personalData } from '../../data/personalData';
 import { SocialLinks } from '../SocialLinks/SocialLinks';
-import LOGO_IMG from '../../assets/logo.png';
 import { Affix, Badge } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { initFavourites } from '../../redux/favouritesSlice';
 import { initShoppingCart } from '../../redux/shoppingCartSlice';
+import { LogoFull } from './../Logo/LogoFull';
 
 export const HeaderComponent = () => {
+
   const headerRef = useRef(null);
-  const dispatch = useDispatch();
   const favouritesCountState = useSelector(state => state.favourites.count);
   const shoppingCartCountState = useSelector(state => state.shoppingCart.count);
+  const dispatch = useDispatch();
   
   useEffect(() => {
     const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -27,7 +29,6 @@ export const HeaderComponent = () => {
     const shoppingCartFromStorage = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     dispatch(initShoppingCart(shoppingCartFromStorage))
   }, [dispatch]);
-
   
   const isDesktop = window.innerWidth >= 768;
 
@@ -52,9 +53,7 @@ export const HeaderComponent = () => {
       <Affix>
         <div className={c.headerMain}>
           <div className={`${c.headerMain__container} ${c.container}`} ref={headerRef}>
-            <Link className={c.header__logo} to={''}>
-              <img src={LOGO_IMG} width={100} alt="Логотип" />
-            </Link>
+            <LogoFull className={c.header__logo} />
             <MobileBurgerMenu />
             <CatalogLink />
             <SearchComponent className={c.searchComponent} />

@@ -164,12 +164,12 @@
     
     border: none;
     cursor: pointer;
-    background-color: $color-6-red;
+    background-color: $color-red;
     color: $base-light-color;
     transition: all 0.2s ease-in-out;
   
     &:hover {
-      background-color: $color-6-red-lighter;
+      background-color: $color-red-light;
       color: $base-light-color;
     }
 
@@ -185,7 +185,7 @@
 }
 
 .contactsPage__submitCover {
-  background-color: $color-2-grey;
+  background-color: $color-grey-light;
   text-align: center;
 
   position: absolute;

@@ -62,11 +62,11 @@
     line-height: 1;
     border-radius: 6px;
     outline: none;
-    box-shadow: 0 0 0 1px $color-2-greyDarker;
+    box-shadow: 0 0 0 1px $color-grey;
     border: none;
     
     &::placeholder {
-      color: $color-2-greyDarker;
+      color: $color-grey;
     }
   }
   
@@ -82,12 +82,12 @@
     
     border: none;
     cursor: pointer;
-    background-color: $color-6-red;
+    background-color: $color-red;
     color: $base-light-color;
     transition: all 0.2s ease-in-out;
   
     &:hover {
-      background-color: $color-6-red-lighter;
+      background-color: $color-red-light;
       color: $base-light-color;
     }
 

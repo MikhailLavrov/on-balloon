@@ -8,8 +8,9 @@
 
 .hero__container {
   // padding-bottom: 15px;
-
+  
   @include vp-768 {
+    padding: 20px 0;
     padding-bottom: 20px;
   }
 }

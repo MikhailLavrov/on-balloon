@@ -2,7 +2,7 @@ import React from 'react';
 import c from './CatalogCardModal.module.scss';
 import { Link } from 'react-router-dom';
 import { Badge, Button, ConfigProvider, message, Modal, Tabs } from 'antd';
-import LOGO_IMG from '../../assets/logo.png';
+import LOGO_IMG from '../../assets/logotext.png';
 import { CheckCircleFilled, HeartFilled, HeartOutlined, ReadOutlined, ShoppingCartOutlined, TruckOutlined } from '@ant-design/icons';
 import { personalData } from '../../data/personalData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';

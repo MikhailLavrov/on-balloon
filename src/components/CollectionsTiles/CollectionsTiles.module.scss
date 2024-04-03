@@ -14,12 +14,12 @@
   justify-content: flex-start;
   
   color: $base-dark-color;
-  box-shadow: 0 0 0 1px $color-2-greyDarker;
+  box-shadow: 0 0 0 1px $color-grey;
   transition: all 200ms ease-in-out;
   
   &:hover {
     color: $base-dark-color;
-    box-shadow: 0 0 0 2px $color-2-greyDarker;
+    box-shadow: 0 0 0 2px $color-grey;
   }
   
   @include vp-768 {

@@ -15,17 +15,17 @@
   
   display: flex;
 
-  font-size: 17px;
-  font-weight: 500;
+  font-size: calc($fz-m - 3px);
+  font-weight: 400;
   font-family: $ff-tilda;
   color: $base-light-color;
 
   border-radius: 8px;
-  background-color: $color-6-red;
+  background-color: $color-red;
   
   &:hover {
     color: $base-light-color;
-    background-color: $color-6-red-lighter;
+    background-color: $color-red-light;
   }
 
   & span {

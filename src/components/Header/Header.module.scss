@@ -8,7 +8,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: baseline;
 
   background-color: $base-light-color;
 
@@ -26,7 +26,7 @@
 .header .header__topMenu {
   display: none;
 
-  background-color: $color-2-grey;
+  background-color: $color-grey-light;
 
   @include vp-1260 {
     display: block;
@@ -80,7 +80,8 @@
 
 .header .headerMain {
   width: 100%;
-  background-color: $base-light-color;
+  background:linear-gradient( to bottom, $color-grey-light, #fff);
+  border-bottom: 1px $color-grey-light solid;
 }
 
 .headerMain .headerMain__container {
@@ -94,20 +95,23 @@
 }
 
 .header__logo {
+  padding: 5px 0;
   margin-right: auto;
-  color: $color-6-red;
+
+  height: auto;
+
+  color: $color-red;
   font-weight: 500;
   font-size: $fz-m;
-  height: auto;
-  // pointer-events: none;
 
   & img {
     width: auto;
-    max-height: 40px;
+    max-height: 30px;
+
     user-select: none;
     
     @include vp-768 {
-      max-height: 60px;
+      max-height: 50px;
     }
   }
   
@@ -152,7 +156,7 @@
     transition: all 300ms ease-in-out;
 
     &:hover:not(:last-child) {
-      background-color: $color-2-grey;
+      background-color: $color-grey-light;
     }
   }
 }

@@ -6,7 +6,7 @@
 
   text-align: center;
   font-family: $ff-tilda;
-  background-color: $color-2-grey;
+  background-color: $color-grey-light-2;
 
   & * {
     user-select: none;
@@ -84,11 +84,11 @@
   color: $base-light-color;
   
   border-radius: 6px;
-  background-color: $color-6-red;
+  background-color: $color-red;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: $color-6-red-lighter;
+    background-color: $color-red-light;
     color: $base-light-color;
   }
 

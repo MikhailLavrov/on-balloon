@@ -28,10 +28,10 @@
     
     border-radius: 6px;
     outline: none;
-    border: 1px solid $color-2-greyDarker;
+    border: 1px solid $color-grey;
     
     &::placeholder {
-      color: $color-2-greyDarker;
+      color: $color-grey;
     }
   }
   
@@ -48,12 +48,12 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    background-color: $color-6-red;
+    background-color: $color-red;
     color: $base-light-color;
     transition: all 0.2s ease-in-out;
   
     &:hover {
-      background-color: $color-6-red-lighter;
+      background-color: $color-red-light;
       color: $base-light-color;
     }
 
