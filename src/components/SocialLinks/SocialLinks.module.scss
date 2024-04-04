@@ -12,10 +12,37 @@
   font-weight: 500;
   
   & svg {
+    display: flex;
     border-radius: 50%;
+    transition: all 200ms ease-in-out;
   }
 
   &:hover {
     color: $base-dark-color;
+
+    & svg {
+      outline-offset: 2px;
+    }
+  }
+}
+
+.socialLink__telegram {
+  & svg {
+    background-color: $color-telegram-blue;
+    outline: $color-telegram-blue 1px solid;
+  }
+}
+
+.socialLink__whatsapp {
+  & svg {
+    background-color: $color-whatsapp-green;
+    outline: $color-whatsapp-green 1px solid;
+  }
+}
+
+.socialLink__vk {
+  & svg {
+    background-color: $color-vk-blue;
+    outline: $color-vk-blue 1px solid;
   }
 }

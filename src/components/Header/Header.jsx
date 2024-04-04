@@ -43,7 +43,7 @@ export const HeaderComponent = () => {
             <SocialLinks />
           </div>
           <div className={c.topMenu__contacts}>
-            <a  href={`tel:${personalData.phone}`}><MobileOutlined />{personalData.phone}</a>
+            <a  href={`tel:${personalData.phone}`}><MobileOutlined /> {personalData.phoneMasked}</a>
             <CallBackModal />
             <p><EnvironmentOutlined /> Гатчина, CПб</p>
           </div>

@@ -75,6 +75,10 @@
 
     font-family: $ff-tilda;
     color: $base-dark-color;
+    
+    &:hover {
+      color: $base-dark-color;
+    }
   }
 }
 

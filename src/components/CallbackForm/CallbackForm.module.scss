@@ -52,6 +52,10 @@
     color: $base-light-color;
     transition: all 0.2s ease-in-out;
   
+    box-shadow: 
+      -5px -5px 10px $base-light-color,
+      0 3px 5px 0px rgba($base-dark-color, 0.3);
+  
     &:hover {
       background-color: $color-red-light;
       color: $base-light-color;

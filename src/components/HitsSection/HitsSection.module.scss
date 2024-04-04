@@ -38,12 +38,17 @@
 
 .hits__showMoreLink {
   position: absolute;
-
   content: "";
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  width: 20px;
+  height: 100%;
+  max-height: 20px;
 
-  font-size: $fz-s;
+  font-size: $fz-m;
   color: $base-dark-color;
+
+  @include vp-1260 {
+    font-size: $fz-l;
+  }
 }

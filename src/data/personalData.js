@@ -1,6 +1,7 @@
 export const personalData = {
   orgname: 'Тренд на праздник',
   phone: '+79315401970',
+  phoneMasked: '+7 (93l) 540-l9-70',
   mail: 'info@partytrend.ru',
   address: ' Ленинградская обл., г. Гатчина, ул. Киевская, 17Б',
   telegram: 'https://t.me/Nadia_Lavrova_event_design',

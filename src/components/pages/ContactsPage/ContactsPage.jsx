@@ -28,7 +28,7 @@ export const ContactsPage = () => {
         <div className={c.contactsPage__content}>
           <div className={c.contactsPage__contactsWrapper}>
             <div className={c.contactsPage__phoneMail}>
-              <a href={`tel:${personalData.phone}`}><MobileOutlined style={{transform: 'scale(-0.8, 0.8)', padding: '2px'}} /> {personalData.phone}</a>
+              <a href={`tel:${personalData.phone}`}><MobileOutlined style={{transform: 'scale(-0.8, 0.8)', padding: '2px'}} /> {personalData.phoneMasked}</a>
               <a href={`mailto:${personalData.mail}`}><MailOutlined style={{transform: 'scale(-0.8, 0.8)', padding: '2px'}} /> {personalData.mail}</a>
             </div>
             <div className={c.contactsPage__socialLinks}>

@@ -1,21 +1,12 @@
 export const heroData = [
   {
-    title: 'С международным женским днем',
+    title: 'С днем космонавтики',
     text: '',
     link: {
       text: '',
       href: '',
     },
-    image: 'https://www.donballon.ru/upload/iblock/2dc/k9qq86y97pc8cxykbiunhuclo53laj7d/1360kh388_8-marta.jpg',
-  },
-  {
-    title: 'Буба',
-    text: '',
-    link: {
-      text: '',
-      href: '',
-    },
-    image: 'https://www.donballon.ru/upload/iblock/a65/1360kh388_Buba.gif',
+    image: require('../assets/hero/cosmo.webp'),
   },
   {
     title: 'Лёва грузовичок',
@@ -24,7 +15,7 @@ export const heroData = [
       text: '',
       href: '',
     },
-    image: 'https://www.donballon.ru/upload/iblock/25e/LYEVA_slayder-2.jpg',
+    image: require('../assets/hero/leva.webp'),
   },
   {
     title: 'Оранжевая корова',
@@ -33,7 +24,7 @@ export const heroData = [
       text: '',
       href: '',
     },
-    image: 'https://www.donballon.ru/upload/iblock/139/OK_slayder-1_1_.jpg',
+    image: require('../assets/hero/korova.webp'),
   },
   {
     title: 'Синий трактор',
@@ -42,7 +33,7 @@ export const heroData = [
       text: '',
       href: '',
     },
-    image: 'https://www.donballon.ru/upload/iblock/6d7/SINIY-TRAKTOR_2720kh770.jpg',
+    image: require('../assets/hero/traktor.webp'),
   },
   {
     title: 'Три кота',
@@ -51,6 +42,6 @@ export const heroData = [
       text: '',
       href: '',
     },
-    image: 'https://www.donballon.ru/upload/iblock/87c/TRI-KOTA_2720x770.jpg',
+    image: require('../assets/hero/trikota.webp'),
   },
 ]

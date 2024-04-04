@@ -81,7 +81,7 @@
 .feedback__contacts {
   padding: 15px 10px;
 
-  background-color: $base-light-color;
+  // background-color: $base-light-color;
 
   @include vp-1260 {
     height: 100%;
@@ -93,7 +93,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    background-color: transparent;
+    // background-color: transparent;
     z-index: 10;
 
     &::after {
@@ -248,11 +248,6 @@
     height: 100%;
 
     display: flex;
-
-    background-image: url('../../assets/map.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
   }
 }
 

@@ -47,7 +47,7 @@ export const Feedback = () => {
                   <PhoneOutlined style={{transform: 'scale(-0.8, 0.8)', padding: '2px'}} />
                 </div>
                 <div className={c.feedback__contactsInfo}>
-                  <a href={`tel:${personalData.phone}`}>{personalData.phone}</a>
+                  <a href={`tel:${personalData.phone}`}>{personalData.phoneMasked}</a>
                   <span>8:00 - 20:00 МСК</span>
                 </div>
               </div>

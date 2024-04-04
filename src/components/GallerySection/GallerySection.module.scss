@@ -38,6 +38,7 @@
   }
 }
 
+// mobile only
 .gallery__showMoreLink {
   position: absolute;
 
@@ -70,6 +71,7 @@
   }
 }
 
+// desktop only
 .gallery__link {
   display: none;
 
@@ -86,6 +88,10 @@
   border-radius: 6px;
   background-color: $color-red;
   transition: all 0.2s ease-in-out;
+  
+  box-shadow: 
+    -5px -5px 10px $base-light-color,
+    0 3px 5px 0px rgba($base-dark-color, 0.3);
 
   &:hover {
     background-color: $color-red-light;

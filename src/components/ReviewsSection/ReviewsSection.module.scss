@@ -48,11 +48,21 @@
   display: flex;
   align-items: center;
 
-  font-size: calc($fz-s - 2px);
+  font-size: $fz-s;
   color: $base-dark-color;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: $color-grey;
+  text-decoration-thickness: 2px;
+
+  transition: all 200ms ease-in-out;
 
   &:hover {
     color: $base-dark-color;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba($base-dark-color, 0.5);
+    text-decoration-thickness: 2px;
   }
 
   @include vp-1260 {
@@ -68,7 +78,7 @@
   gap: 15px;
   align-items: flex-start;
 
-  box-shadow: 0 0 5px 1px $color-grey;
+  box-shadow: 0 3px 12px -2px $color-grey;
   border-radius: 8px;
 }
 
@@ -82,8 +92,6 @@
   justify-content: center;
   
   & img {
-    // width: 100%;
-
     border-radius: 50%;
     user-select: none;
     pointer-events: none;

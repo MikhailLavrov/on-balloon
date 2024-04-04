@@ -23,7 +23,7 @@ export const ReviewsSection = () => {
         <div className={c.reviews__content}>
           {reviewItems}
         </div>
-        <Link to={'/reviews'} className={c.reviews__link}>Читать все</Link>
+        <Link to={'/reviews'} className={c.reviews__link}>Читать все {'>>'}</Link>
       </div>
     </section>
   )

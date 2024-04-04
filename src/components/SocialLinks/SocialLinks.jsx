@@ -6,14 +6,14 @@ import c from './SocialLinks.module.scss';
 export const SocialLinks = () => {
   return (
     <>
-      <Link className={c.socialLink} target = "_blank" to={personalData.telegram}>
-        <SvgIcon icon='telegram2' style={{backgroundColor: '#2AABEE'}} /><span>Telegram</span>
+      <Link className={`${c.socialLink} ${c.socialLink__telegram}`} target = "_blank" to={personalData.telegram}>
+        <SvgIcon icon='telegram2' /><span>Telegram</span>
       </Link>
-      <Link className={c.socialLink} target = "_blank" to={personalData.whatsapp}>
-        <SvgIcon icon='whatsapp2' style={{backgroundColor: '#2BB741'}} /><span>Whatsapp</span>
+      <Link className={`${c.socialLink} ${c.socialLink__whatsapp}`} target = "_blank" to={personalData.whatsapp}>
+        <SvgIcon icon='whatsapp2' /><span>Whatsapp</span>
       </Link>
-      <Link className={c.socialLink} target = "_blank" to={personalData.vkontakte}>
-        <SvgIcon icon='vk2' style={{backgroundColor: '#0077FF'}} /><span>ВКонтакте</span>
+      <Link className={`${c.socialLink} ${c.socialLink__vk}`} target = "_blank" to={personalData.vkontakte}>
+        <SvgIcon icon='vk2' /><span>ВКонтакте</span>
       </Link>
     </>
   )

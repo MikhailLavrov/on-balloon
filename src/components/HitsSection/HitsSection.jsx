@@ -1,6 +1,5 @@
 import c from './HitsSection.module.scss';
 import { Link } from 'react-router-dom';
-import { RightOutlined } from '@ant-design/icons';
 import { animationData } from '../../data/catalogData/animationData';
 import { attractionsData } from '../../data/catalogData/attractionsData';
 import { balloonsData } from '../../data/catalogData/balloonsData';
@@ -26,7 +25,7 @@ export const HitsSection = () => {
         <h2 className={c.hits__title}>
           Популярные товары
           <Link className={c.hits__showMoreLink} to={'/catalog'}>
-            <RightOutlined />
+            {'>>'}
           </Link>
         </h2>
         <div className={c.hits__content}>
