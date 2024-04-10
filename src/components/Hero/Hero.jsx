@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { HeroSlide } from '../HeroSlide/HeroSlide';
 import { heroData } from '../../data/heroData';
 import { heroSwiperParams } from '../../data/swiperParams';
-// import { CollectionsTiles } from '../CollectionsTiles/CollectionsTiles';
+import { motion } from 'framer-motion';
 
 const HeroSlides = heroData.map((card, index) => (
   <SwiperSlide key={index} className={c.hero__slide}>
@@ -15,14 +15,16 @@ export const Hero = () => {
   return (
     <section className={c.hero} id='hero_section'>
       <h1 className='visually-hidden'>Украшение воздушными шарами важных мероприятий</h1>
-      <div className={`${c.hero__container} container`}>
+      <motion.div
+        initial={{ opacity: 0, x: -10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ ease: "easeOut", duration: 1, delay: 0.25 }}
+        className={`${c.hero__container} container`}
+      >
         <Swiper className='hero__slider' {...heroSwiperParams} style={{marginBottom: "20px"}}>
           {HeroSlides}
         </Swiper>
-        {/* <div className={c.hero__collections}> */}
-          {/* <CollectionsTiles /> */}
-        {/* </div> */}
-      </div>
+      </motion.div>
     </section>
   )
 }

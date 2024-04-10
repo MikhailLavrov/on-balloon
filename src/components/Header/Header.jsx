@@ -1,8 +1,11 @@
 import c from './Header.module.scss';
-import LOGO_IMG from '../../assets/logotext.png';
-import { HeartOutlined, UserOutlined, ShoppingCartOutlined, MobileOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import { motion } from "framer-motion"
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Affix, Badge } from 'antd';
+import { HeartOutlined, UserOutlined, ShoppingCartOutlined, MobileOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import LOGO_IMG from '../../assets/logotext.png';
 import { CallBackModal } from '../CallBackModal/CallBackModal';
 import { CatalogLink } from '../CatalogLink/CatalogLink';
 import { SearchComponent } from '../SearchComponent/SearchComponent';
@@ -10,8 +13,6 @@ import { MobileBurgerMenu } from '../MobileBurgerMenu/MobileBurgerMenu';
 import { TopMenu } from '../TopMenu/TopMenu';
 import { personalData } from '../../data/personalData';
 import { SocialLinks } from '../SocialLinks/SocialLinks';
-import { Affix, Badge } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
 import { initFavourites } from '../../redux/favouritesSlice';
 import { initShoppingCart } from '../../redux/shoppingCartSlice';
 import { LogoFull } from './../Logo/LogoFull';
@@ -33,7 +34,12 @@ export const HeaderComponent = () => {
   const isDesktop = window.innerWidth >= 768;
 
   return (
-    <header className={c.header}>
+    <motion.header 
+      initial={{opacity: 0}}
+      animate={{ opacity: 1 }}
+      transition={{ ease: "easeOut", duration: 1.5 }}
+      className={c.header}
+    >
       <div className={c.header__topMenu}>
         <div className={`${c.headerTopMenu__container} ${c.container}`}>
           <div className={c.topMenu__menu}>
@@ -107,6 +113,6 @@ export const HeaderComponent = () => {
       </div>
     </div>
       }
-    </header>
+    </motion.header>
   )
 }

@@ -9,7 +9,7 @@ export const photozoneData = [
     description: 'Самая блестящая из всех фотозон',
     price: 11500,
     image: IMG_photozone_0_901760P_1,
-    hit: true,
+    hit: false,
     count: 1,
   },
   {
@@ -19,7 +19,7 @@ export const photozoneData = [
     description: 'Самая блестящая из всех фотозон',
     price: 9800,
     image: IMG_photozone_12_901762OP_1,
-    hit: true,
+    hit: false,
     count: 1,
   },
 ]
