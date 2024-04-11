@@ -12,7 +12,7 @@ export const CatalogLink = () => {
     <motion.div
       initial={{scale: 0.8}}
       animate={{scale: 1}}
-      transition={{delay: 0.2, duration: 0.5}}
+      transition={{delay: 0.85, duration: 0.5}}
       className={c.catalog}
     >
       <Link 

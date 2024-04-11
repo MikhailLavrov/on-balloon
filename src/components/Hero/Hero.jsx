@@ -18,7 +18,7 @@ export const Hero = () => {
       <motion.div
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ ease: "easeOut", duration: 1, delay: 0.25 }}
+        transition={{ ease: "easeOut", duration: 1, delay: 0.75 }}
         className={`${c.hero__container} container`}
       >
         <Swiper className='hero__slider' {...heroSwiperParams} style={{marginBottom: "20px"}}>

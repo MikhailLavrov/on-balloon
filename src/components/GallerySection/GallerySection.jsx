@@ -8,27 +8,27 @@ import { motion } from 'framer-motion';
 
 export const GallerySection = () => {
 
-  const galleryListVariants = {
-    hidden: {
-      opacity: 0, 
-    },
-    visible: i => ({
-      opacity: 1,
-      transition: {
-        delay: i * 0.1,
-      },
-    })
-  }
+  // const galleryListVariants = {
+  //   hidden: {
+  //     opacity: 0, 
+  //   },
+  //   visible: i => ({
+  //     opacity: 1,
+  //     transition: {
+  //       delay: i * 0.1,
+  //     },
+  //   })
+  // }
 
   const gallerySlide = galleryData.map((image, index) => (
     <SwiperSlide className='gallery__slide' key={index}>
       <motion.div 
         className={c.gallery__image} 
-        variants={galleryListVariants} 
-        initial='hidden' 
-        whileInView={'visible'} 
-        custom={index}
-        viewport={{once: true}}
+        // variants={galleryListVariants} 
+        // initial='hidden' 
+        // whileInView={'visible'} 
+        // custom={index}
+        // viewport={{once: true}}
       >
         <img src={image} alt={index} />
         <div className="swiper-lazy-preloader"></div>

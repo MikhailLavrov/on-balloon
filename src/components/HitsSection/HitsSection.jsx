@@ -16,14 +16,13 @@ export const HitsSection = () => {
 
   const hitsListVariants = {
     hidden: {
-      opacity: 0, 
-      y: 20,
+      opacity: 0,
     },
     visible: i => ({
       opacity: 1,
-      y: 0,
       transition: {
         delay: i * 0.2,
+        duration: 2
       },
     })
   }
@@ -43,20 +42,18 @@ export const HitsSection = () => {
   
   return (
     <section className={c.hits}>
-      <motion.div
-        initial={{ opacity: 0, x: 10 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{
-          delay: 0.3
-        }}
-        className='container'
-      >
-        <h2 className={c.hits__title}>
+      <div className='container'>
+        <motion.h2 
+          className={c.hits__title}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 1 }} 
+        >
           Популярные товары
           <Link className={c.hits__showMoreLink} to={'/catalog'}>
             {'>>'}
           </Link>
-        </h2>
+        </motion.h2>
         <div className={c.hits__content}>
           <div className='hits__slider hits__slider--main'>
             <Swiper {...hitsSwiperParams}>
@@ -64,7 +61,7 @@ export const HitsSection = () => {
             </Swiper>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }
