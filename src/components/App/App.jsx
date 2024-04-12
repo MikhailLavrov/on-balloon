@@ -1,7 +1,6 @@
 import { LayoutComponent } from '../Layout/Layout';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { GalleryPage } from '../pages/GalleryPage/GalleryPage';
-import { CatalogPage } from '../pages/CatalogPage/CatalogPage';
 import { FavouritesPage } from '../pages/FavouritesPage/FavouritesPage';
 import { ShoppingCartPage } from '../pages/ShoppingCartPage/ShoppingCartPage';
 import { Hero } from '../Hero/Hero';
@@ -14,6 +13,7 @@ import { ContactsPage } from '../pages/ContactsPage/ContactsPage';
 import { HitsSection } from '../HitsSection/HitsSection';
 import { ReviewsSection } from '../ReviewsSection/ReviewsSection';
 import { ReviewsPage } from '../pages/ReviewsPage/ReviewsPage';
+import { CatalogPageLayout } from '../pages/CatalogPage/CatalogPageLayout';
 
 const MainPage = () => {
   return (
@@ -34,7 +34,8 @@ export const App = () => {
       <Route path='/' element={<LayoutComponent /> }>
         <Route index element={<MainPage />} />
         <Route path="gallery" element={<GalleryPage />} />
-        <Route path="catalog" element={<CatalogPage />} />
+        <Route path="catalog" element={<Navigate to="/catalog/trend" replace />} />
+        <Route path="catalog/:topcategory/:category?" element={<CatalogPageLayout />} />
         <Route path="favourites" element={<FavouritesPage />} />
         <Route path="cart" element={<ShoppingCartPage />} />
         <Route path="search" element={<SearchResultsPage />} />

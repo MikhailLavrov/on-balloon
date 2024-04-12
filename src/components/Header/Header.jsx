@@ -1,5 +1,4 @@
 import c from './Header.module.scss';
-import { motion } from "framer-motion"
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,7 +17,6 @@ import { initShoppingCart } from '../../redux/shoppingCartSlice';
 import { LogoFull } from './../Logo/LogoFull';
 
 export const HeaderComponent = () => {
-
   const headerRef = useRef(null);
   const favouritesCountState = useSelector(state => state.favourites.count);
   const shoppingCartCountState = useSelector(state => state.shoppingCart.count);
@@ -34,12 +32,7 @@ export const HeaderComponent = () => {
   const isDesktop = window.innerWidth >= 768;
 
   return (
-    <motion.header 
-      initial={{opacity: 0}}
-      animate={{ opacity: 1 }}
-      transition={{ ease: "easeOut", duration: 1.5, delay: 0.5 }}
-      className={c.header}
-    >
+    <header className={c.header}>
       <div className={c.header__topMenu}>
         <div className={`${c.headerTopMenu__container} ${c.container}`}>
           <div className={c.topMenu__menu}>
@@ -113,6 +106,6 @@ export const HeaderComponent = () => {
       </div>
     </div>
       }
-    </motion.header>
+    </header>
   )
 }

@@ -29,7 +29,7 @@ export const collectionsData = catalogMenuData
 
 function getImageForItem(itemKey) {
   switch (itemKey) {
-    // case 'hit':
+    // case 'trend':
     //   return IMG_HIT;
     case 'balloons':
       return IMG_BALLOONS;

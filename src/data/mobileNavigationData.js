@@ -15,7 +15,6 @@ export const MobileNavigationData = () => {
     {
       title: 'Каталог',
       link: '/catalog',
-      drawerLink: true,
       icon: <AlignLeftOutlined style={{ fontSize: '20px' }} />
     },
     {

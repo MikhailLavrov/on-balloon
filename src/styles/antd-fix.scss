@@ -28,3 +28,19 @@
 .ant-drawer-body {
   padding-bottom: 80px !important;
 }
+
+.catalog__drawer .ant-drawer-header .ant-drawer-header-title {
+  flex-direction: row-reverse;
+}
+
+.catalog__drawer .ant-drawer-header .ant-drawer-close {
+  margin-right: 0;
+}
+
+.catalog__drawer .ant-drawer-header .ant-drawer-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: translateX(10px);
+}

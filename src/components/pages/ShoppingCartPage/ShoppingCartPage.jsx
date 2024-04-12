@@ -40,12 +40,10 @@ export const ShoppingCartPage = () => {
 
   // Открытие Drawer каталога (мобилка) при пустой корзине
   const drawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
-  const childrenDrawerVisibleState = useSelector(state => state.catalogDrawer.childrenDrawerIsOpened)
   const isBurgerOpenedState = useSelector(state => state.burgerMenu.isOpened)
   const toggleDrawer = () => {
     !drawerVisibleState ? dispatch(setDrawerState({mainDrawerIsOpened: true})) : dispatch(setDrawerState({mainDrawerIsOpened: false}))
     isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
-    childrenDrawerVisibleState && dispatch(setDrawerState({childrenDrawerIsOpened: false}))
   };
 
   // Получаем общую стоимость корзины С УЧЕТОМ ЦЕНЫ БЕЗ СКИДКИ

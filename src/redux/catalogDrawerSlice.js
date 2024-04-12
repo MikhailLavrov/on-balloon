@@ -4,16 +4,12 @@ export const catalogDrawerSlice = createSlice({
   name: 'catalogDrawer',
   initialState: {
     mainDrawerIsOpened: false,
-    childrenDrawerIsOpened: false,
   },  
   reducers: {
     setDrawerState: (state, action) => {
-      const { mainDrawerIsOpened, childrenDrawerIsOpened } = action.payload;
+      const { mainDrawerIsOpened } = action.payload;
       if (mainDrawerIsOpened !== undefined) {
         state.mainDrawerIsOpened = mainDrawerIsOpened;
-      }
-      if (childrenDrawerIsOpened !== undefined) {
-        state.childrenDrawerIsOpened = childrenDrawerIsOpened;
       }
     },  
   },

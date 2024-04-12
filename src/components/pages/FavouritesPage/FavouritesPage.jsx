@@ -14,13 +14,11 @@ export const FavouritesPage = () => {
 
   // Для открытия Drawer с каталогом при пустой странице (Мобил)
   const drawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
-  const childrenDrawerVisibleState = useSelector(state => state.catalogDrawer.childrenDrawerIsOpened)
   const isBurgerOpenedState = useSelector(state => state.burgerMenu.isOpened)
   
   const toggleDrawer = () => {
     !drawerVisibleState ? dispatch(setDrawerState({mainDrawerIsOpened: true})) : dispatch(setDrawerState({mainDrawerIsOpened: false}))
     isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
-    childrenDrawerVisibleState && dispatch(setDrawerState({childrenDrawerIsOpened: false}))
   };
 
   const favouritesList = favouritesState.map(item => (
@@ -39,7 +37,7 @@ export const FavouritesPage = () => {
 
   return (
     <section className={c.favourites}>
-      <div className={`${c.favourites__container} ${c.container}`}>
+      <div className='container'>
         <BreadcrumbsComponent pageName={'Избранное'} />
         <h1 className={c.favourites__title}>Избранное</h1>
         {favouritesState && favouritesState.length !== 0 && (

@@ -1,50 +1,54 @@
-import { ConfigProvider, Menu } from 'antd';
-import { useState } from 'react';
 import { catalogMenuData } from '../../data/catalogMenuData';
 import c from './CatalogMenu.module.scss';
-import { useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+import { balloonsData } from '../../data/catalogData/balloonsData';
 
-// Get submenu keys of first level from catalogMenuData
-const rootSubmenuKeys = catalogMenuData.reduce((acc, item) => {
-  if (item.children) {
-    acc.push(item.key);
-  }
-  return acc;
-}, []);
-
-export const CatalogMenu = ({style, handleMenuClick, theme}) => {
-  const currentTopCategoryState = useSelector(state => state.catalogNav.currentTopCategory)
+export const CatalogMenu = () => {
+  const {topcategory, category} = useParams();
   
-  // Only one menu opened logic
-  const [openKeys, setOpenKeys] = useState(
-    [currentTopCategoryState && currentTopCategoryState]
-    );
+  const handleColorClick = (color) => {
+    console.log(color)
+  }
+  
+  const renderColorPalette = () => {
+    const currentCategoryItems = balloonsData.filter(item => item.category.includes(category));
+    const palette = currentCategoryItems.reduce((acc, item) => {
+      if (item.palette) {
+          return [...acc, item.palette];
+      }
+      return acc;
+    }, []);
+  
+    // Оставить только уникальные цвета
+    const uniquePalette = Array.from(new Set(palette));
+    console.log(uniquePalette)
 
-  const onOpenChange = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    if (latestOpenKey && rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      setOpenKeys(keys);
-    } else {
-      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-    }
+    return uniquePalette.map((color, index) => (
+      <div
+        key={index}
+        className={c.color__option}
+        style={{ backgroundColor: color, width: '20px', height: '20px' }}
+        onClick={() => handleColorClick(color)}
+      ></div>
+    ));
   };
 
-  const defaultSelectedKeys = currentTopCategoryState && currentTopCategoryState !== '' 
-    ? [catalogMenuData.find(item => item.key === currentTopCategoryState).children[0].key]
-    : [catalogMenuData[0].key];
+  const menuItems = catalogMenuData.map(item => (
+    <Link
+      key={item.key}
+      to={item.children ? `/catalog/${item.key}/${item.children[0].key}` : `/catalog/${item.key}`}
+      className={c.catalogMenu__link}
+      style={{ backgroundColor: item.key === topcategory ? '#9e7ffd' : '#f8f9f9',
+      color: item.key === topcategory ? '#fff' : '#000', transition: 'all 200ms ease' }}
+    >
+      {item.label}
+    </Link>
+  ))
 
   return (
-    <ConfigProvider theme={theme} >
-      <Menu
-        onClick={handleMenuClick}
-        style={style}
-        openKeys={openKeys}
-        onOpenChange={onOpenChange}
-        mode="inline"
-        items={catalogMenuData}
-        defaultSelectedKeys={defaultSelectedKeys}
-        className={c.menu}
-      />
-    </ConfigProvider>
+    <nav className={c.catalogMenu__nav}>
+      {menuItems}
+      {topcategory === 'balloons' && category && renderColorPalette()}
+    </nav>
   )
 };

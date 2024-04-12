@@ -11,6 +11,7 @@ import { setDrawerState } from '../../redux/catalogDrawerSlice';
 
 export const MobileNavigation = () => {
   const isBurgerOpenedState = useSelector(state => state.burgerMenu.isOpened)
+  const drawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
 
   const mobileNavigationData = MobileNavigationData();
 
@@ -23,19 +24,9 @@ export const MobileNavigation = () => {
     dispatch(initShoppingCart(shoppingCartFromStorage))
   }, [dispatch]);
 
-  // Drawer
-  const drawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
-  const childrenDrawerVisibleState = useSelector(state => state.catalogDrawer.childrenDrawerIsOpened)
-  
-  const toggleDrawer = () => {
-    !drawerVisibleState ? dispatch(setDrawerState({mainDrawerIsOpened: true})) : dispatch(setDrawerState({mainDrawerIsOpened: false}))
-    isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
-    childrenDrawerVisibleState && dispatch(setDrawerState({childrenDrawerIsOpened: false}))
-  };
   
   const onNavLinkClick = () => {
     drawerVisibleState && dispatch(setDrawerState({mainDrawerIsOpened: false}))
-    childrenDrawerVisibleState && dispatch(setDrawerState({childrenDrawerIsOpened: false}))
     isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
   }
 
@@ -44,10 +35,9 @@ export const MobileNavigation = () => {
       <div className={c.mobileNavigation__container}>
         {mobileNavigationData.map((item, index) => (
           <MobileNavigationItem 
-            key={index} 
+            key={index}
             item={item} 
             onNavLinkClick={onNavLinkClick} 
-            drawerLinkAction={toggleDrawer} 
           />
         ))}
       </div>

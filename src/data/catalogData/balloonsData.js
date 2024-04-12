@@ -1224,6 +1224,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/figure/amongas_220359.webp'),
     hit: false,
     count: 1,
+    palette: ['pink', 'blue']
   },
   {
   category: ['figure'],
@@ -1234,6 +1235,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/amongas_220540.webp'),
   hit: false,
   count: 1,
+  palette: ['pink', 'blue']
   },
   {
   category: ['figure'],
