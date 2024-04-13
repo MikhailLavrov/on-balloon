@@ -14,7 +14,7 @@ const allData = [...animationData, ...attractionsData, ...balloonsData, ...photo
 export const CatalogContent = () => {
   const {topcategory, category} = useParams();
   const [selectedTopCategory, setSelectedTopCategory] = useState(topcategory);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const filteredColor = searchParams.get('palette') || '';
 
