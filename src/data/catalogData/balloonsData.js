@@ -1,5 +1,6 @@
 export const balloonsData = [
   // girl
+  // blue , fuchsia , green , yellow , white , silver , purple , black, red, goldenrod, orange
   {
     category: ['girl'],
     article: '0001G',
@@ -9,6 +10,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_1.webp'),
     hit: true,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -19,6 +21,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_3.webp'),
     hit: true,
     count: 1,
+    palette: ['fuchsia', 'goldenrod']
   },
   {
     category: ['girl'],
@@ -29,6 +32,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_4.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia', 'goldenrod']
   },
   {
     category: ['girl'],
@@ -39,6 +43,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_5.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -49,6 +54,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_901761PP_1.webp'),
     hit: false,
     count: 1,
+    palette: ['silver', 'red']
   },
   {
     category: ['girl'],
@@ -59,6 +65,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_901761PP_2.webp'),
     hit: false,
     count: 1,
+    palette: ['silver']
   },
   {
     category: ['girl'],
@@ -69,6 +76,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_901761PP_4.webp'),
     hit: false,
     count: 1,
+    palette: ['silver']
   },
   {
     category: ['girl'],
@@ -79,6 +87,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_B901761RG_1.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -89,6 +98,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_2_901767OP_1.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -99,6 +109,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_2_901767OP_2.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -109,6 +120,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_2_901767OP_3.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -119,6 +131,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_1.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -129,6 +142,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_2.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -139,6 +153,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_3.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -149,6 +164,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_4.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -159,6 +175,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_3_B901763P_1.webp'),
     hit: false,
     count: 1,
+    palette: ['black', 'silver']
   },
   {
     category: ['girl'],
@@ -169,6 +186,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_4_901764PP_1.webp'),
     hit: false,
     count: 1,
+    palette: ['silver']
   },
   {
     category: ['girl'],
@@ -179,6 +197,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_5_901765FP_1.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -189,6 +208,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_6_B901766O_1.webp'),
     hit: false,
     count: 1,
+    palette: ['goldenrod']
   },
   {
     category: ['girl'],
@@ -199,6 +219,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_8_901768OP_1.webp'),
     hit: false,
     count: 1,
+    palette: ['goldenrod']
   },
   {
     category: ['girl'],
@@ -209,6 +230,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_8_901768RG_1.webp'),
     hit: false,
     count: 1,
+    palette: ['goldenrod']
   },
   {
     category: ['girl'],
@@ -219,6 +241,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_bear_901856_1.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -229,6 +252,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_bunny_23360_1.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -239,6 +263,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_cat_19772_1.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -249,6 +274,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_cat_19772_2.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -259,6 +285,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_unicorn_19184_1.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['girl'],
@@ -269,8 +296,10 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_unicorn_19184_2.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   // boy
+  // blue , fuchsia , green , yellow , white , silver , purple , black, red, goldenrod, orange
   {
     category: ['boy'],
     article: '0001B',
@@ -280,6 +309,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/boy/boy_1_901761OP_1.webp'),
     hit: true,
     count: 1,
+    palette: ['goldenrod']
   },
   {
     category: ['boy'],
@@ -290,6 +320,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/boy/boy_1_901761PP_3.webp'),
     hit: false,
     count: 1,
+    palette: ['silver']
   },
   {
     category: ['boy', 'girl'],
@@ -300,6 +331,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/boy/boy_2_901762OP_1.webp'),
     hit: false,
     count: 1,
+    palette: ['goldenrod']
   },
   {
     category: ['boy'],
@@ -310,6 +342,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/boy/boy_2_901762OP_2.webp'),
     hit: false,
     count: 1,
+    palette: ['goldenrod']
   },
   {
     category: ['boy'],
@@ -320,6 +353,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/boy/boy_2_901762PP_1.webp'),
     hit: false,
     count: 1,
+    palette: ['silver', 'black']
   },
   {
     category: ['boy'],
@@ -330,6 +364,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/boy/boy_2_B901762A_1.webp'),
     hit: false,
     count: 1,
+    palette: ['blue']
   },
   {
     category: ['boy'],
@@ -340,6 +375,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/boy/boy_2_B901762A_2.webp'),
     hit: false,
     count: 1,
+    palette: ['blue']
   },
   {
     category: ['boy'],
@@ -350,8 +386,10 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/boy/boy_7_B901767P_1.webp'),
     hit: false,
     count: 1,
+    palette: ['silver']
   },
   // her
+  // blue , fuchsia , green , yellow , white , silver , purple , black, red, goldenrod, orange
   {
     category: ['her'],
     article: '0001H',
@@ -361,6 +399,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/her/her_18_901761OP_1.webp'),
     hit: true,
     count: 1,
+    palette: ['goldenrod']
   },
   {
     category: ['her'],
@@ -371,6 +410,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/her/her_18_901761PP_1.webp'),
     hit: false,
     count: 1,
+    palette: ['silver']
   },
   {
     category: ['her'],
@@ -381,6 +421,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/her/her_18_901761PP_2.webp'),
     hit: false,
     count: 1,
+    palette: ['silver']
   },
   {
     category: ['her'],
@@ -391,6 +432,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/her/her_18_B901761RG_2.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['her'],
@@ -401,6 +443,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/her/her_21_901761PP_1.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['her'],
@@ -411,6 +454,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/her/her_21_901762PP_1.webp'),
     hit: false,
     count: 1,
+    palette: ['silver']
   },
   {
     category: ['her'],
@@ -421,6 +465,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/her/her_23_901762OP_1.webp'),
     hit: false,
     count: 1,
+    palette: ['goldenrod']
   },
   {
     category: ['her'],
@@ -431,8 +476,10 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/her/her_30_B901763P_1.webp'),
     hit: false,
     count: 1,
+    palette: ['silver']
   },
   // number
+  // blue , fuchsia , green , yellow , white , silver , purple , black, red, goldenrod, orange
   {
     category: ['number'],
     article: '901760AP',
@@ -442,6 +489,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/number/number_0_901760AP.webp'),
     hit: false,
     count: 1,
+    palette: ['blue']
   },
   {
   category: ['number'],
@@ -452,6 +500,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_0_901760FP.webp'),
   hit: false,
   count: 1,
+  palette: ['fuchsia']
   },
   {
   category: ['number'],
@@ -462,6 +511,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_0_901760OP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -472,6 +522,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_0_901760P.webp'),
   hit: false,
   count: 1,
+  palette: ['silver']
   },
   {
   category: ['number'],
@@ -482,6 +533,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_0_901760TFP.webp'),
   hit: false,
   count: 1,
+  palette: ['green']
   },
   {
   category: ['number'],
@@ -492,6 +544,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_0_B901760RG.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -502,6 +555,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_1_23374.webp'),
   hit: true,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -512,6 +566,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_1_901761OP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -522,6 +577,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_1_901761PP.webp'),
   hit: false,
   count: 1,
+  palette: ['silver']
   },
   {
   category: ['number'],
@@ -532,6 +588,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_1_901761TFP.webp'),
   hit: false,
   count: 1,
+  palette: ['green']
   },
   {
   category: ['number'],
@@ -542,6 +599,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_1_B901761N.webp'),
   hit: false,
   count: 1,
+  palette: ['black']
   },
   {
   category: ['number'],
@@ -552,6 +610,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_1_B901761RG.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -562,6 +621,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_2_901762OP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -572,6 +632,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_2_901762PP.webp'),
   hit: false,
   count: 1,
+  palette: ['silver']
   },
   {
   category: ['number'],
@@ -582,6 +643,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_2_901762TFP.webp'),
   hit: false,
   count: 1,
+  palette: ['green']
   },
   {
   category: ['number'],
@@ -592,6 +654,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_2_901767OP.webp'),
   hit: false,
   count: 1,
+  palette: ['fuchsia']
   },
   {
   category: ['number'],
@@ -602,6 +665,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_2_B901762A.webp'),
   hit: false,
   count: 1,
+  palette: ['blue']
   },
   {
   category: ['number'],
@@ -612,6 +676,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_2_B901762N.webp'),
   hit: false,
   count: 1,
+  palette: ['black']
   },
   {
   category: ['number'],
@@ -622,6 +687,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_2_B901762RG.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -632,6 +698,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_3_901763FP.webp'),
   hit: false,
   count: 1,
+  palette: ['fuchsia']
   },
   {
   category: ['number'],
@@ -642,6 +709,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_3_901763OP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -652,6 +720,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_3_901763TFP.webp'),
   hit: false,
   count: 1,
+  palette: ['green']
   },
   {
   category: ['number'],
@@ -662,6 +731,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_3_B901763A.webp'),
   hit: false,
   count: 1,
+  palette: ['blue']
   },
   {
   category: ['number'],
@@ -672,6 +742,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_3_B901763P.webp'),
   hit: false,
   count: 1,
+  palette: ['silver']
   },
   {
   category: ['number'],
@@ -682,6 +753,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_3_B901763RG.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -692,6 +764,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_4_901764FP.webp'),
   hit: false,
   count: 1,
+  palette: ['fuchsia']
   },
   {
   category: ['number'],
@@ -702,6 +775,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_4_901764OP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -712,6 +786,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_4_901764PP.webp'),
   hit: false,
   count: 1,
+  palette: ['silver']
   },
   {
   category: ['number'],
@@ -722,6 +797,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_4_901764RGP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -732,6 +808,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_4_901764TFP.webp'),
   hit: false,
   count: 1,
+  palette: ['green']
   },
   {
   category: ['number'],
@@ -742,6 +819,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_5_901765FP.webp'),
   hit: false,
   count: 1,
+  palette: ['fuchsia']
   },
   {
   category: ['number'],
@@ -752,6 +830,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_5_901765RGP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -762,6 +841,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_5_901765TFP.webp'),
   hit: false,
   count: 1,
+  palette: ['green']
   },
   {
   category: ['number'],
@@ -772,6 +852,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_5_B901765A.webp'),
   hit: false,
   count: 1,
+  palette: ['blue']
   },
   {
   category: ['number'],
@@ -782,6 +863,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_5_B901768P.webp'),
   hit: false,
   count: 1,
+  palette: ['silver']
   },
   {
   category: ['number'],
@@ -792,6 +874,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_6_901766RGP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -802,6 +885,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_6_901766TFP.webp'),
   hit: false,
   count: 1,
+  palette: ['green']
   },
   {
   category: ['number'],
@@ -812,6 +896,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_6_B901766O.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -822,6 +907,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_6_B901766P.webp'),
   hit: false,
   count: 1,
+  palette: ['silver']
   },
   {
   category: ['number'],
@@ -832,6 +918,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_7_901767AP.webp'),
   hit: false,
   count: 1,
+  palette: ['blue']
   },
   {
   category: ['number'],
@@ -842,6 +929,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_7_901767OP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -852,6 +940,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_7_901767RGP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -862,6 +951,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_7_901767TFP.webp'),
   hit: false,
   count: 1,
+  palette: ['green']
   },
   {
   category: ['number'],
@@ -872,6 +962,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_7_B901767P.webp'),
   hit: false,
   count: 1,
+  palette: ['silver']
   },
   {
   category: ['number'],
@@ -882,6 +973,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_8_901768FP.webp'),
   hit: false,
   count: 1,
+  palette: ['fuchsia']
   },
   {
   category: ['number'],
@@ -892,6 +984,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_8_901768OP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -902,6 +995,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_8_901768PP.webp'),
   hit: false,
   count: 1,
+  palette: ['silver']
   },
   {
   category: ['number'],
@@ -912,6 +1006,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_8_901768RGP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -922,6 +1017,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_8_B901768A.webp'),
   hit: false,
   count: 1,
+  palette: ['blue']
   },
   {
   category: ['number'],
@@ -932,6 +1028,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_9_901769FP.webp'),
   hit: false,
   count: 1,
+  palette: ['fuchsia']
   },
   {
   category: ['number'],
@@ -942,6 +1039,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_9_901769OP.webp'),
   hit: false,
   count: 1,
+  palette: ['goldenrod']
   },
   {
   category: ['number'],
@@ -952,6 +1050,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_9_901769PP.webp'),
   hit: false,
   count: 1,
+  palette: ['silver']
   },
   {
   category: ['number'],
@@ -962,6 +1061,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_9_901769TFP.webp'),
   hit: false,
   count: 1,
+  palette: ['green']
   },
   // additional
   {
@@ -1215,6 +1315,7 @@ export const balloonsData = [
     count: 1,
   },
   // figure
+  // blue , fuchsia , green , yellow , white , silver , purple , black, red, goldenrod, orange
   {
     category: ['figure'],
     article: '220359',
@@ -1224,7 +1325,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/figure/amongas_220359.webp'),
     hit: false,
     count: 1,
-    palette: ['pink', 'blue']
+    palette: ['blue']
   },
   {
   category: ['figure'],
@@ -1235,7 +1336,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/amongas_220540.webp'),
   hit: false,
   count: 1,
-  palette: ['pink', 'blue']
+  palette: ['fuchsia']
   },
   {
   category: ['figure'],
@@ -1246,6 +1347,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/amongas_220557.webp'),
   hit: false,
   count: 1,
+  palette: ['green']
   },
   {
   category: ['figure'],
@@ -1256,6 +1358,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/amongas_220564.webp'),
   hit: false,
   count: 1,
+  palette: ['yellow']
   },
   {
   category: ['figure'],
@@ -1286,6 +1389,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_23520.webp'),
   hit: false,
   count: 1,
+  palette: ['white']
   },
   {
   category: ['figure'],
@@ -1296,6 +1400,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_23521.webp'),
   hit: false,
   count: 1,
+  palette: ['silver']
   },
   {
   category: ['figure'],
@@ -1316,6 +1421,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_23722.webp'),
   hit: false,
   count: 1,
+  palette: ['fuchsia']
   },
   {
   category: ['figure'],
@@ -1326,6 +1432,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_23746.webp'),
   hit: false,
   count: 1,
+  palette: ['yellow']
   },
   {
   category: ['figure'],
@@ -1336,6 +1443,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_23795.webp'),
   hit: false,
   count: 1,
+  palette: ['chocolate']
   },
   {
   category: ['figure'],
@@ -1346,6 +1454,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_901821.webp'),
   hit: false,
   count: 1,
+  palette: ['white']
   },
   {
   category: ['figure'],
@@ -1356,6 +1465,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_G72181.webp'),
   hit: false,
   count: 1,
+  palette: ['chocolate']
   },
   {
   category: ['figure'],
@@ -1366,6 +1476,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_vz_1207_1602.webp'),
   hit: false,
   count: 1,
+  palette: ['purple', 'fuchsia']
   },
   {
   category: ['figure'],
@@ -1376,6 +1487,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_vz_1207_2708.webp'),
   hit: false,
   count: 1,
+  palette: ['chocolate']
   },
   {
   category: ['figure'],
@@ -1386,6 +1498,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/anime_222162.webp'),
   hit: false,
   count: 1,
+  palette: ['fuchsia']
   },
   {
   category: ['figure'],
@@ -1396,6 +1509,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/batman_1207_3929.webp'),
   hit: false,
   count: 1,
+  palette: ['black' , 'yellow']
   },
   {
   category: ['figure'],
@@ -1406,6 +1520,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/bear_19975.webp'),
   hit: false,
   count: 1,
+  palette: ['chocolate']
   },
   {
   category: ['figure'],
@@ -1416,6 +1531,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/bear_901856.webp'),
   hit: false,
   count: 1,
+  palette: ['chocolate']
   },
   {
   category: ['figure'],
@@ -1426,6 +1542,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/brawl_501510.webp'),
   hit: false,
   count: 1,
+  palette: ['purple']
   },
   {
   category: ['figure'],
@@ -1436,6 +1553,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/brawl_501511.webp'),
   hit: false,
   count: 1,
+  palette: ['yellow']
   },
   {
   category: ['figure'],
@@ -1446,6 +1564,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/buba_501910.webp'),
   hit: false,
   count: 1,
+  palette: ['white']
   },
   {
   category: ['figure'],
@@ -1456,6 +1575,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/bunny_23359.webp'),
   hit: false,
   count: 1,
+  palette: ['fuchsia']
   },
   {
   category: ['figure'],
@@ -1466,6 +1586,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/bunny_23360.webp'),
   hit: false,
   count: 1,
+  palette: ['white']
   },
   {
   category: ['figure'],
@@ -2188,6 +2309,7 @@ export const balloonsData = [
   count: 1,
   },
   // latex
+  // blue , fuchsia , green , yellow , white , silver , purple , black, red, goldenrod, orange
   {
     category: ['latex'],
     article: '0001L',
@@ -2197,6 +2319,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/711592.webp'),
     hit: true,
     count: 1,
+    palette: ['white']
   },
   {
     category: ['latex'],
@@ -2207,6 +2330,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/512_051.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia', 'red']
   },
   {
     category: ['latex'],
@@ -2217,6 +2341,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/612908.webp'),
     hit: false,
     count: 1,
+    palette: ['white']
   },
   {
     category: ['latex'],
@@ -2227,6 +2352,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/512_056.webp'),
     hit: false,
     count: 1,
+    palette: ['yellow', 'fuchsia']
   },
   {
     category: ['latex'],
@@ -2237,6 +2363,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/612927.webp'),
     hit: false,
     count: 1,
+    palette: ['white']
   },
   {
     category: ['latex'],
@@ -2247,6 +2374,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/812152.webp'),
     hit: false,
     count: 1,
+    palette: ['white', 'blue', 'fuchsia']
   },
   {
     category: ['latex'],
@@ -2257,6 +2385,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/812135_25.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia']
   },
   {
     category: ['latex'],
@@ -2267,6 +2396,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/612874.webp'),
     hit: false,
     count: 1,
+    palette: ['white']
   },
   {
     category: ['latex'],
@@ -2277,6 +2407,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/512_038.webp'),
     hit: false,
     count: 1,
+    palette: ['white']
   },
   {
     category: ['latex'],
@@ -2287,6 +2418,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/612736.webp'),
     hit: false,
     count: 1,
+    palette: ['white']
   },
   {
     category: ['latex'],
@@ -2297,6 +2429,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/612884.webp'),
     hit: false,
     count: 1,
+    palette: ['fuchsia', 'black']
   },
   {
     category: ['latex'],
@@ -2307,6 +2440,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/612882.webp'),
     hit: false,
     count: 1,
+    palette: ['black']
   },
   {
     category: ['latex'],
@@ -2317,6 +2451,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/612731.webp'),
     hit: false,
     count: 1,
+    palette: ['white', 'fuchsia']
   },
   {
     category: ['latex'],
@@ -2327,6 +2462,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/711590.webp'),
     hit: false,
     count: 1,
+    palette: ['red', 'purple', 'blue', 'yellow', 'green']
   },
   {
     category: ['latex'],
@@ -2337,6 +2473,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/812233.webp'),
     hit: false,
     count: 1,
+    palette: ['red']
   },
   {
     category: ['latex'],
@@ -2347,6 +2484,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/812225.webp'),
     hit: false,
     count: 1,
+    palette: ['red']
   },
   {
     category: ['latex'],
@@ -2357,6 +2495,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/1103_1768.webp'),
     hit: false,
     count: 1,
+    palette: ['black', 'white']
   },
   {
     category: ['latex'],
@@ -2387,6 +2526,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/1103_2434.webp'),
     hit: false,
     count: 1,
+    palette: ['yellow']
   },
   {
     category: ['latex'],

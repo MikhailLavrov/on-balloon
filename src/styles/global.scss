@@ -5,6 +5,8 @@ html,
 body {
   height: 100%;
   min-height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(128, 0, 128, 0.292) transparent;
 }
 
 body {

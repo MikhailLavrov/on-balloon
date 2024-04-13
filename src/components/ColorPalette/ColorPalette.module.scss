@@ -1,0 +1,60 @@
+@import '../../styles/vars.scss';
+@import '../../styles/mixins.scss';
+
+.colorPalette {
+  margin-top: 20px;
+}
+
+.colorPalette__title {
+  margin-bottom: 15px;
+
+  display: flex;
+  align-items: center;
+
+  font-size: calc($fz-m - 3px);
+  font-weight: 500;
+}
+
+.colorPalette__container {
+  margin-bottom: 15px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.colorPalette__item {
+  width: 30px;
+  height: 30px;
+
+  position: relative;
+
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px -5px $base-dark-color inset;
+
+  transition: all 200ms ease-in-out;
+
+  &.active {
+    scale: 1.4;
+  }
+
+  & svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+
+    width: 3px;
+    height: 8px;
+    top: 6px;
+    left: 5px;
+    background-color: rgba($base-light-color, 0.5);
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    transform: rotate(25deg);
+  }
+}

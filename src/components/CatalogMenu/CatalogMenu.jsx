@@ -1,37 +1,10 @@
 import { catalogMenuData } from '../../data/catalogMenuData';
 import c from './CatalogMenu.module.scss';
 import { Link, useParams } from 'react-router-dom';
-import { balloonsData } from '../../data/catalogData/balloonsData';
+import { ColorPalette } from '../ColorPalette/ColorPalette';
 
 export const CatalogMenu = () => {
-  const {topcategory, category} = useParams();
-  
-  const handleColorClick = (color) => {
-    console.log(color)
-  }
-  
-  const renderColorPalette = () => {
-    const currentCategoryItems = balloonsData.filter(item => item.category.includes(category));
-    const palette = currentCategoryItems.reduce((acc, item) => {
-      if (item.palette) {
-          return [...acc, item.palette];
-      }
-      return acc;
-    }, []);
-  
-    // Оставить только уникальные цвета
-    const uniquePalette = Array.from(new Set(palette));
-    console.log(uniquePalette)
-
-    return uniquePalette.map((color, index) => (
-      <div
-        key={index}
-        className={c.color__option}
-        style={{ backgroundColor: color, width: '20px', height: '20px' }}
-        onClick={() => handleColorClick(color)}
-      ></div>
-    ));
-  };
+  const { topcategory, category } = useParams();
 
   const menuItems = catalogMenuData.map(item => (
     <Link
@@ -43,12 +16,12 @@ export const CatalogMenu = () => {
     >
       {item.label}
     </Link>
-  ))
+  ));
 
   return (
     <nav className={c.catalogMenu__nav}>
       {menuItems}
-      {topcategory === 'balloons' && category && renderColorPalette()}
+      {topcategory === 'balloons' && category && ColorPalette()}
     </nav>
-  )
+  );
 };

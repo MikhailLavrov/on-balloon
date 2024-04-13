@@ -6,7 +6,7 @@ export const heroData = [
       text: '',
       href: '',
     },
-    image: require('../assets/hero/cosmo.webp'),
+    image: require('../assets/hero/1.webp'),
   },
   {
     title: 'Лёва грузовичок',
@@ -15,7 +15,7 @@ export const heroData = [
       text: '',
       href: '',
     },
-    image: require('../assets/hero/leva.webp'),
+    image: require('../assets/hero/2.webp'),
   },
   {
     title: 'Оранжевая корова',
@@ -24,7 +24,7 @@ export const heroData = [
       text: '',
       href: '',
     },
-    image: require('../assets/hero/korova.webp'),
+    image: require('../assets/hero/3.webp'),
   },
   {
     title: 'Синий трактор',
@@ -33,7 +33,7 @@ export const heroData = [
       text: '',
       href: '',
     },
-    image: require('../assets/hero/traktor.webp'),
+    image: require('../assets/hero/4.webp'),
   },
   {
     title: 'Три кота',
@@ -42,6 +42,6 @@ export const heroData = [
       text: '',
       href: '',
     },
-    image: require('../assets/hero/trikota.webp'),
+    image: require('../assets/hero/5.webp'),
   },
 ]

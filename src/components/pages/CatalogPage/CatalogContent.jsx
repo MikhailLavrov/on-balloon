@@ -7,16 +7,16 @@ import { animationData } from '../../../data/catalogData/animationData';
 import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
 export const CatalogContent = () => {
   const {topcategory, category} = useParams();
   const [selectedTopCategory, setSelectedTopCategory] = useState(topcategory);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  // const coloredData = allData.filter(item => item.palette)
-  // console.log(coloredData)
+  const filteredColor = searchParams.get('palette') || '';
 
   // При смене категории, скролл наверх
   useEffect(() => {
@@ -49,6 +49,7 @@ export const CatalogContent = () => {
   const filterCatalogData = (data) => {
     return data
       .filter(item => item.category.includes(category))
+      .filter(item => !filteredColor || (item.palette && item.palette.includes(filteredColor)))
       .map((item) => (
         item.oldPrice ? (
           <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
