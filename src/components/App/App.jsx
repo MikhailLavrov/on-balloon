@@ -36,10 +36,11 @@ export const App = () => {
         <Route path="gallery" element={<GalleryPage />} />
         <Route path="catalog" element={<Navigate to="/catalog/trend" replace />} />
         <Route path="catalog/:topcategory/:category?" element={<CatalogPageLayout />} />
+        <Route path="info" element={<Navigate to="/info/news" replace />} />
+        <Route path="info/:chapter" element={<InfoPage />} />
         <Route path="favourites" element={<FavouritesPage />} />
         <Route path="cart" element={<ShoppingCartPage />} />
         <Route path="search" element={<SearchResultsPage />} />
-        <Route path="info" element={<InfoPage />} />
         <Route path="reviews" element={<ReviewsPage />} />
         <Route path="contacts" element={<ContactsPage />} />
       </Route>

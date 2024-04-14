@@ -1,11 +1,11 @@
 // catalogMenuTranslations.js
 
 export const topLevelTranslations = {
-  'hot': 'Супер акция',
+  'trend': 'В тренде',
   'balloons': 'Воздушные шары',
   'photozone': 'Фотозоны',
-  'animation': 'Анимация',
-  'attractions': 'Аттракционы',
+  'animation': 'Аниматоры и шоу',
+  'attractions': 'Аттракционы и оборудование',
 };
 
 export const sublevelTranslations = {

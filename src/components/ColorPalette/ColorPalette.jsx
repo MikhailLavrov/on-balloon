@@ -6,12 +6,24 @@ import { Button } from "antd";
 
 export const ColorPalette = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedColor, setSelectedColor] = useState(searchParams.get("palette") || '');
+  const [selectedColor, setSelectedColor] = useState(searchParams.get("palette"));
+  const [categoryChanged, setCategoryChanged] = useState(false);
+
   const { category } = useParams();
 
+  // Проверяем наличие параметра цвета при загрузке компонента
   useEffect(() => {
-    setSelectedColor('');
-  }, [category]);
+    const paletteParam = searchParams.get("palette");
+    setSelectedColor(paletteParam);
+  }, [searchParams]);
+
+  // Сброс выбранного цвета при изменении категории
+  useEffect(() => {
+    if (categoryChanged) {
+      setSelectedColor('');
+      setCategoryChanged(false);
+    }
+  }, [category, categoryChanged]);
 
   const handleColorClick = (color) => {
     setSelectedColor(color);

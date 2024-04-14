@@ -10,18 +10,22 @@
 .menu__links {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 
   & a {
-    padding: 18px 15px;
+    padding: 25px 15px;
 
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
 
     color: $base-dark-color;
-    font-size: $fz-s;
+    font-size: $fz-m;
 
-    border-bottom: 1px $color-grey solid;
+    box-shadow: 0 0 3px 0 $color-grey inset;
+    border-radius: 8px;
+
+    // border-bottom: 1px $color-grey solid;
   }
 
   & svg {
@@ -29,16 +33,7 @@
   }
 }
 
-// Меняем расположение header в дравере меню
-// .drawer {
-//   & > div:first-child {
-//     // padding: 16px 39px;
-//     & div {
-//       flex-direction: row-reverse;
-
-//       & button {
-//         margin: 0;
-//       }
-//     }
-//   }
-// }
+.menuHeader {
+  display: flex;
+  gap: 5px;
+}

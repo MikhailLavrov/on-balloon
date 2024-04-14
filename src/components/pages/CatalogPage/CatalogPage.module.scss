@@ -26,26 +26,20 @@
 
 .catalog__mobileHeader {
   margin-bottom: 10px;
-  padding: 0 10px;
+  padding: 5px 10px;
 
   width: 100%;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
 
   font-family: $ff-tilda;
   font-size: $fz-s;
   
   background-color: $base-light-color;
-  
-  & span {
-    padding: 0 10px;
-
-    text-align: right;
-    font-weight: 500;
-  }
+  z-index: 21;
+  box-shadow: 0 1px 5px 0 $color-grey;
 
   @include vp-768 {
     margin-bottom: 15px;
@@ -56,9 +50,35 @@
     display: none;
   }
 }
+
+.catalog__mobileHeaderCategoryWrapper {
+  margin-left: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.catalog__mobileHeaderCategory,
+.catalog__mobileHeaderSubcategory {
+  padding: 0 10px;
+
+  text-align: right;
+  font-weight: 500;
+
+  &:focus,
+  &:active {
+    color: $base-dark-color;
+    border-color: $base-dark-color;
+    outline: none;
+  }
+}
+
+.catalog__mobileHeaderSubcategory {
+  font-weight: 300;
+}
   
-.catalog__mobileHeaderButton {
-  padding: 0;
+.catalog__mobileHeaderBackButton {
+  padding: 5px;
 
   min-height: 36px;
 
@@ -68,6 +88,23 @@
   font-family: $ff-tilda;
   
   border-radius: 3px;
+}
+
+.catalog__mobileHeaderFilterButton {
+  padding: 5px;
+  aspect-ratio: 1/1
+}
+
+.catalog__mobileHeaderPalette {
+  padding: 0 10px;
+
+  @include vp-768 {
+    padding: 0 20px;
+  }
+
+  @include vp-1260 {
+    display: none;
+  }
 }
 
 .catalog__title {

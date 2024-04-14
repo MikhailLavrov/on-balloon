@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Drawer } from 'antd';
-import { EnvironmentOutlined, HeartOutlined, HomeOutlined, MenuOutlined, PictureOutlined, RightOutlined } from '@ant-design/icons';
+import { MenuOutlined } from '@ant-design/icons';
 import c from './MobileBurgerMenu.module.scss';
 import { Link } from 'react-router-dom';
 import { setBurgerIsOpened } from '../../redux/burgerMenuSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { MobileTopMenu } from '../MobileTopMenu/MobileTopMenu';
+import LOGO from '../../assets/logonew.webp';
 
 export const MobileBurgerMenu = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,15 @@ export const MobileBurgerMenu = () => {
     onClose(); // Закрыть бургер-меню при клике на ссылку
   };
 
+  const MenuHeader = () => {
+    return (
+      <div className={c.menuHeader}>
+        <img src={LOGO} width={20} height={20} alt='Logo' />
+        <span>Меню</span>
+      </div>
+    )
+  }
+
   return (
     <div className={c.mobileBurgerMenu}>
       <Button 
@@ -39,43 +49,20 @@ export const MobileBurgerMenu = () => {
         className={c.burgerButton}
       />
       <Drawer
-        title="Меню"
+        title={<MenuHeader />}
         placement={'right'}
         closable={true}
         onClose={onClose}
         open={open}
-        className={c.drawer}
+        className={`${c.drawer} catalog__drawer`}
       >
         <div className={c.menu__links}>
-
-          <Link to={'/'} onClick={handleLinkClick}>
-            <HomeOutlined /> 
-            Главная 
-            <RightOutlined style={{fontSize: '12px', color: '#888888', marginLeft: 'auto'}} />
-          </Link>
-
-          <Link to={'/favourites'} onClick={handleLinkClick}>
-            <HeartOutlined /> 
-            Избранное 
-            <RightOutlined style={{fontSize: '12px', color: '#888888', marginLeft: 'auto'}} />
-          </Link>
-
-          <Link to={'/gallery'} onClick={handleLinkClick}>
-            <PictureOutlined /> 
-            Галерея 
-            <RightOutlined style={{fontSize: '12px', color: '#888888', marginLeft: 'auto'}} />
-          </Link>
-
-          <Link to={'/contacts'} onClick={handleLinkClick}>
-            <EnvironmentOutlined /> 
-            Контакты 
-            <RightOutlined style={{fontSize: '12px', color: '#888888', marginLeft: 'auto'}} />
-          </Link>
-
+          <Link to={'/'} onClick={handleLinkClick}>Главная</Link>
+          <Link to={'/favourites'} onClick={handleLinkClick}>Избранное</Link>
+          <Link to={'/gallery'} onClick={handleLinkClick}>Галерея</Link>
+          <Link to={'/contacts'} onClick={handleLinkClick}>Контакты</Link>
         </div>
-
         <MobileTopMenu handleLinkClick={handleLinkClick} isBurgerOpened={open} />
-        
       </Drawer>
     </div>
   );
