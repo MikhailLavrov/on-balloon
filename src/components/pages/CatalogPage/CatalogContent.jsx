@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Badge } from 'antd';
 import c from './CatalogPage.module.scss';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
-import { catalogMenuData } from '../../../data/catalogMenuData';
 import { animationData } from '../../../data/catalogData/animationData';
 import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { catalogMenuData } from './../../../data/catalogData/catalogMenuData';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 

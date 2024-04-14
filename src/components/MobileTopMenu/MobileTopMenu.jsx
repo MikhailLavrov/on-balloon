@@ -1,12 +1,12 @@
 import { Menu, ConfigProvider } from 'antd';
 import { useDispatch } from 'react-redux';
 import { setCurrentMenu } from '../../redux/topMenuNavSlice';
-import { topMenuData } from '../../data/topMenuData';
 import c from './MobileTopMenu.module.scss';
 import { useState } from 'react';
+import { infoMenuData } from '../../data/infoData/infoMenuData';
 
 // Get submenu keys of first level from catalogMenuData
-const rootSubmenuKeys = topMenuData.reduce((acc, item) => {
+const rootSubmenuKeys = infoMenuData.reduce((acc, item) => {
   if (item.children) {
     acc.push(item.key);
   }
@@ -55,7 +55,7 @@ export const MobileTopMenu = ({handleLinkClick, isBurgerOpened}) => {
         onClick={onClick}
         selectedKeys={''}
         mode="inline"
-        items={topMenuData}
+        items={infoMenuData}
         openKeys={openKeys}
         onOpenChange={onOpenChange}
         style={{

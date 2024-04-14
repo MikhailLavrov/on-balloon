@@ -1,31 +1,34 @@
 import { Menu, ConfigProvider } from 'antd';
-import { useDispatch } from 'react-redux';
-import { setCurrentMenu } from '../../redux/topMenuNavSlice';
-import { topMenuData } from '../../data/topMenuData';
+import { infoMenuData } from '../../data/infoData/infoMenuData';
+import { useNavigate } from 'react-router-dom';
+import { CaretDownOutlined } from '@ant-design/icons';
 
 export const TopMenu = () => {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onClick = (e) => {
-    dispatch(setCurrentMenu({ currentTopMenu: e.keyPath[e.keyPath.length - 1], currentSubMenu: e.key }));
+    navigate(`/info/${e.key}`)
   };
   
   const theme = {
     token: {
       colorPrimary: '#f83939',
       lineWidth: 0,
-      fontSize: '10px',
+      fontSize: '15px',
       fontFamily: 'Tilda Sans, Arial, sans-serif'
     },
   }
-
+  
   return (
     <ConfigProvider theme={theme}>
       <Menu
         onClick={onClick}
         selectedKeys={''}
         mode="horizontal"
-        items={topMenuData}
+        items={infoMenuData.map(item => ({
+          ...item,
+          icon: <CaretDownOutlined style={{fontSize: '10px'}} />
+        }))}
         style={{
           backgroundColor: "transparent",
         }}

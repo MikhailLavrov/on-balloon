@@ -1,28 +1,13 @@
 import c from './InfoPage.module.scss';
 import { InfoMenu } from '../../InfoMenu/InfoMenu';
-import { infoData } from '../../../data/infoData';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentMenu } from '../../../redux/topMenuNavSlice';
-import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
+import { infoPageData } from '../../../data/infoData/infoPageData';
+import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
+import { useParams } from 'react-router-dom';
 
 export const InfoPage = () => {
-  const currentTopMenuState = useSelector(state => state.topMenuNav.currentTopMenu);
-  const currentSubMenuState = useSelector(state => state.topMenuNav.currentSubMenu);
-  const [selectedTopCategory, setSelectedTopCategory] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const dispatch = useDispatch();
-  
-  useEffect(() => {
-    setSelectedTopCategory(currentTopMenuState);
-    setSelectedCategory(currentSubMenuState);
-  }, [dispatch, currentTopMenuState, currentSubMenuState])
-  
-  const onClick = (e) => {
-    dispatch(setCurrentMenu({ currentTopMenu: e.keyPath[e.keyPath.length - 1], currentSubMenu: e.key }));
-  };
+  const { chapter } = useParams();
 
-  const infoItems = selectedTopCategory ? infoData[selectedTopCategory].filter(item => item.key === selectedCategory) : [];
+  const infoItem = infoPageData.find(item => item.key === chapter);
 
   return (
     <section className={c.infoPage}>
@@ -30,8 +15,7 @@ export const InfoPage = () => {
         <BreadcrumbsComponent pageName={'Информация для клиентов'} />
         <h1 className={c.infoPage__title}>Информация для клиентов</h1>
         <div className={c.infoPage__innerContainer}>
-          <InfoMenu 
-            handleMenuClick={onClick}
+          <InfoMenu
             theme={{
               components: {
                 Menu: {
@@ -42,12 +26,12 @@ export const InfoPage = () => {
               },
             }}
           />
-          {infoItems.map((item, index) => (
-            <div key={index} className={c.infoPage__item}>
-              <h2 className={c.infoPage__subTitle}>{item.title}</h2>
-              <p className={c.infoPage__description}>{item.description}</p>
+          {infoItem && (
+            <div className={c.infoPage__item}>
+              <h2 className={c.infoPage__subTitle}>{infoItem.title}</h2>
+              <p className={c.infoPage__description}>{infoItem.description}</p>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </section>

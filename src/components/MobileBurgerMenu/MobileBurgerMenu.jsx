@@ -5,7 +5,7 @@ import c from './MobileBurgerMenu.module.scss';
 import { Link } from 'react-router-dom';
 import { setBurgerIsOpened } from '../../redux/burgerMenuSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { MobileTopMenu } from '../MobileTopMenu/MobileTopMenu';
+// import { MobileTopMenu } from '../MobileTopMenu/MobileTopMenu';
 import LOGO from '../../assets/logonew.webp';
 
 export const MobileBurgerMenu = () => {
@@ -62,7 +62,7 @@ export const MobileBurgerMenu = () => {
           <Link to={'/gallery'} onClick={handleLinkClick}>Галерея</Link>
           <Link to={'/contacts'} onClick={handleLinkClick}>Контакты</Link>
         </div>
-        <MobileTopMenu handleLinkClick={handleLinkClick} isBurgerOpened={open} />
+        {/* <MobileTopMenu handleLinkClick={handleLinkClick} isBurgerOpened={open} /> */}
       </Drawer>
     </div>
   );

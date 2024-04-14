@@ -1,7 +1,7 @@
 import { ConfigProvider, Menu } from 'antd';
-import { infoMenuData } from '../../data/infoMenuData';
+import { infoMenuData } from '../../data/infoData/infoMenuData';
 import c from './InfoMenu.module.scss';
-import { useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // Get submenu keys of first level from infoMenuData
 const rootSubmenuKeys = infoMenuData.reduce((acc, item) => {
@@ -11,23 +11,28 @@ if (item.children) {
 return acc;
 }, []);
 
-export const InfoMenu = ({style, handleMenuClick, theme}) => {
-  const currentSubMenuState = useSelector(state => state.topMenuNav.currentSubMenu);
+export const InfoMenu = ({ style, theme }) => {
+  const { chapter } = useParams();
+  const navigate = useNavigate();
 
   // Get the first key from infoMenuData
   const defaultKey = infoMenuData.length > 0 ? infoMenuData[0].children[0].key : null;
-  
+
+  const handleMenuClick = (e) => {
+    navigate(`/info/${e.key}`);
+  };
+
   return (
-    <ConfigProvider theme={theme} >
+    <ConfigProvider theme={theme}>
       <Menu
-        onClick={handleMenuClick}
+        onClick={(e) => handleMenuClick(e)}
         style={style}
-        selectedKeys={[currentSubMenuState && currentSubMenuState !== '' ? currentSubMenuState : defaultKey]}
+        selectedKeys={[chapter && chapter !== '' ? chapter : defaultKey]}
         defaultOpenKeys={rootSubmenuKeys}
         mode="inline"
         items={infoMenuData}
         className={c.menu}
       />
     </ConfigProvider>
-  )
+  );
 };

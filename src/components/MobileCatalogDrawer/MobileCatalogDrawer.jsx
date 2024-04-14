@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDrawerState } from "../../redux/catalogDrawerSlice";
 import { setBurgerIsOpened } from "../../redux/burgerMenuSlice";
 import { useNavigate } from "react-router-dom";
-import { catalogMenuData } from "../../data/catalogMenuData";
 import TREND_TILE_IMAGE from "../../assets/logonew.webp";
 import BALLOONS_TILE_IMAGE from "../../assets/collections/balloons.webp";
 import ANIMATION_TILE_IMAGE from "../../assets/collections/animation.webp";
 import PHOTOZONE_TILE_IMAGE from "../../assets/collections/photozone.webp";
 import ATTRACTIONS_TILE_IMAGE from "../../assets/collections/attractions.webp";
+import { catalogMenuData } from './../../data/catalogData/catalogMenuData';
 
 export const MobileCatalogDrawer = () => {
   const drawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
