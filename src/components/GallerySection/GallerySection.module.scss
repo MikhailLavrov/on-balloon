@@ -107,3 +107,17 @@
     font-size: calc($fz-m - 3px);
   }
 }
+
+.gallery__content {
+  margin-bottom: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-auto-rows: auto;
+  gap: 10px;
+  
+  @include vp-768 {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
