@@ -9,18 +9,14 @@ export const topLevelTranslations = {
 };
 
 export const sublevelTranslations = {
-  'girl': 'Для девочек',
-  'boy': 'Для мальчиков',
+  'girl': 'Девочкам',
+  'boy': 'Мальчикам',
   'her': 'Для неё',
   'him': 'Для него',
-  'gender': 'Гендер Пати',
-  'discharging': 'На выписку',
-  'surprise': 'Коробка-сюрприз',
-  'latex': 'Шарики латексные',
+  'discharging': 'Выписка',
+  'latex': 'Шары с рисунком',
   'number': 'Цифры',
-  'heart': 'Звезды, круги, сердца',
   'figure': 'Фигуры',
-  'additional': 'Дополнения к шарам',
   'crio': 'Крио-шоу',
   'bubbles': 'Шоу мыльных пузырей',
   'chemical': 'Химическое шоу',

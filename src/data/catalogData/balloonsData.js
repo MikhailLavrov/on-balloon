@@ -1,6 +1,18 @@
+//  Белый white #FFFFFF
+//  Желтый yellow #FFFF00
+//  Золотой goldenrod #DAA520
+//  Оранжевый orange #FFA500    
+//  Коричневый saddlebrown #8B4513
+//  Розовый/фуксия deeppink #FF1493    
+//  Красный red #FF0000
+//  Зеленый lime #00FF00    
+//  Синий/голубой dodgerblue #1E90FF
+//  Фиолетовый/сиреневый darkorchid #9932CC  
+//  Серебряный  silver #C0C0C0
+//  Черный black #000000
+
 export const balloonsData = [
   // girl
-  // blue , fuchsia , green , yellow , white , silver , purple , black, red, goldenrod, orange
   {
     category: ['girl'],
     article: '0001G',
@@ -10,7 +22,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_1.webp'),
     hit: true,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -21,7 +33,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_3.webp'),
     hit: true,
     count: 1,
-    palette: ['fuchsia', 'goldenrod']
+    palette: ['deeppink', 'goldenrod']
   },
   {
     category: ['girl'],
@@ -32,7 +44,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_4.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia', 'goldenrod']
+    palette: ['deeppink', 'goldenrod']
   },
   {
     category: ['girl'],
@@ -43,7 +55,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_23374_5.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -87,7 +99,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_1_B901761RG_1.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -98,7 +110,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_2_901767OP_1.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -109,7 +121,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_2_901767OP_2.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -120,7 +132,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_2_901767OP_3.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -131,7 +143,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_1.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -142,7 +154,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_2.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -153,7 +165,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_3.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -164,7 +176,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_3_901763FP_4.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -197,7 +209,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_5_901765FP_1.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -241,7 +253,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_bear_901856_1.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -252,7 +264,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_bunny_23360_1.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -263,7 +275,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_cat_19772_1.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -274,7 +286,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_cat_19772_2.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -285,7 +297,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_unicorn_19184_1.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['girl'],
@@ -296,10 +308,9 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/girl/girl_unicorn_19184_2.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   // boy
-  // blue , fuchsia , green , yellow , white , silver , purple , black, red, goldenrod, orange
   {
     category: ['boy'],
     article: '0001B',
@@ -364,7 +375,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/boy/boy_2_B901762A_1.webp'),
     hit: false,
     count: 1,
-    palette: ['blue']
+    palette: ['dodgerblue']
   },
   {
     category: ['boy'],
@@ -375,7 +386,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/boy/boy_2_B901762A_2.webp'),
     hit: false,
     count: 1,
-    palette: ['blue']
+    palette: ['dodgerblue']
   },
   {
     category: ['boy'],
@@ -389,7 +400,6 @@ export const balloonsData = [
     palette: ['silver']
   },
   // her
-  // blue , fuchsia , green , yellow , white , silver , purple , black, red, goldenrod, orange
   {
     category: ['her'],
     article: '0001H',
@@ -432,7 +442,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/her/her_18_B901761RG_2.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['her'],
@@ -443,7 +453,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/her/her_21_901761PP_1.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['her'],
@@ -479,7 +489,6 @@ export const balloonsData = [
     palette: ['silver']
   },
   // number
-  // blue , fuchsia , green , yellow , white , silver , purple , black, red, goldenrod, orange
   {
     category: ['number'],
     article: '901760AP',
@@ -489,7 +498,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/number/number_0_901760AP.webp'),
     hit: false,
     count: 1,
-    palette: ['blue']
+    palette: ['dodgerblue']
   },
   {
   category: ['number'],
@@ -500,7 +509,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_0_901760FP.webp'),
   hit: false,
   count: 1,
-  palette: ['fuchsia']
+  palette: ['deeppink']
   },
   {
   category: ['number'],
@@ -533,7 +542,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_0_901760TFP.webp'),
   hit: false,
   count: 1,
-  palette: ['green']
+  palette: ['lime']
   },
   {
   category: ['number'],
@@ -588,7 +597,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_1_901761TFP.webp'),
   hit: false,
   count: 1,
-  palette: ['green']
+  palette: ['lime']
   },
   {
   category: ['number'],
@@ -643,7 +652,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_2_901762TFP.webp'),
   hit: false,
   count: 1,
-  palette: ['green']
+  palette: ['lime']
   },
   {
   category: ['number'],
@@ -654,7 +663,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_2_901767OP.webp'),
   hit: false,
   count: 1,
-  palette: ['fuchsia']
+  palette: ['deeppink']
   },
   {
   category: ['number'],
@@ -665,7 +674,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_2_B901762A.webp'),
   hit: false,
   count: 1,
-  palette: ['blue']
+  palette: ['dodgerblue']
   },
   {
   category: ['number'],
@@ -698,7 +707,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_3_901763FP.webp'),
   hit: false,
   count: 1,
-  palette: ['fuchsia']
+  palette: ['deeppink']
   },
   {
   category: ['number'],
@@ -720,7 +729,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_3_901763TFP.webp'),
   hit: false,
   count: 1,
-  palette: ['green']
+  palette: ['lime']
   },
   {
   category: ['number'],
@@ -731,7 +740,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_3_B901763A.webp'),
   hit: false,
   count: 1,
-  palette: ['blue']
+  palette: ['dodgerblue']
   },
   {
   category: ['number'],
@@ -764,7 +773,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_4_901764FP.webp'),
   hit: false,
   count: 1,
-  palette: ['fuchsia']
+  palette: ['deeppink']
   },
   {
   category: ['number'],
@@ -808,7 +817,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_4_901764TFP.webp'),
   hit: false,
   count: 1,
-  palette: ['green']
+  palette: ['lime']
   },
   {
   category: ['number'],
@@ -819,7 +828,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_5_901765FP.webp'),
   hit: false,
   count: 1,
-  palette: ['fuchsia']
+  palette: ['deeppink']
   },
   {
   category: ['number'],
@@ -841,7 +850,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_5_901765TFP.webp'),
   hit: false,
   count: 1,
-  palette: ['green']
+  palette: ['lime']
   },
   {
   category: ['number'],
@@ -852,7 +861,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_5_B901765A.webp'),
   hit: false,
   count: 1,
-  palette: ['blue']
+  palette: ['dodgerblue']
   },
   {
   category: ['number'],
@@ -885,7 +894,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_6_901766TFP.webp'),
   hit: false,
   count: 1,
-  palette: ['green']
+  palette: ['lime']
   },
   {
   category: ['number'],
@@ -918,7 +927,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_7_901767AP.webp'),
   hit: false,
   count: 1,
-  palette: ['blue']
+  palette: ['dodgerblue']
   },
   {
   category: ['number'],
@@ -951,7 +960,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_7_901767TFP.webp'),
   hit: false,
   count: 1,
-  palette: ['green']
+  palette: ['lime']
   },
   {
   category: ['number'],
@@ -973,7 +982,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_8_901768FP.webp'),
   hit: false,
   count: 1,
-  palette: ['fuchsia']
+  palette: ['deeppink']
   },
   {
   category: ['number'],
@@ -1017,7 +1026,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_8_B901768A.webp'),
   hit: false,
   count: 1,
-  palette: ['blue']
+  palette: ['dodgerblue']
   },
   {
   category: ['number'],
@@ -1028,7 +1037,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_9_901769FP.webp'),
   hit: false,
   count: 1,
-  palette: ['fuchsia']
+  palette: ['deeppink']
   },
   {
   category: ['number'],
@@ -1061,261 +1070,9 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/number/number_9_901769TFP.webp'),
   hit: false,
   count: 1,
-  palette: ['green']
-  },
-  // additional
-  {
-    category: ['additional'],
-    article: '222186',
-    title: '222186',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/222186.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '501200',
-    title: '501200',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/501200.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '501524',
-    title: '501524',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/501524.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '501625',
-    title: '501625',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/501625.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '501909',
-    title: '501909',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/501909.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '521321',
-    title: '521321',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/521321.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '521343',
-    title: '521343',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/521343.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '615192',
-    title: '615192',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/615192.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '615192_1',
-    title: '615192_1',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/615192_1.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '617704',
-    title: '617704',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/617704.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '617739',
-    title: '617739',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/617739.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6014369',
-    title: '6014369',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6014369.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6014413',
-    title: '6014413',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6014413.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6014978',
-    title: '6014978',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6014978.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6014979',
-    title: '6014979',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6014979.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6015341',
-    title: '6015341',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6015341.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6230884',
-    title: '6230884',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6230884.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6230888',
-    title: '6230888',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6230888.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6230995',
-    title: '6230995',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6230995.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6231164',
-    title: '6231164',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6231164.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6231805',
-    title: '6231805',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6231805.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6231806',
-    title: '6231806',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6231806.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6231809',
-    title: '6231809',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6231809.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6232504',
-    title: '6232504',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6232504.webp'),
-    hit: false,
-    count: 1,
-  },
-  {
-    category: ['additional'],
-    article: '6521334',
-    title: '6521334',
-    description: 'Ко дню влюбленных волшебный набор',
-    price: 2300,
-    image: require('../../assets/catalog/balloons/additional/6521334.webp'),
-    hit: false,
-    count: 1,
+  palette: ['lime']
   },
   // figure
-  // blue , fuchsia , green , yellow , white , silver , purple , black, red, goldenrod, orange
   {
     category: ['figure'],
     article: '220359',
@@ -1325,7 +1082,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/figure/amongas_220359.webp'),
     hit: false,
     count: 1,
-    palette: ['blue']
+    palette: ['dodgerblue']
   },
   {
   category: ['figure'],
@@ -1336,7 +1093,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/amongas_220540.webp'),
   hit: false,
   count: 1,
-  palette: ['fuchsia']
+  palette: ['deeppink']
   },
   {
   category: ['figure'],
@@ -1347,7 +1104,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/amongas_220557.webp'),
   hit: false,
   count: 1,
-  palette: ['green']
+  palette: ['lime']
   },
   {
   category: ['figure'],
@@ -1421,7 +1178,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_23722.webp'),
   hit: false,
   count: 1,
-  palette: ['fuchsia']
+  palette: ['deeppink']
   },
   {
   category: ['figure'],
@@ -1443,7 +1200,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_23795.webp'),
   hit: false,
   count: 1,
-  palette: ['chocolate']
+  palette: ['saddlebrown']
   },
   {
   category: ['figure'],
@@ -1465,7 +1222,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_G72181.webp'),
   hit: false,
   count: 1,
-  palette: ['chocolate']
+  palette: ['saddlebrown']
   },
   {
   category: ['figure'],
@@ -1476,7 +1233,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_vz_1207_1602.webp'),
   hit: false,
   count: 1,
-  palette: ['purple', 'fuchsia']
+  palette: ['darkorchid', 'deeppink']
   },
   {
   category: ['figure'],
@@ -1487,7 +1244,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/animals_vz_1207_2708.webp'),
   hit: false,
   count: 1,
-  palette: ['chocolate']
+  palette: ['saddlebrown']
   },
   {
   category: ['figure'],
@@ -1498,7 +1255,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/anime_222162.webp'),
   hit: false,
   count: 1,
-  palette: ['fuchsia']
+  palette: ['deeppink']
   },
   {
   category: ['figure'],
@@ -1520,7 +1277,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/bear_19975.webp'),
   hit: false,
   count: 1,
-  palette: ['chocolate']
+  palette: ['saddlebrown']
   },
   {
   category: ['figure'],
@@ -1531,7 +1288,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/bear_901856.webp'),
   hit: false,
   count: 1,
-  palette: ['chocolate']
+  palette: ['saddlebrown']
   },
   {
   category: ['figure'],
@@ -1542,7 +1299,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/brawl_501510.webp'),
   hit: false,
   count: 1,
-  palette: ['purple']
+  palette: ['darkorchid']
   },
   {
   category: ['figure'],
@@ -1575,7 +1332,7 @@ export const balloonsData = [
   image: require('../../assets/catalog/balloons/figure/bunny_23359.webp'),
   hit: false,
   count: 1,
-  palette: ['fuchsia']
+  palette: ['deeppink']
   },
   {
   category: ['figure'],
@@ -2309,7 +2066,6 @@ export const balloonsData = [
   count: 1,
   },
   // latex
-  // blue , fuchsia , green , yellow , white , silver , purple , black, red, goldenrod, orange
   {
     category: ['latex'],
     article: '0001L',
@@ -2330,7 +2086,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/512_051.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia', 'red']
+    palette: ['deeppink', 'red']
   },
   {
     category: ['latex'],
@@ -2352,7 +2108,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/512_056.webp'),
     hit: false,
     count: 1,
-    palette: ['yellow', 'fuchsia']
+    palette: ['yellow', 'deeppink']
   },
   {
     category: ['latex'],
@@ -2374,7 +2130,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/812152.webp'),
     hit: false,
     count: 1,
-    palette: ['white', 'blue', 'fuchsia']
+    palette: ['white', 'dodgerblue', 'deeppink']
   },
   {
     category: ['latex'],
@@ -2385,7 +2141,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/812135_25.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia']
+    palette: ['deeppink']
   },
   {
     category: ['latex'],
@@ -2429,7 +2185,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/612884.webp'),
     hit: false,
     count: 1,
-    palette: ['fuchsia', 'black']
+    palette: ['deeppink', 'black']
   },
   {
     category: ['latex'],
@@ -2451,7 +2207,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/612731.webp'),
     hit: false,
     count: 1,
-    palette: ['white', 'fuchsia']
+    palette: ['white', 'deeppink']
   },
   {
     category: ['latex'],
@@ -2462,7 +2218,7 @@ export const balloonsData = [
     image: require('../../assets/catalog/balloons/latex/711590.webp'),
     hit: false,
     count: 1,
-    palette: ['red', 'purple', 'blue', 'yellow', 'green']
+    palette: ['red', 'darkorchid', 'dodgerblue', 'yellow', 'lime']
   },
   {
     category: ['latex'],

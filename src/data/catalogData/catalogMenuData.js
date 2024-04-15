@@ -1,34 +1,25 @@
-import { AppstoreOutlined, BulbOutlined, BuildOutlined, SmileOutlined, FireTwoTone } from '@ant-design/icons';
-
 export const catalogMenuData = [
   {
     key: 'trend',
     label: 'В тренде',
-    icon: <FireTwoTone twoToneColor="#FA3D03" />
   },
   {
     key: 'balloons',
     label: 'Воздушные шары',
-    icon: <BulbOutlined />,
     children: [
-      { key: 'girl', label: 'Для девочек' },
-      { key: 'boy', label: 'Для мальчиков' },
+      { key: 'girl', label: 'Девочкам' },
+      { key: 'boy', label: 'Мальчикам' },
       { key: 'her', label: 'Для неё' },
       { key: 'him', label: 'Для него' },
-      { key: 'gender', label: 'Гендер Пати' },
-      { key: 'discharging', label: 'На выписку' },
-      { key: 'surprise', label: 'Коробка-сюрприз' },
-      { key: 'latex', label: 'Шарики латексные' },
+      { key: 'discharging', label: 'Выписка' },
+      { key: 'latex', label: 'Шары с рисунком' },
       { key: 'number', label: 'Цифры' },
-      { key: 'heart', label: 'Звезды, круги, сердца' },
       { key: 'figure', label: 'Фигуры' },
-      { key: 'additional', label: 'Дополнения к шарам' },
     ]
   },
   {
     key: 'animation',
     label: 'Аниматоры и шоу',
-    icon: <SmileOutlined />,
     children: [
       { key: 'crio', label: 'Крио-шоу' },
       { key: 'bubbles', label: 'Шоу мыльных пузырей' },
@@ -38,7 +29,6 @@ export const catalogMenuData = [
   {
     key: 'photozone',
     label: 'Фотозоны',
-    icon: <AppstoreOutlined />,
     children: [
       { key: 'payetki', label: 'С пайетками' },
       { key: 'flowers', label: 'С цветами' },
@@ -48,7 +38,6 @@ export const catalogMenuData = [
   {
     key: 'attractions',
     label: 'Аттракционы и оборудование',
-    icon: <BuildOutlined />,
     children: [
       { key: 'cotton', label: 'Сладкая вата' },
       { key: 'popcorn', label: 'Попкорн' },

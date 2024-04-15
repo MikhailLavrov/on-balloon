@@ -4,11 +4,25 @@ import { balloonsData } from "../../data/catalogData/balloonsData";
 import c from './ColorPalette.module.scss';
 import { Button } from "antd";
 
+const orderedColors = [
+  'white',
+  'yellow',
+  'goldenrod',
+  'orange',
+  'saddlebrown',
+  'deeppink',
+  'red',
+  'lime',
+  'dodgerblue',
+  'darkorchid',
+  'silver',
+  'black'
+];
+
 export const ColorPalette = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedColor, setSelectedColor] = useState(searchParams.get("palette"));
   const [categoryChanged, setCategoryChanged] = useState(false);
-
   const { category } = useParams();
 
   // Проверяем наличие параметра цвета при загрузке компонента
@@ -43,14 +57,14 @@ export const ColorPalette = () => {
     return acc;
   }, []);
 
-  const uniquePalette = [...new Set(palette)];
+  const sortedPalette = orderedColors.filter(color => palette.includes(color));
 
   return (
-    uniquePalette.length > 0 &&
+    sortedPalette.length > 0 &&
     <div className={c.colorPalette}>
       <span className={c.colorPalette__title}>Фильтр по цвету:</span>
       <div className={c.colorPalette__container}>
-        {uniquePalette.map((color) => (
+        {sortedPalette.map((color) => (
           <div
             key={color}
             className={`${c.colorPalette__item} ${selectedColor === color ? c.active : ''}`}

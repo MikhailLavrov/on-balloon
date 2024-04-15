@@ -9,6 +9,23 @@ import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { catalogMenuData } from './../../../data/catalogData/catalogMenuData';
 
+
+// const [catalogData, setCatalogData] = useState(null);
+
+// useEffect(() => {
+//   const fetchData = async () => {
+//     try {
+//       const response = await fetch('https://raw.githubusercontent.com/MikhailLavrov/on-balloon/master/src/data/catalogData/balloonsData.js');
+//       const data = await response.json();
+//       setCatalogData(data);
+//     } catch (error) {
+//       console.error('Ошибка при загрузке данных:', error);
+//     }
+//   };
+
+//   fetchData();
+// }, []);
+
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
 export const CatalogContent = () => {

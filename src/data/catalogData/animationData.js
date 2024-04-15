@@ -1,8 +1,5 @@
 import IMG_32432423 from '../../assets/catalog/bubbles.webp';
 import IMG_965664223 from '../../assets/catalog/crio.webp';
-import IMG_965664d223 from '../../assets/catalog/balloons/additional/222186.webp';
-import IMG_965664ed223 from '../../assets/catalog/balloons/additional/501524.webp';
-import IMG_965664ad223 from '../../assets/catalog/balloons/additional/6014369.webp';
 
 export const animationData = [
   {
@@ -12,7 +9,7 @@ export const animationData = [
     description: 'Огромные мыльные пузыри оООоОоОо',
     price: 1300,
     oldPrice: 1900,
-    image: IMG_965664d223,
+    image: IMG_32432423,
     hit: false,
     count: 1,
   },
@@ -22,7 +19,7 @@ export const animationData = [
     title: 'Крио-шоу',
     description: 'Шоу с эффектами заморозки',
     price: 4300,
-    image: IMG_965664ed223,
+    image: IMG_32432423,
     hit: false,
     count: 1,
   },
@@ -33,7 +30,7 @@ export const animationData = [
     description: 'Огромные мыльные пузыри оООоОоОо',
     price: 1300,
     oldPrice: 1900,
-    image: IMG_965664ad223,
+    image: IMG_32432423,
     hit: false,
     count: 1,
   },
