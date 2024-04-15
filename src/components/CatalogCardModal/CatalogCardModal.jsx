@@ -6,10 +6,10 @@ import LOGO_IMG from '../../assets/logotext.png';
 import { CheckCircleFilled, HeartFilled, HeartOutlined, ReadOutlined, ShoppingCartOutlined, TruckOutlined } from '@ant-design/icons';
 import { personalData } from '../../data/personalData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
-import { termsData } from '../../data/termsData';
+import { cardAdditionalData } from '../../data/cardAdditionalData';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-const {delivery, payment, guarantee} = termsData;
+const {delivery, payment, guarantee} = cardAdditionalData;
 
 export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavorites, isFavorite, togglePurchases, isInCart}) => {
   const { article, title, description, price, oldPrice, image, hit, count } = item;

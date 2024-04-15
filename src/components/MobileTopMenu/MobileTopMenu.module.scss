@@ -2,10 +2,13 @@
 @import '../../styles/mixins.scss';
 @import '../../styles/global.scss';
 
-.menu {
-  
+.mobileTopMenu {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-  & > li {
-    background-color: $color-grey-light;
-  }
+.mobileTopMenu__select {
+  font-family: $ff-tilda;
 }

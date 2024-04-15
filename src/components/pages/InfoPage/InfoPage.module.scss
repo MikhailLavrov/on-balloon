@@ -65,3 +65,23 @@
 
   font-size: $fz-s;
 }
+
+// mobile
+
+.mobileInfoMenu {
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+
+  @include vp-1260 {
+    display: none;
+  }
+}
+
+.mobileInfoMenu__link {
+  padding: 5px;
+
+  font-size: $fz-s;
+}

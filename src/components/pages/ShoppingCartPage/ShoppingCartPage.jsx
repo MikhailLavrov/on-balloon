@@ -7,7 +7,6 @@ import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComp
 import { useEffect, useState } from 'react';
 import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDrawer';
 import { deleteAllItemsFromShoppingCart } from '../../../redux/shoppingCartSlice';
-import { setCurrentMenu } from '../../../redux/topMenuNavSlice';
 import ReactInputMask from 'react-input-mask';
 import { setDrawerState } from '../../../redux/catalogDrawerSlice';
 import { setBurgerIsOpened } from '../../../redux/burgerMenuSlice';
@@ -175,9 +174,6 @@ export const ShoppingCartPage = () => {
   const onMaskChangeHandler = (e) => {
     setPhoneValue(e.target.value.replace(/\D/g, ''));
   };
-  const agreementNavigate = (e) => {
-    dispatch(setCurrentMenu({ currentTopMenu: 'forclients', currentSubMenu: 'agreement' }));
-  }
 
 // Отправка в Телеграм
   const onValuesChange = (changedValues, allValues) => {
@@ -333,7 +329,7 @@ export const ShoppingCartPage = () => {
                     ]}
                   >
                     <Checkbox>
-                      Ознакомлен с <Link to={'/info'} onClick={agreementNavigate}>правилами обработки персональных данных</Link>
+                      Ознакомлен с правилами обработки <Link to={'/info/agreement'}>персональных данных</Link>
                     </Checkbox>
                   </Form.Item>
                   <Form.Item>

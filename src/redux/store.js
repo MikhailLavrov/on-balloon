@@ -2,8 +2,6 @@ import { configureStore } from '@reduxjs/toolkit'
 import callMeBackReducer from './callMeBackSlice'
 import favouritesReducer from './favouritesSlice'
 import shoppingCartReducer from './shoppingCartSlice'
-import topMenuNavReducer from './topMenuNavSlice'
-import catalogNavReducer from './catalogNavSlice'
 import burgerMenuReducer from './burgerMenuSlice'
 import catalogDrawerReducer from './catalogDrawerSlice'
 
@@ -12,8 +10,6 @@ const store = configureStore({
     callMeBack: callMeBackReducer,
     favourites: favouritesReducer,
     shoppingCart: shoppingCartReducer,
-    topMenuNav: topMenuNavReducer,
-    catalogNav: catalogNavReducer,
     burgerMenu: burgerMenuReducer,
     catalogDrawer: catalogDrawerReducer,
   },

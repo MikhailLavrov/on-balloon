@@ -5,7 +5,7 @@ import c from './MobileBurgerMenu.module.scss';
 import { Link } from 'react-router-dom';
 import { setBurgerIsOpened } from '../../redux/burgerMenuSlice';
 import { useDispatch, useSelector } from 'react-redux';
-// import { MobileTopMenu } from '../MobileTopMenu/MobileTopMenu';
+import { MobileTopMenu } from '../MobileTopMenu/MobileTopMenu';
 import LOGO from '../../assets/logonew.webp';
 
 export const MobileBurgerMenu = () => {
@@ -22,13 +22,9 @@ export const MobileBurgerMenu = () => {
     !isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: true }));
   };
 
-  const onClose = () => {
+  const handleMenuClose = () => {
     setOpen(false);
     isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
-  };
-
-  const handleLinkClick = () => {
-    onClose(); // Закрыть бургер-меню при клике на ссылку
   };
 
   const MenuHeader = () => {
@@ -52,17 +48,17 @@ export const MobileBurgerMenu = () => {
         title={<MenuHeader />}
         placement={'right'}
         closable={true}
-        onClose={onClose}
+        onClose={handleMenuClose}
         open={open}
         className={`${c.drawer} catalog__drawer`}
       >
         <div className={c.menu__links}>
-          <Link to={'/'} onClick={handleLinkClick}>Главная</Link>
-          <Link to={'/favourites'} onClick={handleLinkClick}>Избранное</Link>
-          <Link to={'/gallery'} onClick={handleLinkClick}>Галерея</Link>
-          <Link to={'/contacts'} onClick={handleLinkClick}>Контакты</Link>
+          <Link to={'/'} onClick={handleMenuClose}>Главная</Link>
+          <Link to={'/favourites'} onClick={handleMenuClose}>Избранное</Link>
+          <Link to={'/gallery'} onClick={handleMenuClose}>Галерея</Link>
+          <Link to={'/contacts'} onClick={handleMenuClose}>Контакты</Link>
         </div>
-        {/* <MobileTopMenu handleLinkClick={handleLinkClick} isBurgerOpened={open} /> */}
+        <MobileTopMenu handleMenuClose={handleMenuClose} isBurgerOpened={open} />
       </Drawer>
     </div>
   );

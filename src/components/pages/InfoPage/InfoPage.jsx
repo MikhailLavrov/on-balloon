@@ -2,18 +2,37 @@ import c from './InfoPage.module.scss';
 import { InfoMenu } from '../../InfoMenu/InfoMenu';
 import { infoPageData } from '../../../data/infoData/infoPageData';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export const InfoPage = () => {
   const { chapter } = useParams();
 
   const infoItem = infoPageData.find(item => item.key === chapter);
 
+  const MobileInfoMenu = () => (
+    infoPageData.map(item => {
+      return (
+        <Link
+          key={item.key}
+          to={`/info/${item.key}`}
+          className={c.mobileInfoMenu__link}
+          style={{ backgroundColor: item.key === chapter ? '#9e7ffd' : '#eeeeee',
+          color: item.key === chapter ? '#fff' : '#000', transition: 'all 200ms ease' }}
+        >
+          {item.title}
+        </Link>
+      )}
+    )
+  );
+
   return (
     <section className={c.infoPage}>
       <div className={`${c.infoPage__container} container`}>
         <BreadcrumbsComponent pageName={'Информация для клиентов'} />
         <h1 className={c.infoPage__title}>Информация для клиентов</h1>
+        <div className={c.mobileInfoMenu}>
+          <MobileInfoMenu />
+        </div>
         <div className={c.infoPage__innerContainer}>
           <InfoMenu
             theme={{
