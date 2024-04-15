@@ -8,6 +8,7 @@ import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { catalogMenuData } from './../../../data/catalogData/catalogMenuData';
+import { ColorPalette } from '../../ColorPalette/ColorPalette';
 
 
 // const [catalogData, setCatalogData] = useState(null);
@@ -122,15 +123,22 @@ export const CatalogContent = () => {
   return (
     <div className={c.content__container}>
       {selectedTopCategory && (
-        <div className={c.subcategories__container}>
-          {catalogMenuData.map((category) =>
-            category.key === selectedTopCategory && category.children ? (
-              <div key={category.key} className={c.subcategories}>
-                {renderSubcategories(category.children)}
-              </div>
-            ) : null
+        <>
+          <div className={c.subcategories__container}>
+            {catalogMenuData.map((category) =>
+              category.key === selectedTopCategory && category.children ? (
+                <div key={category.key} className={c.subcategories}>
+                  {renderSubcategories(category.children)}
+                </div>
+              ) : null
+              )}
+          </div>
+          {topcategory === 'balloons' && category && (
+            <div className={c.mobileColorPalette}>
+              <ColorPalette />
+            </div>
           )}
-        </div>
+        </>
       )}
   
       <div className={c.catalog__content}>

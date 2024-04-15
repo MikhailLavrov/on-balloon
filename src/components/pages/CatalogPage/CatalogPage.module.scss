@@ -90,18 +90,7 @@
   border-radius: 3px;
 }
 
-.catalog__mobileHeaderFilterButton {
-  padding: 5px;
-  aspect-ratio: 1/1
-}
-
-.catalog__mobileHeaderPalette {
-  padding: 0 10px;
-
-  @include vp-768 {
-    padding: 0 20px;
-  }
-
+.mobileColorPalette {
   @include vp-1260 {
     display: none;
   }

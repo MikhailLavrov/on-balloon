@@ -53,7 +53,10 @@
   transition: all 200ms ease-in-out;
 
   &.active {
-    scale: 1.4;
+    // scale: 1.4;
+
+    outline: 5px $color-purple solid;
+    outline-offset: 2px;
   }
 
   & svg {
@@ -75,8 +78,8 @@
     transform: rotate(25deg);
   }
 
-  @include vp-1260 {
-    width: 30px;
-    height: 30px;
-  }
+  // @include vp-1260 {
+  //   width: 30px;
+  //   height: 30px;
+  // }
 }
