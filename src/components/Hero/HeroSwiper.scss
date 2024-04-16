@@ -19,7 +19,7 @@
   background-color: $base-light-color;
 
   transition: all 0.2s linear;
-  box-shadow: 0 0 0 1px $base-dark-color inset;
+  box-shadow: 0 0 0 2px $color-grey;
 
   &:after {
     width: inherit;

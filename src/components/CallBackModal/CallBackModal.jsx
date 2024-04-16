@@ -4,7 +4,7 @@ import c from './CallBackModal.module.scss';
 import { CallbackForm } from '../CallbackForm/CallbackForm';
 import { useSelector } from 'react-redux';
 
-export const CallBackModal = () => {
+export const CallBackModal = ({buttonText='Обратный звонок', className}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted);
 
@@ -24,8 +24,8 @@ export const CallBackModal = () => {
 
   return (
     <>
-      <Button type="button" onClick={handleModalOpen} className={c.callMeBack__button}>
-        Обратный звонок
+      <Button type="button" onClick={handleModalOpen} className={className ? className : c.callMeBack__button}>
+        {buttonText}
       </Button>
       <Modal
         className={c.callMeBack__modal}

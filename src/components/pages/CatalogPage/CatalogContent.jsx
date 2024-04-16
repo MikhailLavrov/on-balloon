@@ -55,9 +55,9 @@ export const CatalogContent = () => {
       <Link
         key={subcategory.key}
         to={`/catalog/${selectedTopCategory}/${subcategory.key}`}
-        className={c.subcategory__link}
-        style={{ backgroundColor: subcategory.key === category ? '#9e7ffd' : '#eeeeee',
-        color: subcategory.key === category ? '#fff' : '#000', transition: 'all 200ms ease' }}
+        className={`${c.subcategory__link} ${subcategory.key === category ? c.subcategory__linkActive : ''}`}
+        // style={{ backgroundColor: subcategory.key === category ? '#9e7ffd' : '#eeeeee',
+        // color: subcategory.key === category ? '#fff' : '#000', transition: 'all 200ms ease' }}
       >
         {subcategory.label}
       </Link>

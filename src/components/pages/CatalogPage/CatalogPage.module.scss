@@ -177,11 +177,27 @@
   color: $base-dark-color;
   font-size: calc($fz-m - 2px);
 
+  transition: all 200ms ease-in-out;
   border-radius: 3px;
   background-color: $color-grey-light;
 
   &:last-child {
     margin-bottom: 20px;
+  }
+
+  &:hover {
+    color: $base-dark-color;
+    background-color: rgba($color-grey, 0.5);
+  }
+}
+
+.subcategory__linkActive {
+  background-color: $color-purple;
+  background: linear-gradient(to right bottom, $color-telegram-blue, $color-purple);
+  color: $base-light-color;
+
+  &:hover {
+    color: $base-light-color;
   }
 }
 

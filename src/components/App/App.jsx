@@ -14,12 +14,14 @@ import { HitsSection } from '../HitsSection/HitsSection';
 import { ReviewsSection } from '../ReviewsSection/ReviewsSection';
 import { ReviewsPage } from '../pages/ReviewsPage/ReviewsPage';
 import { CatalogPageLayout } from '../pages/CatalogPage/CatalogPageLayout';
+import { CorporativeOffer } from '../CorporativeOffer/CorporativeOffer';
 
 const MainPage = () => {
   return (
     <>
       <Hero />
       <HitsSection />
+      <CorporativeOffer />
       <Advantages />
       <GallerySection />
       <ReviewsSection />

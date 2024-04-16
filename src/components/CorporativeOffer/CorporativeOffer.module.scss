@@ -1,0 +1,160 @@
+@import '../../styles/vars.scss';
+@import '../../styles/mixins.scss';
+
+.corporative {
+  padding: 5px 0;
+
+  background-color: $base-light-color;
+}
+
+.corporative__container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  
+  background: linear-gradient(to right bottom, rgba($color-telegram-blue, 0.3), rgba($color-purple, 0.3));
+  border-radius: 8px;
+  box-shadow: 0 1px 10px -7px $base-dark-color;
+}
+
+.corporative__header {
+  margin-bottom: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.corporative__title {
+  margin: 0;
+
+  font-family: $ff-tilda;
+  font-size: calc($fz-l - 3px);
+  font-weight: 400;
+  color: $base-dark-color;
+}
+
+.corporative__closeButton {
+  background-color: transparent;
+  border: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: transparent !important;
+    border: none !important;
+    color: $base-dark-color !important;
+    scale: 1.3;
+  }
+}
+
+.corporative__content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+}
+
+.corporative__imageWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.corporative__image {
+  width: 100%;
+
+  aspect-ratio: 1/1 !important;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px 0 rgba($base-dark-color, 0.5);
+}
+
+.corporative__textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.corporative__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  font-size: $fz-m;
+  line-height: 1;
+  font-family: $ff-tilda;
+  font-weight: 400;
+}
+
+.corporative__textLabel {
+  margin: 0;
+  margin-bottom: 10px;
+
+  color: $base-dark-color;
+  font-weight: 500;
+}
+
+.corporative__featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.corporative__tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  font-size: $fz-s;
+  line-height: 1;
+  font-family: $ff-tilda;
+
+  & span {
+    padding: 4px 8px;
+    display: block;
+
+    background-color: $base-light-color;
+    box-shadow: 0 1px 5px 0 $color-grey;
+    color: $base-dark-color;
+    border-radius: 8px;
+    cursor: default;
+  }
+}
+
+.corporative__contactsWrapper {
+  margin-top: auto;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.corporative__callbackButton {
+  height: auto;
+
+  font-family: $ff-tilda;
+  font-size: $fz-s;
+  color: $base-light-color;
+
+  background-color: $color-telegram-blue;
+  box-shadow: 0 1px 8px -5px $base-dark-color;
+  
+  &:hover,
+  &:active {
+    color: $base-dark-color !important;
+    box-shadow: 0 1px 10px -3px $base-dark-color;
+  }
+}
+
+.corporative__moreLink {
+  padding: 5px 10px;
+
+  display: flex;
+  align-items: center;
+
+  color: $base-dark-color;
+  
+  &:hover,
+  &:active {
+    color: $base-dark-color !important;
+  }
+}

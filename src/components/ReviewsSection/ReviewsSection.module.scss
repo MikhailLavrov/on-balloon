@@ -2,7 +2,7 @@
 @import '../../styles/mixins.scss';
 
 .reviews {
-  padding: 20px 0 5px;
+  padding: 20px 0 20px;
   background-color: $base-light-color;
 
   @include vp-1260 {
@@ -29,6 +29,8 @@
 }
 
 .reviews__content {
+  margin-bottom: 20px;
+
   display: grid;
   gap: 20px;
 
@@ -39,8 +41,8 @@
 }
 
 .reviews__link {
-  margin-left: auto;
-  padding: 10px 0;
+  margin: 0 auto;
+  padding: 5px 10px;
 
   width: auto;
   max-width: fit-content;
@@ -50,22 +52,20 @@
 
   font-size: $fz-s;
   color: $base-dark-color;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-color: $color-grey;
-  text-decoration-thickness: 2px;
 
+  background-color: $color-grey-light;
+  border-radius: 8px;
   transition: all 200ms ease-in-out;
 
   &:hover {
+    box-shadow: 0 1px 3px 1px $color-grey;
     color: $base-dark-color;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    text-decoration-color: rgba($base-dark-color, 0.5);
-    text-decoration-thickness: 2px;
   }
 
   @include vp-1260 {
+    margin: 0;
+    margin-left: auto;
+    
     font-size: $fz-s;
   }
 }

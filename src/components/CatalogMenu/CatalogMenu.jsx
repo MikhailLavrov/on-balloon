@@ -10,9 +10,7 @@ export const CatalogMenu = () => {
     <Link
       key={item.key}
       to={item.children ? `/catalog/${item.key}/${item.children[0].key}` : `/catalog/${item.key}`}
-      className={c.catalogMenu__link}
-      style={{ backgroundColor: item.key === topcategory ? '#9e7ffd' : '#f8f9f9',
-      color: item.key === topcategory ? '#fff' : '#000', transition: 'all 200ms ease' }}
+      className={`${c.catalogMenu__link} ${item.key === topcategory ? c.catalogMenu__linkActive : ''}`}
     >
       {item.label}
     </Link>

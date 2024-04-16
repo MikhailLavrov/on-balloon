@@ -1827,7 +1827,7 @@ export const balloonsData = [
   },
   {
   category: ['figure'],
-  article: '23423.',
+  article: '23423',
   title: 'Радуга',
   description: 'Шар (99 см) фигура, Радуга, с гелием',
   price: 950,
