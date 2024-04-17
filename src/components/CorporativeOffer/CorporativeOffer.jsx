@@ -45,47 +45,49 @@ export const CorporativeOffer = () => {
     isVisible ?
       (<section className={c.corporative}>
         <h2 className="visually-hidden">Предложение для бизнеса</h2>
-        <div className={`${c.corporative__container} container`}>
-          <div className={c.corporative__header}>
-            <h3 className={c.corporative__title}>Вы представитель бизнеса?</h3>
-            <Button className={c.corporative__closeButton} onClick={handleClose}>
-              <CloseOutlined />
-            </Button>
-          </div>
-          <div className={c.corporative__content}>
-            <div className={c.corporative__imageWrapper}>
-              {corporativeImages.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  width={200}
-                  height={200}
-                  className={c.corporative__image}
-                  alt='Фото' 
-                />
-              ))}
+        <div className='container'>
+          <div className={c.corporative__container}>
+            <div className={c.corporative__header}>
+              <h3 className={c.corporative__title}>Вы представитель бизнеса?</h3>
+              <Button className={c.corporative__closeButton} onClick={handleClose}>
+                <CloseOutlined />
+              </Button>
             </div>
-            <div className={c.corporative__textWrapper}>
-              <div className={c.corporative__text}>
-                <h4 className={c.corporative__textLabel}>Создадим яркий акцент для вашей компании!</h4>
-                <ul className={c.corporative__featuresList}>
-                  {corporativeFeatures.map((feature, index) => (
-                    <li key={index}>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className={c.corporative__tiles}>
-                {corporativeTiles.map((tile, index) => (
-                  <span key={index}>
-                    {tile}
-                  </span>
+            <div className={c.corporative__content}>
+              <div className={c.corporative__imageWrapper}>
+                {corporativeImages.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    width={200}
+                    height={200}
+                    className={c.corporative__image}
+                    alt='Фото' 
+                  />
                 ))}
               </div>
-              <div className={c.corporative__contactsWrapper}>
-                <CallBackModal buttonText='Заказать обратный звонок' className={c.corporative__callbackButton} />
-                <Link className={c.corporative__moreLink} to={'/info/cooperation'}>Подробнее {'>>'}</Link>
+              <div className={c.corporative__textWrapper}>
+                <div className={c.corporative__text}>
+                  <h4 className={c.corporative__textLabel}>Создадим яркий акцент для вашей компании!</h4>
+                  <ul className={c.corporative__featuresList}>
+                    {corporativeFeatures.map((feature, index) => (
+                      <li key={index}>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={c.corporative__tiles}>
+                  {corporativeTiles.map((tile, index) => (
+                    <span key={index}>
+                      {tile}
+                    </span>
+                  ))}
+                </div>
+                <div className={c.corporative__contactsWrapper}>
+                  <CallBackModal buttonText='Заказать обратный звонок' className={c.corporative__callbackButton} />
+                  <Link className={c.corporative__moreLink} to={'/info/cooperation'}>Подробнее {'>>'}</Link>
+                </div>
               </div>
             </div>
           </div>

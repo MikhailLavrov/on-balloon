@@ -38,7 +38,8 @@ export const ColorPalette = () => {
       setCategoryChanged(false);
     }
   }, [category, categoryChanged]);
-
+  
+  
   const handleColorClick = (color) => {
     setSelectedColor(color);
     setSearchParams({ palette: color });

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import c from './CatalogCardModal.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Badge, Button, ConfigProvider, message, Modal, Tabs } from 'antd';
 import LOGO_IMG from '../../assets/logotext.png';
 import { CheckCircleFilled, HeartFilled, HeartOutlined, ReadOutlined, ShoppingCartOutlined, TruckOutlined } from '@ant-design/icons';
@@ -13,13 +13,22 @@ const {delivery, payment, guarantee} = cardAdditionalData;
 
 export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavorites, isFavorite, togglePurchases, isInCart}) => {
   const { article, title, description, price, oldPrice, image, hit, count } = item;
+  const [ searchParams, setSearchParams ] = useSearchParams();
   const whatsappLinkData = `https://api.whatsapp.com/send/?phone=${personalData.phone}&text=Здравствуйте, меня заинтересовал товар: \n${title}. \nАртикул: ${article} &type=phone_number&app_absent=0.`;
 
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
+  useEffect(() => {
+    const product = searchParams.get('product');
+    if (product && product === article) {
+      setIsModalOpen(true);
+    }
+  }, [article, searchParams, setIsModalOpen])
+
   const handleCancel = () => {
     setIsModalOpen(false);
+    setSearchParams(params => {
+      params.delete('product');
+      return params;
+    });
   };
 
   const tabsItems = [
@@ -52,10 +61,9 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavor
     <Modal 
       width={800} 
       footer={null} 
-      title={
-        <img src={LOGO_IMG} width={120} alt="Логотип" />} 
+      title={<img src={LOGO_IMG} width={120} alt="Логотип" />} 
       open={isModalOpen} 
-      onOk={handleOk} 
+      onOk={handleCancel} 
       onCancel={handleCancel}
       className={c.cardModal__top}
       wrapClassName={c.cardModal__topWrap}

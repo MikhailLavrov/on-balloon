@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { CatalogCardModal } from '../CatalogCardModal/CatalogCardModal';
 import { Button, Image } from 'antd';
 import { CheckCircleFilled, HeartFilled, HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
@@ -7,9 +7,12 @@ import { addToFavourites, deleteFromFavourites } from '../../redux/favouritesSli
 import { addToShoppingCart, deleteFromShoppingCart } from '../../redux/shoppingCartSlice';
 import c from './CatalogCard.module.scss';
 import FALLBACK from '../../assets/catalog/fallback.webp';
+import { useSearchParams } from 'react-router-dom';
 
 export const CatalogCard = ({...item}) => {
   const { article, title, price, oldPrice, image } = item;
+  // eslint-disable-next-line no-unused-vars
+  const [ searchParams, setSearchParams ] = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
@@ -20,7 +23,8 @@ export const CatalogCard = ({...item}) => {
     const goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     setIsInCart(goods.some(product => product.article === article));
   }, [article]);
-  const togglePurchases = (event) => {
+
+  const togglePurchases = useCallback((event) => {
     event.stopPropagation();
     let goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     const index = goods.findIndex(product => product.article === article);
@@ -34,8 +38,9 @@ export const CatalogCard = ({...item}) => {
       dispatch(addToShoppingCart(item))
     }
     localStorage.setItem('shoppingCart', JSON.stringify(goods));
-  };
-  const shoppingCartButtonIcon = isInCart ? <CheckCircleFilled style={{color: '#fff'}} /> : <ShoppingCartOutlined />;
+  }, [article, dispatch, item]);
+
+  const shoppingCartButtonIcon = isInCart ? <CheckCircleFilled style={{color: 'white'}} /> : <ShoppingCartOutlined />;
 
 // Избранное
   useEffect(() => {
@@ -43,7 +48,8 @@ export const CatalogCard = ({...item}) => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     setIsFavorite(favorites.some(favorite => favorite.article === article));
   }, [article]);
-  const toggleFavorites = (event) => {
+
+  const toggleFavorites = useCallback((event) => {
     event.stopPropagation();
     // Переключаем статус избранного и обновляем локальное хранилище
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -58,12 +64,23 @@ export const CatalogCard = ({...item}) => {
       dispatch(addToFavourites(item));
     }
     localStorage.setItem('favorites', JSON.stringify(favorites));
-  };
+  }, [article, dispatch, item]);
+
   const favoritesButtonIcon = isFavorite ? <HeartFilled style={{color: 'red'}} /> : <HeartOutlined />;
   
 // Модалка
   const showModal = () => {
+    const paletteParam = searchParams.has("palette");
+    const params = {};
+
+    if (paletteParam) {
+      const color = searchParams.get("palette")
+      params.palette = color
+    };
+    params.product = article
+
     setIsModalOpen(true);
+    setSearchParams(params);
   };
   
 // Скидка
@@ -102,7 +119,7 @@ export const CatalogCard = ({...item}) => {
                 <span className={c.catalogCard__discountPercent}>-{discountPercentage}%</span>
               </div>
             }
-            <Button onClick={togglePurchases} size='medium' className={isInCart ? `${c.catalogCard__toCartButton} ${c.inCart}` : `${c.catalogCard__toCartButton} ${c.notInCart}`}>
+            <Button onClick={togglePurchases} size='medium' className={`${c.catalogCard__toCartButton} ${isInCart ? c.inCart : c.notInCart}`}>
               {shoppingCartButtonIcon}
             </Button>
           </div>
