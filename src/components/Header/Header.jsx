@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Affix, Badge } from 'antd';
-import { HeartOutlined, UserOutlined, ShoppingCartOutlined, MobileOutlined, EnvironmentOutlined } from '@ant-design/icons';
+import { HeartOutlined, UserOutlined, ShoppingCartOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import LOGO_IMG from '../../assets/logotext.png';
 import { CallBackModal } from '../CallBackModal/CallBackModal';
 import { CatalogLink } from '../CatalogLink/CatalogLink';
@@ -42,7 +42,7 @@ export const HeaderComponent = () => {
             <SocialLinks />
           </div>
           <div className={c.topMenu__contacts}>
-            <a  href={`tel:${personalData.phone}`}><MobileOutlined /> {personalData.phoneMasked}</a>
+            <a className={c.topMenu__contactsPhone} href={`tel:${personalData.phone}`}>{personalData.phoneMasked}</a>
             <CallBackModal />
             <p><EnvironmentOutlined /> Гатчина, CПб</p>
           </div>

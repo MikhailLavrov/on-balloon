@@ -54,7 +54,7 @@ export const CallbackForm = () => {
           message={`Заявка с сайта на обратный звонок\n Имя: ${nameValue}\n Телефон: ${phoneValue}`}
           disabled={!phoneValue || phoneValue.length < 11 || !nameValue || nameValue < 2}
           outerHandler={onSubmitHandler}
-          />
+        />
       </Form.Item>
 
     </Form>

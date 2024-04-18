@@ -25,7 +25,7 @@ export const HitsSection = () => {
         <h2 className={c.hits__title}>
           Популярные товары
           <Link className={c.hits__showMoreLink} to={'/catalog'}>
-            {'>>'}
+            Все {'>>'}
           </Link>
         </h2>
         <div className={c.hits__content}>

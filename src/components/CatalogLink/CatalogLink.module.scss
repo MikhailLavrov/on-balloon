@@ -10,7 +10,8 @@
 }
 
 .catalog__link {
-  padding: 12px;
+  padding: 12px 20px;
+
   height: 100%;
   position: relative;
   
@@ -20,35 +21,31 @@
   font-weight: 400;
   color: $base-light-color;
 
-  border-radius: 8px;
-  background-color: $color-red;
+  border-radius: 20px;
+  background: linear-gradient(to right bottom, $color-red, $color-orange);
 
   overflow: hidden;
 
   transition: all 200ms ease-in-out;
-  box-shadow: 
-    -5px -5px 10px $base-light-color,
-    0 3px 5px 0px rgba($base-dark-color, 0.3);
+  box-shadow: 0 2px 7px -4px $base-dark-color;
 
   &:before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 40%;
+    width: 20%;
     height: 100%;
     background-color: rgba($base-light-color, 0.3);
     transform: translateX(-5em) skewX(-45deg);
   }
   
   &:hover {
-    color: $base-light-color;
-    box-shadow: 
-      -5px -5px 10px $base-light-color,
-      0 3px 5px 0px rgba($base-dark-color, 0.4);
+    color: $base-dark-color;
+    box-shadow: 0 2px 5px -2px $base-dark-color;
 
     &:before {
-      animation: moveLight 1s;
+      animation: moveLightOnHover 800ms;
     }
   }
 
@@ -60,9 +57,36 @@
       height: 14px;
     }
   }
+  &.inCatalog {
+    background-color: $base-light-color;
+    color: $base-dark-color;
+    background: none;
+  }
+  
+  &.outCatalog {
+    padding-left: 45px;
+  
+    &:hover {
+      color: $base-light-color;
+    }
+  }
 }
 
-@keyframes moveLight {
+
+.catalog__linkIcon {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+
+  width: auto;
+  height: 100%;
+  
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+
+@keyframes moveLightOnHover {
   from {
       transform: translateX(-5em) skewX(-45deg);
   }

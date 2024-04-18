@@ -8,6 +8,7 @@ import { personalData } from '../../data/personalData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { cardAdditionalData } from '../../data/cardAdditionalData';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+// import { TelegramShareButton, TelegramIcon, ViberShareButton, VKShareButton, WhatsappShareButton } from "react-share";
 
 const {delivery, payment, guarantee} = cardAdditionalData;
 
@@ -15,6 +16,7 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavor
   const { article, title, description, price, oldPrice, image, hit, count } = item;
   const [ searchParams, setSearchParams ] = useSearchParams();
   const whatsappLinkData = `https://api.whatsapp.com/send/?phone=${personalData.phone}&text=Здравствуйте, меня заинтересовал товар: \n${title}. \nАртикул: ${article} &type=phone_number&app_absent=0.`;
+  // const currentUrl = window.location.href;
 
   useEffect(() => {
     const product = searchParams.get('product');
@@ -132,6 +134,9 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavor
                     <SvgIcon icon='phone' />
                   </a>
                 </div>
+                {/* <TelegramShareButton url={currentUrl}>
+                  <TelegramIcon size={25} round />
+                </TelegramShareButton> */}
               </div>
             </div>
           </div>

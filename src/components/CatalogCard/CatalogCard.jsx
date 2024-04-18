@@ -70,13 +70,18 @@ export const CatalogCard = ({...item}) => {
   
 // Модалка
   const showModal = () => {
-    const paletteParam = searchParams.has("palette");
     const params = {};
 
-    if (paletteParam) {
+    if (searchParams.has("palette")) {
       const color = searchParams.get("palette")
       params.palette = color
     };
+
+    if (searchParams.has("q")) {
+      const query = searchParams.get("q")
+      params.q = query
+    };
+
     params.product = article
 
     setIsModalOpen(true);

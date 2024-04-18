@@ -82,6 +82,19 @@
   }
 }
 
+.topMenu__contactsPhone {
+  padding: 5px 15px;
+
+  border-radius: 8px;
+  box-shadow: 0 0 10px 10px $base-light-color inset;
+  
+  transition: all 200ms ease-in-out;
+  
+  &:hover {
+    box-shadow: 0 0 10px 10px $base-light-color inset, 0 1px 7px 1px $color-grey;
+  }
+}
+
 .header .headerMain {
   width: 100%;
   background:linear-gradient( to bottom, $color-grey-light, #fff);
@@ -169,15 +182,18 @@
   display: none;
 
   @include vp-1260 {
-    padding-left: 2rem;
-    display: block;
-    flex-grow: 1;
+    margin-left: 2rem;
+
     width: auto;
     max-width: 600px;
-    margin-left: auto;
+
+    display: block;
+    flex-grow: 1;
   
     font-size: 1.4rem;
     font-weight: 700;
     font-family: $ff-tilda;
+    
+    box-shadow: 0 2px 7px -7px $base-dark-color;
   }
 }

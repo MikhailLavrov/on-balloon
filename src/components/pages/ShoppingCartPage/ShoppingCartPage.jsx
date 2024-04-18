@@ -4,79 +4,47 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Checkbox, Form, Input, Result } from 'antd';
 import { Link } from 'react-router-dom';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDrawer';
 import { deleteAllItemsFromShoppingCart } from '../../../redux/shoppingCartSlice';
 import ReactInputMask from 'react-input-mask';
-import { setDrawerState } from '../../../redux/catalogDrawerSlice';
-import { setBurgerIsOpened } from '../../../redux/burgerMenuSlice';
+import { EmptyToCatalog } from '../EmptyToCatalog/EmptyToCatalog';
 
-const chatId23 = '-112030425060768293011924354';
-const BOT_TOKEN44 = 'w103517816:AAG86TXNqQRxBOFDdwQkKe7Bs__cKgo9H17';
-const characters = BOT_TOKEN44.split('');
-const firstCharacter = characters[0];
-characters[0] = characters[characters.length - 1];
-characters[characters.length - 1] = firstCharacter;
-const BOT_TOKEN24 = characters.join('');
-const BASE_URL = `https://api.telegram.org/bot${BOT_TOKEN24}`;
+const BOT_TOKEN = process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
+const BASE_URL = `https://api.telegram.org/bot${BOT_TOKEN}`;
+const CHAT_ID = process.env.REACT_APP_TELEGRAM_CHATID;
 
 export const ShoppingCartPage = () => {
+  const dispatch = useDispatch();
   const shoppingCartState = useSelector(state => state.shoppingCart.items)
   const [currentCartItems, setCurrentCartItems] = useState(shoppingCartState);
   const [orderSuccess, setOrderSuccess] = useState(false);
   const [phoneValue, setPhoneValue] = useState('');
   const [clientData, setClientData] = useState('');
-  const dispatch = useDispatch();
 
+  // Управление состоянием корзины
+  useEffect(() => {
+    setPhoneValue('');
+    setClientData('');
+  }, [shoppingCartState]);
+  
   // Инициализируем состав корзины из state
   useEffect(() => {
     setCurrentCartItems(shoppingCartState);
   }, [shoppingCartState])
 
-  const shoppingCartList = currentCartItems.map((item) => (
-    <CatalogRowCard {...item} key={item.article} />
-  ));
-
-  // Открытие Drawer каталога (мобилка) при пустой корзине
-  const drawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
-  const isBurgerOpenedState = useSelector(state => state.burgerMenu.isOpened)
-  const toggleDrawer = () => {
-    !drawerVisibleState ? dispatch(setDrawerState({mainDrawerIsOpened: true})) : dispatch(setDrawerState({mainDrawerIsOpened: false}))
-    isBurgerOpenedState && dispatch(setBurgerIsOpened({ isOpened: false }));
-  };
-
-  // Получаем общую стоимость корзины С УЧЕТОМ ЦЕНЫ БЕЗ СКИДКИ
-  let getTotalPrice = (array) => {
+  // Получение общей стоимости и скидки
+  const [totalPrice, totalDiscount] = useMemo(() => {
     let totalPrice = 0;
-    const itemCount = array.length;
-    
-    for (let i = 0; i < itemCount; i++) {
-      if (array[i].oldPrice) {
-        totalPrice += (array[i].oldPrice * array[i].count);
-      } else {
-        totalPrice += (array[i].price * array[i].count);
-      }
-    }
-    
-    return totalPrice;
-  }
-  const totalPrice = getTotalPrice(shoppingCartState);
-  
-  // Получаем ОБЩУЮ СКИДКУ
-  let getTotalDiscount = (array) => {
     let totalDiscount = 0;
-    const itemCount = array.length;
-    
-    for (let i = 0; i < itemCount; i++) {
-      if (array[i].oldPrice) {
-        const discount = array[i].oldPrice - array[i].price;
-        totalDiscount += (discount * array[i].count);
+    shoppingCartState.forEach(item => {
+      totalPrice += item.count * (item.oldPrice || item.price);
+      if (item.oldPrice) {
+        totalDiscount += (item.oldPrice - item.price) * item.count;
       }
-    }
-    
-    return totalDiscount;
-  }
-  const totalDiscount = getTotalDiscount(shoppingCartState);
+    });
+    return [totalPrice, totalDiscount];
+  }, [shoppingCartState]);
 
   // Получаем общую стоимость корзины С УЧЕТОМ СКИДКИ
   let getTotalPriceWithDiscount = (array) => {
@@ -103,50 +71,32 @@ export const ShoppingCartPage = () => {
     itemsAmount = `${itemCount} товаров`;
   }
 
-  // Отправка заказа
-  const prepareOrderInfo = (cartItems, totalPrice, totalDiscount, totalPriceWithDiscount) => {
-    const orderItems = cartItems.map(item => ({
-      article: item.article,
-      title: item.title,
-      price: item.price,
-      count: item.count
-    }));
-  
-    return {
-      items: orderItems,
-      totalPrice: totalPrice.toLocaleString('ru-RU') + ' руб.',
-      totalDiscount: totalDiscount.toLocaleString('ru-RU') + ' руб.',
-      totalPriceWithDiscount: totalPriceWithDiscount.toLocaleString('ru-RU') + ' руб.'
-    };
-  };
-  const orderInfo = prepareOrderInfo(shoppingCartState, totalPrice, totalDiscount, totalPriceWithDiscount);
-  const formatOrderInfo = (orderInfo) => {
+
+  // Форматирование данных заказа
+  const formatOrderInfo = (values) => {
     let message = 'Заказ:\n\n';
-    orderInfo.items.forEach(item => {
+    shoppingCartState.forEach(item => {
       message += `Артикул: ${item.article}\n`;
       message += `Название: ${item.title}\n`;
-      message += `Цена: ${item.price.toLocaleString('ru-RU')} руб.\n`;
+      message += `Цена: ${(item.oldPrice || item.price).toLocaleString('ru-RU')} руб.\n`;
       message += `Количество: ${item.count}\n\n`;
     });
-  
-    message += `Общая стоимость: ${orderInfo.totalPrice}\n`;
-    message += `Общая скидка: ${orderInfo.totalDiscount}\n`;
-    message += `Итоговая стоимость: ${orderInfo.totalPriceWithDiscount}\n`;
+    message += `Общая стоимость: ${totalPrice.toLocaleString('ru-RU')} руб.\n`;
+    message += `Общая скидка: ${totalDiscount.toLocaleString('ru-RU')} руб.\n`;
     message += `${clientData}\n`;
-  
     return message;
   };
-  const message = formatOrderInfo(orderInfo);
+
+  // Очистка корзины
   const clearShoppingCart = () => {
     dispatch(deleteAllItemsFromShoppingCart());
-    
     localStorage.removeItem('shoppingCart');
     setOrderSuccess(true);
   };
-  const chatId14 = chatId23.split('').filter((_, index) => index % 2 === 0).join('');
   
   // Форма
   const [form] = Form.useForm();
+
   const SubmitButton = ({ form, children }) => {
     const [submittable, setSubmittable] = useState(false);
   
@@ -187,21 +137,22 @@ export const ShoppingCartPage = () => {
     `;
     setClientData(textMessage)
   }
-    
+   
+  // Отправка сообщения в Telegram
   const sendToTelegramChat = async (message) => {
-    const POST_REQUEST_URL = `${BASE_URL}/sendMessage?chat_id=${chatId14}&text=${encodeURIComponent(message)}`;
-    
-    if (message) {
-      try {
-        await fetch(POST_REQUEST_URL);
-        clearShoppingCart();
-      } catch (error) {
-        console.error('Произошла ошибка при отправке сообщения:', error);
-      }
+    const POST_REQUEST_URL = `${BASE_URL}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}`;
+    try {
+      await fetch(POST_REQUEST_URL);
+      clearShoppingCart();
+    } catch (error) {
+      console.error('Произошла ошибка при отправке сообщения:', error);
     }
   };
-  const onFinish = () => {
-    sendToTelegramChat(message);
+  
+  // Отправка заказа в Telegram
+  const onFinish = async (values) => {
+    const message = formatOrderInfo(values);
+    await sendToTelegramChat(message);
   };
 
   return (
@@ -212,7 +163,9 @@ export const ShoppingCartPage = () => {
         {shoppingCartState && shoppingCartState.length !== 0 && (
           <div className={c.shoppingCart__mainContent}>
             <div className={c.shoppingCart__listContainer}>
-              {shoppingCartList}
+              {currentCartItems.map((item) => (
+                <CatalogRowCard {...item} key={item.article} />
+              ))}
             </div>
             <div className={c.shoppingCart__footer}>
               <div className={c.shoppingCart__footerResult}>
@@ -328,9 +281,7 @@ export const ShoppingCartPage = () => {
                       },
                     ]}
                   >
-                    <Checkbox>
-                      Ознакомлен с правилами обработки <Link to={'/info/agreement'}>персональных данных</Link>
-                    </Checkbox>
+                    <Checkbox>Разрешаю обработку персональных данных</Checkbox>
                   </Form.Item>
                   <Form.Item>
                     <SubmitButton form={form}>
@@ -343,22 +294,14 @@ export const ShoppingCartPage = () => {
           </div>
         )}
         {(!shoppingCartState || shoppingCartState.length === 0) && (
-          !orderSuccess ?
-          <div className={c.shoppingCart__emptyContainer}>
-            <div className={c.shoppingCart__emptyImageWrapper}>
-              <img width={200} src="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg" alt="Пустая страница" />
-            </div>
-            <div className={c.shoppingCart__emptyContent}>
-              <p className={c.shoppingCart__emptyTitle}>Добавьте товары в корзину</p>
-              <Link className={c.shoppingCart__emptyLink} to={'/catalog'}>Перейти в каталог</Link>
-              <button className={c.shoppingCart__emptyLinkMobile} onClick={toggleDrawer}>Перейти в каталог</button>
-            </div>
-          </div>
+          !orderSuccess 
+          ? <EmptyToCatalog />
           : <Result
-          status="success"
-          title="Заказ оформлен!"
-          subTitle="После обработки заказа, наш менеджер свяжется с вами, чтобы обсудить детали"
-          extra={[ <Link className={c.onSuccessHomeLink} to={'/'}>На главную</Link>, ]} />
+              status="success"
+              title="Заказ оформлен!"
+              subTitle="После обработки заказа, наш менеджер свяжется с вами, чтобы обсудить детали"
+              extra={[ <Link className={c.onSuccessHomeLink} to={'/'}>На главную</Link>, ]} 
+            />
           )}
       </div>
       <MobileCatalogDrawer />

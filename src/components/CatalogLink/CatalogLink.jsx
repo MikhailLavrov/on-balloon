@@ -1,23 +1,35 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { AlignLeftOutlined, CloseOutlined } from '@ant-design/icons';
+import { CloseOutlined } from '@ant-design/icons';
 import c from './CatalogLink.module.scss';
 
-// Линк для хедера
 export const CatalogLink = () => {
   const location = useLocation();
+
+  // Проверка, находится ли текущий путь в каталоге
+  const isInCatalog = location.pathname.includes('/catalog');
+
+  const outerIconPath = 'https://cdn-icons-png.flaticon.com/512/190/190309.png';
+
+  // Текст иконки и надписи на ссылке
+  const icon = isInCatalog ? 
+    <CloseOutlined aria-label="Закрыть каталог" /> 
+    : <img className={c.catalog__linkIcon} src={outerIconPath} width={20} height={20} alt='Icon'/>;
+  const linkText = isInCatalog ? 'Закрыть каталог' : 'Каталог товаров';
+  const linkLabel = isInCatalog ? 'Закрыть каталог' : 'Каталог товаров';
 
   return (
     <div className={c.catalog}>
       <Link
-        to={location.pathname.indexOf('/catalog') !== -1 ? '/' : '/catalog/trend'}
-        className={c.catalog__link}
-        style={location.pathname.indexOf('/catalog') !== -1 ? { backgroundColor: '#fff', color: '#000', boxShadow: '0 0 0 1px #d9d9d9 inset' } : {}}
-        aria-label={location.pathname.indexOf('/catalog') !== -1 ? 'Закрыть каталог' : 'Каталог товаров'}
+        to={isInCatalog ? '/' : '/catalog/trend'}
+        className={`${c.catalog__link} ${isInCatalog ? c.inCatalog : c.outCatalog}`}
+        aria-label={linkLabel}
       >
-        {location.pathname.indexOf('/catalog') !== -1 ? <CloseOutlined aria-label="Закрыть каталог" /> : <AlignLeftOutlined aria-label="Открыть каталог" />}
-        {location.pathname.indexOf('/catalog') !== -1 ? 'Закрыть каталог' : 'Каталог товаров'}
+        {icon}
+        {linkText}
       </Link>
     </div>
   );
 };
+
+export default CatalogLink;
