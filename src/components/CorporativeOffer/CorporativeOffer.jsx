@@ -62,18 +62,6 @@ export const CorporativeOffer = () => {
               </Button>
             </div>
             <div className={c.corporative__content}>
-              <div className={c.corporative__imageWrapper}>
-                {corporativeImages.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    width={200}
-                    height={200}
-                    className={c.corporative__image}
-                    alt='Фото' 
-                  />
-                ))}
-              </div>
               <div className={c.corporative__textWrapper}>
                 <div className={c.corporative__text}>
                   <h4 className={c.corporative__textLabel}>Создадим яркий акцент для вашей компании!</h4>
@@ -92,10 +80,22 @@ export const CorporativeOffer = () => {
                     </span>
                   ))}
                 </div>
-                <div className={c.corporative__contactsWrapper}>
-                  <CallBackModal buttonText='Заказать обратный звонок' className={c.corporative__callbackButton} />
-                  <Link className={c.corporative__moreLink} to={'/info/cooperation'}>Подробнее {'>>'}</Link>
-                </div>
+              </div>
+              <div className={c.corporative__imageWrapper}>
+                {corporativeImages.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    width={200}
+                    height={200}
+                    className={c.corporative__image}
+                    alt='Фото' 
+                  />
+                ))}
+              </div>
+              <div className={c.corporative__contactsWrapper}>
+                <CallBackModal buttonText='Заказать обратный звонок' className={c.corporative__callbackButton} />
+                <Link className={c.corporative__moreLink} to={'/info/cooperation'}>Подробнее {'>>'}</Link>
               </div>
             </div>
           </div>

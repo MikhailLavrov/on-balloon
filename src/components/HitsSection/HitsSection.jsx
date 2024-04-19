@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { hitsSwiperParams } from '../../data/swiperParams';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
-const hitsData = allData.filter((item) => item.hit);
+const hitsData = allData.filter((item) => item.hit).slice(0, 6);
 
 export const HitsSection = () => {
 
@@ -24,9 +24,7 @@ export const HitsSection = () => {
       <div className='container'>
         <h2 className={c.hits__title}>
           Популярные товары
-          <Link className={c.hits__showMoreLink} to={'/catalog'}>
-            Все {'>>'}
-          </Link>
+          <Link className={c.hits__showMoreLink} to={'/catalog'}>{'>'}</Link>
         </h2>
         <div className={c.hits__content}>
           <div className='hits__slider hits__slider--main'>

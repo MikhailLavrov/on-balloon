@@ -2,7 +2,7 @@ export const reviewsData = [
   {
     name: 'Екатерина',
     userPhoto: 'https://sun9-39.userapi.com/s/v1/ig2/ZGCRA2J1FoK_2g4zX0Yul9U7KFIEL9tfxqf47uMPyvNLlvsEr2o72wGqKs3ZhozESrdEqq9BH_L43b6EJV-qpoHm.jpg?size=50x50&quality=95&crop=269,264,1161,1161&ava=1',
-    text: 'Шары понравились, ни один не лопнул, спасибо вам большое!',
+    text: 'Шары понравились, ни один не лопнул, спасибо вам большое! Обязательно закажем еще.',
     productPhoto: 'https://st.shop-serpantin.ru/8/2511/104/5cf6b14993800091f27482a3.jpg',
   },
   {

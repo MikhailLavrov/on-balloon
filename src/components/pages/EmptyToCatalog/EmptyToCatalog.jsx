@@ -3,8 +3,7 @@ import c from './EmptyToCatalog.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDrawerState } from '../../../redux/catalogDrawerSlice';
 import { setBurgerIsOpened } from '../../../redux/burgerMenuSlice';
-
-const EMPTY_IMAGE = 'https://png.pngtree.com/png-vector/20240203/ourmid/pngtree-balloon-with-box-open-gift-box-helium-balloons-celebrate-the-big-png-image_11592776.png';
+import EMPTY_IMAGE from '../../../assets/empty.webp';
 
 export const EmptyToCatalog = () => {
   const dispatch = useDispatch();

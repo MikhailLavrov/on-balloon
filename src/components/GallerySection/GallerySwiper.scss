@@ -1,0 +1,52 @@
+.gallery__slider {
+  transition: all 300ms ease-in-out;
+  overflow: visible;
+
+  @include vp-1260 {
+    margin-bottom: 40px;
+  }
+}
+
+.gallery__slide {
+  transition: all 300ms ease-in-out;
+  opacity: 0.5;
+  
+  &.swiper-slide-active {
+    opacity: 1;
+    scale: 1.2;
+  }
+}
+
+// Кнопки
+.gallery__slider .swiper-button-prev,
+.gallery__slider .swiper-button-next {
+  display: none;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  background-color: $color-red;
+
+  &::after,
+  &::before {
+    font-size: 16px;
+    font-weight: 600;
+    color: $base-light-color;
+  }
+
+  @include vp-1260 {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.gallery__slider .swiper-button-prev {
+  right: auto;
+  left: 15%;
+}
+
+.gallery__slider .swiper-button-next {
+  right: 15%;
+  left: auto;
+}

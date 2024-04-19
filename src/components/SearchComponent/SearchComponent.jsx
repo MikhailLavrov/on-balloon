@@ -21,7 +21,8 @@ export const SearchComponent = ({ className, onSearch, onCloseDrawer }) => {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: '#FA3D03'
+          colorPrimary: '#FA3D03',
+          borderRadius: '18px',
         },
       }}
     >
@@ -32,10 +33,12 @@ export const SearchComponent = ({ className, onSearch, onCloseDrawer }) => {
         placeholder="Введите название или артикул"
         maxLength={50}
         size={'large'}
+        allowClear
         enterButton
         required
         onSearch={handleSearch}
       />
+      
     </ConfigProvider>
   );
 };

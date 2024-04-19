@@ -5,10 +5,11 @@ import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
-import { Badge, Empty } from 'antd';
+import { Badge } from 'antd';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 import c from './SearchResultsPage.module.scss';
+import EMPTY_IMAGE from '../../../assets/empty.webp';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
@@ -67,16 +68,12 @@ export const SearchResultsPage = () => {
             ))}
         </div>
         {searchResults.length === 0 && (
-          <Empty
-            image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-            imageStyle={{
-              height: 200,
-              marginTop: 30,
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-            description={<span>По вашему запросу ничего не найдено</span>}
-          />
+          <div className={c.empty}>
+            <div className={c.empty__imageWrapper}>
+              <img width={200} src={EMPTY_IMAGE} alt="Пустая страница" />
+            </div>
+            <span className={c.empty__text}>По вашему запросу ничего не найдено</span>
+          </div>
         )}
       </div>
       <FloatButtonComponent />

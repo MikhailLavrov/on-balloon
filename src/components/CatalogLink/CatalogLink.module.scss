@@ -58,9 +58,9 @@
     }
   }
   &.inCatalog {
-    background-color: $base-light-color;
     color: $base-dark-color;
     background: none;
+    background-color: $base-light-color;
   }
   
   &.outCatalog {

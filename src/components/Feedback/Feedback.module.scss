@@ -29,7 +29,7 @@
 // Форма
 
 .feedback__formWrapper {
-  padding: 15px 10px;
+  padding: 30px 10px;
 
   @include vp-768 {
     padding: 20px;
@@ -79,9 +79,9 @@
 // =====Contacts=======
 
 .feedback__contacts {
-  padding: 15px 10px;
+  padding: 25px 10px 30px;
 
-  // background-color: $base-light-color;
+  background-color: $base-light-color;
 
   @include vp-1260 {
     height: 100%;
@@ -93,7 +93,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    // background-color: transparent;
+    background-color: transparent;
     z-index: 10;
 
     &::after {

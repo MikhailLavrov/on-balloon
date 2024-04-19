@@ -69,3 +69,29 @@
     font-size: 14px;
   }
 }
+
+.empty {
+  height: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyToCatalog__imageWrapper {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & img {
+    max-width: 50%;
+    width: auto;
+  }
+}
+
+.empty__text {
+  font-size: $fz-s;
+}

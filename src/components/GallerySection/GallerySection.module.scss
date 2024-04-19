@@ -6,7 +6,7 @@
 
   text-align: center;
   font-family: $ff-tilda;
-  background-color: $color-grey-light-2;
+  overflow: hidden;
 
   & * {
     user-select: none;
@@ -23,32 +23,42 @@
 
 .gallery__title {
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: 40px;
   
-  position: relative;
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  gap: 10px;
 
   color: $base-dark-color;
-  font-size: $fz-s;
+  font-size: calc($fz-m - 2px);
   font-weight: 500;
 
   @include vp-768 {
-    margin-bottom: 20px;
-
     font-size: $fz-m;
+  }
+
+  @include vp-1260 {
+    margin-bottom: 50px;
+    justify-content: center;
   }
 }
 
-// mobile only
 .gallery__showMoreLink {
-  position: absolute;
+  padding: 5px;
 
-  content: "";
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   font-size: $fz-s;
   color: $base-dark-color;
+
+  background-color: $color-grey-light;
+  border-radius: 50%;
 
   @include vp-1260 {
     display: none;
@@ -56,18 +66,16 @@
 }
 
 .gallery__image {
-  max-height: 700px;
-  height: 100%;
-  display: flex;
   aspect-ratio: 1/1;
   cursor: default;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px -4px $base-dark-color;
 
   & img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    pointer-events: none;
-    cursor: default;
+
   }
 }
 
@@ -85,7 +93,7 @@
   font-weight: 500;
   color: $base-light-color;
   
-  border-radius: 6px;
+  border-radius: 20px;
   background-color: $color-red;
   transition: all 0.2s ease-in-out;
   
@@ -111,13 +119,36 @@
 .gallery__content {
   margin-bottom: 20px;
 
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
-  grid-auto-rows: auto;
-  gap: 10px;
-  
-  @include vp-768 {
-    grid-template-columns: repeat(7, 1fr);
+  @include vp-1260 {
+    margin-bottom: 50px;
+  }
+}
+
+.gallery__lastItem {
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider__link {
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+
+  font-size: $fz-s;
+  color: $base-dark-color;
+
+  background-color: $base-light-color;
+  box-shadow: 0 1px 5px -3px $base-dark-color;
+  border-radius: 20px;
+
+  transition: all 200ms ease-in-out;
+
+  &:hover,
+  &:active {
+    color: $base-dark-color;
+    background-color: $color-grey;
   }
 }

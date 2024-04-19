@@ -1,0 +1,49 @@
+.reviews__slider {
+  overflow: visible;
+}
+
+// Кнопки
+.reviews__slider .swiper-button-prev,
+.reviews__slider .swiper-button-next {
+  display: none;
+  width: 40px;
+  height: 40px;
+  
+  border-radius: 50%;
+  background-color: transparent;
+  transition: all 200ms ease-in-out;
+  
+  &::after,
+  &::before {
+    font-size: 16px;
+    font-weight: 600;
+    color: $color-orange;
+  }
+
+  &:hover,
+  &:active {
+    background-color: rgba($color-orange, 0.4);
+  }
+  
+  @include vp-768 {
+    display: flex;
+  }
+}
+
+.reviews__slider .swiper-button-prev {
+  right: auto;
+  left: 15%;
+}
+
+.reviews__slider .swiper-button-next {
+  right: 15%;
+  left: auto;
+}
+
+.reviews__slider .swiper-pagination {
+  bottom: -20px;
+
+  & .swiper-pagination-bullet-active {
+    background-color: rgba($color-orange, 0.4);
+  }
+}

@@ -3,7 +3,12 @@
 
 .reviews {
   padding: 20px 0 20px;
+
+  font-family: $ff-tilda;
+
   background-color: $base-light-color;
+
+  overflow: hidden;
 
   @include vp-1260 {
     padding: 40px 0;
@@ -14,77 +19,85 @@
   margin: 0;
   margin-bottom: 15px;
 
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  gap: 10px;
+
   color: $base-dark-color;
-  font-size: $fz-s;
+  font-size: calc($fz-m - 2px);
   font-weight: 500;
-  font-family: $ff-tilda;
-  text-align: center;
-  user-select: none;
 
   @include vp-768 {
-    margin-bottom: 20px;
-
     font-size: $fz-m;
   }
-}
-
-.reviews__content {
-  margin-bottom: 20px;
-
-  display: grid;
-  gap: 20px;
 
   @include vp-1260 {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 80px;
+    margin-bottom: 30px;
   }
 }
 
-.reviews__link {
-  margin: 0 auto;
-  padding: 5px 10px;
+.reviews__showMoreLink {
+  padding: 5px;
 
-  width: auto;
-  max-width: fit-content;
+  width: 25px;
+  height: 25px;
 
   display: flex;
   align-items: center;
+  justify-content: center;
 
   font-size: $fz-s;
   color: $base-dark-color;
 
   background-color: $color-grey-light;
-  border-radius: 8px;
+  border-radius: 50%;
   transition: all 200ms ease-in-out;
-
-  &:hover {
-    box-shadow: 0 1px 3px 1px $color-grey;
+  
+  &:hover,
+  &:active {
     color: $base-dark-color;
+    background-color: $color-grey;
   }
+}
 
-  @include vp-1260 {
-    margin: 0;
-    margin-left: auto;
-    
-    font-size: $fz-s;
-  }
+.reviews__content {
+  margin-bottom: 20px;
 }
 
 .reviewItem {
   padding: 20px;
 
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 15px;
-  align-items: flex-start;
+  height: 100%;
+  width: fit-content;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 
-  box-shadow: 0 3px 12px -2px $color-grey;
-  border-radius: 8px;
+  @include vp-500 {
+    margin: 0 auto;
+
+    max-width: 500px;
+  }
+
+  @include vp-1260 {
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    row-gap: 30px;
+    column-gap: 20px;
+  }
 }
 
 .reviewItem__photo {
+  margin-bottom: 20px;
+
+  position: relative;
+
   width: 100%;
-  max-width: 50px;
+  max-width: 80px;
 
   display: flex;
   flex-direction: column;
@@ -95,25 +108,62 @@
     border-radius: 50%;
     user-select: none;
     pointer-events: none;
+    box-shadow: 0 0 0 15px #fd751442;
   }
-}
 
-.reviewItem__content {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  font-family: $ff-tilda;
+  @include vp-1260 {
+    margin: 0 auto;
+    max-width: 100px;
+  }
 }
 
 .reviewItem__name {
   margin: 0;
 
   font-weight: 600;
-  font-size: $fz-s;
+  font-size: $fz-m;
   user-select: none;
+
+  @include vp-1260 {
+    grid-column: 1/2;
+    text-align: center;
+  }
+}
+
+.reviewItem__content {
+  height: 100% !important;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+  font-family: $ff-tilda;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg fill='%23fd751442' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='800px' height='800px' viewBox='0 0 349.078 349.078' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M150.299,26.634v58.25c0,7.9-6.404,14.301-14.304,14.301c-28.186,0-43.518,28.909-45.643,85.966h45.643 c7.9,0,14.304,6.407,14.304,14.304v122.992c0,7.896-6.404,14.298-14.304,14.298H14.301C6.398,336.745,0,330.338,0,322.447V199.455 c0-27.352,2.754-52.452,8.183-74.611c5.568-22.721,14.115-42.587,25.396-59.048c11.608-16.917,26.128-30.192,43.16-39.44 C93.886,17.052,113.826,12.333,136,12.333C143.895,12.333,150.299,18.734,150.299,26.634z M334.773,99.186 c7.896,0,14.305-6.407,14.305-14.301v-58.25c0-7.9-6.408-14.301-14.305-14.301c-22.165,0-42.108,4.72-59.249,14.023 c-17.035,9.248-31.563,22.523-43.173,39.44c-11.277,16.461-19.824,36.328-25.393,59.054c-5.426,22.166-8.18,47.266-8.18,74.605 v122.992c0,7.896,6.406,14.298,14.304,14.298h121.69c7.896,0,14.299-6.407,14.299-14.298V199.455 c0-7.896-6.402-14.304-14.299-14.304h-44.992C291.873,128.095,306.981,99.186,334.773,99.186z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 5rem;
+  background-repeat: no-repeat;
+  background-position: 5% 90%;
+
+  @include vp-1260 {
+    grid-column: 2/-1;
+    grid-row: 1/-1;
+  }
 }
 
 .reviewItem__text {
-  font-size: $fz-s;
+  padding: 20px 0;
+  margin: 0;
+
+  flex-grow: 1;
+
+  font-size: calc($fz-m - 2px);
+  text-align: center;
   user-select: none;
+
+  @include vp-1260 {
+    font-size: $fz-m;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: left;
+  }
 }
