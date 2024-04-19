@@ -1,46 +1,55 @@
-import { Select } from 'antd';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import c from './MobileTopMenu.module.scss';
 import { infoMenuData } from '../../data/infoData/infoMenuData';
-
-const { Option } = Select;
+import { Collapse, ConfigProvider } from 'antd';
 
 export const MobileTopMenu = ({ handleMenuClose }) => {
   const navigate = useNavigate();
 
-  const onClick = (e) => {
+  const onClick = (key) => {
     handleMenuClose();
-    navigate(`/info/${e}`)
+    navigate(`/info/${key}`);
   };
 
-  const RenderInfoSelects = () => {
-    return (
-      <div className={c.mobileTopMenu}>
-        {infoMenuData.map((parentItem) => (
-          <Select
-            key={parentItem.key}
-            defaultValue={parentItem.label}
-            onChange={(e) => onClick(e)}
-            size='large'
-            placement='top'
-            className={c.mobileTopMenu__select}
-          >
-            {parentItem.children.map((childItem) => (
-              <Option 
-                key={childItem.key}
-                value={childItem.key}
-                className={c.mobileTopMenu__option}
-              >
-                {childItem.label}
-              </Option>
-            ))}
-          </Select>
-        ))}
-      </div>
-    );
-  }
+  const items = infoMenuData.map((parentItem) => (
+    {
+      key: parentItem.key,
+      label: parentItem.label,
+      children: parentItem.children.map((childItem) => (
+        <div
+          key={childItem.key}
+          onClick={() => onClick(childItem.key)}
+          className={c.mobileTopMenu__option}
+        >
+            {childItem.label}
+        </div>
+      )),
+    }
+  ));
 
   return (
-    <RenderInfoSelects />
-  )
-}
+    <div className={c.mobileTopMenu}>
+      <ConfigProvider
+        theme={{
+          token: {
+            fontFamily: "Tilda Sans",
+            fontSize: '20px',
+            fontSizeIcon: '12px',
+          },
+          components: {
+            Collapse: {
+              headerPadding: '20px',
+              headerBg: 'white',
+              contentPadding: '15px 20px',
+            },
+          },
+        }}
+      >
+        <Collapse accordion className={c.mobileTopMenu__collapse} items={items} expandIconPosition="right" />
+      </ConfigProvider>
+    </div>
+  );
+};
+
+export default MobileTopMenu;
