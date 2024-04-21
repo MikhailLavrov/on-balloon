@@ -14,14 +14,17 @@ import { HitsSection } from '../HitsSection/HitsSection';
 import { ReviewsSection } from '../ReviewsSection/ReviewsSection';
 import { ReviewsPage } from '../pages/ReviewsPage/ReviewsPage';
 import { CatalogPageLayout } from '../pages/CatalogPage/CatalogPageLayout';
-import { CorporativeOffer } from '../CorporativeOffer/CorporativeOffer';
+// import { CorporativeOffer } from '../CorporativeOffer/CorporativeOffer';
+import { EventServices } from '../EventServices/EventServices';
+import { DecorPage } from '../pages/DecorPage/DecorPage';
 
 const MainPage = () => {
   return (
     <>
       <Hero />
       <HitsSection />
-      <CorporativeOffer />
+      <EventServices />
+      {/* <CorporativeOffer /> */}
       <Advantages />
       <GallerySection />
       <ReviewsSection />
@@ -45,6 +48,7 @@ export const App = () => {
         <Route path="search" element={<SearchResultsPage />} />
         <Route path="reviews" element={<ReviewsPage />} />
         <Route path="contacts" element={<ContactsPage />} />
+        <Route path="decor" element={<DecorPage />} />
       </Route>
     </Routes>
   );

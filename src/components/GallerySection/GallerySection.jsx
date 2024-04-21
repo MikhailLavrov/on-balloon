@@ -9,7 +9,6 @@ import { useState } from 'react';
 export const GallerySection = () => {
   const [ isLinkVisible, setIsLinkVisible ] = useState(false);
 
-  // Создаем слайды для галереи
   const gallerySlides = galleryData.slice(0, 6).map((image, index) => (
     <SwiperSlide className='gallery__slide' key={index}>
       <div key={index} className={c.gallery__item}>

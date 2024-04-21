@@ -48,11 +48,12 @@ export const gallerySwiperParams = {
       slidesPerView: 3,
     },
     768: {
-      slidesPerView: 4,
+      slidesPerView: 3,
+      spaceBetween: 45,
     },
     1260: {
-      slidesPerView: 5,
-      spaceBetween: 35,
+      slidesPerView: 3,
+      spaceBetween: 60,
     }
   },
 };

@@ -3,7 +3,7 @@
   overflow: visible;
 
   @include vp-1260 {
-    margin-bottom: 40px;
+    margin-bottom: 70px;
   }
 }
 
@@ -22,8 +22,8 @@
 .gallery__slider .swiper-button-next {
   display: none;
 
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 
   border-radius: 50%;
   background-color: $color-red;
@@ -43,10 +43,10 @@
 
 .gallery__slider .swiper-button-prev {
   right: auto;
-  left: 15%;
+  left: 29%;
 }
 
 .gallery__slider .swiper-button-next {
-  right: 15%;
+  right: 29%;
   left: auto;
 }
