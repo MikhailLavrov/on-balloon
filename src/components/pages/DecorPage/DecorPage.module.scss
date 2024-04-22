@@ -16,7 +16,7 @@
   }
 }
 
-.innerPageHeader {
+.decorPage__header {
   margin-bottom: 40px;
   padding: 40px;
 
@@ -25,7 +25,7 @@
   gap: 30px;
 }
 
-.innerPageHeader__textWrapper {
+.decorPage__textWrapper {
   width: 100%;
   height: 100%;
 
@@ -34,7 +34,7 @@
   justify-content: center;
 }
 
-.innerPageHeader__title {
+.decorPage__title {
   margin: 0;
   margin-bottom: 20px;
 
@@ -45,7 +45,7 @@
   line-height: 1.5;
 }
 
-.innerPageHeader__button {
+.decorPage__button {
   padding: 20px 40px;
   width: fit-content;
 
@@ -69,7 +69,7 @@
   }
 }
 
-.innerPageHeader__imageWrapper {
+.decorPage__imageWrapper {
   width: 100%;
   height: 100%;
   max-width: 300px;
@@ -77,7 +77,7 @@
   border-radius: 50%;
 }
 
-.innerPageHeader__image {
+.decorPage__image {
   width: 100%;
   height: 100%;
   
@@ -164,7 +164,7 @@
   aspect-ratio: 1/1;
 }
 
-.decorPage__variants {
+.variants {
   margin-bottom: 40px;
 
   display: grid;
@@ -200,164 +200,11 @@
   font-weight: 400;
 }
 
-.decorPage__gallery {
-  padding: 40px 0;
-  overflow: hidden;
-}
-
-.decorPage__galleryTitle {
-  margin: 0;
-  margin-bottom: 20px;
-  
-  font-size: $fz-l;
-  font-weight: 600;
-  text-align: center;
-}
-
-.decorPage__gallerySubTitle {
-  margin: 0;
-  margin-bottom: 60px;
-  
-  font-size: $fz-m;
-  font-weight: 400;
-  text-align: center;
-}
-
-.photozonePage__feedback {
-  padding: 50px;
-  margin-bottom: 20px;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-
-  background-color: $color-grey-light;
-  background: linear-gradient($color-grey-light, transparent 80%);
-  border-radius: 10px;
-}
-
-.photozonePage__feedbackTextWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 40px;
-}
-
-.photozonePage__feedbackTitle {
-  margin: 0;
-  
-  font-size: $fz-l;
-  font-weight: 500;
-}
-
-.photozonePage__feedbackButton {
-  display: flex;
-  align-items: center;
-
-  font-size: calc($fz-m - 2px);
-}
-
-.photozonePage__feedbackContacts {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
-.photozonePage__feedbackCallMe {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  & p {
-    margin: 0;
-
-    &:first-child {
-      font-size: $fz-m;
-    }
-    &:last-child {
-      font-size: $fz-m;
-    }
-  }
-}
-
-.photozonePage__feedbackWriteMe {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  & p {
-    margin: 0;
-
-    font-size: $fz-m;
-  }
-}
-
-.photozonePage__socials {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  & span {
-    display: none;
-  }
-
-  & a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  & svg {
-    padding: 3px;
-
-    width: 23px;
-    height: 23px;
-  }
-}
-
-.photozonePage__feedbackButton {
-  padding: 15px 30px;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-
-  color: $base-light-color;
-  
-  border: none;
-  border-radius: 20px;
-  background-color: $color-orange;
-  box-shadow: 0 2px 5px -2px $base-dark-color;
-
-  &:hover {
-    background-color: rgba($color-orange, 0.8) !important;
-    color: $base-light-color !important;
-  }
-}
-
-.decorPage__feedbackImageWrapper {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.decorPage__feedbackImage {
-  padding: 10px;
-
-  width: 100%;
-  max-width: 250px;
-
-  // border-radius: 10px;
-  aspect-ratio: 1/1;
-  box-shadow: 0 0 0 10px rgba($color-orange, 0.5);
-}
-
-.decorPage__additional {
+.additional {
   padding: 40px 0;
 }
 
-.decorPage__additionalContent {
+.additional__content {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -382,7 +229,7 @@
   }
 }
 
-.decorPage__additionalTitle {
+.additional__title {
   margin: 0;
   margin-bottom: 20px;
 
@@ -394,4 +241,14 @@
   margin: 0;
 
   font-size: $fz-m;
+}
+
+.decorPage__feedbackImage {
+  padding: 10px;
+
+  width: 100%;
+  max-width: 250px;
+
+  aspect-ratio: 1/1;
+  box-shadow: 0 0 0 10px rgba($color-orange, 0.5);
 }

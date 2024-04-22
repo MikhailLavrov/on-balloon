@@ -18,6 +18,7 @@ import { CatalogPageLayout } from '../pages/CatalogPage/CatalogPageLayout';
 import { EventServices } from '../EventServices/EventServices';
 import { DecorPage } from '../pages/DecorPage/DecorPage';
 import { PhotozonePage } from '../pages/PhotozonePage/PhotozonePage';
+import { ChildrenShowPage } from '../pages/ChildrenShowPage/ChildrenShowPage';
 
 const MainPage = () => {
   return (
@@ -51,6 +52,7 @@ export const App = () => {
         <Route path="contacts" element={<ContactsPage />} />
         <Route path="decor" element={<DecorPage />} />
         <Route path="photozone" element={<PhotozonePage />} />
+        <Route path="childrenshow" element={<ChildrenShowPage />} />
       </Route>
     </Routes>
   );

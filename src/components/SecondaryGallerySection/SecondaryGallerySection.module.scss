@@ -1,0 +1,40 @@
+@import '../../styles/vars.scss';
+@import '../../styles/mixins.scss';
+
+.gallery {
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+.gallery__titleWrapper {
+  margin-bottom: 60px;
+}
+
+.gallery__title {
+  margin: 0;
+  margin-bottom: 20px;
+  
+  font-size: $fz-l;
+  font-weight: 600;
+  text-align: center;
+}
+
+.gallery__subTitle {
+  margin: 0;
+  margin-bottom: 60px;
+  
+  font-size: $fz-m;
+  font-weight: 400;
+  text-align: center;
+}
+
+.gallery__image {
+  cursor: default;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px -4px $base-dark-color;
+  aspect-ratio: 1.5/1 !important;
+
+  & img {
+    object-fit: cover;
+  }
+}
