@@ -3,10 +3,14 @@ import { gallerySwiperParams } from '../../../data/swiperParams';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 import c from './DecorPage.module.scss';
-import { Button, Image } from 'antd';
+import { Image } from 'antd';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ReviewsSection } from './../../ReviewsSection/ReviewsSection';
 import { eventServicesData } from './../../EventServices/EventServices';
+import { CallBackModal } from '../../CallBackModal/CallBackModal';
+import { personalData } from '../../../data/personalData';
+import { SocialLinks } from '../../SocialLinks/SocialLinks';
+import { Link, useLocation } from 'react-router-dom';
 
 const gallerySlidesReversed = [...galleryData].reverse();
 
@@ -39,19 +43,17 @@ const variantsData = [
   },
   {
     title: 'Разнокалиберные гирлянды',
-    text: 'Увлечем ребят любого возраста – от малышей до подростков. Ограничений в выборе нет – аниматоры, квесты, мастер-классы, фокусы, спектакли, дискотеки и многое другое. Все программы интерактивные – выброс энергии и всплеск эмоций гарантируем!',
     image: 'https://sharfun.ru/upload/iblock/8ee/8ee5f86a2ab0a7ff7357c785a06d89fd.jpg',
   },
   {
     title: 'Фигуры из шаров',
-    text: 'Увлечем ребят любого возраста – от малышей до подростков. Ограничений в выборе нет – аниматоры, квесты, мастер-классы, фокусы, спектакли, дискотеки и многое другое. Все программы интерактивные – выброс энергии и всплеск эмоций гарантируем!',
     image: 'https://vozdushnaya-feeriya.ru/image/cache/catalog/photos2/pchelka-s-tsvetami-iz-sharov-1000x1000.jpg',
   },
 ];
 
-const additionalData = eventServicesData.filter(item => item.title !== 'Оформление');
-
 export const DecorPage = () => {
+  const location = useLocation();
+  const additionalData = eventServicesData.filter(item => item.link !== location.pathname);
 
   const steps = stepsData.map((step, index) => (
     <div className={c.decorPage__step} key={index}>
@@ -82,9 +84,11 @@ export const DecorPage = () => {
 
   const additionalItems = additionalData.map((item, index) => (
     <div className={c.additional__item} key={index}>
-      <div className={c.additional__itemImageWrapper}>
-        <img src={item.image} alt={item.title} width={300} />
-      </div>
+      <Link to={item.link}>
+        <div className={c.additional__itemImageWrapper}>
+          <img src={item.image} alt={item.title} width={300} />
+        </div>
+      </Link>
       <p className={c.additional__itemTitle}>{item.title}</p>
     </div>
   ))
@@ -94,13 +98,13 @@ export const DecorPage = () => {
       <h2 className='visually-hidden'>Оформление</h2>
       <div className={`${c.decorPage__container} container`}>
       <BreadcrumbsComponent pageName={'Оформление'} />
-        <div className={c.decorPage__header}>
-          <div className={c.decorPage__headerTextWrapper}>
-            <h3 className={c.decorPage__headerTitle}>Оформление праздников в Ленинградской области и Санкт-Петербурге.</h3>
-            <Button className={c.decorPage__headerButton}>Заказать сейчас</Button>
+        <div className={c.innerPageHeader}>
+          <div className={c.innerPageHeader__textWrapper}>
+            <h3 className={c.innerPageHeader__title}>Оформление праздников в Ленинградской области и Санкт-Петербурге.</h3>
+            <CallBackModal buttonText={'Заказать сейчас'} className={c.innerPageHeader__button}/>
           </div>
-          <div className={c.decorPage__headerImageWrapper}>
-            <img className={c.decorPage__headerImage} src="https://lh3.googleusercontent.com/proxy/Eip8IIp5zNaH6nOMT3ah4_4CIaaAFSPI3YKdq9l7-7BRkvQO2FsxCip_nt0ybQeoUJ6ZLzUysPlsjzDNkIqlZDeN9ioNrnqSuyP0sFYp7ZyH8piSp2lUnn9h9qxuWFr5Fg" alt="Фото" width={200} height={200} />
+          <div className={c.innerPageHeader__imageWrapper}>
+            <img className={c.innerPageHeader__image} src='https://lh3.googleusercontent.com/proxy/Eip8IIp5zNaH6nOMT3ah4_4CIaaAFSPI3YKdq9l7-7BRkvQO2FsxCip_nt0ybQeoUJ6ZLzUysPlsjzDNkIqlZDeN9ioNrnqSuyP0sFYp7ZyH8piSp2lUnn9h9qxuWFr5Fg' alt='Фото' width={200} height={200} />
           </div>
         </div>
         <div className={c.decorPage__content}>
@@ -116,7 +120,7 @@ export const DecorPage = () => {
           </div>
           <div className={c.decorPage__gallery}>
             <div className={c.decorPage__galleryTitleWrapper}></div>
-            <p className={c.decorPage__galleryTitle}>За 9 лет оформили более 1000 мероприятий</p>
+            <p className={c.decorPage__galleryTitle}>За 10 лет оформили более 1000 мероприятий</p>
             <p className={c.decorPage__gallerySubTitle}>Посмотрите некоторые из них.</p>
               <div className={c.decorPage__galleryContainer}>
                 <Swiper 
@@ -130,11 +134,20 @@ export const DecorPage = () => {
           <div className={c.decorPage__reviews}>
             <ReviewsSection />
           </div>
-          <div className={c.decorPage__feedback}>
-            <div className={c.decorPage__feedbackTextWrapper}>
-              <p className={c.decorPage__feedbackTitle}>Есть вопросы?</p>
-              <p className={c.decorPage__feedbackText}>Свяжитесь с нами и получите бесплатную консультацию по организации мероприятия.</p>
-              <Button className={c.decorPage__feedbackButton}>Оставить заявку</Button>
+          <div className={c.photozonePage__feedback}>
+            <div className={c.photozonePage__feedbackTextWrapper}>
+              <p className={c.photozonePage__feedbackTitle}>Заказать оформление мероприятия</p>
+              <div className={c.photozonePage__feedbackContacts}>
+                <div className={c.photozonePage__feedbackCallMe}>
+                  <p>Звоните нам по телефону:</p>
+                  <p>{personalData.phoneMasked}</p>
+                </div>
+                <div className={c.photozonePage__feedbackWriteMe}>
+                  <p>Пишите в мессенджеры:</p>
+                  <div className={c.photozonePage__socials}><SocialLinks /></div>
+                </div>
+              </div>
+              <CallBackModal buttonText={'Заказать звонок'} className={c.photozonePage__feedbackButton}/>
             </div>
             <div className={c.decorPage__feedbackImageWrapper}>
               <img className={c.decorPage__feedbackImage} src="https://png.pngtree.com/png-vector/20240208/ourmid/pngtree-groovy-colorful-confetti-png-image_11714268.png" alt="Фото" width={200} />
@@ -142,7 +155,7 @@ export const DecorPage = () => {
           </div>
           <div className={c.decorPage__additional}>
             <p className={c.decorPage__additionalTitle}>
-              Интересные категории:
+              Популярные услуги:
             </p>
             <div className={c.decorPage__additionalContent}>
               {additionalItems}

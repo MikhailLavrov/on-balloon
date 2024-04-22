@@ -17,6 +17,7 @@ import { CatalogPageLayout } from '../pages/CatalogPage/CatalogPageLayout';
 // import { CorporativeOffer } from '../CorporativeOffer/CorporativeOffer';
 import { EventServices } from '../EventServices/EventServices';
 import { DecorPage } from '../pages/DecorPage/DecorPage';
+import { PhotozonePage } from '../pages/PhotozonePage/PhotozonePage';
 
 const MainPage = () => {
   return (
@@ -49,6 +50,7 @@ export const App = () => {
         <Route path="reviews" element={<ReviewsPage />} />
         <Route path="contacts" element={<ContactsPage />} />
         <Route path="decor" element={<DecorPage />} />
+        <Route path="photozone" element={<PhotozonePage />} />
       </Route>
     </Routes>
   );
