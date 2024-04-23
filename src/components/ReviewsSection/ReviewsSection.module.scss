@@ -62,107 +62,89 @@
 
 .reviews__content {
   margin-bottom: 20px;
+
+  display: grid;
+  gap: 15px;
+  
+  @include vp-768 {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .reviewItem {
-  padding: 20px;
+  padding: 15px;
 
-  height: 100%;
-  width: fit-content;
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   gap: 10px;
+  
+  border-radius: 10px;
+  background-color: $color-grey-light-2;
+  background: linear-gradient(to bottom, rgba($color-purple, 0.1), rgba($color-telegram-blue, 0.2));
 
-  @include vp-500 {
-    margin: 0 auto;
-
-    max-width: 500px;
+  @include vp-768 {
+    display: flex;
+    flex-direction: column;
   }
-
+  
   @include vp-1260 {
-    max-width: 800px;
+    padding: 20px;
+
     display: grid;
     grid-template-columns: 1fr 3fr;
-    row-gap: 30px;
-    column-gap: 20px;
+
+    border-radius: 20px;
   }
 }
 
-.reviewItem__photo {
-  margin-bottom: 20px;
-
-  position: relative;
-
-  width: 100%;
-  max-width: 80px;
-
+.reviewItem__header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 5px;
+}
+
+.reviewItem__photo {
+  width: 100%;
+  max-width: 50px;
   
   & img {
     border-radius: 50%;
-    user-select: none;
-    pointer-events: none;
-    box-shadow: 0 0 0 15px #fd751442;
   }
 
   @include vp-1260 {
     margin: 0 auto;
-    max-width: 100px;
   }
 }
 
 .reviewItem__name {
   margin: 0;
 
-  font-weight: 600;
-  font-size: $fz-m;
-  user-select: none;
-
-  @include vp-1260 {
-    grid-column: 1/2;
-    text-align: center;
-  }
+  font-size: $fz-s;
+  font-weight: 400;
 }
 
 .reviewItem__content {
-  height: 100% !important;
-  
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
+  align-items: flex-start;
 
-  font-family: $ff-tilda;
-  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg fill='%23fd751442' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='800px' height='800px' viewBox='0 0 349.078 349.078' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M150.299,26.634v58.25c0,7.9-6.404,14.301-14.304,14.301c-28.186,0-43.518,28.909-45.643,85.966h45.643 c7.9,0,14.304,6.407,14.304,14.304v122.992c0,7.896-6.404,14.298-14.304,14.298H14.301C6.398,336.745,0,330.338,0,322.447V199.455 c0-27.352,2.754-52.452,8.183-74.611c5.568-22.721,14.115-42.587,25.396-59.048c11.608-16.917,26.128-30.192,43.16-39.44 C93.886,17.052,113.826,12.333,136,12.333C143.895,12.333,150.299,18.734,150.299,26.634z M334.773,99.186 c7.896,0,14.305-6.407,14.305-14.301v-58.25c0-7.9-6.408-14.301-14.305-14.301c-22.165,0-42.108,4.72-59.249,14.023 c-17.035,9.248-31.563,22.523-43.173,39.44c-11.277,16.461-19.824,36.328-25.393,59.054c-5.426,22.166-8.18,47.266-8.18,74.605 v122.992c0,7.896,6.406,14.298,14.304,14.298h121.69c7.896,0,14.299-6.407,14.299-14.298V199.455 c0-7.896-6.402-14.304-14.299-14.304h-44.992C291.873,128.095,306.981,99.186,334.773,99.186z'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 5rem;
-  background-repeat: no-repeat;
-  background-position: 5% 90%;
-
-  @include vp-1260 {
-    grid-column: 2/-1;
-    grid-row: 1/-1;
+  @include vp-500 {
+    align-items: center;
   }
 }
 
 .reviewItem__text {
-  padding: 20px 0;
   margin: 0;
+  
+  font-size: $fz-s;
+  line-height: 1.2;
 
-  flex-grow: 1;
-
-  font-size: calc($fz-m - 2px);
-  text-align: center;
-  user-select: none;
+  @include vp-768 {
+    text-align: center;
+  }
 
   @include vp-1260 {
-    font-size: $fz-m;
-    font-weight: 500;
-    line-height: 1.5;
-    text-align: left;
+    text-align: start;
+    padding: 10px;
   }
 }

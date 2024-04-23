@@ -10,6 +10,15 @@ import { SecondaryGallerySection } from '../../SecondaryGallerySection/Secondary
 
 const FEEDBACK_IMAGE = 'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663176964_2-mykaleidoscope-ru-p-deti-v-vostorge-vkontakte-2.jpg';
 
+const mockGalleryDataArr = [
+  'https://san-alushta.ru/wp-content/uploads/2020/01/dizajn-bez-nazvaniya-2020-01-24t131139.886-min.png',
+  'https://gallery.profi.ru/xfiles/pfiles/38ff2a2c12d1463a9259fa96551a03b3.jpg-profi_h420.jpg',
+  'https://www.tourdom.ru/hotline/upload/medialibrary/e27/e27cf393ff432ac38d62b6cb48923d4e.jpg',
+  'https://restostar.com/netcat_files/multifile/467/22222.jpg',
+  'https://miniklub.ru/images/bumaznaya-diskoteka-1.jpg',
+  'https://anyutiniglazki.ru/images/product/000/000037/529-6d0428248691f43763ff0dcd051a7e02.jpg',
+];
+
 const variantsData = [
   {
     title: 'Аниматоры',
@@ -60,6 +69,60 @@ const stepsData = [
   },
 ];
 
+const complexData = [
+  {
+    title: 'Стандарт',
+    price: 12500,
+    children: [
+      '30 шаров под потолок или 3 фонтана из шаров',
+      '1 аниматор в костюме любимого персонажа',
+      'Музыкальное сопровождение анимационной программы',
+      'Игры и конкурсы с тематическим реквизитом',
+      'Вынос вашего торта аниматором',
+      'Фотосессия с аниматором',
+    ]
+  },
+  {
+    title: 'Супер',
+    price: 35500,
+    children: [
+      '50 шаров под потолок или 5 фонтанов из шаров',
+      '2 аниматора в костюмах любимых персонажей',
+      'Бумажная дискотека или другая шоу-программа',
+      'Музыкальное сопровождение анимационной программы',
+      'Игры и конкурсы с тематическим реквизитом',
+      'Фигурки из длинных шариков',
+      'Легкое шоу мыльных пузырей',
+      'Вынос вашего торта аниматором',
+      'Фотосессия с аниматором',
+    ]
+  },
+  {
+    title: 'VIP',
+    price: 75500,
+    children: [
+      'Тематическая фотозона',
+      '100 шаров под потолок или 10 фонтанов из шаров',
+      'Бумажная дискотека или другая шоу-программа',
+      '2 аниматора в костюмах любимых персонажей',
+      'Индивидуальный сценарий',
+      'Музыкальное сопровождение анимационной программы',
+      'Фигурки из длинных шариков',
+      'Легкое шоу мыльных пузырей',
+      'Игры и конкурсы с тематическим реквизитом',
+      'Вынос вашего торта аниматором',
+      'Фотосессия с аниматором',
+    ]
+  },
+  {
+    title: 'Спец',
+    price: 'X',
+    children: [
+      'Составим индивидуальный план мероприятия',
+    ]
+  },
+];
+
 export const ChildrenShowPage = () => {
   const location = useLocation();
   const additionalData = eventServicesData.filter(item => item.link !== location.pathname);
@@ -92,6 +155,21 @@ export const ChildrenShowPage = () => {
       </div>
       <p className={c.childrenShowPage__stepTitle}>{step.title}</p>
       <p className={c.childrenShowPage__stepText}>{step.text}</p>
+    </div>
+  ))
+
+  const complexItems = complexData.map((item, index) => (
+    <div className={c.childrenShowPage__complexItem} key={index}>
+      <p className={c.childrenShowPage__complexItemTitle}>{item.title}</p>
+      <p className={c.childrenShowPage__complexItemPrice}>{item.price}</p>
+      <ul className={c.childrenShowPage__complexItemList}>
+        {item.children.map((childItem, index) => (
+          <li className={c.childrenShowPage__complexItemListChild} key={index}>
+            {childItem}
+          </li>
+        ))}
+      </ul>
+      <CallBackModal buttonText={'Заказать'} className={c.childrenShowPage__complexButton}/>
     </div>
   ))
 
@@ -137,8 +215,17 @@ export const ChildrenShowPage = () => {
               {steps}
             </div>
           </div>
+          <div className={c.childrenShowPage__complex}>
+            <p className={c.childrenShowPage__complexTitle}>
+              При заказе комплекса услуг, <br />праздник получается ярче и выгоднее!
+            </p>
+            <div className={c.childrenShowPage__complexContent}>
+              {complexItems}
+            </div>
+          </div>
           <SecondaryGallerySection
-            reversed
+            dataArr={mockGalleryDataArr}
+            // reversed
             title={'Яркие моменты праздников с нашими аниматорами'}
           />
           <div className={c.childrenShowPage__reviews}>

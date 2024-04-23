@@ -131,23 +131,21 @@
   justify-content: center;
 }
 
-.slider__link {
-  padding: 15px 25px;
-  display: flex;
-  align-items: center;
+.gallery__lastItemTitle {
+  margin: 0;
+  margin-bottom: 40px;
+  font-size: $fz-m;
+}
 
-  font-size: $fz-s;
-  color: $base-dark-color;
-
+.gallery__lastItemLink {
+  padding: 10px 20px;
+  
   background-color: $base-light-color;
-  box-shadow: 0 1px 5px -3px $base-dark-color;
+  color: $base-dark-color;
   border-radius: 20px;
+  box-shadow: 0 2px 5px 1px $color-grey;
 
-  transition: all 200ms ease-in-out;
-
-  &:hover,
-  &:active {
+  &:hover {
     color: $base-dark-color;
-    background-color: $color-grey;
   }
 }

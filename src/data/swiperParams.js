@@ -40,6 +40,7 @@ export const gallerySwiperParams = {
   slidesPerView: 3,
   spaceBetween: 25,
   centeredSlides: true,
+  initialSlide: 1,
   breakpoints: {
     0: {
       slidesPerView: 2,
@@ -56,11 +57,4 @@ export const gallerySwiperParams = {
       spaceBetween: 60,
     }
   },
-};
-
-export const reviewsSwiperParams = {
-  modules: [Navigation, Pagination],
-  slidesPerView: 1,
-  pagination: true,
-  navigation: true,
 };
