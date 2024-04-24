@@ -1,5 +1,5 @@
-@import '../../styles/styles.scss';
-@import '../../styles/mixins.scss';
+@import '../../../../styles/styles.scss';
+@import '../../../../styles/mixins.scss';
 
 .feedback {
   padding: 50px;
@@ -10,7 +10,7 @@
   gap: 20px;
 
   background-color: $color-grey-light;
-  background: linear-gradient($color-grey-light, transparent 80%);
+  background: linear-gradient($color-grey-light-2, $color-grey-light 80%);
   border-radius: 10px;
 }
 
@@ -23,9 +23,11 @@
 
 .feedback__title {
   margin: 0;
+  max-width: 90%;
   
   font-size: $fz-l;
   font-weight: 500;
+  line-height: 1;
 }
 
 .feedback__contacts {

@@ -19,6 +19,7 @@ import { EventServices } from '../EventServices/EventServices';
 import { DecorPage } from '../pages/DecorPage/DecorPage';
 import { PhotozonePage } from '../pages/PhotozonePage/PhotozonePage';
 import { ChildrenShowPage } from '../pages/ChildrenShowPage/ChildrenShowPage';
+import { ForBusinessPage } from '../pages/ForBusinessPage/ForBusinessPage';
 
 const MainPage = () => {
   return (
@@ -53,6 +54,7 @@ export const App = () => {
         <Route path="decor" element={<DecorPage />} />
         <Route path="photozone" element={<PhotozonePage />} />
         <Route path="childrenshow" element={<ChildrenShowPage />} />
+        <Route path="forbusiness" element={<ForBusinessPage />} />
       </Route>
     </Routes>
   );

@@ -5,7 +5,6 @@ import { Image } from 'antd';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { gallerySwiperParams } from '../../data/swiperParams';
 import { useState } from 'react';
-// import FIRST_SLIDE from '../../assets/gallery/Baby Skills 2.webp';
 
 export const GallerySection = () => {
   const [ isLinkVisible, setIsLinkVisible ] = useState(false);
@@ -18,7 +17,6 @@ export const GallerySection = () => {
     </SwiperSlide>
   ));
 
-  // Добавляем новый слайд
   const extraGalleryLink = (
     <SwiperSlide className={c.gallery__lastItem} key={galleryData.length}>
       {isLinkVisible && 
@@ -29,18 +27,6 @@ export const GallerySection = () => {
       }
     </SwiperSlide>
   );
-
-  // const firstGallerySlide = (
-  //   <SwiperSlide className='gallery__slide'>
-  //     <div className={c.gallery__item}>
-  //       <Image className={c.gallery__image} src={FIRST_SLIDE} alt='Фото' preview={false} />
-  //     </div>
-  //   </SwiperSlide>
-  // );
-
-  // Пушим новый слайд в массив галереи
-  gallerySlides.push(extraGalleryLink);
-  // gallerySlides.unshift(firstGallerySlide);
 
   return (
     <section className={c.gallery} id='gallery_section'>
@@ -56,6 +42,7 @@ export const GallerySection = () => {
             onReachEnd={() => setIsLinkVisible(true)}
           >
             {gallerySlides}
+            {extraGalleryLink}
           </Swiper>
         </div>
         <Link className={c.gallery__link} to={'/gallery'}>Открыть галерею</Link>

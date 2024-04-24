@@ -1,0 +1,59 @@
+@import '../../../styles/styles.scss';
+@import '../../../styles/mixins.scss';
+
+.forBusinessPage {
+  padding: 10px 0;
+  
+  min-height: 100%;
+  
+  text-align: start;
+  font-family: $ff-tilda;
+
+  background-color: $base-light-color;
+  
+  @include vp-1260 {
+    padding: 20px 0;
+  }
+}
+
+.forBusinessPage__headerImageWrapper {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  box-shadow: 0 0 0 10px $color-purple;
+
+  & img {
+    width: 100%;
+    height: 100%;
+  
+    box-shadow: 0 0 0 5px $color-telegram-blue, 0 12px 10px -5px $base-dark-color;
+    
+    &:first-child {
+      transform: translate(-20px, 20px) rotate(-10deg);
+    }
+    
+    &:last-child {
+      transform: translate(-20px, -10px) rotate(10deg);
+    }
+  }
+}
+
+.forBusinessPage__title {
+  margin: 0;
+  margin-bottom: 40px;
+
+  font-size: $fz-l;
+  font-weight: 500;
+  text-align: center;
+}
+
+.forBusinessPage__feedbackImage {
+  width: 100%;
+  max-width: 350px;
+
+  box-shadow: 0 20px 20px -10px $color-grey;
+  border-radius: 10px;
+}

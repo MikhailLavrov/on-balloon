@@ -12,7 +12,7 @@ import { useSearchParams } from 'react-router-dom';
 export const CatalogCard = ({...item}) => {
   const { article, title, price, oldPrice, image } = item;
   // eslint-disable-next-line no-unused-vars
-  const [ searchParams, setSearchParams ] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const [isInCart, setIsInCart] = useState(false);

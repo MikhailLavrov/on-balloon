@@ -15,6 +15,7 @@ const advantagesList = advantagesData.map((item, index) => {
 export const Advantages = () => {
   return (
     <section className={c.advantages}>
+      <h2 className='visually-hidden'>Преимущества работы с нами</h2>
       <div className="container">
         <ul className={c.advantages__list}>
           {advantagesList}

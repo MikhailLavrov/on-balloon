@@ -3,12 +3,16 @@ import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComp
 import c from './PhotozonePage.module.scss';
 import { ReviewsSection } from '../../ReviewsSection/ReviewsSection';
 import { eventServicesData } from '../../EventServices/EventServices';
-import { CallBackModal } from '../../CallBackModal/CallBackModal';
-import { Link, useLocation } from 'react-router-dom';
-import { SecondaryFeedbackComponent } from '../../SecondaryFeedbackComponent/SecondaryFeedbackComponent';
-import { SecondaryGallerySection } from '../../SecondaryGallerySection/SecondaryGallerySection';
+import { useLocation } from 'react-router-dom';
+import { FeedbackAlt } from '../components/FeedbackAlt/FeedbackAlt';
+import { GallerySectionAlt } from '../components/GallerySectionAlt/GallerySectionAlt';
+import { HeaderAlt } from '../components/HeaderAlt/HeaderAlt';
+import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
+import { AdditionalSection } from '../components/AdditionalSection/AdditionalSection';
 
 const FEEDBACK_IMAGE = 'https://lurieflowers2001.ru/wa-data/public/shop/products/59/74/7459/images/9943/9943.600x0.jpg';
+
+const HEADER_IMAGE = 'https://i.ytimg.com/vi/8lNlMROOvXI/maxresdefault.jpg';
 
 const variantsData = [
   {
@@ -70,28 +74,7 @@ const stepsData = [
 
 export const PhotozonePage = () => {
   const location = useLocation();
-  const additionalData = eventServicesData.filter(item => item.link !== location.pathname);
   const pageName = eventServicesData.find(item => item.link === location.pathname).title;
-
-  const variants = variantsData.map((item, index) => (
-    <div className={c.variants__item} key={index}>
-      <div className={c.variants__imageWrapper}>
-        <img className={c.variants__image} src={item.image} alt={item.title} width={200} height={200} />
-      </div>
-      <h3 className={c.variants__itemTitle}>{item.title}</h3>
-    </div>
-  ))
-
-  const additionalItems = additionalData.map((item, index) => (
-    <div className={c.additional__item} key={index}>
-      <Link to={item.link}>
-        <div className={c.additional__itemImageWrapper}>
-          <img src={item.image} alt={item.title} width={300} />
-        </div>
-      </Link>
-      <p className={c.additional__itemTitle}>{item.title}</p>
-    </div>
-  ))
 
   const steps = stepsData.map((step, index) => (
     <div className={c.photozonePage__step} key={index}>
@@ -108,30 +91,24 @@ export const PhotozonePage = () => {
       <h2 className='visually-hidden'>{pageName}</h2>
       <div className={`${c.photozonePage__container} container`}>
       <BreadcrumbsComponent pageName={pageName} />
-        <div className={c.photozonePage__header}>
-          <div className={c.photozonePage__headerTextWrapper}>
-            <h3 className={c.photozonePage__headerTitle}>Эксклюзивные фотозоны для проведения праздников любой тематики.</h3>
-            <CallBackModal buttonText={'Заказать сейчас'} className={c.photozonePage__headerButton}/>
-          </div>
-          <div className={c.photozonePage__headerImageWrapper}>
-            <img className={`${c.photozonePage__headerImage}`} src='https://i.ytimg.com/vi/8lNlMROOvXI/maxresdefault.jpg' alt='Фото' width={200} height={200} />
-          </div>
-        </div>
+        <HeaderAlt
+          title={'Эксклюзивные фотозоны для проведения праздников любой тематики'}
+          imageSrc={HEADER_IMAGE}
+          imageWrapperClassName={c.photozonePage__headerImageWrapper}
+        />
         <div className={c.photozonePage__content}>
           <div className={c.photozonePage__contentTitleWrapper}>
             <p className={c.photozonePage__contentTitle}>Эксклюзивные фотозоны для ярких воспоминаний</p>
             <p className={c.photozonePage__contentSubTitle}>Выбирайте из готовых решений, или создадим фотозону по индивидуальному дизайну и предпочтениям</p>
           </div>
-          <div className={c.variants}>
-            {variants}
-          </div>
+          <VariantsComponent data={variantsData} />
           <div className={c.photozonePage__stepsWrapper}>
             <p className={c.photozonePage__stepsTitle}>Что включает в себя аренда фотозоны:</p>
             <div className={c.photozonePage__steps}>
               {steps}
             </div>
           </div>
-          <SecondaryGallerySection
+          <GallerySectionAlt
             reversed
             title={'За 10 лет оформили более 1000 мероприятий и фотозон'}
             subTitle={'Посмотрите некоторые из них'}
@@ -139,18 +116,11 @@ export const PhotozonePage = () => {
           <div className={c.photozonePage__reviews}>
             <ReviewsSection />
           </div>
-          <SecondaryFeedbackComponent
+          <FeedbackAlt
             imageSrc={FEEDBACK_IMAGE}
             imageClassName={c.photozonePage__feedbackImage} 
           />
-          <div className={c.additional}>
-            <p className={c.additional__title}>
-              Популярные услуги:
-            </p>
-            <div className={c.additional__content}>
-              {additionalItems}
-            </div>
-          </div>
+          <AdditionalSection location={location} />
         </div>
       </div>
       <FloatButtonComponent />

@@ -1,21 +1,21 @@
-import { galleryData } from '../../data/galleryData';
-import { gallerySwiperParams } from '../../data/swiperParams';
-import c from './SecondaryGallerySection.module.scss';
+import c from './GallerySectionAlt.module.scss';
 import { Image } from 'antd';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { galleryData } from './../../../../data/galleryData';
+import { gallerySwiperParams } from './../../../../data/swiperParams';
 
 
-export const SecondaryGallerySection = (props) => {
+export const GallerySectionAlt = (props) => {
   const { 
-    dataArr = galleryData,
+    data = galleryData,
     reversed,
     title,
     subTitle,
   } = props;
 
-  const data = reversed ? [...dataArr].reverse() : dataArr;
+  const dataArr = reversed ? [...data].reverse() : data;
 
-  const gallerySlides = data.slice(0, 10).map((image, index) => (
+  const gallerySlides = dataArr.slice(0, 10).map((image, index) => (
     <SwiperSlide className='gallery__slide' key={index}>
       <div key={index} className={c.gallery__item}>
         <Image className={c.gallery__image} src={image} alt={index} preview={false} width={'100%'} height={'auto'} />

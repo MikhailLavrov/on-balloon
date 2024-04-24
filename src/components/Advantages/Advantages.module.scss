@@ -67,9 +67,9 @@
   height: 100%;
   
   background-color: $color-grey-light-2;
-  background: linear-gradient(to right, $color-grey-light, $color-grey-light-2, $color-grey-light);
-  box-shadow: 0 2px 10px -7px $base-dark-color;
+  box-shadow: 0 4px 10px -10px $base-dark-color;
   user-select: none;
+  border-radius: 20px;
 
   @include vp-500 {
     padding: 10px;

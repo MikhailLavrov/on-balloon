@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Badge } from 'antd';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
 import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDrawer';
-import { EmptyToCatalog } from '../EmptyToCatalog/EmptyToCatalog';
+import { EmptyToCatalog } from '../components/EmptyToCatalog/EmptyToCatalog';
 
 export const FavouritesPage = () => {
   const favouritesState = useSelector(state => state.favourites.items)

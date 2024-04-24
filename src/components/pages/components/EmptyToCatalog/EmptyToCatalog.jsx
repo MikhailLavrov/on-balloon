@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import c from './EmptyToCatalog.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDrawerState } from '../../../redux/catalogDrawerSlice';
-import { setBurgerIsOpened } from '../../../redux/burgerMenuSlice';
-import EMPTY_IMAGE from '../../../assets/empty.webp';
+import { setDrawerState } from '../../../../redux/catalogDrawerSlice';
+import { setBurgerIsOpened } from '../../../../redux/burgerMenuSlice';
+import EMPTY_IMAGE from '../../../../assets/empty.webp';
 
 export const EmptyToCatalog = () => {
   const dispatch = useDispatch();

@@ -71,12 +71,18 @@
   &:hover {
     & .eventServices__itemTextWrapper {
       opacity: 1;
+      transition-delay: 500ms;
+    }
+    
+    & .eventServices__itemText {
+      opacity: 1;
+      transition-delay: 1s;
     }
 
     & .eventServices__image {
       transform: scale(1.2);
       transition: transform 10s ease-out;
-      transition-delay: 500ms;
+      transition-delay: 1s;
     }
   }
 
@@ -129,7 +135,7 @@
   background: linear-gradient(to bottom, transparent, rgba($base-dark-color, 0.8) 50%);
   border-radius: 10px;
 
-  transition: all 250ms ease-in-out;
+  transition: opacity 500ms ease-in-out;
 
   opacity: 0;
 
@@ -144,6 +150,9 @@
   font-size: calc($fz-m - 2px);
   line-height: 1;
   color: $base-light-color;
+
+  opacity: 0;
+  transition: all 350ms ease-in-out;
 }
 
 .eventServices__itemIcon {

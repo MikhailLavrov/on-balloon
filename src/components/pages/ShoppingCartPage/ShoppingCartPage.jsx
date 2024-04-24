@@ -8,7 +8,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDrawer';
 import { deleteAllItemsFromShoppingCart } from '../../../redux/shoppingCartSlice';
 import ReactInputMask from 'react-input-mask';
-import { EmptyToCatalog } from '../EmptyToCatalog/EmptyToCatalog';
+import { EmptyToCatalog } from '../components/EmptyToCatalog/EmptyToCatalog';
 
 const BOT_TOKEN = process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
 const BASE_URL = `https://api.telegram.org/bot${BOT_TOKEN}`;

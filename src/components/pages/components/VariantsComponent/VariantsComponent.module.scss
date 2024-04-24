@@ -1,0 +1,39 @@
+@import '../../../../styles/vars.scss';
+@import '../../../../styles/mixins.scss';
+
+.variants {
+  margin-bottom: 40px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  row-gap: 40px;
+}
+
+.variants__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.variants__imageWrapper {
+  width: 100%;
+  max-width: 300px;
+}
+
+.variants__image {
+  width: 100%;
+  height: auto;
+
+  aspect-ratio: 1/1;
+
+  border-radius: 10px;
+}
+
+.variants__itemTitle {
+  margin: 0;
+
+  font-size: $fz-m;
+  font-weight: 400;
+}

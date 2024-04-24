@@ -1,15 +1,19 @@
-import { personalData } from "../../data/personalData";
-import { CallBackModal } from "../CallBackModal/CallBackModal";
-import { SocialLinks } from "../SocialLinks/SocialLinks";
-import c from './SecondaryFeedbackComponent.module.scss';
+import c from './FeedbackAlt.module.scss';
+import { personalData } from '../../../../data/personalData';
+import { SocialLinks } from '../../../SocialLinks/SocialLinks';
+import { CallBackModal } from '../../../CallBackModal/CallBackModal';
 
-export const SecondaryFeedbackComponent = (props) => {
-  const {imageSrc, imageClassName} = props;
+export const FeedbackAlt = (props) => {
+  const {
+    imageSrc,
+    imageClassName,
+    title = 'Заказать оформление мероприятия'
+  } = props;
 
   return (
     <div className={c.feedback}>
       <div className={c.feedback__textWrapper}>
-        <p className={c.feedback__title}>Заказать оформление мероприятия</p>
+        <p className={c.feedback__title}>{title}</p>
         <div className={c.feedback__contacts}>
           <div className={c.feedback__callMe}>
             <p>Звоните нам по телефону:</p>

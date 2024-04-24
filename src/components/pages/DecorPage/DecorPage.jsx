@@ -3,12 +3,16 @@ import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComp
 import c from './DecorPage.module.scss';
 import { ReviewsSection } from './../../ReviewsSection/ReviewsSection';
 import { eventServicesData } from './../../EventServices/EventServices';
-import { CallBackModal } from '../../CallBackModal/CallBackModal';
-import { Link, useLocation } from 'react-router-dom';
-import { SecondaryFeedbackComponent } from '../../SecondaryFeedbackComponent/SecondaryFeedbackComponent';
-import { SecondaryGallerySection } from '../../SecondaryGallerySection/SecondaryGallerySection';
+import { useLocation } from 'react-router-dom';
+import { FeedbackAlt } from '../components/FeedbackAlt/FeedbackAlt';
+import { GallerySectionAlt } from '../components/GallerySectionAlt/GallerySectionAlt';
+import { HeaderAlt } from '../components/HeaderAlt/HeaderAlt';
+import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
+import { AdditionalSection } from '../components/AdditionalSection/AdditionalSection';
 
 const FEEDBACK_IMAGE = 'https://png.pngtree.com/png-vector/20240208/ourmid/pngtree-groovy-colorful-confetti-png-image_11714268.png';
+
+const HEADER_IMAGE = 'https://lh3.googleusercontent.com/proxy/Eip8IIp5zNaH6nOMT3ah4_4CIaaAFSPI3YKdq9l7-7BRkvQO2FsxCip_nt0ybQeoUJ6ZLzUysPlsjzDNkIqlZDeN9ioNrnqSuyP0sFYp7ZyH8piSp2lUnn9h9qxuWFr5Fg';
 
 const stepsData = [
   {
@@ -49,7 +53,6 @@ const variantsData = [
 
 export const DecorPage = () => {
   const location = useLocation();
-  const additionalData = eventServicesData.filter(item => item.link !== location.pathname);
   const pageName = eventServicesData.find(item => item.link === location.pathname).title;
 
   const steps = stepsData.map((step, index) => (
@@ -62,52 +65,26 @@ export const DecorPage = () => {
     </div>
   ))
 
-  const variants = variantsData.map((item, index) => (
-    <div className={c.variants__item} key={index}>
-      <div className={c.variants__imageWrapper}>
-        <img className={c.variants__image} src={item.image} alt={item.title} width={200} height={200} />
-      </div>
-      <h3 className={c.variants__itemTitle}>{item.title}</h3>
-    </div>
-  ))
-
-  const additionalItems = additionalData.map((item, index) => (
-    <div className={c.additional__item} key={index}>
-      <Link to={item.link}>
-        <div className={c.additional__itemImageWrapper}>
-          <img src={item.image} alt={item.title} width={300} />
-        </div>
-      </Link>
-      <p className={c.additional__itemTitle}>{item.title}</p>
-    </div>
-  ))
-
   return (
     <section className={c.decorPage}>
       <h2 className='visually-hidden'>{pageName}</h2>
       <div className={`${c.decorPage__container} container`}>
       <BreadcrumbsComponent pageName={pageName} />
-        <div className={c.decorPage__header}>
-          <div className={c.decorPage__textWrapper}>
-            <h3 className={c.decorPage__title}>Оформление праздников в Ленинградской области и Санкт-Петербурге</h3>
-            <CallBackModal buttonText={'Заказать сейчас'} className={c.decorPage__button}/>
-          </div>
-          <div className={c.decorPage__imageWrapper}>
-            <img className={c.decorPage__image} src='https://lh3.googleusercontent.com/proxy/Eip8IIp5zNaH6nOMT3ah4_4CIaaAFSPI3YKdq9l7-7BRkvQO2FsxCip_nt0ybQeoUJ6ZLzUysPlsjzDNkIqlZDeN9ioNrnqSuyP0sFYp7ZyH8piSp2lUnn9h9qxuWFr5Fg' alt='Фото' width={200} height={200} />
-          </div>
-        </div>
+        <HeaderAlt
+          title={'Оформление праздников в Ленинградской области и Санкт-Петербурге'}
+          imageSrc={HEADER_IMAGE}
+          imageWrapperClassName={c.decorPage__imageWrapper}
+        />
         <div className={c.decorPage__content}>
           <div className={c.decorPage__contentTitleWrapper}>
             <p className={c.decorPage__contentTitle}>У нас есть все необходимое для оформления праздника</p>
             <p className={c.decorPage__contentSubTitle}>От разработки общей стилистики мероприятия до реализации мельчайших деталей</p>
           </div>
+          <VariantsComponent data={variantsData} />
           <div className={c.decorPage__steps}>
             {steps}
           </div>
-          <div className={c.variants}>
-            {variants}
-          </div>
-          <SecondaryGallerySection
+          <GallerySectionAlt
             reversed
             title={'За 10 лет оформили более 1000 мероприятий'}
             subTitle={'Посмотрите некоторые из них'}
@@ -115,18 +92,11 @@ export const DecorPage = () => {
           <div className={c.decorPage__reviews}>
             <ReviewsSection />
           </div>
-          <SecondaryFeedbackComponent
+          <FeedbackAlt
             imageSrc={FEEDBACK_IMAGE}
             imageClassName={c.decorPage__feedbackImage} 
           />
-          <div className={c.additional}>
-            <p className={c.additional__title}>
-              Популярные услуги:
-            </p>
-            <div className={c.additional__content}>
-              {additionalItems}
-            </div>
-          </div>
+          <AdditionalSection location={location} />
         </div>
       </div>
       <FloatButtonComponent />

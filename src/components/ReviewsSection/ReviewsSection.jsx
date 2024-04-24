@@ -6,13 +6,11 @@ export const ReviewsSection = () => {
 
   const reviewItems = reviewsData.map((item, index) => (
     <div className={c.reviewItem} key={index}>
-      <div className={c.reviewItem__header}>
-        <div className={c.reviewItem__photo}>
-          <img width={100} src={item.userPhoto} alt="Фото" />
-        </div>
-        <p className={c.reviewItem__name}>{item.name}</p>
+      <div className={c.reviewItem__photo}>
+        <img width={100} src={item.userPhoto} alt="Фото" />
       </div>
-      <div className={c.reviewItem__content}>
+      <div className={c.reviewItem__textWrapper}>
+        <p className={c.reviewItem__name}>{item.name}</p>
         <p className={c.reviewItem__text}> {item.text} </p>
       </div>
     </div>

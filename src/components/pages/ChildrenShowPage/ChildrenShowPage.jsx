@@ -3,16 +3,23 @@ import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComp
 import c from './ChildrenShowPage.module.scss';
 import { ReviewsSection } from '../../ReviewsSection/ReviewsSection';
 import { eventServicesData } from '../../EventServices/EventServices';
-import { CallBackModal } from '../../CallBackModal/CallBackModal';
-import { Link, useLocation } from 'react-router-dom';
-import { SecondaryFeedbackComponent } from './../../SecondaryFeedbackComponent/SecondaryFeedbackComponent';
-import { SecondaryGallerySection } from '../../SecondaryGallerySection/SecondaryGallerySection';
+import { useLocation } from 'react-router-dom';
+import { FeedbackAlt } from '../components/FeedbackAlt/FeedbackAlt';
+import { GallerySectionAlt } from '../components/GallerySectionAlt/GallerySectionAlt';
+import { HeaderAlt } from '../components/HeaderAlt/HeaderAlt';
+import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
+import { AdditionalSection } from '../components/AdditionalSection/AdditionalSection';
+import { ComplexSection } from './../components/ComplexSection/ComplexSection';
 
 const FEEDBACK_IMAGE = 'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663176964_2-mykaleidoscope-ru-p-deti-v-vostorge-vkontakte-2.jpg';
 
-const mockGalleryDataArr = [
-  'https://san-alushta.ru/wp-content/uploads/2020/01/dizajn-bez-nazvaniya-2020-01-24t131139.886-min.png',
+const HEADER_IMAGE = 'https://delai-vibor.com/wp-content/uploads/2023/05/Animator.jpg';
+
+const SECONDARY_HEADER_IMAGE = 'https://bash.today/storage/uploads/posts/detskiye/animators/782ab0665be31abcc980dcaef96b706e';
+
+const childrenShowGalleryData = [
   'https://gallery.profi.ru/xfiles/pfiles/38ff2a2c12d1463a9259fa96551a03b3.jpg-profi_h420.jpg',
+  'https://san-alushta.ru/wp-content/uploads/2020/01/dizajn-bez-nazvaniya-2020-01-24t131139.886-min.png',
   'https://www.tourdom.ru/hotline/upload/medialibrary/e27/e27cf393ff432ac38d62b6cb48923d4e.jpg',
   'https://restostar.com/netcat_files/multifile/467/22222.jpg',
   'https://miniklub.ru/images/bumaznaya-diskoteka-1.jpg',
@@ -125,28 +132,7 @@ const complexData = [
 
 export const ChildrenShowPage = () => {
   const location = useLocation();
-  const additionalData = eventServicesData.filter(item => item.link !== location.pathname);
   const pageName = eventServicesData.find(item => item.link === location.pathname).title;
-
-  const variants = variantsData.map((item, index) => (
-    <div className={c.variants__item} key={index}>
-      <div className={c.variants__imageWrapper}>
-        <img className={c.variants__image} src={item.image} alt={item.title} width={200} height={200} />
-      </div>
-      <h3 className={c.variants__itemTitle}>{item.title}</h3>
-    </div>
-  ))
-
-  const additionalItems = additionalData.map((item, index) => (
-    <div className={c.additional__item} key={index}>
-      <Link to={item.link}>
-        <div className={c.additional__itemImageWrapper}>
-          <img src={item.image} alt={item.title} width={300} />
-        </div>
-      </Link>
-      <p className={c.additional__itemTitle}>{item.title}</p>
-    </div>
-  ))
 
   const steps = stepsData.map((step, index) => (
     <div className={c.childrenShowPage__step} key={index}>
@@ -158,56 +144,24 @@ export const ChildrenShowPage = () => {
     </div>
   ))
 
-  const complexItems = complexData.map((item, index) => (
-    <div className={c.childrenShowPage__complexItem} key={index}>
-      <p className={c.childrenShowPage__complexItemTitle}>{item.title}</p>
-      <p className={c.childrenShowPage__complexItemPrice}>{item.price}</p>
-      <ul className={c.childrenShowPage__complexItemList}>
-        {item.children.map((childItem, index) => (
-          <li className={c.childrenShowPage__complexItemListChild} key={index}>
-            {childItem}
-          </li>
-        ))}
-      </ul>
-      <CallBackModal buttonText={'Заказать'} className={c.childrenShowPage__complexButton}/>
-    </div>
-  ))
-
   return (
     <section className={c.childrenShowPage}>
       <h2 className='visually-hidden'>{pageName}</h2>
       <div className={`${c.childrenShowPage__container} container`}>
       <BreadcrumbsComponent pageName={pageName} />
-        <div className={c.childrenShowPage__header}>
-          <div className={c.childrenShowPage__headerTextWrapper}>
-            <h3 className={c.childrenShowPage__headerTitle}>Аниматоры, квесты и шоу-программы <br />для детей любого возраста</h3>
-            <h3 className={c.childrenShowPage__headerSubTitle}>Профессиональные аниматоры с большим опытом проведения детских праздников с красивыми, качественными костюмами и оборудованием.</h3>
-            <CallBackModal buttonText={'Заказать сейчас'} className={c.childrenShowPage__headerButton}/>
-          </div>
-          <div className={c.childrenShowPage__headerImageWrapper}>
-            <img className={`${c.childrenShowPage__headerImage}`} src='https://delai-vibor.com/wp-content/uploads/2023/05/Animator.jpg' alt='Фото' width={200} height={200} />
-            <img className={`${c.childrenShowPage__headerImage}`} src='https://bash.today/storage/uploads/posts/detskiye/animators/782ab0665be31abcc980dcaef96b706e' alt='Фото' width={200} height={200} />
-          </div>
-        </div>
+        <HeaderAlt
+          title={'Аниматоры, квесты и шоу-программы для детей любого возраста'}
+          subTitle={'Профессиональные аниматоры с большим опытом проведения детских праздников с красивыми, качественными костюмами и оборудованием'}
+          imageSrc={HEADER_IMAGE}
+          secondaryImageSrc={SECONDARY_HEADER_IMAGE}
+          imageWrapperClassName={c.childrenShowPage__headerImageWrapper}
+        />
         <div className={c.childrenShowPage__content}>
           <div className={c.childrenShowPage__contentTitleWrapper}>
             <p className={c.childrenShowPage__contentTitle}>Множество активностей для детей от 2 лет и подростков</p>
           </div>
-          <div className={c.variants}>
-            {variants}
-          </div>
-          <div className={c.childrenShowPage__description}>
-            <p className={c.childrenShowPage__descriptionTitle}>Стандартная анимационная программа включает в себя:</p>
-            <div className={c.childrenShowPage__descriptionList}>
-              <p className={c.childrenShowPage__descriptionItem}>1 аниматор в костюме любимого персонажа</p>
-              <p className={c.childrenShowPage__descriptionItem}>Индивидуальный сценарий</p>
-              <p className={c.childrenShowPage__descriptionItem}>Музыкальное сопровождение</p>
-              <p className={c.childrenShowPage__descriptionItem}>Игры и конкурсы с тематическим реквизитом</p>
-              <p className={c.childrenShowPage__descriptionItem}>Вынос вашего торта аниматором</p>
-              <p className={c.childrenShowPage__descriptionItem}>Фотосессия с артистами</p>
-            </div>
-            <p className={c.childrenShowPage__descriptionAddition}>На этапе планирования анимационной программы вы можете добавить дополнительные опции. <br />Например: дополнительный артист, шоу-программа на выбор, оформление площадки воздушными шарами или создание яркой фотозоны.</p>
-          </div>
+          <VariantsComponent data={variantsData} />
+          <ComplexSection data={complexData} />
           <div className={c.childrenShowPage__stepsWrapper}>
             <p className={c.childrenShowPage__stepsTitle}>Занимаемся организацией детских праздников уже более 10 лет!</p>
             <p className={c.childrenShowPage__stepsSubTitle}>В нашей дружной команде работают самые лучшие аниматоры с огромным опытом работы с детьми.</p>
@@ -215,34 +169,18 @@ export const ChildrenShowPage = () => {
               {steps}
             </div>
           </div>
-          <div className={c.childrenShowPage__complex}>
-            <p className={c.childrenShowPage__complexTitle}>
-              При заказе комплекса услуг, <br />праздник получается ярче и выгоднее!
-            </p>
-            <div className={c.childrenShowPage__complexContent}>
-              {complexItems}
-            </div>
-          </div>
-          <SecondaryGallerySection
-            dataArr={mockGalleryDataArr}
-            // reversed
+          <GallerySectionAlt
+            data={childrenShowGalleryData}
             title={'Яркие моменты праздников с нашими аниматорами'}
           />
           <div className={c.childrenShowPage__reviews}>
             <ReviewsSection />
           </div>
-          <SecondaryFeedbackComponent
+          <FeedbackAlt
             imageSrc={FEEDBACK_IMAGE}
             imageClassName={c.childrenShowPage__feedbackImage} 
           />
-          <div className={c.additional}>
-            <p className={c.additional__title}>
-              Популярные услуги:
-            </p>
-            <div className={c.additional__content}>
-              {additionalItems}
-            </div>
-          </div>
+          <AdditionalSection location={location} />
         </div>
       </div>
       <FloatButtonComponent />
