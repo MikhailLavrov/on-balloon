@@ -1,7 +1,7 @@
 import c from './Header.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import { Affix, Badge } from 'antd';
 import { HeartOutlined, UserOutlined, ShoppingCartOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import LOGO_IMG from '../../assets/logotext.png';
@@ -58,9 +58,9 @@ export const HeaderComponent = () => {
             <SearchComponent className={c.searchComponent} />
             <div className={c.header__mainControls}>
               <Link to={'/favourites'} title='Перейти в избранное'>
-              <Badge count={favouritesCountState}>
-                <HeartOutlined style={{ fontSize: '20px' }} />
-              </Badge>
+                <Badge count={favouritesCountState}>
+                  <HeartOutlined style={{ fontSize: '20px' }} />
+                </Badge>
                 <span>Избранное</span>
               </Link>
               <Link to={'/cart'} title='Перейти в корзину'>
@@ -87,9 +87,9 @@ export const HeaderComponent = () => {
         <SearchComponent className={c.searchComponent} />
         <div className={c.header__mainControls}>
           <Link to={'/favourites'} title='Перейти в избранное'>
-          <Badge count={favouritesCountState}>
-            <HeartOutlined style={{ fontSize: '20px' }} />
-          </Badge>
+            <Badge count={favouritesCountState}>
+              <HeartOutlined style={{ fontSize: '20px' }} />
+            </Badge>
             <span>Избранное</span>
           </Link>
           <Link to={'/cart'} title='Перейти в корзину'>

@@ -2,7 +2,34 @@
 @import '../../styles/mixins.scss';
 @import '../../styles/global.scss';
 
-.callbackForm {
+.callback {
+  max-width: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.callback__submitCover {
+  height: 100%;
+  min-height: 151px;
+  
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.callback__submitTitle {
+  font-weight: 500;
+  user-select: none;
+}
+
+.callback__form {
   width: 100%;
   max-width: 350px;
   
@@ -10,10 +37,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-
-  & > div {
-    margin-bottom: 10px;
-  }
+  gap: 10px;
 
   & input {
     padding: 10px;
@@ -35,7 +59,18 @@
     }
   }
   
-  & button {
+  & label {
+    padding: 10px 0;
+    
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 10px;
+    
+    user-select: none;
+  }
+  
+  & input[type="submit"] {
     margin-bottom: 0;
     padding: 10px 30px;
 
@@ -44,21 +79,23 @@
     font-size: $fz-s;
     font-family: $ff-tilda;
     font-weight: 500;
+    color: $base-light-color;
     
     border: none;
     border-radius: 6px;
-    cursor: pointer;
     background-color: $color-red;
-    color: $base-light-color;
+    background: linear-gradient(to right bottom, $color-red, $color-orange);
+    box-shadow: 0 3px 5px 0px rgba($base-dark-color, 0.3);
+    
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
   
-    box-shadow: 
-      -5px -5px 10px $base-light-color,
-      0 3px 5px 0px rgba($base-dark-color, 0.3);
   
     &:hover {
-      background-color: $color-red-light;
       color: $base-light-color;
+
+      background-color: $color-red-light;
+      opacity: 0.9;
     }
 
     &:disabled {

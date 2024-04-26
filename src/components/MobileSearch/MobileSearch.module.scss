@@ -1,8 +1,0 @@
-@import '../../styles/vars.scss';
-@import '../../styles/mixins.scss';
-
-.mobileSearch {
-  @include vp-1260 {
-    display: none;
-  }
-}

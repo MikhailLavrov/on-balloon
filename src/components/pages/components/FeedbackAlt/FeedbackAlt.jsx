@@ -12,6 +12,7 @@ export const FeedbackAlt = (props) => {
 
   return (
     <div className={c.feedback}>
+      <div className={`container ${c.feedback__container}`}>
       <div className={c.feedback__textWrapper}>
         <p className={c.feedback__title}>{title}</p>
         <div className={c.feedback__contacts}>
@@ -31,6 +32,8 @@ export const FeedbackAlt = (props) => {
         <img className={imageClassName} src={imageSrc} alt="Фото" width={200} />
       </div>
       }
+        
+      </div>
     </div>
   )
 }

@@ -2,38 +2,73 @@
 @import '../../../../styles/mixins.scss';
 
 .feedback {
-  padding: 50px;
-  margin-bottom: 20px;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-
+  padding: 30px 0;
+  
   background-color: $color-grey-light;
   background: linear-gradient($color-grey-light-2, $color-grey-light 80%);
   border-radius: 10px;
+  
+  font-family: $ff-tilda;
+  
+  @include vp-1260 {
+    padding: 50px;
+
+  }
+}
+
+.feedback__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }
 
 .feedback__textWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
+
+  @include vp-1260 {
+    gap: 40px;
+
+  }
 }
 
 .feedback__title {
   margin: 0;
-  max-width: 90%;
   
-  font-size: $fz-l;
+  font-size: $fz-m;
   font-weight: 500;
   line-height: 1;
+  text-align: center;
+
+  @include vp-768 {
+    text-align: left;
+  }
+  
+  @include vp-1260 {
+    max-width: 90%;
+    font-size: $fz-l;
+
+  }
 }
 
 .feedback__contacts {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include vp-1260 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 }
 
 .feedback__callMe {
@@ -43,13 +78,8 @@
 
   & p {
     margin: 0;
-
-    &:first-child {
-      font-size: $fz-m;
-    }
-    &:last-child {
-      font-size: $fz-m;
-    }
+    
+    font-size: calc($fz-m - 2px);
   }
 }
 
@@ -61,7 +91,7 @@
   & p {
     margin: 0;
 
-    font-size: $fz-m;
+    font-size: calc($fz-m - 2px);
   }
 }
 
@@ -89,12 +119,17 @@
 }
 
 .feedback__button {
-  padding: 15px 30px;
+  padding: 5px 20px;
+
   width: fit-content;
+  height: auto;
+
   display: flex;
   align-items: center;
 
+  font-size: $fz-s;
   color: $base-light-color;
+  font-family: $ff-tilda;
   
   border: none;
   border-radius: 20px;
@@ -104,6 +139,10 @@
   &:hover {
     background-color: rgba($color-orange, 0.8) !important;
     color: $base-light-color !important;
+  }
+
+  @include vp-1260 {
+    font-size: calc($fz-m - 2px);
   }
 }
 

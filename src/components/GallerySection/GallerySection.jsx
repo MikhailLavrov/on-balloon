@@ -1,10 +1,10 @@
+import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Image } from 'antd';
+import { Link } from 'react-router-dom';
 import c from './GallerySection.module.scss';
 import { galleryData } from '../../data/galleryData';
-import { Link } from 'react-router-dom';
-import { Image } from 'antd';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { gallerySwiperParams } from '../../data/swiperParams';
-import { useState } from 'react';
 
 export const GallerySection = () => {
   const [ isLinkVisible, setIsLinkVisible ] = useState(false);

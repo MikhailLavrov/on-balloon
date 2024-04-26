@@ -1,62 +1,89 @@
-import { Form, Input, notification } from 'antd';
-import { callMeBackSubmit } from '../../redux/callMeBackSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { TelegramChatButton } from '../TelegramChatButton/TelegramChatButton ';
-import { useState } from 'react';
-import ReactInputMask from 'react-input-mask';
+import { useForm } from "react-hook-form"
+import { useEffect, useState } from "react";
+import ReactInputMask from "react-input-mask";
 import c from './CallbackForm.module.scss';
+import { sendOrder } from "../../utils/SendOrder";
 
-const openNotification = () => {
-  notification.open({
-    message: 'Информация отправлена',
-    description: 'Мы свяжемся с Вами в ближайшее время',
-  });
-};
+export const CallbackForm = ({ outerHandler }) => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
 
-export const CallbackForm = () => {
-  const isSubmittedState = useSelector(state => state.callMeBack.isSubmitted)
-  const [phoneValue, setPhoneValue] = useState('');
-  const [form] = Form.useForm();
-  const nameValue = Form.useWatch('name', form);
-  const dispatch = useDispatch();
+  const [ isSubmitted, setIsSubmitted ] = useState(false);
+  const [ phoneValue, setPhoneValue ] = useState('');
 
-  const onMaskChangeHandler = (e) => {
-    setPhoneValue(e.target.value.replace(/\D/g, ''));
+  useEffect(() => {
+    let isSubmittedSession = sessionStorage.getItem('submitted');
+    if (isSubmittedSession === 'true') {
+      setIsSubmitted(true)
+    }
+  }, []);
+
+  const handlePhoneChange = (event) => {
+    setPhoneValue(event.target.value.replace(/\D/g, ''));
   };
   
-  const onSubmitHandler = () => {
-    dispatch(callMeBackSubmit(true));
+  const onSubmitHandler = (data) => {
     sessionStorage.setItem('submitted', 'true');
-    openNotification();
+    setIsSubmitted(true);
+    outerHandler && outerHandler();
+    sendOrder({
+      message: `Заявка с сайта на обратный звонок\n Имя: ${data.name}\n Телефон: ${data.phone}`,
+    })
   }
-  
+
+  const nameValue = watch("name");
+  const agreementValue = watch("agreement");
+
   return (
-    <Form form={form} className={c.callbackForm}>
+  <div className={c.callback}>
+    {
+      isSubmitted ? (
+        <div className={c.callback__submitCover}>
+          <h2 className={c.callback__submitTitle}>Заявка отправлена!</h2>
+          <p className={c.callback__submitSubtitle}>Мы вам перезвоним</p>
+        </div>
+      )
+    : <form 
+        onSubmit={handleSubmit(onSubmitHandler)}
+        className={c.callback__form}
+      >
+        <input
+          {...register("name", { required: true, minLength: 2 })}
+          placeholder='Ваше имя'
+        />
+        {errors.name && <span>Заполните поле</span>}
 
-      <Form.Item name="name">
-        <Input placeholder='Ваше имя' required />
-      </Form.Item>
-
-      <Form.Item name="phone">
         <ReactInputMask
+          {...register("phone", { required: true, minLength: 11 })}
           type='text'
           mask='+7 (999) 999-99-99'
-          value={phoneValue > 0 ? phoneValue : ''}
-          onChange={onMaskChangeHandler}
+          value={phoneValue}
+          onChange={handlePhoneChange}
           required
           placeholder='+7 (___) ___-__-__'
         />
-      </Form.Item>
-      
-      <Form.Item>
-        <TelegramChatButton 
-          buttonText={isSubmittedState ? "Данные отправлены" : "Отправить"}
-          message={`Заявка с сайта на обратный звонок\n Имя: ${nameValue}\n Телефон: ${phoneValue}`}
-          disabled={!phoneValue || phoneValue.length < 11 || !nameValue || nameValue < 2}
-          outerHandler={onSubmitHandler}
-        />
-      </Form.Item>
+        {errors.phone && <span>Заполните поле</span>}
 
-    </Form>
+        <label htmlFor="agreement">
+          <input 
+            type="checkbox"
+            id='agreement'
+            {...register("agreement", { required: true })} 
+          />
+          Соглашаюсь на обработку персональных данных
+        </label>
+        {errors.name && <span>Необходимо подтверждение</span>}
+
+        <input
+          type="submit"
+          disabled={!phoneValue || phoneValue.length < 11 || !nameValue || nameValue.length < 2 || !agreementValue}
+        />
+      </form>
+    }
+  </div>
   )
 }

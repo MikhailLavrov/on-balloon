@@ -139,7 +139,7 @@ export const ShoppingCartPage = () => {
   }
    
   // Отправка сообщения в Telegram
-  const sendToTelegramChat = async (message) => {
+  const sendOrder = async (message) => {
     const POST_REQUEST_URL = `${BASE_URL}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}`;
     try {
       await fetch(POST_REQUEST_URL);
@@ -152,7 +152,7 @@ export const ShoppingCartPage = () => {
   // Отправка заказа в Telegram
   const onFinish = async (values) => {
     const message = formatOrderInfo(values);
-    await sendToTelegramChat(message);
+    await sendOrder(message);
   };
 
   return (

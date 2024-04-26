@@ -45,3 +45,9 @@
 
   transform: translateX(10px);
 }
+
+.callMeBack__modal {
+  & .ant-modal-header {
+    margin-bottom: 20px;
+  }
+}
