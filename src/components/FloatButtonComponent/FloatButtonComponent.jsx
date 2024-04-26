@@ -6,6 +6,9 @@ const { BackTop } = FloatButton;
 
 export const FloatButtonComponent = () => {
   return (
-    <BackTop icon={<ArrowUpOutlined />} className={c.floatButton} />
+    <BackTop 
+      icon={<ArrowUpOutlined />}
+      className={c.floatButton} 
+    />
   )
 }
