@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Badge } from 'antd';
+import { Badge, Pagination } from 'antd';
 import c from './CatalogPage.module.scss';
 import { CatalogCard } from '../../CatalogCard/CatalogCard';
 import { animationData } from '../../../data/catalogData/animationData';
@@ -15,14 +15,18 @@ const allData = [...animationData, ...attractionsData, ...balloonsData, ...photo
 export const CatalogContent = () => {
   const {topcategory, category} = useParams();
   const [selectedTopCategory, setSelectedTopCategory] = useState(topcategory);
+  const [currentPage, setCurrentPage] = useState(1);
   const [searchParams] = useSearchParams();
 
   const filteredColor = searchParams.get('palette') || '';
 
-  // При смене категории, скролл наверх
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [category]);
+  }, [category, currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [category, topcategory, filteredColor]);
 
    // Установим первый подраздел первой категории по умолчанию
   useEffect(() => {
@@ -119,7 +123,36 @@ export const CatalogContent = () => {
       catalogItems = null;
       break;
   }
-  
+
+  const totalDataCount = catalogItems.length;
+  const itemsPerPage = 20;
+
+  const onChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const lastItemIndex = currentPage * itemsPerPage;
+  const firstItemIndex = lastItemIndex - itemsPerPage;
+  const paginationSlicedItems = catalogItems.slice(firstItemIndex, lastItemIndex)
+
+  const PaginationComponent = ({className}) => {
+    return (
+      <Pagination
+        className={`catalog__pagination ${className}`}
+        current={currentPage}
+        defaultCurrent={1}
+        defaultPageSize={itemsPerPage}
+        total={totalDataCount}
+        onChange={onChange}
+        hideOnSinglePage
+        showSizeChanger={false}
+        responsive={true}
+        showTitle={false}
+        simple={true}
+      />
+    )
+  }
+
   return (
     <div className={c.content__container}>
       {selectedTopCategory && (
@@ -147,10 +180,14 @@ export const CatalogContent = () => {
           )}
         </>
       )}
-  
-      <div className={c.catalog__content}>
-        {catalogItems}
+      <div className={c.pagination__wrapper}>
+        {totalDataCount > itemsPerPage && <span>Страница:</span>}
+        <PaginationComponent className={`${c.pagination} ${c.pagination__top}`} />
       </div>
+      <div className={c.catalog__content}>
+        {paginationSlicedItems}
+      </div>
+      <PaginationComponent className={`${c.pagination} ${c.pagination__bottom}`} />
     </div>
   );
 };
