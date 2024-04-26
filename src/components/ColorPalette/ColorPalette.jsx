@@ -50,13 +50,26 @@ export const ColorPalette = () => {
     setSearchParams({});
   };
 
-  const currentCategoryItems = balloonsData.filter(item => item.category.includes(category));
-  const palette = currentCategoryItems.reduce((acc, item) => {
-    if (item.palette) {
-      acc.push(...item.palette);
-    }
-    return acc;
-  }, []);
+  
+  let palette;
+  
+  if (category) {
+    const currentCategoryItems = balloonsData.filter(item => item.category.includes(category));
+    
+    palette = currentCategoryItems.reduce((acc, item) => {
+      if (item.palette) {
+        acc.push(...item.palette);
+      }
+      return acc;
+    }, []);
+  } else {
+    palette = balloonsData.reduce((acc, item) => {
+      if (item.palette) {
+        acc.push(...item.palette);
+      }
+      return acc;
+    }, []);
+  }
 
   const sortedPalette = orderedColors.filter(color => palette.includes(color));
 

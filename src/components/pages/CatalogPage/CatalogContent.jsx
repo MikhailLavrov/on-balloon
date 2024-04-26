@@ -10,23 +10,6 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { catalogMenuData } from './../../../data/catalogData/catalogMenuData';
 import { ColorPalette } from '../../ColorPalette/ColorPalette';
 
-
-// const [catalogData, setCatalogData] = useState(null);
-
-// useEffect(() => {
-//   const fetchData = async () => {
-//     try {
-//       const response = await fetch('https://raw.githubusercontent.com/MikhailLavrov/on-balloon/master/src/data/catalogData/balloonsData.js');
-//       const data = await response.json();
-//       setCatalogData(data);
-//     } catch (error) {
-//       console.error('Ошибка при загрузке данных:', error);
-//     }
-//   };
-
-//   fetchData();
-// }, []);
-
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
 export const CatalogContent = () => {
@@ -56,17 +39,34 @@ export const CatalogContent = () => {
         key={subcategory.key}
         to={`/catalog/${selectedTopCategory}/${subcategory.key}`}
         className={`${c.subcategory__link} ${subcategory.key === category ? c.subcategory__linkActive : ''}`}
-        // style={{ backgroundColor: subcategory.key === category ? '#9e7ffd' : '#eeeeee',
-        // color: subcategory.key === category ? '#fff' : '#000', transition: 'all 200ms ease' }}
       >
         {subcategory.label}
       </Link>
     ));
   };
 
-  const filterCatalogData = (data) => {
+  const filterCurrentCategoryData = (data) => {
     return data
       .filter(item => item.category.includes(category))
+      .filter(item => !filteredColor || (item.palette && item.palette.includes(filteredColor)))
+      .map((item) => (
+        item.oldPrice ? (
+          <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
+            <CatalogCard {...item} />
+          </Badge.Ribbon>
+        ) : item.hit ? (
+          <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
+            <CatalogCard {...item} />
+          </Badge.Ribbon>
+        ) : (
+          <CatalogCard key={item.article} {...item} />
+        )
+      )
+    );
+  };
+
+  const filterAllCategoriesData = (data) => {
+    return data
       .filter(item => !filteredColor || (item.palette && item.palette.includes(filteredColor)))
       .map((item) => (
         item.oldPrice ? (
@@ -104,16 +104,16 @@ export const CatalogContent = () => {
       ];
       break;
     case 'balloons':
-      catalogItems = filterCatalogData(balloonsData);
+      catalogItems = !category ? filterAllCategoriesData(balloonsData) : filterCurrentCategoryData(balloonsData);
       break;
     case 'photozone':
-      catalogItems = filterCatalogData(photozoneData);
+      catalogItems = !category ? filterAllCategoriesData(photozoneData) : filterCurrentCategoryData(photozoneData);
       break;
     case 'animation':
-      catalogItems = filterCatalogData(animationData);
+      catalogItems = !category ? filterAllCategoriesData(animationData) : filterCurrentCategoryData(animationData);
       break;
     case 'attractions':
-      catalogItems = filterCatalogData(attractionsData);
+      catalogItems = !category ? filterAllCategoriesData(attractionsData) : filterCurrentCategoryData(attractionsData);
       break;
     default:
       catalogItems = null;
@@ -125,15 +125,22 @@ export const CatalogContent = () => {
       {selectedTopCategory && (
         <>
           <div className={c.subcategories__container}>
-            {catalogMenuData.map((category) =>
-              category.key === selectedTopCategory && category.children ? (
-                <div key={category.key} className={c.subcategories}>
-                  {renderSubcategories(category.children)}
+            {catalogMenuData.map((menuTopCategory) =>
+              menuTopCategory.key === selectedTopCategory && menuTopCategory.children ? (
+                <div key={menuTopCategory.key} className={c.subcategories}>
+                  <Link
+                    key={'all'}
+                    to={`/catalog/${selectedTopCategory}`}
+                    className={`${c.subcategory__link} ${!category ? c.subcategory__linkActive : ''}`}
+                  >
+                    Все
+                  </Link>
+                  {renderSubcategories(menuTopCategory.children)}
                 </div>
               ) : null
               )}
           </div>
-          {topcategory === 'balloons' && category && (
+          {topcategory === 'balloons' && (
             <div className={c.mobileColorPalette}>
               <ColorPalette />
             </div>

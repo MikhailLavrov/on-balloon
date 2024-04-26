@@ -24,7 +24,7 @@ export const MobileCatalogDrawer = () => {
   }
   
   const onTopMenuClickHandler = (item) => {
-    navigate(item.children ? `/catalog/${item.key}/${item.children[0].key}` : `/catalog/${item.key}`)
+    navigate(`/catalog/${item.key}`)
     toggleDrawer();
   }
 

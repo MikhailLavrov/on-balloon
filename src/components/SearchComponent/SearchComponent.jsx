@@ -27,6 +27,7 @@ export const SearchComponent = ({ className, onSearch, onCloseDrawer }) => {
       }}
     >
       <Search
+        name='search'
         className={className}
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
