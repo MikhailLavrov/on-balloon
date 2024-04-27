@@ -1,22 +1,20 @@
 import React, { useEffect } from 'react';
 import c from './CatalogCardModal.module.scss';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { Badge, Button, ConfigProvider, message, Modal, Tabs } from 'antd';
 import LOGO_IMG from '../../assets/logotext.png';
 import { CheckCircleFilled, HeartFilled, HeartOutlined, ReadOutlined, ShoppingCartOutlined, TruckOutlined } from '@ant-design/icons';
-import { personalData } from '../../data/personalData';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { cardAdditionalData } from '../../data/cardAdditionalData';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-// import { TelegramShareButton, TelegramIcon, ViberShareButton, VKShareButton, WhatsappShareButton } from "react-share";
+import { TelegramShareButton, ViberShareButton, VKShareButton, WhatsappShareButton } from "react-share";
 
 const {delivery, payment, guarantee} = cardAdditionalData;
 
 export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavorites, isFavorite, togglePurchases, isInCart}) => {
   const { article, title, description, price, oldPrice, image, hit, count } = item;
   const [ searchParams, setSearchParams ] = useSearchParams();
-  const whatsappLinkData = `https://api.whatsapp.com/send/?phone=${personalData.phone}&text=Здравствуйте, меня заинтересовал товар: \n${title}. \nАртикул: ${article} &type=phone_number&app_absent=0.`;
-  // const currentUrl = window.location.href;
+  const currentUrl = window.location.href;
 
   useEffect(() => {
     const product = searchParams.get('product');
@@ -115,28 +113,37 @@ export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavor
             <div className={c.cardModal__userActions}>
         {/* В избранное и В корзину */}
               <div className={c.cardModal__userActionsInner}>
-                <Button onClick={toggleFavorites}>{favoritesButtonIcon} {favoritesButtonText}</Button>
-                <Button onClick={togglePurchases}>{shoppingCartButtonIcon} {shoppingCartButtonText}</Button>
+                <Button 
+                  onClick={toggleFavorites} 
+                  size="large"
+                  style={{fontSize: "15px", fontFamily: "Tilda Sans"}}
+                >
+                  {favoritesButtonIcon} {favoritesButtonText}
+                </Button>
+                <Button 
+                  onClick={togglePurchases} 
+                  size="large"
+                  style={{fontSize: "15px", fontFamily: "Tilda Sans"}}
+                >
+                  {shoppingCartButtonIcon} {shoppingCartButtonText}
+                </Button>
               </div>
-              <div className={c.cardModal__userActionsOuter}>
-                <p className={c.cardModal__userActionsOuterNotation}>Задать вопрос:</p>
-                <div className={c.cardModal__userActionsOuterLinks}>
-                  <Link target = "_blank" to={personalData.telegram}>
-                    <SvgIcon icon='telegram' />
-                  </Link>
-                  <Link target = "_blank" to={whatsappLinkData}>
-                    <SvgIcon icon='whatsapp' />
-                  </Link>
-                  <Link target = "_blank" to={personalData.vkGroupMessageLink}>
-                    <SvgIcon icon='vk' />
-                  </Link>
-                  <a href={`tel:${personalData.phone}`}>
-                    <SvgIcon icon='phone' />
-                  </a>
+              <div className={c.cardModal__shareWrapper}>
+                <p className={c.cardModal__shareTitle}>Поделиться:</p>
+                <div className={c.cardModal__shareLinks}>
+                  <TelegramShareButton url={currentUrl} className={c.cardModal__shareLink}>
+                    <SvgIcon icon='telegram' className={c.svgIcon} />
+                  </TelegramShareButton>
+                  <WhatsappShareButton url={currentUrl} className={c.cardModal__shareLink}>
+                    <SvgIcon icon='whatsapp' className={c.svgIcon} />
+                  </WhatsappShareButton>
+                  <VKShareButton url={currentUrl} className={c.cardModal__shareLink}>
+                    <SvgIcon icon='vk' className={c.svgIcon} />
+                  </VKShareButton>
+                  <ViberShareButton url={currentUrl} className={c.cardModal__shareLink}>
+                    <SvgIcon icon='viber' className={c.svgIcon} />
+                  </ViberShareButton>
                 </div>
-                {/* <TelegramShareButton url={currentUrl}>
-                  <TelegramIcon size={25} round />
-                </TelegramShareButton> */}
               </div>
             </div>
           </div>

@@ -12,6 +12,8 @@
 }
 
 .catalogCardModal__tabs {
+  font-family: $ff-tilda;
+  font-size: $fz-s;
 
   @media (max-width: $vp-500) {
 
@@ -27,6 +29,10 @@
 
 .ant-drawer-body {
   padding-bottom: 80px !important;
+}
+
+.catalog__drawer {
+  font-family: $ff-tilda;
 }
 
 .catalog__drawer .ant-drawer-header .ant-drawer-header-title {

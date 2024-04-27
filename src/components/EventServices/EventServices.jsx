@@ -32,16 +32,16 @@ export const eventServicesData = [
 export const EventServices = () => {
 
   const items = eventServicesData.map((item, index) => (
-    <div className={c.eventServices__item} key={index}>
-      <div className={c.eventServices__imageWrapper}>
-        <img className={c.eventServices__image} src={item.image} alt={item.title} width={200} height={200} />
-        <Link className={c.eventServices__itemTextWrapper} to={item.link}>
+    <Link className={c.eventServices__itemLink} key={index} to={item.link}>
+      <div className={c.eventServices__itemImageWrapper}>
+        <img className={c.eventServices__itemImage} src={item.image} alt={item.title} width={200} height={200} />
+        <div className={c.eventServices__itemTextWrapper}>
           <p className={c.eventServices__itemText}>{item.text}</p>
           <RightCircleOutlined className={c.eventServices__itemIcon} />
-        </Link>
+        </div>
       </div>
       <h3 className={c.eventServices__itemTitle}>{item.title}</h3>
-    </div>
+    </Link>
   ))
 
   return (
