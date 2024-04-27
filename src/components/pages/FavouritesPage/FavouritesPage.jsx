@@ -25,7 +25,7 @@ export const FavouritesPage = () => {
 
   return (
     <section className={c.favourites}>
-      <div className='container'>
+      <div className={`${c.favourites__container} container`}>
         <BreadcrumbsComponent pageName={'Избранное'} />
         <h1 className={c.favourites__title}>Избранное</h1>
         {favouritesState && favouritesState.length !== 0 && (

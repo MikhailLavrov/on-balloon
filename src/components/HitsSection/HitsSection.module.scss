@@ -9,6 +9,7 @@
   background-color: $base-light-color;
 
   overflow: hidden;
+  position: relative;
 
   & * {
     user-select: none;

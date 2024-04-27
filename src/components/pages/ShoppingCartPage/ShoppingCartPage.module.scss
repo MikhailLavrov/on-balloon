@@ -9,11 +9,15 @@
   font-family: $ff-tilda;
 
   background-color: $base-light-color;
-  // background-color: $color-red;
   
   @include vp-1260 {
     padding: 20px 0;
   }
+}
+
+.shoppingCart__container {
+  display: flex;
+  flex-direction: column;
 }
 
 .shoppingCart__title {
@@ -31,8 +35,6 @@
   }
 }
 
-// ===========mainContent=============
-
 .shoppingCart__mainContent {
   @include vp-1260 {
     display: grid;
@@ -41,8 +43,6 @@
     grid-template-rows: auto auto;
   }
 }
-
-// ===========listContainer=============
 
 .shoppingCart__listContainer {
   padding: 10px 0 15px;
@@ -56,8 +56,6 @@
     align-self: flex-start;
   }
 }
-
-// ===========footer=============
 
 .shoppingCart__footer {
   display: flex;
@@ -194,36 +192,6 @@
 
     outline: none;
     border: none;
-  }
-}
-
-.reactInputMask {
-  padding: 4px 11px;
-  
-  font-size: 14px;
-  line-height: 1.57;
-  
-  transition: all 0.2s;
-  
-  border: 1px solid #d9d9d9;
-  border-radius: 6px;
-  box-sizing: border-box;
-
-  &::placeholder {
-    color: $color-grey;
-  }
-
-  &:active,
-  &:focus,
-  &:hover {
-    outline: none;
-    border-color: #1677ff;
-  }
-}
-
-.form {
-  & textarea {
-    resize: none;
   }
 }
 
