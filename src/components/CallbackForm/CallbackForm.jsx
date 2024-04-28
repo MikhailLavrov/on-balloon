@@ -36,7 +36,7 @@ export const CallbackForm = ({ outerHandler }) => {
   }
 
   const nameValue = watch("name");
-  const agreementValue = watch("agreement");
+  const agreementValue = watch("callbackAgreement");
 
   return (
   <div className={c.callback}>
@@ -49,34 +49,38 @@ export const CallbackForm = ({ outerHandler }) => {
       )
     : <form 
         onSubmit={handleSubmit(onSubmitHandler)}
-        className={c.callback__form}
+        className={c.form}
       >
-        <input
-          {...register("name", { required: true, minLength: 2 })}
-          placeholder='Ваше имя'
-        />
-        {errors.name && <span>Заполните поле</span>}
+        <label>
+          <input
+            {...register("name", { required: true, minLength: 2 })}
+            placeholder='Ваше имя'
+          />
+          {errors.name && <span className={c.form__error}>Заполните поле</span>}
+        </label>
 
-        <ReactInputMask
-          {...register("phone", { required: true, minLength: 11 })}
-          type='text'
-          mask='+7 (999) 999-99-99'
-          value={phoneValue}
-          onChange={handlePhoneChange}
-          required
-          placeholder='+7 (___) ___-__-__'
-        />
-        {errors.phone && <span>Заполните поле</span>}
+        <label>
+          <ReactInputMask
+            {...register("phone", { required: true, minLength: 11 })}
+            type='text'
+            mask='+7 (999) 999-99-99'
+            value={phoneValue}
+            onChange={handlePhoneChange}
+            required
+            placeholder='+7 (___) ___-__-__'
+            />
+          {errors.phone && <span>Заполните поле</span>}
+        </label>
 
-        <label htmlFor="agreement">
+        <label htmlFor="callbackAgreement" className={c.form__agreementLabel}>
           <input 
             type="checkbox"
-            id='agreement'
-            {...register("agreement", { required: true })} 
+            id='callbackAgreement'
+            {...register("callbackAgreement", { required: true })} 
           />
           Соглашаюсь на обработку персональных данных
+          {errors?.callbackAgreement && <span className={c.form__error}>Необходимо подтверждение</span>}
         </label>
-        {errors.name && <span>Необходимо подтверждение</span>}
 
         <input
           type="submit"

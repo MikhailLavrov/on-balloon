@@ -33,14 +33,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  gap: 10px;
   
   & label {
     padding: 10px 0;
     
     display: flex;
     flex-direction: column;
-    gap: 10px;
     
     user-select: none;
 
@@ -50,16 +48,23 @@
     }
   }
 
-  & label[id="agreement"] {
-    flex-direction: row;
-    align-items: baseline;
+  & .form__agreementLabel {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 5px;
 
     & input {
       width: auto;
     }
+
+    & .form__error {
+     grid-column: 1/-1; 
+    }
   }
 
-  & input {
+  & input,
+  & textarea {
     padding: 10px;
 
     width: 100%;
@@ -69,6 +74,7 @@
     
     font-size: $fz-s;
     line-height: 1;
+    font-family: $ff-tilda;
     
     border-radius: 6px;
     outline: none;
@@ -118,8 +124,16 @@
     }
   }
 
-  & input[type="textarea"] {
+  & textarea {
     resize: none;
     height: 80px;
   }
+}
+
+.form__inputTitle {
+  margin-bottom: 10px;
+}
+
+.form__error {
+  color: $color-red;
 }

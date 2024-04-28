@@ -23,6 +23,7 @@ export const SearchComponent = ({ className, onSearch, onCloseDrawer }) => {
         token: {
           colorPrimary: '#FA3D03',
           borderRadius: '18px',
+          fontFamily: 'Tilda Sans',
         },
       }}
     >

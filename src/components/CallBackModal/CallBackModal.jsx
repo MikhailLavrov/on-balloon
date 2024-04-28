@@ -34,7 +34,7 @@ export const CallBackModal = (props) => {
         onOk={handleModalClose}
       >
         <div className={c.callMeBack__wrapper}>
-          <CallbackForm outerHandler={handleModalClose} />
+          <CallbackForm outerHandler={() => setTimeout(handleModalClose, 1500)} />
         </div>
       </Modal>
     </>

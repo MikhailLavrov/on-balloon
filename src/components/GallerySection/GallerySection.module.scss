@@ -23,6 +23,12 @@
   }
 }
 
+.gallery__container {
+  @include vp-768 {
+    padding-bottom: 20px;
+  }
+}
+
 .gallery__title {
   margin: 0;
   margin-bottom: 40px;
@@ -71,12 +77,16 @@
   cursor: default;
   border-radius: 8px;
   box-shadow: 0 2px 8px -4px $base-dark-color;
-
+  // max-width: 200px;
+  
   & img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-
+  }
+  
+  @include vp-768 {
+    max-width: 400px;
   }
 }
 

@@ -64,13 +64,13 @@ export const OrderForm = ({setOrderSuccess}) => {
     localStorage.removeItem('shoppingCart');
   };
   
-  const onSubmitHandler = (data) => {
+  const onSubmit = (data) => {
     const message = formatOrderInfo(data);
     
     sendOrder({message: message});
     clearShoppingCart();
 
-    setOrderSuccess(true);
+    setOrderSuccess && setOrderSuccess(true);
   };
 
   const nameValue = watch("name");
@@ -78,21 +78,22 @@ export const OrderForm = ({setOrderSuccess}) => {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmitHandler)}
+      onSubmit={handleSubmit(onSubmit)}
       className={c.form}
     >
       <label htmlFor="name">
-        <span>Ваше имя<small>*</small></span>
+        <span className={c.form__inputTitle}>Ваше имя<small>*</small></span>
         <input 
           type="text"
           id='name'
+          placeholder='Ваше имя'
           {...register("name", { required: true, maxLength: 20 })}
         />
+        {errors?.name && <span className={c.form__error}>Заполните поле</span>}
       </label>
-      {errors.name && <span>Заполните поле</span>}
     
       <label htmlFor="phone">
-        <span>Телефон<small>*</small></span>
+        <span className={c.form__inputTitle}>Телефон<small>*</small></span>
         <ReactInputMask
           {...register("phone", { required: true, minLength: 11 })}
           type='text'
@@ -102,49 +103,52 @@ export const OrderForm = ({setOrderSuccess}) => {
           required
           placeholder='+7 (___) ___-__-__'
         />
+        {errors?.phone && <span className={c.form__error}>Заполните поле</span>}
       </label>
-      {errors.phone && <span>Заполните поле</span>}
       
       <label htmlFor="deliveryAddress">
-        <span>Адрес доставки<small>*</small></span>
+        <span className={c.form__inputTitle}>Адрес доставки<small>*</small></span>
         <input 
           type="text"
           id='deliveryAddress'
+          placeholder='Адрес доставки'
           {...register("deliveryAddress", { required: true, maxLength: 50 })} 
         />
+        {errors?.deliveryAddress && <span className={c.form__error}>Заполните поле</span>}
       </label>
-      {errors.deliveryAddress && <span>Заполните поле</span>}
       
       <label htmlFor="deliveryTime">
-        <span>Дата мероприятия<small>*</small></span>
+        <span className={c.form__inputTitle}>Дата мероприятия<small>*</small></span>
         <input 
           type="text"
           id='deliveryTime'
+          placeholder='Дата мероприятия'
           {...register("deliveryTime", { required: true, maxLength: 20 })} 
         />
+        {errors?.deliveryTime && <span className={c.form__error}>Заполните поле</span>}
       </label>
-      {errors.deliveryTime && <span>Заполните поле</span>}
       
       <span>* Стоимость доставки уточнит менеджер после подтверждения заказа</span>
       
       <label htmlFor="comment">
-        Комментарий
-        <input 
-          type="textarea"
+        <span className={c.form__inputTitle}>Комментарий</span>
+        <textarea 
+          type="text"
           id='comment'
+          placeholder='Комментарий'
           {...register("comment", {maxLength: 100})} 
         />
       </label>
       
-      <label htmlFor="agreement" id="agreement">
+      <label htmlFor="agreement" className={c.form__agreementLabel}>
         <input 
           type="checkbox"
           id='agreement'
           {...register("agreement", { required: true })} 
         />
         Соглашаюсь на обработку персональных данных
+        {errors?.name && <span className={c.form__error}>Необходимо подтверждение</span>}
       </label>
-      {errors.name && <span>Необходимо подтверждение</span>}
 
       <input
         type="submit"

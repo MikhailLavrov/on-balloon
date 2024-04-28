@@ -30,7 +30,7 @@ export const GallerySection = () => {
 
   return (
     <section className={c.gallery} id='gallery_section'>
-      <div className='container' style={{overflow: 'hidden'}}>
+      <div className={`container ${c.gallery__container}`} style={{overflow: 'hidden'}}>
         <h2 className={c.gallery__title}>
           Наши работы
           <Link className={c.gallery__showMoreLink} to={'/gallery'}>{'>'}</Link>
