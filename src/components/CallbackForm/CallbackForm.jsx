@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import ReactInputMask from "react-input-mask";
 import c from './CallbackForm.module.scss';
 import { sendOrder } from "../../utils/SendOrder";
@@ -24,9 +24,9 @@ export const CallbackForm = ({ outerHandler }) => {
     }
   }, []);
 
-  const handlePhoneChange = (event) => {
+  const handlePhoneChange = useCallback((event) => {
     setPhoneValue(event.target.value.replace(/\D/g, ''));
-  };
+  }, []);
   
   const onSubmit = (data) => {
     sessionStorage.setItem('submitted', 'true');
@@ -37,6 +37,8 @@ export const CallbackForm = ({ outerHandler }) => {
     });
     reset();
   }
+
+  const memoizedPhoneValue = useMemo(() => phoneValue, [phoneValue]);
 
   return (
   <div className={c.callback}>
@@ -50,6 +52,7 @@ export const CallbackForm = ({ outerHandler }) => {
     : <form 
         onSubmit={handleSubmit(onSubmit)}
         className={c.form}
+        autoComplete='false'
       >
         <label>
           <input
@@ -84,7 +87,7 @@ export const CallbackForm = ({ outerHandler }) => {
             })}
             type='text'
             mask='+7 (999) 999-99-99'
-            value={phoneValue}
+            value={memoizedPhoneValue}
             onChange={handlePhoneChange}
             required
             placeholder='+7 (___) ___-__-__'
@@ -104,7 +107,7 @@ export const CallbackForm = ({ outerHandler }) => {
           {errors?.callbackAgreement && <span className={c.form__error}>{errors?.callbackAgreement?.message || 'Необходимо подтверждение'}</span>}
         </label>
 
-        <input type="submit" disabled={!isValid} />
+        <input type="submit" disabled={!isValid || !phoneValue || phoneValue.length < 11} />
       </form>
     }
   </div>

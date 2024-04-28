@@ -1,23 +1,18 @@
 import { Result } from 'antd';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import c from './ShoppingCartPage.module.scss';
 import { CatalogRowCard } from '../../CatalogRowCard/CatalogRowCard';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDrawer';
 import { EmptyToCatalog } from '../components/EmptyToCatalog/EmptyToCatalog';
 import { OrderForm } from '../../OrderForm/OrderForm';
+import { Link } from 'react-router-dom';
 
 export const ShoppingCartPage = () => {
-  const shoppingCartState = useSelector(state => state.shoppingCart.items)
-  const [currentCartItems, setCurrentCartItems] = useState(shoppingCartState);
+  const shoppingCartState = useSelector(state => state.shoppingCart.items);
   const [orderSuccess, setOrderSuccess] = useState(false);
-  
-  // Инициализируем состав корзины из state
-  useEffect(() => {
-    setCurrentCartItems(shoppingCartState);
-  }, [shoppingCartState])
+  const currentCartItems = useMemo(() => shoppingCartState, [shoppingCartState]);
 
   // Получение общей стоимости и скидки
   const [totalPrice, totalDiscount] = useMemo(() => {
@@ -31,24 +26,10 @@ export const ShoppingCartPage = () => {
     });
     return [totalPrice, totalDiscount];
   }, [shoppingCartState]);
-
-  // Получаем общую стоимость корзины С УЧЕТОМ СКИДКИ
-  let getTotalPriceWithDiscount = (array) => {
-    let totalPriceWithDiscount = 0;
-    const itemCount = array.length;
-  
-    for (let i = 0; i < itemCount; i++) {
-      const itemPrice = array[i].price;
-      const itemCount = array[i].count;
-      totalPriceWithDiscount += (itemPrice * itemCount);
-    }
-  
-    return { totalPriceWithDiscount, itemCount };
-  }
-  const { totalPriceWithDiscount, itemCount } = getTotalPriceWithDiscount(shoppingCartState);
   
   // Количество позиций в корзине
   let itemsAmount = '';
+  const itemCount = currentCartItems.length;
   if (itemCount === 1) {
     itemsAmount = `${itemCount} товар`;
   } else if (itemCount > 1 && itemCount < 5) {
@@ -56,6 +37,9 @@ export const ShoppingCartPage = () => {
   } else {
     itemsAmount = `${itemCount} товаров`;
   }
+
+  // Общая стоимость корзины с учетом скидки
+  const totalPriceWithDiscount = useMemo(() => totalPrice - totalDiscount, [totalPrice, totalDiscount]);
 
   return (
     <section className={c.shoppingCart}>
@@ -101,7 +85,7 @@ export const ShoppingCartPage = () => {
               </div>
               <div className={c.shoppingCart__footerClient}>
                 <p className={c.shoppingCart__footerTitle}>Контактная информация</p>
-                <OrderForm setOrderSuccess={setOrderSuccess} />
+                <OrderForm setOrderSuccess={setOrderSuccess} totalPrice={totalPrice} totalDiscount={totalDiscount} />
               </div>
             </div>
           </div>
@@ -114,11 +98,11 @@ export const ShoppingCartPage = () => {
               status="success"
               title="Заказ оформлен!"
               subTitle="После обработки заказа, наш менеджер свяжется с вами, чтобы обсудить детали"
-              extra={[ <Link className={c.onSuccessHomeLink} to={'/'}>На главную</Link>, ]} 
+              extra={[ <Link key="homeLink" className={c.onSuccessHomeLink} to={'/'}>На главную</Link>, ]} 
             />
           )}
       </div>
       <MobileCatalogDrawer />
     </section>
-  )
+  );
 }
