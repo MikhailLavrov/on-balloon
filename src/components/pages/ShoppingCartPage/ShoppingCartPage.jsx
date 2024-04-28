@@ -110,6 +110,7 @@ export const ShoppingCartPage = () => {
           !orderSuccess
           ? <EmptyToCatalog />
           : <Result
+              style={{fontFamily: 'Tilda Sans'}}
               status="success"
               title="Заказ оформлен!"
               subTitle="После обработки заказа, наш менеджер свяжется с вами, чтобы обсудить детали"

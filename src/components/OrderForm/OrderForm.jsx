@@ -10,9 +10,11 @@ export const OrderForm = ({setOrderSuccess}) => {
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm()
+    reset,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: 'onChange',
+  })
 
   const dispatch = useDispatch();
   const shoppingCartState = useSelector(state => state.shoppingCart.items)
@@ -71,10 +73,8 @@ export const OrderForm = ({setOrderSuccess}) => {
     clearShoppingCart();
 
     setOrderSuccess && setOrderSuccess(true);
+    reset();
   };
-
-  const nameValue = watch("name");
-  const agreementValue = watch("agreement");
 
   return (
     <form
@@ -87,23 +87,44 @@ export const OrderForm = ({setOrderSuccess}) => {
           type="text"
           id='name'
           placeholder='Ваше имя'
-          {...register("name", { required: true, maxLength: 20 })}
+          {...register("name", { 
+            required: 'Заполните поле', 
+            pattern: {
+              value: /^[a-zA-Zа-яА-Я\s]+$/,
+              message: 'Имя может состоять только из букв'
+            },
+            minLength: {
+              value: 2,
+              message: 'Минимум 2 символа'
+            },
+            maxLength: {
+              value: 30,
+              message: 'Максимум 30 символов'
+            }
+          })}
         />
-        {errors?.name && <span className={c.form__error}>Заполните поле</span>}
+        {errors?.name && <span className={c.form__error}>{errors?.name?.message || 'Заполните поле'}</span>}
       </label>
     
       <label htmlFor="phone">
         <span className={c.form__inputTitle}>Телефон<small>*</small></span>
         <ReactInputMask
-          {...register("phone", { required: true, minLength: 11 })}
+          {...register("phone", { 
+            required: 'Заполните поле', 
+            minLength: {
+              value: 11,
+              message: 'Укажите правильный номер'
+            },
+          })}
+          id='phone'
           type='text'
           mask='+7 (999) 999-99-99'
           value={phoneValue}
           onChange={handlePhoneChange}
           required
           placeholder='+7 (___) ___-__-__'
-        />
-        {errors?.phone && <span className={c.form__error}>Заполните поле</span>}
+          />
+        {errors?.phone && <span className={c.form__error}>{errors?.phone?.message || 'Заполните поле'}</span>}
       </label>
       
       <label htmlFor="deliveryAddress">
@@ -112,9 +133,15 @@ export const OrderForm = ({setOrderSuccess}) => {
           type="text"
           id='deliveryAddress'
           placeholder='Адрес доставки'
-          {...register("deliveryAddress", { required: true, maxLength: 50 })} 
+          {...register("deliveryAddress", { 
+            required: 'Заполните поле',
+            maxLength: {
+              value: 50,
+              message: 'Сообщение слишком длинное',
+            } 
+          })} 
         />
-        {errors?.deliveryAddress && <span className={c.form__error}>Заполните поле</span>}
+        {errors?.deliveryAddress && <span className={c.form__error}>{errors?.deliveryAddress?.message || 'Заполните поле'}</span>}
       </label>
       
       <label htmlFor="deliveryTime">
@@ -123,9 +150,15 @@ export const OrderForm = ({setOrderSuccess}) => {
           type="text"
           id='deliveryTime'
           placeholder='Дата мероприятия'
-          {...register("deliveryTime", { required: true, maxLength: 20 })} 
+          {...register("deliveryTime", { 
+            required: 'Заполните поле',
+            maxLength: {
+              value: 50,
+              message: 'Сообщение слишком длинное'
+            } 
+          })} 
         />
-        {errors?.deliveryTime && <span className={c.form__error}>Заполните поле</span>}
+        {errors?.deliveryTime && <span className={c.form__error}>{errors?.deliveryTime?.message || 'Заполните поле'}</span>}
       </label>
       
       <span>* Стоимость доставки уточнит менеджер после подтверждения заказа</span>
@@ -136,24 +169,29 @@ export const OrderForm = ({setOrderSuccess}) => {
           type="text"
           id='comment'
           placeholder='Комментарий'
-          {...register("comment", {maxLength: 100})} 
+          {...register("comment", {
+            maxLength: {
+              value: 100,
+              message: 'Сообщение слишком длинное'
+            }
+          })} 
         />
+        {errors?.comment && <span className={c.form__error}>{errors?.comment?.message}</span>}
       </label>
-      
+
       <label htmlFor="agreement" className={c.form__agreementLabel}>
         <input 
           type="checkbox"
           id='agreement'
-          {...register("agreement", { required: true })} 
-        />
+          {...register("agreement", { 
+            required: 'Необходимо подтверждение',
+          }
+        )} />
         Соглашаюсь на обработку персональных данных
-        {errors?.name && <span className={c.form__error}>Необходимо подтверждение</span>}
+        {errors?.agreement && <span className={c.form__error}>{errors?.agreement?.message || 'Необходимо подтверждение'}</span>}
       </label>
 
-      <input
-        type="submit"
-        disabled={!phoneValue || phoneValue.length < 11 || !nameValue || nameValue.length < 2 || !agreementValue}
-      />
+      <input type="submit" disabled={!isValid} />
     </form>
   )
 }
