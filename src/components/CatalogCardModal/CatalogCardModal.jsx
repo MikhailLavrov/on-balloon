@@ -11,8 +11,28 @@ import { TelegramShareButton, ViberShareButton, VKShareButton, WhatsappShareButt
 
 const {delivery, payment, guarantee} = cardAdditionalData;
 
-export const CatalogCardModal = ({item, isModalOpen, setIsModalOpen, toggleFavorites, isFavorite, togglePurchases, isInCart}) => {
-  const { article, title, description, price, oldPrice, image, hit, count } = item;
+export const CatalogCardModal = (props) => {
+  const { 
+    item, 
+    isModalOpen, 
+    setIsModalOpen, 
+    toggleFavorites, 
+    isFavorite, 
+    togglePurchases, 
+    isInCart 
+  } = props;
+
+  const { 
+    article, 
+    title, 
+    description, 
+    price, 
+    oldPrice, 
+    image, 
+    hit, 
+    count 
+  } = item;
+  
   const [ searchParams, setSearchParams ] = useSearchParams();
   const currentUrl = window.location.href;
 

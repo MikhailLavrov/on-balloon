@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import c from './CatalogRowCard.module.scss';
 import { Button } from 'antd';
 import { CloseOutlined, HeartFilled, HeartOutlined } from '@ant-design/icons';
@@ -11,71 +11,35 @@ export const CatalogRowCard = ({...item}) => {
   const { article, title, price, image, count } = item;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
-  let [amount, setAmount] = useState(count);
+  const [amount, setAmount] = useState(count);
   const dispatch = useDispatch();
+  const [isInCart, setIsInCart] = useState(false);
 
-  // Количество +/-
-  const incrementAmount = (event) => {
+  // Корзина
+    useEffect(() => {
+      const goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+      setIsInCart(goods.some(product => product.article === article));
+    }, [article]);
+
+  const toggleFavorites = useCallback((event) => {
     event.stopPropagation();
-    if (amount < 20) {
-      const newAmount = amount + 1;
-      setAmount(newAmount);
-      dispatch(updateItemInShoppingCart({ article, newCount: newAmount }));
-      updateLocalStorage(newAmount);
-    }
-  };
-  
-  const decrementAmount = (event) => {
-    event.stopPropagation();
-    if (amount > 1) {
-      const newAmount = amount - 1;
-      setAmount(newAmount);
-      dispatch(updateItemInShoppingCart({ article, newCount: newAmount }));
-      updateLocalStorage(newAmount);
-    }
-  };
-
-  const updateLocalStorage = (newAmount) => {
-    let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-    const index = shoppingCart.findIndex(product => product.article === article);
-    if (index !== -1) {
-      shoppingCart[index].count = newAmount;
-      localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-    }
-  };
-
-  // Избранное
-  useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    setIsFavorite(favorites.some(favorite => favorite.article === article));
-  }, [article]);
-
-  const toggleFavorites = (event) => {
-    event.stopPropagation();
-    // Переключаем статус избранного и обновляем локальное хранилище
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const index = favorites.findIndex(favorite => favorite.article === article);
     if (index !== -1) {
-      favorites.splice(index, 1); // Удаляем избранный товар
+      favorites.splice(index, 1);
       setIsFavorite(false);
       dispatch(deleteFromFavourites(item));
     } else {
-      favorites.push(item); // Добавляем в избранное
+      favorites.push(item);
       setIsFavorite(true);
       dispatch(addToFavourites(item));
     }
     localStorage.setItem('favorites', JSON.stringify(favorites));
-  };
-  
-  const favoritesButtonIcon = isFavorite ? <HeartFilled style={{color: 'red'}} /> : <HeartOutlined />;
-  
-  // Открытие модалки
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
+  }, [article, dispatch, item]);
 
-  // Удалить из корзины
-  const deleteFromCartHandler = (item) => {
+  const favoritesButtonIcon = useMemo(() => isFavorite ? <HeartFilled style={{color: 'red'}} /> : <HeartOutlined />, [isFavorite]);
+
+  const deleteFromCartHandler = useCallback(() => {
     let goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     const index = goods.findIndex(product => product.article === item.article);
     if (index !== -1) {
@@ -83,7 +47,41 @@ export const CatalogRowCard = ({...item}) => {
       dispatch(deleteFromShoppingCart(item))
     }
     localStorage.setItem('shoppingCart', JSON.stringify(goods));
-  }
+  }, [dispatch, item]);
+
+  const updateLocalStorage = useCallback((newAmount) => {
+    let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    const index = shoppingCart.findIndex(product => product.article === article);
+    if (index !== -1) {
+      shoppingCart[index].count = newAmount;
+      localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+    }
+  }, [article]);
+
+  const incrementAmount = useCallback((event) => {
+    event.stopPropagation();
+    if (amount < 20) {
+      const newAmount = amount + 1;
+      setAmount(newAmount);
+      dispatch(updateItemInShoppingCart({ article, newCount: newAmount }));
+      updateLocalStorage(newAmount);
+    }
+  }, [amount, article, dispatch, updateLocalStorage]);
+
+  const decrementAmount = useCallback((event) => {
+    event.stopPropagation();
+    if (amount > 1) {
+      const newAmount = amount - 1;
+      setAmount(newAmount);
+      dispatch(updateItemInShoppingCart({ article, newCount: newAmount }));
+      updateLocalStorage(newAmount);
+    }
+  }, [amount, article, dispatch, updateLocalStorage]);
+
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    setIsFavorite(favorites.some(favorite => favorite.article === article));
+  }, [article]);
 
   let totalItemPrice = amount * price;
 
@@ -97,11 +95,11 @@ export const CatalogRowCard = ({...item}) => {
           <p className={c.catalogCard__article}>Арт. {article}</p>
           <div className={c.catalogCard__actions}>
             <Button size='small' className={c.catalogCard__toFavouritesButton} onClick={toggleFavorites}>{favoritesButtonIcon}</Button>
-            <Button size='small' className={c.catalogCard__delButton} onClick={() => deleteFromCartHandler(item)}><CloseOutlined /></Button>
+            <Button size='small' className={c.catalogCard__delButton} onClick={deleteFromCartHandler}><CloseOutlined /></Button>
           </div>
         </div>
         <div className={c.catalogCard__titleWrapper}>
-          <p className={c.catalogCard__title} onClick={showModal}>{title}</p>
+          <p className={c.catalogCard__title} onClick={() => setIsModalOpen(true)}>{title}</p>
         </div>
         <div className={c.catalogCard__priceWrapper}>
           <p className={c.catalogCard__price}>
@@ -115,10 +113,19 @@ export const CatalogRowCard = ({...item}) => {
           <div className={c.catalogCard__sumCounter}>
             <Button onClick={decrementAmount}>-</Button>
             <span>{amount}</span>
-            <Button bg='red' onClick={incrementAmount}>+</Button>
+            <Button onClick={incrementAmount}>+</Button>
           </div>
         </div>
       </div>
-      <CatalogCardModal item={item} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} toggleFavorites={toggleFavorites} isFavorite={isFavorite} />
+      <CatalogCardModal 
+        item={item} 
+        isModalOpen={isModalOpen} 
+        setIsModalOpen={setIsModalOpen} 
+        toggleFavorites={toggleFavorites} 
+        isFavorite={isFavorite}
+        isInCart={isInCart}
+        // togglePurchases,
+      />
     </>
-)};
+  );
+};
