@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Badge, Pagination } from 'antd';
 import c from './CatalogPage.module.scss';
-import { CatalogCard } from '../../CatalogCard/CatalogCard';
+import { ProductCard } from '../../ProductCard/ProductCard';
 import { animationData } from '../../../data/catalogData/animationData';
 import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
@@ -56,14 +56,14 @@ export const CatalogContent = () => {
       .map((item) => (
         item.oldPrice ? (
           <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
-            <CatalogCard {...item} />
+            <ProductCard {...item} />
           </Badge.Ribbon>
         ) : item.hit ? (
           <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
-            <CatalogCard {...item} />
+            <ProductCard {...item} />
           </Badge.Ribbon>
         ) : (
-          <CatalogCard key={item.article} {...item} />
+          <ProductCard key={item.article} {...item} />
         )
       )
     );
@@ -75,14 +75,14 @@ export const CatalogContent = () => {
       .map((item) => (
         item.oldPrice ? (
           <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
-            <CatalogCard {...item} />
+            <ProductCard {...item} />
           </Badge.Ribbon>
         ) : item.hit ? (
           <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
-            <CatalogCard {...item} />
+            <ProductCard {...item} />
           </Badge.Ribbon>
         ) : (
-          <CatalogCard key={item.article} {...item} />
+          <ProductCard key={item.article} {...item} />
         )
       )
     );
@@ -95,14 +95,14 @@ export const CatalogContent = () => {
         allData.filter(item => item.hit).map((item) => (
           item.oldPrice ? (
             <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
-              <CatalogCard {...item} />
+              <ProductCard {...item} />
             </Badge.Ribbon>
           ) : item.hit ? (
             <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
-              <CatalogCard {...item} />
+              <ProductCard {...item} />
             </Badge.Ribbon>
           ) : (
-            <CatalogCard key={item.article} {...item} />
+            <ProductCard key={item.article} {...item} />
           )
         ))
       ];

@@ -5,23 +5,27 @@ import { CheckCircleFilled, HeartFilled, HeartOutlined, ShoppingCartOutlined } f
 import { useDispatch } from 'react-redux';
 import { addToFavourites, deleteFromFavourites } from '../../redux/favouritesSlice';
 import { addToShoppingCart, deleteFromShoppingCart } from '../../redux/shoppingCartSlice';
-import c from './CatalogCard.module.scss';
+import c from './ProductCard.module.scss';
 import FALLBACK from '../../assets/catalog/fallback.webp';
 import { useSearchParams } from 'react-router-dom';
 
-export const CatalogCard = ({...item}) => {
+export const ProductCard = ({...item}) => {
   const { article, title, price, oldPrice, image } = item;
-  // eslint-disable-next-line no-unused-vars
+
   const [searchParams, setSearchParams] = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
   const dispatch = useDispatch();
 
-// Корзина
   useEffect(() => {
+    // Проверяем, есть ли товар в корзине при загрузке компонента
     const goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     setIsInCart(goods.some(product => product.article === article));
+
+    // Проверяем, есть ли товар в списке избранных при загрузке компонента
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    setIsFavorite(favorites.some(favorite => favorite.article === article));
   }, [article]);
 
   const togglePurchases = useCallback((event) => {
@@ -41,13 +45,6 @@ export const CatalogCard = ({...item}) => {
   }, [article, dispatch, item]);
 
   const shoppingCartButtonIcon = isInCart ? <CheckCircleFilled style={{color: 'white'}} /> : <ShoppingCartOutlined />;
-
-// Избранное
-  useEffect(() => {
-    // Проверяем, есть ли товар в списке избранных при загрузке компонента
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    setIsFavorite(favorites.some(favorite => favorite.article === article));
-  }, [article]);
 
   const toggleFavorites = useCallback((event) => {
     event.stopPropagation();

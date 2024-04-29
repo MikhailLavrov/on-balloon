@@ -4,7 +4,7 @@ import { animationData } from '../../../data/catalogData/animationData';
 import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
-import { CatalogCard } from '../../CatalogCard/CatalogCard';
+import { ProductCard } from '../../ProductCard/ProductCard';
 import { Badge } from 'antd';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
@@ -56,14 +56,14 @@ export const SearchResultsPage = () => {
             searchResults.map(item => (
               item.oldPrice ? (
                 <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
-                  <CatalogCard {...item} />
+                  <ProductCard {...item} />
                 </Badge.Ribbon>
               ) : item.hit ? (
                 <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
-                  <CatalogCard {...item} />
+                  <ProductCard {...item} />
                 </Badge.Ribbon>
               ) : (
-                <CatalogCard key={item.article} {...item} />
+                <ProductCard key={item.article} {...item} />
               )
             ))}
         </div>

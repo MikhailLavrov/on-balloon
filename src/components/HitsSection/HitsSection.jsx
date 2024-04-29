@@ -4,7 +4,7 @@ import { animationData } from '../../data/catalogData/animationData';
 import { attractionsData } from '../../data/catalogData/attractionsData';
 import { balloonsData } from '../../data/catalogData/balloonsData';
 import { photozoneData } from '../../data/catalogData/photozoneData';
-import { CatalogCard } from '../CatalogCard/CatalogCard';
+import { ProductCard } from '../ProductCard/ProductCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { hitsSwiperParams } from '../../data/swiperParams';
 
@@ -15,7 +15,7 @@ export const HitsSection = () => {
 
   const hitsSlide = hitsData.map((item, index) => (
     <SwiperSlide className='hits__slide' key={index}>
-      <CatalogCard {...item} />
+      <ProductCard {...item} />
     </SwiperSlide>
   ))
   

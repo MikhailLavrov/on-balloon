@@ -2,7 +2,7 @@ import { Result } from 'antd';
 import { useSelector } from 'react-redux';
 import { useMemo, useState } from 'react';
 import c from './ShoppingCartPage.module.scss';
-import { CatalogRowCard } from '../../CatalogRowCard/CatalogRowCard';
+import { ProductRowCard } from '../../ProductRowCard/ProductRowCard';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDrawer';
 import { EmptyToCatalog } from '../components/EmptyToCatalog/EmptyToCatalog';
@@ -50,7 +50,7 @@ export const ShoppingCartPage = () => {
           <div className={c.shoppingCart__mainContent}>
             <div className={c.shoppingCart__listContainer}>
               {currentCartItems.map((item) => (
-                <CatalogRowCard {...item} key={item.article} />
+                <ProductRowCard {...item} key={item.article} />
               ))}
             </div>
             <div className={c.shoppingCart__footer}>

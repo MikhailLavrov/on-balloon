@@ -14,7 +14,7 @@ const {delivery, payment, guarantee} = cardAdditionalData;
 export const CatalogCardModal = (props) => {
   const { 
     item, 
-    isModalOpen, 
+    isModalOpen,
     setIsModalOpen, 
     toggleFavorites, 
     isFavorite, 

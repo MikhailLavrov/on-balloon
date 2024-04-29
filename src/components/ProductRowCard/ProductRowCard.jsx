@@ -1,25 +1,46 @@
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
-import c from './CatalogRowCard.module.scss';
+import c from './ProductRowCard.module.scss';
 import { Button } from 'antd';
 import { CloseOutlined, HeartFilled, HeartOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { addToFavourites, deleteFromFavourites } from '../../redux/favouritesSlice';
-import { deleteFromShoppingCart, updateItemInShoppingCart } from '../../redux/shoppingCartSlice';
+import { addToShoppingCart, deleteFromShoppingCart, updateItemInShoppingCart } from '../../redux/shoppingCartSlice';
 import { CatalogCardModal } from '../CatalogCardModal/CatalogCardModal';
 
-export const CatalogRowCard = ({...item}) => {
+export const ProductRowCard = ({...item}) => {
   const { article, title, price, image, count } = item;
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const [amount, setAmount] = useState(count);
   const dispatch = useDispatch();
   const [isInCart, setIsInCart] = useState(false);
 
-  // Корзина
-    useEffect(() => {
-      const goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-      setIsInCart(goods.some(product => product.article === article));
-    }, [article]);
+  useEffect(() => {
+    // Проверяем, есть ли товар в корзине при загрузке компонента
+    const goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    setIsInCart(goods.some(product => product.article === article));
+
+    // Проверяем, есть ли товар в списке избранных при загрузке компонента
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    setIsFavorite(favorites.some(favorite => favorite.article === article));
+  }, [article]);
+
+  const togglePurchases = useCallback((event) => {
+    event.stopPropagation();
+    let goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    const index = goods.findIndex(product => product.article === article);
+    if (index !== -1) {
+      goods = goods.filter((_, i) => i !== index);
+      setIsInCart(false); // Устанавливаем в false только для текущего товара
+      dispatch(deleteFromShoppingCart(item))
+    } else {
+      goods.push(item);
+      setIsInCart(true); // Устанавливаем в true только для текущего товара
+      dispatch(addToShoppingCart(item))
+    }
+    localStorage.setItem('shoppingCart', JSON.stringify(goods));
+  }, [article, dispatch, item]);
 
   const toggleFavorites = useCallback((event) => {
     event.stopPropagation();
@@ -78,11 +99,6 @@ export const CatalogRowCard = ({...item}) => {
     }
   }, [amount, article, dispatch, updateLocalStorage]);
 
-  useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    setIsFavorite(favorites.some(favorite => favorite.article === article));
-  }, [article]);
-
   let totalItemPrice = amount * price;
 
   return (
@@ -124,7 +140,7 @@ export const CatalogRowCard = ({...item}) => {
         toggleFavorites={toggleFavorites} 
         isFavorite={isFavorite}
         isInCart={isInCart}
-        // togglePurchases,
+        togglePurchases={togglePurchases}
       />
     </>
   );
