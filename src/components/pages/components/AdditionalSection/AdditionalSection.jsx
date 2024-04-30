@@ -9,7 +9,7 @@ export const AdditionalSection = ({ location }) => {
     <div className={c.additional__item} key={index}>
       <Link to={item.link}>
         <div className={c.additional__itemImageWrapper}>
-          <img src={item.image} alt={item.title} width={300} />
+          <img src={item.image} alt={item.title} width={200} />
         </div>
       </Link>
       <p className={c.additional__itemTitle}>{item.title}</p>

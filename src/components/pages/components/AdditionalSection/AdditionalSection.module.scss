@@ -8,8 +8,13 @@
 .additional__content {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+
+  @include vp-768 {
+    justify-content: flex-start;
+  }
 }
 
 .additional__item {
@@ -35,8 +40,13 @@
   margin: 0;
   margin-bottom: 20px;
 
-  font-size: $fz-m;
-  font-weight: 600;
+  font-size: calc($fz-m - 2px);
+  font-weight: 500;
+  
+  @include vp-768 {
+    font-size: $fz-m;
+
+  }
 }
 
 .additional__itemTitle {

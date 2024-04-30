@@ -2,30 +2,54 @@
 @import '../../../../styles/mixins.scss';
 
 .gallery {
-  padding: 40px 0;
+  padding: 20px 0;
   overflow: hidden;
 }
 
+.gallery__container {
+  margin-bottom: 20px;
+
+  @include vp-768 {
+    margin-bottom: 40px;
+  }
+}
+
 .gallery__titleWrapper {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+  
+  line-height: 1;
+  
+  @include vp-768 {
+    margin-bottom: 60px;
+  }
 }
 
 .gallery__title {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   
-  font-size: $fz-l;
-  font-weight: 600;
+  font-size: $fz-m;
+  font-weight: 500;
   text-align: center;
+  
+  @include vp-1260 {
+    margin-bottom: 20px;
+
+    font-size: $fz-l;
+  }
 }
 
 .gallery__subTitle {
   margin: 0;
-  margin-bottom: 60px;
   
-  font-size: $fz-m;
+  font-size: calc($fz-m - 2px);
   font-weight: 400;
   text-align: center;
+  
+  @include vp-1260 {
+
+    font-size: $fz-m;
+  }
 }
 
 .gallery__image {

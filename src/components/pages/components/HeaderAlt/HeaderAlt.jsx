@@ -18,7 +18,7 @@ export const HeaderAlt = (props) => {
         {subTitle && <p className={c.header__subTitle}>{subTitle}</p>}
         <CallBackModal buttonText={buttonText} className={c.header__button}/>
       </div>
-      <div className={imageWrapperClassName}>
+      <div className={`${c.header__imageWrapper} ${imageWrapperClassName}`}>
         <img src={imageSrc} alt='Фото' width={200} height={200} />
         {secondaryImageSrc && <img src={secondaryImageSrc} alt='Фото' width={200} height={200} />}
       </div>

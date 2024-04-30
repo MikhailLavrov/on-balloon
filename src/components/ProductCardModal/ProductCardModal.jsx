@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import c from './CatalogCardModal.module.scss';
+import c from './ProductCardModal.module.scss';
 import { useSearchParams } from 'react-router-dom';
 import { Badge, Button, ConfigProvider, message, Modal, Tabs } from 'antd';
 import LOGO_IMG from '../../assets/logotext.png';
@@ -11,26 +11,27 @@ import { TelegramShareButton, ViberShareButton, VKShareButton, WhatsappShareButt
 
 const {delivery, payment, guarantee} = cardAdditionalData;
 
-export const CatalogCardModal = (props) => {
+export const ProductCardModal = (props) => {
   const { 
-    item, 
-    isModalOpen,
-    setIsModalOpen, 
-    toggleFavorites, 
-    isFavorite, 
-    togglePurchases, 
-    isInCart 
+    item,
+    isOpen,
+    openModal,
+    closeModal,
+    toggleFavorites,
+    isFavorite,
+    togglePurchases,
+    isInCart,
   } = props;
 
   const { 
-    article, 
-    title, 
-    description, 
-    price, 
-    oldPrice, 
-    image, 
-    hit, 
-    count 
+    article,
+    title,
+    description,
+    price,
+    oldPrice,
+    image,
+    hit,
+    count,
   } = item;
   
   const [ searchParams, setSearchParams ] = useSearchParams();
@@ -39,12 +40,12 @@ export const CatalogCardModal = (props) => {
   useEffect(() => {
     const product = searchParams.get('product');
     if (product && product === article) {
-      setIsModalOpen(true);
+      openModal();
     }
-  }, [article, searchParams, setIsModalOpen])
+  }, [article, searchParams, openModal])
 
   const handleCancel = () => {
-    setIsModalOpen(false);
+    closeModal();
     setSearchParams(params => {
       params.delete('product');
       return params;
@@ -82,7 +83,7 @@ export const CatalogCardModal = (props) => {
       width={800} 
       footer={null} 
       title={<img src={LOGO_IMG} width={120} alt="Логотип" />} 
-      open={isModalOpen} 
+      open={isOpen} 
       onOk={handleCancel} 
       onCancel={handleCancel}
       className={c.cardModal__top}

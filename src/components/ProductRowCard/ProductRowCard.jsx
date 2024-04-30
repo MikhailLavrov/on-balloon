@@ -5,16 +5,19 @@ import { CloseOutlined, HeartFilled, HeartOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { addToFavourites, deleteFromFavourites } from '../../redux/favouritesSlice';
 import { addToShoppingCart, deleteFromShoppingCart, updateItemInShoppingCart } from '../../redux/shoppingCartSlice';
-import { CatalogCardModal } from '../CatalogCardModal/CatalogCardModal';
+import { ProductCardModal } from '../ProductCardModal/ProductCardModal';
+import { useModal } from '../ProductCard/hooks';
 
 export const ProductRowCard = ({...item}) => {
   const { article, title, price, image, count } = item;
   
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const [amount, setAmount] = useState(count);
   const dispatch = useDispatch();
   const [isInCart, setIsInCart] = useState(false);
+
+  // Custom hooks
+  const [ isOpen, openModal, closeModal ] = useModal();
 
   useEffect(() => {
     // Проверяем, есть ли товар в корзине при загрузке компонента
@@ -115,7 +118,7 @@ export const ProductRowCard = ({...item}) => {
           </div>
         </div>
         <div className={c.catalogCard__titleWrapper}>
-          <p className={c.catalogCard__title} onClick={() => setIsModalOpen(true)}>{title}</p>
+          <p className={c.catalogCard__title} onClick={() => openModal()}>{title}</p>
         </div>
         <div className={c.catalogCard__priceWrapper}>
           <p className={c.catalogCard__price}>
@@ -133,10 +136,11 @@ export const ProductRowCard = ({...item}) => {
           </div>
         </div>
       </div>
-      <CatalogCardModal 
-        item={item} 
-        isModalOpen={isModalOpen} 
-        setIsModalOpen={setIsModalOpen} 
+      <ProductCardModal 
+        item={item}
+        isOpen={isOpen}
+        openModal={openModal}
+        closeModal={closeModal}
         toggleFavorites={toggleFavorites} 
         isFavorite={isFavorite}
         isInCart={isInCart}
