@@ -1,15 +1,16 @@
-import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
-import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
-import c from './ChildrenShowPage.module.scss';
-import { ReviewsSection } from '../../ReviewsSection/ReviewsSection';
-import { eventServicesData } from '../../EventServices/EventServices';
 import { useLocation } from 'react-router-dom';
+import { eventServicesData } from '../../EventServices/EventServices';
+import c from './ChildrenShowPage.module.scss';
+import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
+import { HeaderAlt } from '../components/HeaderAlt/HeaderAlt';
+import { ContentHeader } from '../components/ContentHeader/ContentHeader';
+import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
+import { StepsSection } from '../components/StepsSection/StepsSection';
+import { ReviewsSection } from '../../ReviewsSection/ReviewsSection';
 import { FeedbackAlt } from '../components/FeedbackAlt/FeedbackAlt';
 import { GallerySectionAlt } from '../components/GallerySectionAlt/GallerySectionAlt';
-import { HeaderAlt } from '../components/HeaderAlt/HeaderAlt';
-import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
 import { AdditionalSection } from '../components/AdditionalSection/AdditionalSection';
-import { ComplexSection } from './../components/ComplexSection/ComplexSection';
+import { ComplexSection } from '../components/ComplexSection/ComplexSection';
 
 const FEEDBACK_IMAGE = 'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663176964_2-mykaleidoscope-ru-p-deti-v-vostorge-vkontakte-2.jpg';
 
@@ -134,18 +135,6 @@ export const ChildrenShowPage = () => {
   const location = useLocation();
   const pageName = eventServicesData.find(item => item.link === location.pathname).title;
 
-  const steps = stepsData.map((step, index) => (
-    <div className={c.childrenShowPage__step} key={index}>
-      <div className={c.childrenShowPage__stepImageWrapper}>
-        <img className={c.childrenShowPage__stepImage} width={100} height={100} src={step.image} alt={step.title} />
-      </div>
-      <div className={c.photozonePage__stepTextWrapper}>
-        <p className={c.childrenShowPage__stepTitle}>{step.title}</p>
-        <p className={c.childrenShowPage__stepText}>{step.text}</p>
-      </div>
-    </div>
-  ))
-
   return (
     <section className={c.childrenShowPage}>
       <h2 className='visually-hidden'>{pageName}</h2>
@@ -159,33 +148,26 @@ export const ChildrenShowPage = () => {
           imageWrapperClassName={c.childrenShowPage__headerImageWrapper}
         />
         <div className={c.childrenShowPage__content}>
-          <div className={c.childrenShowPage__contentTitleWrapper}>
-            <p className={c.childrenShowPage__contentTitle}>Множество активностей для детей от 2 лет и подростков</p>
-          </div>
+          <ContentHeader title={'Множество активностей для детей от 2 лет и подростков'} />
           <VariantsComponent data={variantsData} />
           <ComplexSection data={complexData} />
-          <div className={c.childrenShowPage__steps}>
-            <p className={c.childrenShowPage__stepsTitle}>Занимаемся организацией детских праздников уже более 10 лет!</p>
-            <p className={c.childrenShowPage__stepsSubTitle}>В нашей дружной команде работают самые лучшие аниматоры с огромным опытом работы с детьми.</p>
-            <div className={c.childrenShowPage__stepsWrapper}>
-              {steps}
-            </div>
-          </div>
+          <StepsSection
+            data={stepsData}
+            title={'Занимаемся организацией детских праздников уже более 10 лет!'}
+            subTitle={'В нашей дружной команде работают самые лучшие аниматоры с огромным опытом работы с детьми.'}
+          />
           <GallerySectionAlt
             data={childrenShowGalleryData}
             title={'Яркие моменты праздников с нашими аниматорами'}
           />
-          <div className={c.childrenShowPage__reviews}>
-            <ReviewsSection />
-          </div>
+          <ReviewsSection />
           <FeedbackAlt
             imageSrc={FEEDBACK_IMAGE}
-            imageClassName={c.childrenShowPage__feedbackImage} 
+            imageClassName={c.childrenShowPage__feedbackImage}
           />
           <AdditionalSection location={location} />
         </div>
       </div>
-      <FloatButtonComponent />
     </section>
   );
 };

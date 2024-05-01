@@ -1,13 +1,14 @@
-import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
-import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
-import c from './DecorPage.module.scss';
-import { ReviewsSection } from './../../ReviewsSection/ReviewsSection';
-import { eventServicesData } from './../../EventServices/EventServices';
 import { useLocation } from 'react-router-dom';
+import { eventServicesData } from './../../EventServices/EventServices';
+import c from './DecorPage.module.scss';
+import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
+import { HeaderAlt } from '../components/HeaderAlt/HeaderAlt';
+import { ContentHeader } from '../components/ContentHeader/ContentHeader';
+import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
+import { StepsSection } from '../components/StepsSection/StepsSection';
+import { ReviewsSection } from '../../ReviewsSection/ReviewsSection';
 import { FeedbackAlt } from '../components/FeedbackAlt/FeedbackAlt';
 import { GallerySectionAlt } from '../components/GallerySectionAlt/GallerySectionAlt';
-import { HeaderAlt } from '../components/HeaderAlt/HeaderAlt';
-import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
 import { AdditionalSection } from '../components/AdditionalSection/AdditionalSection';
 
 const FEEDBACK_IMAGE = 'https://png.pngtree.com/png-vector/20240208/ourmid/pngtree-groovy-colorful-confetti-png-image_11714268.png';
@@ -55,16 +56,6 @@ export const DecorPage = () => {
   const location = useLocation();
   const pageName = eventServicesData.find(item => item.link === location.pathname).title;
 
-  const steps = stepsData.map((step, index) => (
-    <div className={c.decorPage__step} key={index}>
-      <div className={c.decorPage__stepImageWrapper}>
-        <img className={c.decorPage__stepImage} width={100} height={100} src={step.image} alt={step.title} />
-      </div>
-      <p className={c.decorPage__stepTitle}>{step.title}</p>
-      <p className={c.decorPage__stepText}>{step.text}</p>
-    </div>
-  ))
-
   return (
     <section className={c.decorPage}>
       <h2 className='visually-hidden'>{pageName}</h2>
@@ -76,30 +67,24 @@ export const DecorPage = () => {
           imageWrapperClassName={c.decorPage__imageWrapper}
         />
         <div className={c.decorPage__content}>
-          <div className={c.decorPage__contentTitleWrapper}>
-            <p className={c.decorPage__contentTitle}>У нас есть все необходимое для оформления праздника</p>
-            <p className={c.decorPage__contentSubTitle}>От разработки общей стилистики мероприятия до реализации мельчайших деталей</p>
-          </div>
+          <ContentHeader
+            title={'У нас есть все необходимое для оформления праздника'}
+            subTitle={'От разработки общей стилистики мероприятия до реализации мельчайших деталей'}
+          />
           <VariantsComponent data={variantsData} />
-          <div className={c.decorPage__steps}>
-            {steps}
-          </div>
+          <StepsSection data={stepsData} />
           <GallerySectionAlt
             reversed
             title={'За 10 лет оформили более 1000 мероприятий'}
-            subTitle={'Посмотрите некоторые из них'}
-          />
-          <div className={c.decorPage__reviews}>
-            <ReviewsSection />
-          </div>
+            subTitle={'Посмотрите некоторые из них'} />
+          <ReviewsSection />
           <FeedbackAlt
             imageSrc={FEEDBACK_IMAGE}
-            imageClassName={c.decorPage__feedbackImage} 
+            imageClassName={c.decorPage__feedbackImage}
           />
           <AdditionalSection location={location} />
         </div>
       </div>
-      <FloatButtonComponent />
     </section>
   );
 };

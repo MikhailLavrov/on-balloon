@@ -1,13 +1,14 @@
-import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
-import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
-import c from './PhotozonePage.module.scss';
-import { ReviewsSection } from '../../ReviewsSection/ReviewsSection';
-import { eventServicesData } from '../../EventServices/EventServices';
 import { useLocation } from 'react-router-dom';
+import { eventServicesData } from '../../EventServices/EventServices';
+import c from './PhotozonePage.module.scss';
+import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
+import { HeaderAlt } from '../components/HeaderAlt/HeaderAlt';
+import { ContentHeader } from '../components/ContentHeader/ContentHeader';
+import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
+import { StepsSection } from '../components/StepsSection/StepsSection';
+import { ReviewsSection } from '../../ReviewsSection/ReviewsSection';
 import { FeedbackAlt } from '../components/FeedbackAlt/FeedbackAlt';
 import { GallerySectionAlt } from '../components/GallerySectionAlt/GallerySectionAlt';
-import { HeaderAlt } from '../components/HeaderAlt/HeaderAlt';
-import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
 import { AdditionalSection } from '../components/AdditionalSection/AdditionalSection';
 
 const FEEDBACK_IMAGE = 'https://lurieflowers2001.ru/wa-data/public/shop/products/59/74/7459/images/9943/9943.600x0.jpg';
@@ -76,18 +77,6 @@ export const PhotozonePage = () => {
   const location = useLocation();
   const pageName = eventServicesData.find(item => item.link === location.pathname).title;
 
-  const steps = stepsData.map((step, index) => (
-    <div className={c.photozonePage__step} key={index}>
-      <div className={c.photozonePage__stepImageWrapper}>
-        <img className={c.photozonePage__stepImage} width={100} height={100} src={step.image} alt={step.title} />
-      </div>
-      <div className={c.photozonePage__stepTextWrapper}>
-        <p className={c.photozonePage__stepTitle}>{step.title}</p>
-        <p className={c.photozonePage__stepText}>{step.text}</p>
-      </div>
-    </div>
-  ))
-
   return (
     <section className={c.photozonePage}>
       <h2 className='visually-hidden'>{pageName}</h2>
@@ -99,33 +88,27 @@ export const PhotozonePage = () => {
           imageWrapperClassName={c.photozonePage__headerImageWrapper}
         />
         <div className={c.photozonePage__content}>
-          <div className={c.photozonePage__contentTitleWrapper}>
-            <p className={c.photozonePage__contentTitle}>Эксклюзивные фотозоны для ярких воспоминаний</p>
-            <p className={c.photozonePage__contentSubTitle}>Выбирайте из готовых решений, или создадим фотозону по индивидуальному дизайну и предпочтениям</p>
-          </div>
+          <ContentHeader
+            title={'Эксклюзивные фотозоны для ярких воспоминаний'}
+            subTitle={'Выбирайте из готовых решений, или создадим фотозону по индивидуальному дизайну и предпочтениям'}
+          />
           <VariantsComponent data={variantsData} />
-          <div className={c.photozonePage__steps}>
-            <p className={c.photozonePage__stepsTitle}>Что включает в себя аренда фотозоны:</p>
-            <div className={c.photozonePage__stepsWrapper}>
-              {steps}
-            </div>
-          </div>
+          <StepsSection
+            data={stepsData}
+            title={'Что включает в себя аренда фотозоны:'}
+          />
           <GallerySectionAlt
-            reversed
-            title={'За 10 лет оформили более 1000 мероприятий и фотозон'}
+            reversed title={'За 10 лет оформили более 1000 мероприятий и фотозон'}
             subTitle={'Посмотрите некоторые из них'}
           />
-          <div className={c.photozonePage__reviews}>
-            <ReviewsSection />
-          </div>
+          <ReviewsSection />
           <FeedbackAlt
             imageSrc={FEEDBACK_IMAGE}
-            imageClassName={c.photozonePage__feedbackImage} 
+            imageClassName={c.photozonePage__feedbackImage}
           />
           <AdditionalSection location={location} />
         </div>
       </div>
-      <FloatButtonComponent />
     </section>
   );
 };

@@ -49,15 +49,11 @@
   font-weight: 500;
   line-height: 1;
   text-align: center;
-
-  @include vp-768 {
-    text-align: left;
-  }
   
   @include vp-1260 {
     max-width: 90%;
     font-size: $fz-l;
-
+    text-align: left;
   }
 }
 

@@ -3,11 +3,12 @@ import { eventServicesData } from '../../EventServices/EventServices';
 import c from './ForBusinessPage.module.scss';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { HeaderAlt } from '../components/HeaderAlt/HeaderAlt';
+import { ContentHeader } from '../components/ContentHeader/ContentHeader';
 import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
+import { FeedbackAlt } from '../components/FeedbackAlt/FeedbackAlt';
+import { GallerySectionAlt } from '../components/GallerySectionAlt/GallerySectionAlt';
 import { AdditionalSection } from '../components/AdditionalSection/AdditionalSection';
-import { GallerySectionAlt } from './../components/GallerySectionAlt/GallerySectionAlt';
 import { ComplexSection } from '../components/ComplexSection/ComplexSection';
-import { FeedbackAlt } from './../components/FeedbackAlt/FeedbackAlt';
 
 const HEADER_IMAGE = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn-Oy0kyU68Nllj_fIHmREYlX-mAzAdd8C-6zOzgEbwZwN_16fKys8A1LzwNzGBLyhgBY&usqp=CAU';
 const SECONDARY_HEADER_IMAGE = 'https://marvel-ekb.ru/wp-content/uploads/2022/03/05_09_20_1.jpg';
@@ -135,17 +136,17 @@ export const ForBusinessPage = () => {
           secondaryImageSrc={SECONDARY_HEADER_IMAGE}
           imageWrapperClassName={c.forBusinessPage__headerImageWrapper}
         />
-        <h3 className={c.forBusinessPage__title}>Услуги для вашего бизнеса</h3>
+        <ContentHeader title={'Услуги для вашего бизнеса'} />
         <VariantsComponent data={variantsData} />
         <ComplexSection data={complexData} />
-        <GallerySectionAlt 
-          data = {businessGalleryData}
-          title = 'Посмотрите, как проходят открытия магазинов'
+        <GallerySectionAlt
+          data={businessGalleryData}
+          title={'Посмотрите, как проходят открытия магазинов'}
         />
-        <FeedbackAlt 
+        <FeedbackAlt
           imageSrc={FEEDBACK_IMAGE}
           imageClassName={c.forBusinessPage__feedbackImage}
-          title='Заявите о своем бизнесе — закажите торжественное открытие!'
+          title={'Заявите о своем бизнесе — закажите торжественное открытие!'}
         />
         <AdditionalSection location={location} />
       </div>
