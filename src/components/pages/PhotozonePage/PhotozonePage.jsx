@@ -7,9 +7,10 @@ import { ContentHeader } from '../components/ContentHeader/ContentHeader';
 import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
 import { StepsSection } from '../components/StepsSection/StepsSection';
 import { ReviewsSection } from '../../ReviewsSection/ReviewsSection';
-import { FeedbackAlt } from '../components/FeedbackAlt/FeedbackAlt';
+import { FeedbackSection } from '../../FeedbackSection/FeedbackSection';
 import { GallerySectionAlt } from '../components/GallerySectionAlt/GallerySectionAlt';
 import { AdditionalSection } from '../components/AdditionalSection/AdditionalSection';
+import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
 const FEEDBACK_IMAGE = 'https://lurieflowers2001.ru/wa-data/public/shop/products/59/74/7459/images/9943/9943.600x0.jpg';
 
@@ -102,13 +103,14 @@ export const PhotozonePage = () => {
             subTitle={'Посмотрите некоторые из них'}
           />
           <ReviewsSection />
-          <FeedbackAlt
+          <FeedbackSection
             imageSrc={FEEDBACK_IMAGE}
             imageClassName={c.photozonePage__feedbackImage}
           />
           <AdditionalSection location={location} />
         </div>
       </div>
+      <FloatButtonComponent />
     </section>
   );
 };

@@ -1,16 +1,3 @@
-//  Белый white #FFFFFF
-//  Желтый yellow #FFFF00
-//  Золотой goldenrod #DAA520
-//  Оранжевый orange #FFA500    
-//  Коричневый saddlebrown #8B4513
-//  Розовый/фуксия deeppink #FF1493    
-//  Красный red #FF0000
-//  Зеленый lime #00FF00    
-//  Синий/голубой dodgerblue #1E90FF
-//  Фиолетовый/сиреневый darkorchid #9932CC  
-//  Серебряный  silver #C0C0C0
-//  Черный black #000000
-
 export const balloonsData = [
   // girl
   {

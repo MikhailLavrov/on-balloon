@@ -8,6 +8,7 @@ const orderedColors = [
   'white',
   'yellow',
   'goldenrod',
+  'mistyrose',
   'orange',
   'saddlebrown',
   'deeppink',
@@ -49,7 +50,6 @@ export const ColorPalette = () => {
     setSelectedColor('');
     setSearchParams({});
   };
-
   
   let palette;
   

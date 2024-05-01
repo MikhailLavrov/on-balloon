@@ -2,7 +2,7 @@ import { Image, ConfigProvider } from 'antd';
 import c from './GalleryPage.module.scss';
 import '../../../styles/global.scss';
 import { galleryData } from '../../../data/galleryData';
-import {BreadcrumbsComponent} from '../../BreadcrumbsComponent/BreadcrumbsComponent';
+import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
 const galleryImages = galleryData.map((image, index) => (
@@ -34,7 +34,7 @@ export const GalleryPage = () => (
         </Image.PreviewGroup>
         </ConfigProvider>
       </div>
-      <FloatButtonComponent />
     </div>
+    <FloatButtonComponent />
   </section>
 );

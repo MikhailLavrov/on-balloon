@@ -7,9 +7,10 @@ import { ContentHeader } from '../components/ContentHeader/ContentHeader';
 import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
 import { StepsSection } from '../components/StepsSection/StepsSection';
 import { ReviewsSection } from '../../ReviewsSection/ReviewsSection';
-import { FeedbackAlt } from '../components/FeedbackAlt/FeedbackAlt';
+import { FeedbackSection } from '../../FeedbackSection/FeedbackSection';
 import { GallerySectionAlt } from '../components/GallerySectionAlt/GallerySectionAlt';
 import { AdditionalSection } from '../components/AdditionalSection/AdditionalSection';
+import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
 const FEEDBACK_IMAGE = 'https://png.pngtree.com/png-vector/20240208/ourmid/pngtree-groovy-colorful-confetti-png-image_11714268.png';
 
@@ -78,13 +79,14 @@ export const DecorPage = () => {
             title={'За 10 лет оформили более 1000 мероприятий'}
             subTitle={'Посмотрите некоторые из них'} />
           <ReviewsSection />
-          <FeedbackAlt
+          <FeedbackSection
             imageSrc={FEEDBACK_IMAGE}
             imageClassName={c.decorPage__feedbackImage}
           />
           <AdditionalSection location={location} />
         </div>
       </div>
+      <FloatButtonComponent />
     </section>
   );
 };

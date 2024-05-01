@@ -7,9 +7,9 @@ import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { ProductCard } from '../../ProductCard/ProductCard';
 import { Badge } from 'antd';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
-import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 import c from './SearchResultsPage.module.scss';
 import EMPTY_IMAGE from '../../../assets/empty.webp';
+import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 

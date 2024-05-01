@@ -3,6 +3,7 @@ import { InfoMenu } from '../../InfoMenu/InfoMenu';
 import { infoPageData } from '../../../data/infoData/infoPageData';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { Link, useParams } from 'react-router-dom';
+import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
 export const InfoPage = () => {
   const { chapter } = useParams();
@@ -53,6 +54,7 @@ export const InfoPage = () => {
           )}
         </div>
       </div>
+      <FloatButtonComponent />
     </section>
   );
 };

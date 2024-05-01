@@ -2,11 +2,15 @@
 @import '../../styles/mixins.scss';
 
 .floatButton {
-  inset-inline-end: 15px;
-  inset-block-end: 62px;
+  position: fixed;
+  right: 15px;
+  bottom: 62px;
+
+  z-index: 1;
+  cursor: pointer;
 
   @include vp-1260 {
-    inset-inline-end: 24px;
-    inset-block-end: 48px;
+    right: 24px;
+    bottom: 48px;
   }
 }

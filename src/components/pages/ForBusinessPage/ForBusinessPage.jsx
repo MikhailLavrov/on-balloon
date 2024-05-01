@@ -5,10 +5,11 @@ import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComp
 import { HeaderAlt } from '../components/HeaderAlt/HeaderAlt';
 import { ContentHeader } from '../components/ContentHeader/ContentHeader';
 import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
-import { FeedbackAlt } from '../components/FeedbackAlt/FeedbackAlt';
+import { FeedbackSection } from '../../FeedbackSection/FeedbackSection';
 import { GallerySectionAlt } from '../components/GallerySectionAlt/GallerySectionAlt';
 import { AdditionalSection } from '../components/AdditionalSection/AdditionalSection';
 import { ComplexSection } from '../components/ComplexSection/ComplexSection';
+import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
 const HEADER_IMAGE = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn-Oy0kyU68Nllj_fIHmREYlX-mAzAdd8C-6zOzgEbwZwN_16fKys8A1LzwNzGBLyhgBY&usqp=CAU';
 const SECONDARY_HEADER_IMAGE = 'https://marvel-ekb.ru/wp-content/uploads/2022/03/05_09_20_1.jpg';
@@ -143,13 +144,14 @@ export const ForBusinessPage = () => {
           data={businessGalleryData}
           title={'Посмотрите, как проходят открытия магазинов'}
         />
-        <FeedbackAlt
+        <FeedbackSection
           imageSrc={FEEDBACK_IMAGE}
           imageClassName={c.forBusinessPage__feedbackImage}
           title={'Заявите о своем бизнесе — закажите торжественное открытие!'}
         />
         <AdditionalSection location={location} />
       </div>
+      <FloatButtonComponent />
     </section>
   )
 }

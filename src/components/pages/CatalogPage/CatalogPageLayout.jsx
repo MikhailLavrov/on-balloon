@@ -41,8 +41,8 @@ export const CatalogPageLayout = () => {
           </div>
           <CatalogContent />
         </div>
-        <FloatButtonComponent />
       </div>
+      <FloatButtonComponent />
     </section>
   );
 };

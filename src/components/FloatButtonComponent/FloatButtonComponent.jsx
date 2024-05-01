@@ -1,14 +1,35 @@
+import React, {useState} from 'react'; 
 import { ArrowUpOutlined } from "@ant-design/icons";
-import { FloatButton } from "antd";
+import { Button } from "antd";
 import c from './FloatButtonComponent.module.scss';
 
-const { BackTop } = FloatButton;
-
 export const FloatButtonComponent = () => {
-  return (
-    <BackTop 
+  const [visible, setVisible] = useState(false) 
+
+  const indent = 1000;
+
+  const toggleVisible = () => { 
+    const scrolled = document.documentElement.scrollTop; 
+    if (scrolled > indent){ 
+      setVisible(true) 
+    } 
+    else if (scrolled <= indent){ 
+      setVisible(false) 
+    } 
+  }; 
+
+  const scrollToTop = () =>{ 
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+  }; 
+
+  window.addEventListener('scroll', toggleVisible); 
+
+  return ( 
+    <Button
+      onClick={scrollToTop}
       icon={<ArrowUpOutlined />}
-      className={c.floatButton} 
+      style={{display: visible ? 'inline' : 'none'}}
+      className={c.floatButton}
     />
-  )
+  ); 
 }

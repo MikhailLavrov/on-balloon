@@ -5,6 +5,7 @@ import { Badge } from 'antd';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
 import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDrawer';
 import { EmptyToCatalog } from '../components/EmptyToCatalog/EmptyToCatalog';
+import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
 export const FavouritesPage = () => {
   const favouritesState = useSelector(state => state.favourites.items)
@@ -38,6 +39,7 @@ export const FavouritesPage = () => {
         )}
       </div>
       <MobileCatalogDrawer />
+      <FloatButtonComponent />
     </section>
   )
 }

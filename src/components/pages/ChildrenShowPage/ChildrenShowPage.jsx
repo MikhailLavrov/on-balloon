@@ -7,10 +7,11 @@ import { ContentHeader } from '../components/ContentHeader/ContentHeader';
 import { VariantsComponent } from '../components/VariantsComponent/VariantsComponent';
 import { StepsSection } from '../components/StepsSection/StepsSection';
 import { ReviewsSection } from '../../ReviewsSection/ReviewsSection';
-import { FeedbackAlt } from '../components/FeedbackAlt/FeedbackAlt';
 import { GallerySectionAlt } from '../components/GallerySectionAlt/GallerySectionAlt';
 import { AdditionalSection } from '../components/AdditionalSection/AdditionalSection';
 import { ComplexSection } from '../components/ComplexSection/ComplexSection';
+import { FeedbackSection } from '../../FeedbackSection/FeedbackSection';
+import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
 const FEEDBACK_IMAGE = 'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663176964_2-mykaleidoscope-ru-p-deti-v-vostorge-vkontakte-2.jpg';
 
@@ -161,13 +162,14 @@ export const ChildrenShowPage = () => {
             title={'Яркие моменты праздников с нашими аниматорами'}
           />
           <ReviewsSection />
-          <FeedbackAlt
+          <FeedbackSection
             imageSrc={FEEDBACK_IMAGE}
             imageClassName={c.childrenShowPage__feedbackImage}
           />
           <AdditionalSection location={location} />
         </div>
       </div>
+      <FloatButtonComponent />
     </section>
   );
 };

@@ -1,9 +1,9 @@
-import c from './FeedbackAlt.module.scss';
-import { personalData } from '../../../../data/personalData';
-import { SocialLinks } from '../../../SocialLinks/SocialLinks';
-import { CallBackModal } from '../../../CallBackModal/CallBackModal';
+import c from './FeedbackSection.module.scss';
+import { personalData } from '../../data/personalData';
+import { SocialLinks } from '../SocialLinks/SocialLinks';
+import { CallBackModal } from '../CallBackModal/CallBackModal';
 
-export const FeedbackAlt = (props) => {
+export const FeedbackSection = (props) => {
   const {
     imageSrc,
     imageClassName,

@@ -1,9 +1,9 @@
 import React from 'react';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
-import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 import { reviewsData } from '../../../data/reviewsData';
 import c from './ReviewsPage.module.scss';
 import { Image } from 'antd';
+import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
 const reviewItems = reviewsData.map((item, index) => (
   <div className={c.reviewItem} key={index}>
