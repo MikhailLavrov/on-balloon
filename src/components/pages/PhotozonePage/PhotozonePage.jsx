@@ -81,8 +81,10 @@ export const PhotozonePage = () => {
       <div className={c.photozonePage__stepImageWrapper}>
         <img className={c.photozonePage__stepImage} width={100} height={100} src={step.image} alt={step.title} />
       </div>
-      <p className={c.photozonePage__stepTitle}>{step.title}</p>
-      <p className={c.photozonePage__stepText}>{step.text}</p>
+      <div className={c.photozonePage__stepTextWrapper}>
+        <p className={c.photozonePage__stepTitle}>{step.title}</p>
+        <p className={c.photozonePage__stepText}>{step.text}</p>
+      </div>
     </div>
   ))
 
@@ -102,9 +104,9 @@ export const PhotozonePage = () => {
             <p className={c.photozonePage__contentSubTitle}>Выбирайте из готовых решений, или создадим фотозону по индивидуальному дизайну и предпочтениям</p>
           </div>
           <VariantsComponent data={variantsData} />
-          <div className={c.photozonePage__stepsWrapper}>
+          <div className={c.photozonePage__steps}>
             <p className={c.photozonePage__stepsTitle}>Что включает в себя аренда фотозоны:</p>
-            <div className={c.photozonePage__steps}>
+            <div className={c.photozonePage__stepsWrapper}>
               {steps}
             </div>
           </div>

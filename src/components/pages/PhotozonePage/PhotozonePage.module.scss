@@ -17,145 +17,150 @@
 }
 
 .photozonePage__headerImageWrapper {
-  width: 100%;
-  height: 100%;
+  margin: 30px 0;
 
+  width: 70%;
   box-shadow: 0 0 10px 10px $color-orange;
 
   & img {
-    width: 100%;
-    height: 100%;
+    box-shadow: 0 0 0 5px $base-light-color, 0 0 0 15px $color-telegram-blue, 5px 10px 10px 10px $base-dark-color;
+    transform: translateY(-10px);
+    
+    @include vp-1260 {
+      box-shadow: 0 0 0 10px $base-light-color, 0 0 0 20px $color-telegram-blue, 5px 10px 10px 10px $base-dark-color;
+      transform: translate(-20px, -20px);
+    }
+  }
   
-    box-shadow: 0 0 0 10px $base-light-color, 0 0 0 20px $color-telegram-blue, 5px 10px 10px 10px $base-dark-color;
-    transform: translate(-20px, -20px);
-    object-fit: cover;
+  @include vp-1260 {
+    width: 100%;
   }
 }
 
 .photozonePage__contentTitleWrapper {
-  margin-bottom: 40px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.photozonePage__contentTitle {
-  margin: 0;
   margin-bottom: 20px;
-
-  font-size: $fz-l;
-  font-weight: 600;
-}
-
-.photozonePage__contentSubTitle {
-  margin: 0;
-
-  font-size: $fz-m;
-}
-
-.photozonePage__gallery {
-  padding: 40px 0;
-  overflow: hidden;
-}
-
-.photozonePage__galleryTitle {
-  margin: 0;
-  margin-bottom: 20px;
-  
-  font-size: $fz-l;
-  font-weight: 600;
-  text-align: center;
-}
-
-.photozonePage__gallerySubTitle {
-  margin: 0;
-  margin-bottom: 60px;
-  
-  font-size: $fz-m;
-  font-weight: 400;
-  text-align: center;
-}
-
-.photozonePage__galleryImage {
-  cursor: default;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px -4px $base-dark-color;
-
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.photozonePage__feedbackImage {
-  padding: 10px;
-
-  width: 100%;
-  max-width: 250px;
-
-  // border-radius: 10px;
-  aspect-ratio: 1/1;
-  box-shadow: -10px 10px 0 10px rgba($color-purple, 0.5), 10px -10px 0 10px rgba($color-orange, 0.5);
-}
-
-.photozonePage__stepsWrapper {
-  padding: 40px 0;
-  margin-bottom: 40px;
-}
-
-.photozonePage__stepsTitle {
-  margin: 0;
-  margin-bottom: 20px;
-
-  font-weight: 500;
-  font-size: $fz-m;
-  text-align: center;
-}
-
-.photozonePage__steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.photozonePage__step {
-  padding: 15px;
-  margin: 0;
-  max-width: 90%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 
-  font-size: $fz-m;
   line-height: 1;
+}
+
+.photozonePage__contentTitle {
+  margin: 0;
+
+  font-size: $fz-m;
+  font-weight: 600;
+  
+  @include vp-1260 {
+    font-size: $fz-l;
+  }
+}
+
+.photozonePage__contentSubTitle {
+  margin: 0;
+
+  font-size: calc($fz-m - 2px);
+  
+  @include vp-1260 {
+    font-size: $fz-l;
+  }
+}
+
+.photozonePage__feedbackImage {
+  margin: 20px 0;
+  padding: 10px;
+
+  width: 60%;
+  max-width: 250px;
+
+  aspect-ratio: 1/1;
+  box-shadow: -10px 10px 0 10px rgba($color-purple, 0.5), 10px -10px 0 10px rgba($color-orange, 0.5);
+}
+
+.photozonePage__steps {
+  padding: 20px 0;
+  margin-bottom: 20px;
+
+  line-height: 1;
+
+  @include vp-1260 {
+    margin-bottom: 40px;
+  }
+}
+
+.photozonePage__stepsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+.photozonePage__stepsTitle {
+  margin: 0;
+  margin-bottom: 20px;
+  
+  font-size: $fz-m;
+  font-weight: 600;
   text-align: center;
+}
+
+.photozonePage__step {
+  padding: 10px;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: minmax(auto, 60px) 1fr;
+  
+  gap: 10px;
+  
+  @include vp-768 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    text-align: center;
+  }
+}
+
+.photozonePage__stepTextWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .photozonePage__stepTitle {
   margin: 0;
 
   font-weight: 500;
-  font-size: $fz-m;
+  font-size: calc($fz-m - 2px);
 }
 
 .photozonePage__stepText {
   margin: 0;
 
-  font-size: calc($fz-m - 2px);
-  line-height: 1;
+  font-size: $fz-s;
+  
+  @include vp-1260 {
+    font-size: calc($fz-m - 2px);
+    
+  }
 }
 
 .photozonePage__stepImageWrapper {
   width: 100%;
-  max-width: 100px;
+  max-width: 80px;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .photozonePage__stepImage {

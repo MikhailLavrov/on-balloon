@@ -30,6 +30,7 @@
   gap: 20px;
 
   text-align: center;
+  line-height: 1.2;
 
   @include vp-768 {
     justify-content: center;
@@ -47,7 +48,6 @@
 
   font-size: $fz-m;
   font-weight: 600;
-  line-height: 1.5;
 
   @include vp-1260 {
     max-width: 80%;
@@ -58,13 +58,17 @@
 
 .header__subTitle {
   margin: 0;
-  margin-bottom: 20px;
-
-  max-width: 80%;
-
-  font-size: $fz-m;
+  
+  font-size: calc($fz-m - 2px);
   font-weight: 400;
-  line-height: 1.5;
+  
+  @include vp-1260 {
+    margin-bottom: 20px;
+    
+    max-width: 80%;
+
+    font-size: $fz-m;
+  }
 }
 
 .header__button {

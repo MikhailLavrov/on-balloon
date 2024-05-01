@@ -139,8 +139,10 @@ export const ChildrenShowPage = () => {
       <div className={c.childrenShowPage__stepImageWrapper}>
         <img className={c.childrenShowPage__stepImage} width={100} height={100} src={step.image} alt={step.title} />
       </div>
-      <p className={c.childrenShowPage__stepTitle}>{step.title}</p>
-      <p className={c.childrenShowPage__stepText}>{step.text}</p>
+      <div className={c.photozonePage__stepTextWrapper}>
+        <p className={c.childrenShowPage__stepTitle}>{step.title}</p>
+        <p className={c.childrenShowPage__stepText}>{step.text}</p>
+      </div>
     </div>
   ))
 
@@ -162,10 +164,10 @@ export const ChildrenShowPage = () => {
           </div>
           <VariantsComponent data={variantsData} />
           <ComplexSection data={complexData} />
-          <div className={c.childrenShowPage__stepsWrapper}>
+          <div className={c.childrenShowPage__steps}>
             <p className={c.childrenShowPage__stepsTitle}>Занимаемся организацией детских праздников уже более 10 лет!</p>
             <p className={c.childrenShowPage__stepsSubTitle}>В нашей дружной команде работают самые лучшие аниматоры с огромным опытом работы с детьми.</p>
-            <div className={c.childrenShowPage__steps}>
+            <div className={c.childrenShowPage__stepsWrapper}>
               {steps}
             </div>
           </div>

@@ -2,7 +2,7 @@
 @import '../../../../styles/mixins.scss';
 
 .complex {
-  padding: 20px 0 40px;
+  padding: 20px 0;
 
   display: flex;
   flex-direction: column;
@@ -12,20 +12,34 @@
 .complex__title {
   margin: 0;
   margin-bottom: 20px;
-
-  text-align: center;
-  font-size: $fz-l;
+  
+  font-size: $fz-m;
+  font-weight: 600;
   line-height: 1;
-  font-weight: 500;
+  text-align: center;
+  
+  @include vp-1260 {
+    font-size: $fz-l;
+  }
 }
 
 .complex__container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: column;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include vp-1260 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .complex__item {
-  padding: 40px 20px;
+  padding: 20px 10px;
 
   display: flex;
   flex-direction: column;
@@ -46,6 +60,10 @@
   
   &:nth-child(4) {
     background-color: rgba($color-orange, 0.3);
+  }
+
+  @include vp-1260 {
+    padding: 40px 20px;
   }
 }
 
