@@ -9,6 +9,7 @@ import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { catalogMenuData } from './../../../data/catalogData/catalogMenuData';
 import { ColorPalette } from '../../ColorPalette/ColorPalette';
+// import { CollectionPalette } from '../../CollectionPalette/CollectionPalette';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
@@ -19,6 +20,7 @@ export const CatalogContent = () => {
   const [searchParams] = useSearchParams();
 
   const filteredColor = searchParams.get('palette') || '';
+  const filteredCollection = searchParams.get('collection') || '';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -26,7 +28,7 @@ export const CatalogContent = () => {
 
   useEffect(() => {
     setCurrentPage(1)
-  }, [category, topcategory, filteredColor]);
+  }, [category, topcategory, filteredColor, filteredCollection]);
 
    // Установим первый подраздел первой категории по умолчанию
   useEffect(() => {
@@ -53,6 +55,7 @@ export const CatalogContent = () => {
     return data
       .filter(item => item.category.includes(category))
       .filter(item => !filteredColor || (item.palette && item.palette.includes(filteredColor)))
+      .filter(item => !filteredCollection || (item.collection && item.collection.includes(filteredCollection)))
       .map((item) => (
         item.oldPrice ? (
           <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
@@ -72,6 +75,7 @@ export const CatalogContent = () => {
   const filterAllCategoriesData = (data) => {
     return data
       .filter(item => !filteredColor || (item.palette && item.palette.includes(filteredColor)))
+      .filter(item => !filteredCollection || (item.collection && item.collection.includes(filteredCollection)))
       .map((item) => (
         item.oldPrice ? (
           <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
@@ -174,15 +178,25 @@ export const CatalogContent = () => {
               )}
           </div>
           {topcategory === 'balloons' && (
-            <div className={c.mobileColorPalette}>
-              <ColorPalette />
-            </div>
+            <>
+              <div className={c.mobileColorPalette}>
+                <ColorPalette />
+              </div>
+              <div className={c.mobileCollectionPalette}>
+                {/* <CollectionPalette /> */}
+              </div>
+            </>
           )}
         </>
       )}
-      <div className={c.pagination__wrapper}>
-        {totalDataCount > itemsPerPage && <span>Страница:</span>}
-        <PaginationComponent className={`${c.pagination} ${c.pagination__top}`} />
+      <div className={c.infoLine}>
+        <div className={c.pagination__wrapper}>
+          {totalDataCount > itemsPerPage && <span>Страница:</span>}
+          <PaginationComponent className={`${c.pagination} ${c.pagination__top}`} />
+        </div>
+        {topcategory === 'balloons' && (
+          <p className={c.totalDataCount}>Всего товаров: {totalDataCount}</p>
+        )}
       </div>
       <div className={c.catalog__content}>
         {paginationSlicedItems}

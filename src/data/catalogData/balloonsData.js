@@ -1202,6 +1202,7 @@ export const balloonsData = [
     hit: false,
     count: 1,
     palette: ['white', 'deeppink'],
+    collection: ['unicorns'],
     },
     {
     category: ['figure'],
@@ -1323,6 +1324,7 @@ export const balloonsData = [
     hit: false,
     count: 1,
     palette: ['white', 'deeppink'],
+    collection: ['kitties'],
     },
     {
     category: ['figure'],
@@ -1466,6 +1468,7 @@ export const balloonsData = [
     hit: false,
     count: 1,
     palette: ['black'],
+    collection: ['wednesday'],
     },
     {
     category: ['figure'],

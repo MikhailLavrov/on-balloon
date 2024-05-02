@@ -77,6 +77,11 @@ export const ProductCard = ({...item}) => {
       params.palette = color
     };
 
+    if (searchParams.has("collection")) {
+      const collectionName = searchParams.get("collection")
+      params.collection = collectionName
+    };
+
     if (searchParams.has("q")) {
       const query = searchParams.get("q")
       params.q = query

@@ -25,7 +25,7 @@
 }
 
 .catalog__mobileHeader {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 5px 10px;
 
   width: 100%;
@@ -163,6 +163,8 @@
 }
 
 .subcategories {
+  margin-bottom: 20px;
+
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -180,10 +182,6 @@
   transition: all 200ms ease-in-out;
   border-radius: 3px;
   background-color: $color-grey-light;
-
-  &:last-child {
-    margin-bottom: 20px;
-  }
 
   &:hover {
     color: $base-dark-color;
@@ -230,6 +228,11 @@
   }
 }
 
+.infoLine {
+  display: flex;
+  align-items: baseline;
+}
+
 .pagination__wrapper {
   display: flex;
   align-items: baseline;
@@ -237,10 +240,20 @@
   font-size: calc($fz-m - 2px);
 }
 
-.pagination__top {
-  margin-bottom: 20px;
-}
-
 .pagination__bottom {
   margin: 20px 0;
+}
+
+.totalDataCount {
+  margin: 0;
+  margin-bottom: 20px;
+  margin-left: auto;
+
+  display: none;
+
+  font-size: calc($fz-m - 2px);
+
+  @include vp-768 {
+    display: block;
+  }
 }

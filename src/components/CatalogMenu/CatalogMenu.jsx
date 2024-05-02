@@ -2,6 +2,7 @@ import c from './CatalogMenu.module.scss';
 import { Link, useParams } from 'react-router-dom';
 import { ColorPalette } from '../ColorPalette/ColorPalette';
 import { catalogMenuData } from './../../data/catalogData/catalogMenuData';
+import { CollectionPalette } from '../CollectionPalette/CollectionPalette';
 
 export const CatalogMenu = () => {
   const { topcategory } = useParams();
@@ -19,7 +20,12 @@ export const CatalogMenu = () => {
   return (
     <nav className={c.catalogMenu__nav}>
       {menuItems}
-      {topcategory === 'balloons' && <ColorPalette />}
+      {topcategory === 'balloons' && 
+      <>
+        <ColorPalette />
+        <CollectionPalette />
+      </>
+      }
     </nav>
   );
 };
