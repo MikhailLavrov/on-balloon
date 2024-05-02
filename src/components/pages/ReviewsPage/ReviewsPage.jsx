@@ -20,7 +20,7 @@ const reviewItems = reviewsData.map((item, index) => (
   </div>
 ))
 
-export const ReviewsPage = () => {
+const ReviewsPage = () => {
 
   return (
     <section className={c.reviewsPage}>
@@ -35,3 +35,5 @@ export const ReviewsPage = () => {
     </section>
   );
 };
+
+export default ReviewsPage;

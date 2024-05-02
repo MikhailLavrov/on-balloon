@@ -15,6 +15,7 @@ const orderedColors = [
   'red',
   'lime',
   'dodgerblue',
+  'mediumaquamarine',
   'darkorchid',
   'silver',
   'black'

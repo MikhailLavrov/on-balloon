@@ -29,12 +29,12 @@ export const CallbackForm = ({ outerHandler }) => {
   }, []);
   
   const onSubmit = (data) => {
+    let message = `Заявка на обратный звонок\n Имя: ${data.name}\n Телефон: ${data.phone}\n`;
+    
     sessionStorage.setItem('submitted', 'true');
     setIsSubmitted(true);
     outerHandler && outerHandler();
-    sendOrder({
-      message: `Заявка с сайта на обратный звонок\n Имя: ${data.name}\n Телефон: ${data.phone}`,
-    });
+    sendOrder({message});
     reset();
   }
 

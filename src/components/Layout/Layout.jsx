@@ -1,22 +1,36 @@
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+import { Layout, Spin } from 'antd';
+import c from './Layout.module.scss';
 import { HeaderComponent } from '../Header/Header';
 import { FooterComponent } from '../Footer/Footer';
 import { MobileNavigation } from '../MobileNavigation/MobileNavigation';
-import { Outlet } from 'react-router-dom';
-import { Layout } from 'antd';
-import c from './Layout.module.scss';
 
 const { Content } = Layout;
 
-export const LayoutComponent = () => {
+const LayoutComponent = () => {
 
   return (
     <Layout className={c.layout}>
       <HeaderComponent />
       <Content>
-        <Outlet />
+        <Suspense 
+          fallback={
+            <div 
+              className='container' 
+              style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}
+            >
+              <Spin size="large" />
+            </div>
+          }
+        >
+          <Outlet />
+        </Suspense>
       </Content>
       <FooterComponent />
       <MobileNavigation />
     </Layout>
   );
 }
+
+export default LayoutComponent;

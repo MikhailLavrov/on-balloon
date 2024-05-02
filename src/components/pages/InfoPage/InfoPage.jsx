@@ -5,7 +5,7 @@ import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComp
 import { Link, useParams } from 'react-router-dom';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
-export const InfoPage = () => {
+const InfoPage = () => {
   const { chapter } = useParams();
 
   const infoItem = infoPageData.find(item => item.key === chapter);
@@ -58,3 +58,5 @@ export const InfoPage = () => {
     </section>
   );
 };
+
+export default InfoPage;

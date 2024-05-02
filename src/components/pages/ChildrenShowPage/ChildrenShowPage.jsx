@@ -132,7 +132,7 @@ const complexData = [
   },
 ];
 
-export const ChildrenShowPage = () => {
+const ChildrenShowPage = () => {
   const location = useLocation();
   const pageName = eventServicesData.find(item => item.link === location.pathname).title;
 
@@ -173,3 +173,5 @@ export const ChildrenShowPage = () => {
     </section>
   );
 };
+
+export default ChildrenShowPage;

@@ -13,7 +13,7 @@ const galleryImages = galleryData.map((image, index) => (
   />
 ))
 
-export const GalleryPage = () => (
+const GalleryPage = () => (
   <section className={c.gallery}>
     <div className='container'>
       <BreadcrumbsComponent pageName={'Галерея'} />
@@ -38,3 +38,5 @@ export const GalleryPage = () => (
     <FloatButtonComponent />
   </section>
 );
+
+export default GalleryPage;

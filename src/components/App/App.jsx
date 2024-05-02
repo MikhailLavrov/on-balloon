@@ -1,5 +1,6 @@
 import c from './App.module.scss';
-import { LayoutComponent } from '../Layout/Layout';
+import { lazy } from 'react';
+import LayoutComponent from '../Layout/Layout';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { Hero } from '../Hero/Hero';
 import { HitsSection } from '../HitsSection/HitsSection';
@@ -9,18 +10,20 @@ import { GallerySection } from '../GallerySection/GallerySection';
 import { ReviewsSection } from '../ReviewsSection/ReviewsSection';
 import { FeedbackSection } from '../FeedbackSection/FeedbackSection';
 import { CatalogPageLayout } from '../pages/CatalogPage/CatalogPageLayout';
-import { FavouritesPage } from '../pages/FavouritesPage/FavouritesPage';
-import { ShoppingCartPage } from '../pages/ShoppingCartPage/ShoppingCartPage';
-import { SearchResultsPage } from '../pages/SearchResultsPage/SearchResultsPage';
-import { InfoPage } from '../pages/InfoPage/InfoPage';
-import { ContactsPage } from '../pages/ContactsPage/ContactsPage';
-import { ReviewsPage } from '../pages/ReviewsPage/ReviewsPage';
-import { GalleryPage } from '../pages/GalleryPage/GalleryPage';
-import { DecorPage } from '../pages/DecorPage/DecorPage';
-import { PhotozonePage } from '../pages/PhotozonePage/PhotozonePage';
-import { ChildrenShowPage } from '../pages/ChildrenShowPage/ChildrenShowPage';
-import { ForBusinessPage } from '../pages/ForBusinessPage/ForBusinessPage';
 import { FloatButtonComponent } from '../FloatButtonComponent/FloatButtonComponent';
+
+// Pages
+const FavouritesPage = lazy(() => import('../pages/FavouritesPage/FavouritesPage'));
+const ShoppingCartPage = lazy(() => import('../pages/ShoppingCartPage/ShoppingCartPage'));
+const SearchResultsPage = lazy(() => import('../pages/SearchResultsPage/SearchResultsPage'));
+const InfoPage = lazy(() => import('../pages/InfoPage/InfoPage'));
+const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
+const GalleryPage = lazy(() => import('../pages/GalleryPage/GalleryPage'));
+const DecorPage = lazy(() => import('../pages/DecorPage/DecorPage'));
+const PhotozonePage = lazy(() => import('../pages/PhotozonePage/PhotozonePage'));
+const ChildrenShowPage = lazy(() => import('../pages/ChildrenShowPage/ChildrenShowPage'));
+const ForBusinessPage = lazy(() => import('../pages/ForBusinessPage/ForBusinessPage'));
+const ReviewsPage = lazy(() => import('../pages/ReviewsPage/ReviewsPage'));
 
 const MainPage = () => {
   return (

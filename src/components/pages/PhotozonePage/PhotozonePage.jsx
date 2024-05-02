@@ -74,7 +74,7 @@ const stepsData = [
   },
 ];
 
-export const PhotozonePage = () => {
+const PhotozonePage = () => {
   const location = useLocation();
   const pageName = eventServicesData.find(item => item.link === location.pathname).title;
 
@@ -114,3 +114,5 @@ export const PhotozonePage = () => {
     </section>
   );
 };
+
+export default PhotozonePage;

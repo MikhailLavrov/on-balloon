@@ -13,7 +13,7 @@ import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComp
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
-export const SearchResultsPage = () => {
+const SearchResultsPage = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get('q');
@@ -80,3 +80,5 @@ export const SearchResultsPage = () => {
     </section>
   );
 };
+
+export default SearchResultsPage;

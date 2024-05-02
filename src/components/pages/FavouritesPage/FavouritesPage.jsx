@@ -7,7 +7,7 @@ import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDraw
 import { EmptyToCatalog } from '../components/EmptyToCatalog/EmptyToCatalog';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
-export const FavouritesPage = () => {
+const FavouritesPage = () => {
   const favouritesState = useSelector(state => state.favourites.items)
 
   const favouritesList = favouritesState.map(item => (
@@ -43,3 +43,5 @@ export const FavouritesPage = () => {
     </section>
   )
 }
+
+export default FavouritesPage;

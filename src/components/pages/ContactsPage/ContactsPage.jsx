@@ -5,7 +5,7 @@ import { SocialLinks } from '../../SocialLinks/SocialLinks';
 import { CallbackForm } from '../../CallbackForm/CallbackForm';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 
-export const ContactsPage = () => {
+const ContactsPage = () => {
   return (
     <section className={c.contactsPage}>
       <div className={`${c.contactsPage__container} container`}>
@@ -37,3 +37,5 @@ export const ContactsPage = () => {
     </section>
   )
 }
+
+export default ContactsPage;

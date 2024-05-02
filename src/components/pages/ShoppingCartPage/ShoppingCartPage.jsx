@@ -9,7 +9,7 @@ import { EmptyToCatalog } from '../components/EmptyToCatalog/EmptyToCatalog';
 import { OrderForm } from '../../OrderForm/OrderForm';
 import { Link } from 'react-router-dom';
 
-export const ShoppingCartPage = () => {
+const ShoppingCartPage = () => {
   const shoppingCartState = useSelector(state => state.shoppingCart.items);
   const [orderSuccess, setOrderSuccess] = useState(false);
   const currentCartItems = useMemo(() => shoppingCartState, [shoppingCartState]);
@@ -106,3 +106,5 @@ export const ShoppingCartPage = () => {
     </section>
   );
 }
+
+export default ShoppingCartPage;

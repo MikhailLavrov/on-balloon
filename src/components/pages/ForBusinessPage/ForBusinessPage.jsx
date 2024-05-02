@@ -121,7 +121,7 @@ const complexData = [
   },
 ];
 
-export const ForBusinessPage = () => {
+const ForBusinessPage = () => {
   const location = useLocation();
   const pageName = eventServicesData.find(item => item.link === location.pathname).title;
 
@@ -155,3 +155,5 @@ export const ForBusinessPage = () => {
     </section>
   )
 }
+
+export default ForBusinessPage;

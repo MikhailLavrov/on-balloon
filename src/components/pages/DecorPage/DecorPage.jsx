@@ -53,7 +53,7 @@ const variantsData = [
   },
 ];
 
-export const DecorPage = () => {
+const DecorPage = () => {
   const location = useLocation();
   const pageName = eventServicesData.find(item => item.link === location.pathname).title;
 
@@ -90,3 +90,5 @@ export const DecorPage = () => {
     </section>
   );
 };
+
+export default DecorPage;
