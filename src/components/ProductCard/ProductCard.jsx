@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ProductCardModal } from '../ProductCardModal/ProductCardModal';
-import { Button, Image } from 'antd';
+import { Button, Image, Spin } from 'antd';
 import { CheckCircleFilled, HeartFilled, HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { addToFavourites, deleteFromFavourites } from '../../redux/favouritesSlice';
@@ -104,11 +104,15 @@ export const ProductCard = ({...item}) => {
         <div className={c.catalogCard__imageWrapper}>
           <Image
             src={image}
-            width={200}
-            height={200}
+            width={'auto'}
             alt={title}
             preview={false}
             fallback={FALLBACK}
+            placeholder={
+              <div className={c.imagePreloader} >
+                <Spin size='small'/>
+              </div>
+            }
           />
           <Button className={c.catalogCard__toFavouritesButton} onClick={toggleFavorites}>{favoritesButtonIcon}</Button>
         </div>

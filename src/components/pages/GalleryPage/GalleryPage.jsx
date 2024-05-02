@@ -1,15 +1,22 @@
-import { Image, ConfigProvider } from 'antd';
+import { Image, ConfigProvider, Spin } from 'antd';
 import c from './GalleryPage.module.scss';
 import '../../../styles/global.scss';
 import { galleryData } from '../../../data/galleryData';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
+import FALLBACK from '../../../assets/catalog/fallback.webp';
 
 const galleryImages = galleryData.map((image, index) => (
   <Image 
     key={index}
     width={'auto'}
     src={image}
+    fallback={FALLBACK}
+    placeholder={
+      <div className={c.imagePreloader} >
+        <Spin size='small'/>
+      </div>
+    }
   />
 ))
 

@@ -38,6 +38,10 @@
   & div {
     width: 100% !important;
     height: 100% !important;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   & img {
@@ -248,4 +252,17 @@
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
+}
+
+.imagePreloader {
+  width: 100%;
+  height: 100% !important;
+  min-height: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+
+  background-color: $color-grey-light-2;
 }

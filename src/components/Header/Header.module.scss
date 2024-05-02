@@ -3,7 +3,6 @@
 @import '../../styles/global.scss';
 
 .header {
-  min-height: 50px;
   width: 100%;
 
   display: flex;
@@ -96,9 +95,15 @@
 }
 
 .header .headerMain {
+  padding: 8px 0;
   width: 100%;
+
   background:linear-gradient( to bottom, $color-grey-light, #fff);
   border-bottom: 1px $color-grey-light solid;
+
+  @include vp-768 {
+    padding: 0;
+  }
 }
 
 .headerMain .headerMain__container {
