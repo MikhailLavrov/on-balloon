@@ -31,6 +31,8 @@ const orderedCollections = [
   'wednesday',
   'coldheart',
   'pawpatrol',
+  'numeric',
+  'school',
 ];
 
 const translateCollection = {
@@ -60,6 +62,8 @@ const translateCollection = {
   'wednesday': 'Уэнсдей',
   'coldheart': 'Холодное сердце',
   'pawpatrol': 'Щенячий патруль',
+  'numeric': 'Шары с цифрой',
+  'school': 'Школа',
 };
 
 export const CollectionPalette = () => {
@@ -118,7 +122,7 @@ export const CollectionPalette = () => {
   return (
     sortedPalette.length > 0 &&
     <div className={c.collectionPalette}>
-      <span className={c.collectionPalette__title}>Фильтр по коллекциям:</span>
+      <span className={c.collectionPalette__title}>Коллекция:</span>
       <ul className={c.collectionPalette__list}>
         {sortedPalette.map((collection) => (
           <li
@@ -130,7 +134,7 @@ export const CollectionPalette = () => {
           </li>
         ))}
       </ul>
-      {selectedCollection && <Button onClick={handleClearSearch}>Очистить</Button>}
+      {selectedCollection && <Button className={c.clearButton} onClick={handleClearSearch}>Очистить</Button>}
     </div>
   );
 };

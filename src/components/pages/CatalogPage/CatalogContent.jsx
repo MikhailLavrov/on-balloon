@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Badge, Pagination } from 'antd';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import c from './CatalogPage.module.scss';
-import { ProductCard } from '../../ProductCard/ProductCard';
+import { Badge, Pagination } from 'antd';
 import { animationData } from '../../../data/catalogData/animationData';
 import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
-import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { catalogMenuData } from './../../../data/catalogData/catalogMenuData';
-import { ColorPalette } from '../../ColorPalette/ColorPalette';
-// import { CollectionPalette } from '../../CollectionPalette/CollectionPalette';
+import { ProductCard } from '../../ProductCard/ProductCard';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
@@ -23,8 +21,8 @@ export const CatalogContent = () => {
   const filteredCollection = searchParams.get('collection') || '';
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [category, currentPage]);
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+  }, [category, currentPage, filteredColor, filteredCollection]);
 
   useEffect(() => {
     setCurrentPage(1)
@@ -178,14 +176,7 @@ export const CatalogContent = () => {
               )}
           </div>
           {topcategory === 'balloons' && (
-            <>
-              <div className={c.mobileColorPalette}>
-                <ColorPalette />
-              </div>
-              <div className={c.mobileCollectionPalette}>
-                {/* <CollectionPalette /> */}
-              </div>
-            </>
+            <p className={c.totalDataCountMobile}>Всего товаров: {totalDataCount}</p>
           )}
         </>
       )}

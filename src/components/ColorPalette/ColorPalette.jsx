@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams, useParams } from "react-router-dom";
 import { balloonsData } from "../../data/catalogData/balloonsData";
 import c from './ColorPalette.module.scss';
@@ -25,7 +25,19 @@ export const ColorPalette = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedColor, setSelectedColor] = useState(searchParams.get("palette"));
   const [categoryChanged, setCategoryChanged] = useState(false);
-  const { category } = useParams();
+  const { category } = useParams(); 
+  
+  const colorWheelRef = useRef(null);
+
+  useEffect(() => {
+    // Прокрутка колеса к выбранному цвету
+    if (selectedColor && colorWheelRef.current) {
+      const colorIndex = orderedColors.indexOf(selectedColor);
+      const sectorSize = 360 / orderedColors.length;
+      const angle = colorIndex * sectorSize;
+      colorWheelRef.current.style.transform = `rotate(${-angle}deg)`;
+    }
+  }, [selectedColor]);
 
   // Проверяем наличие параметра цвета при загрузке компонента
   useEffect(() => {
@@ -77,18 +89,22 @@ export const ColorPalette = () => {
   return (
     sortedPalette.length > 0 &&
     <div className={c.colorPalette}>
-      <span className={c.colorPalette__title}>Фильтр по цвету:</span>
-      <div className={c.colorPalette__container}>
+      <span className={c.colorPalette__title}>Цвет:</span>
+      <ul className={c.colorPalette__list}>
         {sortedPalette.map((color) => (
-          <div
+          <li
             key={color}
-            className={`${c.colorPalette__item} ${selectedColor === color ? c.active : ''}`}
-            style={{ backgroundColor: color }}
             onClick={() => handleColorClick(color)}
-          ></div>
+            className={`${c.colorPalette__item} ${selectedColor === color ? c.active : ''}`}
+          >
+            <span
+              className={`${color === 'goldenrod' || color === 'mistyrose' ? c.goldColor : ''}`}
+              style={{ backgroundColor: color }}
+            ></span>
+          </li>
         ))}
-      </div>
-      {selectedColor && <Button onClick={handleClearSearch}>Очистить</Button>}
+      </ul>
+      {selectedColor && <Button className={c.clearButton} onClick={handleClearSearch}>Очистить</Button>}
     </div>
   );
 };

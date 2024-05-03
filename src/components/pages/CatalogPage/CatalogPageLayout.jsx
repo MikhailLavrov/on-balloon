@@ -26,14 +26,14 @@ export const CatalogPageLayout = () => {
     <section className={c.catalog}>
       <Affix>
         <div className={c.catalog__mobileHeader}>
-            <Button className={c.catalog__mobileHeaderBackButton} onClick={onMenuClickHandler}>{'<'} Меню</Button>
-            <div className={c.catalog__mobileHeaderCategoryWrapper}>
-              <span className={c.catalog__mobileHeaderCategory}>{translatedCategory}</span>
-              <span className={c.catalog__mobileHeaderSubcategory}>{translatedSubcategory}</span>
-            </div>
+          <Button className={c.catalog__mobileHeaderBackButton} onClick={onMenuClickHandler}>{'<'} Меню</Button>
+          <div className={c.catalog__mobileHeaderCategoryWrapper}>
+            <span className={c.catalog__mobileHeaderCategory}>{translatedCategory}</span>
+            <span className={c.catalog__mobileHeaderSubcategory}>{translatedSubcategory}</span>
+          </div>
         </div>
       </Affix>
-      <div className='container'>
+      <div className={`container ${c.catalog__container}`}>
         <BreadcrumbsComponent pageName={"Каталог"} />
         <div className={c.catalog__innerContainer}>
           <div className={c.catalog__catalogMenu}>

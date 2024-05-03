@@ -25,7 +25,7 @@
 }
 
 .catalog__mobileHeader {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 5px 10px;
 
   width: 100%;
@@ -43,7 +43,7 @@
 
   @include vp-768 {
     margin-bottom: 15px;
-    padding: 0 15px;
+    padding: 10px 15px;
   }
 
   @include vp-1260 {
@@ -234,10 +234,17 @@
 }
 
 .pagination__wrapper {
+  margin-bottom: 10px;
+
   display: flex;
   align-items: baseline;
+  gap: 10px;
 
-  font-size: calc($fz-m - 2px);
+  font-size: $fz-s;
+
+  @include vp-768 {
+    font-size: calc($fz-m - 2px);
+  }
 }
 
 .pagination__bottom {
@@ -255,5 +262,16 @@
 
   @include vp-768 {
     display: block;
+  }
+}
+
+.totalDataCountMobile {
+  margin: 0;
+  margin-bottom: 10px;
+
+  font-size: $fz-s;
+
+  @include vp-768 {
+    display: none;
   }
 }
