@@ -1,28 +1,15 @@
 import c from './FavouritesPage.module.scss';
-import { ProductCard } from '../../ProductCard/ProductCard';
 import { useSelector } from 'react-redux';
-import { Badge } from 'antd';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent'; 
 import { MobileCatalogDrawer } from '../../MobileCatalogDrawer/MobileCatalogDrawer';
 import { EmptyToCatalog } from '../components/EmptyToCatalog/EmptyToCatalog';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
+import { BadgedProductCard } from '../../ProductCard/BadgedProductCard';
 
 const FavouritesPage = () => {
   const favouritesState = useSelector(state => state.favourites.items)
 
-  const favouritesList = favouritesState.map(item => (
-    item.oldPrice ? (
-      <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
-        <ProductCard {...item} />
-      </Badge.Ribbon>
-    ) : item.hit ? (
-      <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
-        <ProductCard {...item} />
-      </Badge.Ribbon>
-    ) : (
-      <ProductCard key={item.article} {...item} />
-    )
-  ));
+  const favouritesList = favouritesState.map((item) => <BadgedProductCard item={{...item}} />);;
 
   return (
     <section className={c.favourites}>

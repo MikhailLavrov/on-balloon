@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import c from './CatalogPage.module.scss';
-import { Badge, Pagination } from 'antd';
+import { Pagination } from 'antd';
 import { animationData } from '../../../data/catalogData/animationData';
 import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { catalogMenuData } from './../../../data/catalogData/catalogMenuData';
-import { ProductCard } from '../../ProductCard/ProductCard';
+import { BadgedProductCard } from '../../ProductCard/BadgedProductCard';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
@@ -54,59 +54,21 @@ export const CatalogContent = () => {
       .filter(item => item.category.includes(category))
       .filter(item => !filteredColor || (item.palette && item.palette.includes(filteredColor)))
       .filter(item => !filteredCollection || (item.collection && item.collection.includes(filteredCollection)))
-      .map((item) => (
-        item.oldPrice ? (
-          <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
-            <ProductCard {...item} />
-          </Badge.Ribbon>
-        ) : item.hit ? (
-          <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
-            <ProductCard {...item} />
-          </Badge.Ribbon>
-        ) : (
-          <ProductCard key={item.article} {...item} />
-        )
-      )
-    );
+      .map((item) => <BadgedProductCard item={{...item}} />);
   };
 
   const filterAllCategoriesData = (data) => {
     return data
       .filter(item => !filteredColor || (item.palette && item.palette.includes(filteredColor)))
       .filter(item => !filteredCollection || (item.collection && item.collection.includes(filteredCollection)))
-      .map((item) => (
-        item.oldPrice ? (
-          <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
-            <ProductCard {...item} />
-          </Badge.Ribbon>
-        ) : item.hit ? (
-          <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
-            <ProductCard {...item} />
-          </Badge.Ribbon>
-        ) : (
-          <ProductCard key={item.article} {...item} />
-        )
-      )
-    );
+      .map((item) => <BadgedProductCard item={{...item}} />);
   };
 
   let catalogItems;
   switch (selectedTopCategory) {
     case 'trend':
       catalogItems = [
-        allData.filter(item => item.hit).map((item) => (
-          item.oldPrice ? (
-            <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
-              <ProductCard {...item} />
-            </Badge.Ribbon>
-          ) : item.hit ? (
-            <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
-              <ProductCard {...item} />
-            </Badge.Ribbon>
-          ) : (
-            <ProductCard key={item.article} {...item} />
-          )
-        ))
+        allData.filter(item => item.hit).map((item) => <BadgedProductCard item={{...item}} />)
       ];
       break;
     case 'balloons':
@@ -167,9 +129,7 @@ export const CatalogContent = () => {
                     key={'all'}
                     to={`/catalog/${selectedTopCategory}`}
                     className={`${c.subcategory__link} ${!category ? c.subcategory__linkActive : ''}`}
-                  >
-                    Все
-                  </Link>
+                  >Все</Link>
                   {renderSubcategories(menuTopCategory.children)}
                 </div>
               ) : null

@@ -4,12 +4,11 @@ import { animationData } from '../../../data/catalogData/animationData';
 import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
-import { ProductCard } from '../../ProductCard/ProductCard';
-import { Badge } from 'antd';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
 import c from './SearchResultsPage.module.scss';
 import EMPTY_IMAGE from '../../../assets/empty.webp';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
+import { BadgedProductCard } from '../../ProductCard/BadgedProductCard';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
@@ -33,13 +32,12 @@ const SearchResultsPage = () => {
     
       // Проверяем, содержатся ли все слова из запроса в артикуле
       const containsWholeArticle = words.some(word =>
-        article && article.toLowerCase() === word
+        word.length > 3 && article && article.toLowerCase() === word
       );
   
       // Проверяем, содержатся ли оба слова из запроса в имени или описании
       const containsBothWords = words.some(word =>
-        // lowerTitle && lowerTitle.startsWith(word)
-        (lowerTitle && lowerTitle.includes(word)) || (lowerDescription && lowerDescription.includes(word))
+        word.length > 2 && ((lowerTitle && lowerTitle.includes(word)) || (lowerDescription && lowerDescription.includes(word)))
       );
 
       return lowerQuery && (containsWholeArticle || containsBothWords);
@@ -80,20 +78,7 @@ const SearchResultsPage = () => {
       <BreadcrumbsComponent pageName={'Поиск'} />
         <h2 className={c.searchResults__title}>{itemsAmount} по запросу '{query}'</h2>
         <div className={c.searchResults__innerContainer}>
-          {searchResults.length > 0 &&
-            searchResults.map(item => (
-              item.oldPrice ? (
-                <Badge.Ribbon className={c.styledBadge} text="Акция" color="red" key={item.article}>
-                  <ProductCard {...item} />
-                </Badge.Ribbon>
-              ) : item.hit ? (
-                <Badge.Ribbon className={c.styledBadge} text="Хит" color="green" key={item.article}>
-                  <ProductCard {...item} />
-                </Badge.Ribbon>
-              ) : (
-                <ProductCard key={item.article} {...item} />
-              )
-            ))}
+          {searchResults.length > 0 && searchResults.map((item) => <BadgedProductCard item={{...item}} />)}
         </div>
         {searchResults.length === 0 && (
           <div className={c.empty}>
