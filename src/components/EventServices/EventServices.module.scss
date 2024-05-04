@@ -63,8 +63,8 @@
     color: $base-dark-color;
     
     & .eventServices__itemTextWrapper {
-      opacity: 1;
-      transition-delay: 150ms;
+      height: 100%;
+      transition: height 600ms ease-in-out;
     }
     
     & .eventServices__itemText {
@@ -73,9 +73,9 @@
     }
 
     & .eventServices__itemImage {
-      transform: scale(1.2);
-      transition: transform 10s ease-out;
+      transform: scale(1);
       transition-delay: 1s;
+      transition: transform 500ms ease-out;
     }
   }
 }
@@ -101,47 +101,31 @@
 
   aspect-ratio: 1/1;
   border-radius: 10px;
-
+  
+  transform: scale(1.05);
   transition: transform 500ms ease-in;
 }
 
-.eventServices__itemTitle {
-  margin: 0;
-  
-  font-size: $fz-s;
-  font-weight: 500;
-
-  @include vp-1260 {
-    font-size: $fz-m;
-  }
-}
-
 .eventServices__itemTextWrapper {
-  padding: 15px;
+  padding: 20px;
 
   display: none;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  text-align: center;
+  gap: 20px;
 
   position: absolute;
   content: '';
-  top: 0;
+  bottom: 0;
   left: 0;
 
   width: 100%;
-  height: 100%;
+  height: 60px;
 
-  background-color: $color-grey;
+  background-color: rgba($color-grey, 0.7);
   background: linear-gradient(to bottom, transparent, rgba($base-dark-color, 0.8) 50%);
   border-radius: 10px;
 
-  transition: opacity 500ms ease-in-out;
-
-  opacity: 0;
+  transition: height 600ms ease-in-out;
 
   z-index: 10;
 
@@ -150,18 +134,35 @@
   }
 }
 
+.eventServices__itemTitleWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.eventServices__itemTitle {
+  margin: 0;
+  
+  font-size: $fz-s;
+  font-weight: 600;
+  color: $base-light-color;
+
+  @include vp-1260 {
+    font-size: $fz-m;
+  }
+}
+
+.eventServices__itemIcon {
+  color: $base-light-color;
+  font-size: $fz-m;
+}
+
 .eventServices__itemText {
   margin: 0;
 
-  font-size: calc($fz-m - 2px);
+  font-size: calc($fz-m - 3px);
   line-height: 1;
   color: $base-light-color;
 
   opacity: 0;
   transition: all 350ms ease-in-out;
-}
-
-.eventServices__itemIcon {
-  color: $base-light-color;
-  font-size: $fz-l;
 }

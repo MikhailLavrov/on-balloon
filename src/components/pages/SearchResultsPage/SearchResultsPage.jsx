@@ -20,14 +20,16 @@ const SearchResultsPage = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+    
     const lowerQuery = query && query.toLowerCase();
     const words = lowerQuery && lowerQuery.split(/\s+/); // Разделение запроса на отдельные слова
     
-  const filteredResults = allData.filter(item => {
-    const { article, title, description } = item;
-    
-    const lowerTitle = title && title.toLowerCase();
-    const lowerDescription = description && description.toLowerCase();
+    const filteredResults = allData.filter(item => {
+      const { article, title, description } = item;
+      
+      const lowerTitle = title && title.toLowerCase();
+      const lowerDescription = description && description.toLowerCase();
     
       // Проверяем, содержатся ли все слова из запроса в артикуле
       const containsWholeArticle = words.some(word =>
@@ -35,17 +37,22 @@ const SearchResultsPage = () => {
       );
   
       // Проверяем, содержатся ли оба слова из запроса в имени или описании
-      const containsBothWords = words.some(word =>
+      const containsTitleStart = words.some(word =>
+        // lowerTitle && lowerTitle.startsWith(word)
         (lowerTitle && lowerTitle.includes(word)) || (lowerDescription && lowerDescription.includes(word))
       );
-      
-      return lowerQuery && (containsWholeArticle || containsBothWords);
+  
+      // Проверяем, содержатся ли оба слова из запроса в имени или описании
+      const containsDescriptionStart = words.some(word =>
+        // lowerDescription && lowerDescription.startsWith(word)
+        (lowerTitle && lowerTitle.includes(word)) || (lowerDescription && lowerDescription.includes(word))
+      );
+      return lowerQuery && (containsWholeArticle || containsTitleStart || containsDescriptionStart);
     });
   
     setSearchResults(filteredResults);
   }, [query]);
   
-
   return (
     <section className={c.searchResults}>
       <div className={`${c.searchResults__container} container`}>
