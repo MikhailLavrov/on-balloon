@@ -37,27 +37,48 @@ const SearchResultsPage = () => {
       );
   
       // Проверяем, содержатся ли оба слова из запроса в имени или описании
-      const containsTitleStart = words.some(word =>
+      const containsBothWords = words.some(word =>
         // lowerTitle && lowerTitle.startsWith(word)
         (lowerTitle && lowerTitle.includes(word)) || (lowerDescription && lowerDescription.includes(word))
       );
-  
-      // Проверяем, содержатся ли оба слова из запроса в имени или описании
-      const containsDescriptionStart = words.some(word =>
-        // lowerDescription && lowerDescription.startsWith(word)
-        (lowerTitle && lowerTitle.includes(word)) || (lowerDescription && lowerDescription.includes(word))
-      );
-      return lowerQuery && (containsWholeArticle || containsTitleStart || containsDescriptionStart);
+
+      return lowerQuery && (containsWholeArticle || containsBothWords);
     });
   
     setSearchResults(filteredResults);
   }, [query]);
+
+  // Количество позиций в корзине
+  let itemsAmount = '';
+  const itemCount = searchResults.length;
+  
+  // Функция для определения окончания числа
+  const getEnding = num => {
+    const strNum = num.toString();
+    const lastDigit = parseInt(strNum.charAt(strNum.length - 1));
+  
+    if (num === 1 || (num > 20 && lastDigit === 1)) {
+      return '';
+    // eslint-disable-next-line no-mixed-operators
+    } else if (num > 1 && num < 5 || (num > 20 && lastDigit > 1 && lastDigit < 5)) {
+      return 'а';
+    } else {
+      return 'ов';
+    }
+  };
+  
+  if (itemCount === 1 || (itemCount > 20 && parseInt(itemCount.toString().charAt(itemCount.toString().length - 1)) === 1)) {
+    itemsAmount = `Найден ${itemCount} товар`;
+  } else {
+    const ending = getEnding(itemCount);
+    itemsAmount = `Найдено ${itemCount} товар${ending}`;
+  }
   
   return (
     <section className={c.searchResults}>
       <div className={`${c.searchResults__container} container`}>
       <BreadcrumbsComponent pageName={'Поиск'} />
-        <h2 className={c.searchResults__title}>Результаты поиска по запросу '{query}'</h2>
+        <h2 className={c.searchResults__title}>{itemsAmount} по запросу '{query}'</h2>
         <div className={c.searchResults__innerContainer}>
           {searchResults.length > 0 &&
             searchResults.map(item => (
