@@ -9,7 +9,7 @@ import { BadgedProductCard } from '../../ProductCard/BadgedProductCard';
 const FavouritesPage = () => {
   const favouritesState = useSelector(state => state.favourites.items)
 
-  const favouritesList = favouritesState.map((item) => <BadgedProductCard item={{...item}} />);;
+  const favouritesList = favouritesState.map((item, index) => <BadgedProductCard item={{...item}} key={index} />);
 
   return (
     <section className={c.favourites}>

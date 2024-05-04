@@ -78,7 +78,7 @@ const SearchResultsPage = () => {
       <BreadcrumbsComponent pageName={'Поиск'} />
         <h2 className={c.searchResults__title}>{itemsAmount} по запросу '{query}'</h2>
         <div className={c.searchResults__innerContainer}>
-          {searchResults.length > 0 && searchResults.map((item) => <BadgedProductCard item={{...item}} />)}
+          {searchResults.length > 0 && searchResults.map((item, index) => <BadgedProductCard item={{...item}} key={index} />)}
         </div>
         {searchResults.length === 0 && (
           <div className={c.empty}>

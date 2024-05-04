@@ -54,21 +54,21 @@ export const CatalogContent = () => {
       .filter(item => item.category.includes(category))
       .filter(item => !filteredColor || (item.palette && item.palette.includes(filteredColor)))
       .filter(item => !filteredCollection || (item.collection && item.collection.includes(filteredCollection)))
-      .map((item) => <BadgedProductCard item={{...item}} />);
+      .map((item, index) => <BadgedProductCard item={{...item}} key={index} />);
   };
 
   const filterAllCategoriesData = (data) => {
     return data
       .filter(item => !filteredColor || (item.palette && item.palette.includes(filteredColor)))
       .filter(item => !filteredCollection || (item.collection && item.collection.includes(filteredCollection)))
-      .map((item) => <BadgedProductCard item={{...item}} />);
+      .map((item, index) => <BadgedProductCard item={{...item}} key={index} />);
   };
 
   let catalogItems;
   switch (selectedTopCategory) {
     case 'trend':
       catalogItems = [
-        allData.filter(item => item.hit).map((item) => <BadgedProductCard item={{...item}} />)
+        allData.filter(item => item.hit).map((item, index) => <BadgedProductCard item={{...item}} key={index} />)
       ];
       break;
     case 'balloons':
