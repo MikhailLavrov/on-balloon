@@ -2,9 +2,6 @@
 @import '../../styles/mixins.scss';
 
 .colorPalette {
-  padding: 10px 0;
-  margin-bottom: 10px;
-
   background-color: $base-light-color;
 
   @include vp-1260 {
@@ -17,12 +14,13 @@
 .colorPalette__title {
   margin-bottom: 10px;
   
-  display: flex;
+  display: none;
   align-items: center;
   
   font-size: $fz-s;
   
   @include vp-1260 {
+    display: flex;
     margin-bottom: 15px;
 
     font-size: calc($fz-m - 3px);
@@ -33,16 +31,17 @@
 .colorPalette__list {
   padding: 0;
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 10px;
 
   list-style: none;
 
   @include vp-1260 {
     margin-bottom: 15px;
+    gap: 5px;
   }
 }
 
@@ -62,33 +61,6 @@
   &:hover {
     background-color: $color-grey-light;
   }
-  
-  & span {
-    width: 20px;
-    height: 20px;
-    
-    position: relative;
-    display: block;
-    
-    border-radius: 50%;
-    box-shadow: 0px 0px 10px -5px $base-dark-color inset;
-    transition: all 200ms ease-in-out;
-
-    // Блик
-    &::after {
-      position: absolute;
-      content: '';
-  
-      width: 3px;
-      height: 8px;
-      top: 3px;
-      left: 3px;
-      background-color: rgba($base-light-color, 0.5);
-      border-top-left-radius: 50%;
-      border-bottom-left-radius: 50%;
-      transform: rotate(25deg);
-    }
-  }
 
   &.active {
     background-color: $color-purple;
@@ -97,43 +69,61 @@
   }
 }
 
-// .goldColor {
-//   &::before {
-//     position: absolute;
-//     content: 'gold';
-//     top: 50%;
-//     transform: translateY(-50%);
-//     right: 0;
-//     left: 0;
-    
-//     width: 100%;
-//     height: auto;
-    
-//     font-size: 10px;
-//     line-height: 1;
-//     text-align: center;
-    
-//     border-radius: 5px;
-//   }
-// }
+.colorPalette__color {
+  width: 25px;
+  height: 25px;
+  
+  position: relative;
+  display: block;
+  
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px -5px $base-dark-color inset;
+  transition: all 200ms ease-in-out;
 
-.clearButton { 
-  width: 100%;
-  color: $base-light-color;
+  @include vp-1260 {
+    width: 20px;
+    height: 20px;
+  }
+
+  // Блик
+  &::after {
+    position: absolute;
+    content: '';
+
+    width: 3px;
+    height: 8px;
+    top: 3px;
+    left: 3px;
+    background-color: rgba($base-light-color, 0.5);
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    transform: rotate(25deg);
+  }
+}
+
+.clearButton {
+  width: 20px !important;
+  height: 20px !important;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  aspect-ratio: 1/1;
 
   border: none;
+  background-color: transparent;
+  color: $base-light-color !important;
 
-  box-shadow: 0 3px 8px -3px $base-dark-color;
-  background-color: $color-red;
-  background: radial-gradient($color-orange, $color-red);
+  &:hover {
+    background-color: transparent !important;
+    color: $color-grey !important;
+  }
 
-  &:hover,
-  &:active,
-  &:focus {
-    color: $base-light-color !important;
-    
-    box-shadow: 0 3px 8px -2px $base-dark-color;
-    background-color: $color-red !important;
-    background: radial-gradient($color-orange, rgba($color-red, 0.8)) !important;
+  & svg {
+    width: 12px;
+    height: 12px;
   }
 }

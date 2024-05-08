@@ -7,6 +7,9 @@
   
   height: 100%;
   min-height: 100%;
+
+  position: relative;
+  overflow: hidden;
   
   text-align: start;
   font-family: $ff-tilda;
@@ -59,7 +62,8 @@
 }
 
 .catalog__mobileHeaderCategory,
-.catalog__mobileHeaderSubcategory {
+.catalog__mobileHeaderSubcategory,
+.catalog__mobileHeaderFilter {
   padding: 0 10px;
 
   text-align: right;
@@ -73,7 +77,8 @@
   }
 }
 
-.catalog__mobileHeaderSubcategory {
+.catalog__mobileHeaderSubcategory,
+.catalog__mobileHeaderFilter {
   font-weight: 300;
 }
   
@@ -228,6 +233,27 @@
   }
 }
 
+.totalLine {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  
+  @include vp-1260 {
+    display: none;
+  }
+}
+
+.totalDataCountMobile {
+  margin: 0;
+  margin-bottom: 10px;
+
+  font-size: $fz-s;
+
+  @include vp-1260 {
+    display: none;
+  }
+}
+
 .infoLine {
   display: flex;
   align-items: baseline;
@@ -245,6 +271,10 @@
   @include vp-768 {
     font-size: calc($fz-m - 2px);
   }
+
+  @include vp-1260 {
+    margin-bottom: 0;
+  }
 }
 
 .pagination__bottom {
@@ -260,18 +290,26 @@
 
   font-size: calc($fz-m - 2px);
 
-  @include vp-768 {
+  @include vp-1260 {
     display: block;
   }
 }
 
-.totalDataCountMobile {
-  margin: 0;
-  margin-bottom: 10px;
+.filterModal {
+  max-height: 70vh;
 
-  font-size: $fz-s;
+  overflow: hidden;
 
-  @include vp-768 {
-    display: none;
-  }
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.filterModal__container {
+  height: 50vh;
+  flex-grow: 1;
+  overflow: scroll;
+}
+
+.filterSegmented {
+  margin-bottom: 15px;
 }

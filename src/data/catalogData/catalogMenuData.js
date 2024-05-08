@@ -37,7 +37,7 @@ export const catalogMenuData = [
   },
   {
     key: 'attractions',
-    label: 'Аттракционы и оборудование',
+    label: 'Для бизнеса',
     children: [
       { key: 'cotton', label: 'Сладкая вата' },
       { key: 'popcorn', label: 'Попкорн' },

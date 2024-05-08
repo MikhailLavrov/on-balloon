@@ -1,4 +1,13 @@
-.ant-menu-submenu-title{
+.ant-modal,
+.ant-segmented,
+.ant-pagination,
+.ant-drawer,
+.ant-tabs,
+.ant-btn {
+  font-family: $ff-tilda;
+}
+
+.ant-menu-submenu-title {
   display: flex !important;
 }
 
@@ -12,7 +21,6 @@
 }
 
 .catalogCardModal__tabs {
-  font-family: $ff-tilda;
   font-size: $fz-s;
 
   @media (max-width: $vp-500) {
@@ -29,10 +37,6 @@
 
 .ant-drawer-body {
   padding-bottom: 80px !important;
-}
-
-.catalog__drawer {
-  font-family: $ff-tilda;
 }
 
 .catalog__drawer .ant-drawer-header .ant-drawer-header-title {
@@ -58,21 +62,7 @@
   }
 }
 
-// .catalog__pagination {
-//   & .ant-pagination-item-active {
-//     background-color: rgba($color-telegram-blue, 0.2);
-//   }
-// }
-
-.ant-pagination {
-  font-family: $ff-tilda;
+/* Блокировка скролла при открытом Drawer */
+.drawer-open {
+  overflow: hidden;
 }
-
-// .ant-pagination-prev,
-// .ant-pagination-next {
-//   box-shadow: 0 0 0 1px $color-grey inset;
-  
-//   &.ant-pagination-disabled {
-//     box-shadow: 0 0 0 1px $color-grey-light inset;
-//   }
-// }

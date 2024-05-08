@@ -3,6 +3,24 @@ import { useSearchParams, useParams } from "react-router-dom";
 import { balloonsData } from "../../data/catalogData/balloonsData";
 import c from './ColorPalette.module.scss';
 import { Button } from "antd";
+import { CloseOutlined } from '@ant-design/icons';
+
+export const translateColor = {
+  'white': 'Белый',
+  'yellow': 'Желтый',
+  'goldenrod': 'Золото',
+  'mistyrose': 'Розовое золото',
+  'orange': 'Оранжевый',
+  'saddlebrown': 'Коричневый',
+  'deeppink': 'Розовый',
+  'red': 'Красный',
+  'lime': 'Зеленый',
+  'dodgerblue': 'Синий',
+  'mediumaquamarine': 'Аквамарин',
+  'darkorchid': 'Фиолетовый',
+  'silver': 'Серебро',
+  'black': 'Черный',
+};
 
 const orderedColors = [
   'white',
@@ -21,7 +39,7 @@ const orderedColors = [
   'black'
 ];
 
-export const ColorPalette = () => {
+export const ColorPalette = ({ outerHandler }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedColor, setSelectedColor] = useState(searchParams.get("palette"));
   const [categoryChanged, setCategoryChanged] = useState(false);
@@ -57,9 +75,11 @@ export const ColorPalette = () => {
   const handleColorClick = (color) => {
     setSelectedColor(color);
     setSearchParams({ palette: color });
+    outerHandler && outerHandler();
   };
 
-  const handleClearSearch = () => {
+  const handleClearSearch = (e) => {
+    e.stopPropagation()
     setSelectedColor('');
     setSearchParams({});
   };
@@ -98,13 +118,13 @@ export const ColorPalette = () => {
             className={`${c.colorPalette__item} ${selectedColor === color ? c.active : ''}`}
           >
             <span
-              className={`${color === 'goldenrod' || color === 'mistyrose' ? c.goldColor : ''}`}
+              className={`${color === 'goldenrod' || color === 'mistyrose' ? c.goldColor : ''} ${c.colorPalette__color}`}
               style={{ backgroundColor: color }}
             ></span>
+            {selectedColor === color && <Button className={c.clearButton} icon={<CloseOutlined size={'small'} className={c.clearButton__icon} />} onClick={handleClearSearch} />}
           </li>
         ))}
       </ul>
-      {selectedColor && <Button className={c.clearButton} onClick={handleClearSearch}>Очистить</Button>}
     </div>
   );
 };

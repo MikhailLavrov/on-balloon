@@ -15,12 +15,13 @@
 .collectionPalette__title {
   margin-bottom: 10px;
   
-  display: flex;
+  display: none;
   align-items: center;
   
   font-size: $fz-s;
   
   @include vp-1260 {
+    display: flex;
     margin-bottom: 15px;
 
     font-size: calc($fz-m - 3px);
@@ -31,17 +32,25 @@
 .collectionPalette__list {
   padding: 0;
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
 
   list-style: none;
+
+  @include vp-1260 {
+    margin-bottom: 15px;
+  }
 }
 
 .collectionPalette__item {
   padding: 10px;
+
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
 
   font-size: calc($fz-m - 2px);
   
@@ -63,22 +72,28 @@
 }
 
 .clearButton {
-  width: 100%;
-  color: $base-light-color;
+  width: 15px !important;
+  height: 15px !important;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  aspect-ratio: 1/1;
 
   border: none;
+  background-color: transparent;
+  color: $base-light-color !important;
 
-  box-shadow: 0 3px 8px -3px $base-dark-color;
-  background-color: $color-red;
-  background: radial-gradient($color-orange, $color-red);
+  &:hover {
+    background-color: transparent !important;
+    color: $color-grey !important;
+  }
 
-  &:hover,
-  &:active,
-  &:focus {
-    color: $base-light-color !important;
-    
-    box-shadow: 0 3px 8px -2px $base-dark-color;
-    background-color: $color-red !important;
-    background: radial-gradient($color-orange, rgba($color-red, 0.8)) !important;
+  & svg {
+    width: 12px;
+    height: 12px;
   }
 }

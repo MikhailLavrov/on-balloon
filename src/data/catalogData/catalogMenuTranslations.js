@@ -5,7 +5,7 @@ export const topLevelTranslations = {
   'balloons': 'Воздушные шары',
   'photozone': 'Фотозоны',
   'animation': 'Аниматоры и шоу',
-  'attractions': 'Аттракционы и оборудование',
+  'attractions': 'Для бизнеса',
 };
 
 export const sublevelTranslations = {

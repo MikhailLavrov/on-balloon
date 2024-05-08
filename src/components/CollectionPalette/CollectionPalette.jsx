@@ -3,6 +3,7 @@ import { useSearchParams, useParams } from "react-router-dom";
 import { balloonsData } from "../../data/catalogData/balloonsData";
 import c from './CollectionPalette.module.scss';
 import { Button } from "antd";
+import { CloseOutlined } from '@ant-design/icons';
 
 const orderedCollections = [
   'brawlstars',
@@ -35,7 +36,7 @@ const orderedCollections = [
   'school',
 ];
 
-const translateCollection = {
+export const translateCollection = {
   'brawlstars': 'Бравл Старс',
   'buba': 'Буба',
   'maskedheroes': 'Герои в масках',
@@ -66,7 +67,7 @@ const translateCollection = {
   'school': 'Школа',
 };
 
-export const CollectionPalette = () => {
+export const CollectionPalette = ({outerHandler}) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedCollection, setSelectedCollection] = useState(searchParams.get("collection"));
   const [categoryChanged, setCategoryChanged] = useState(false);
@@ -90,9 +91,11 @@ export const CollectionPalette = () => {
   const handleCollectionClick = (collectionName) => {
     setSelectedCollection(collectionName);
     setSearchParams({ collection: collectionName });
+    outerHandler && outerHandler();
   };
 
-  const handleClearSearch = () => {
+  const handleClearSearch = (e) => {
+    e.stopPropagation()
     setSelectedCollection('');
     setSearchParams({});
   };
@@ -131,6 +134,7 @@ export const CollectionPalette = () => {
             onClick={() => handleCollectionClick(collection)}
           >
             {translateCollection[collection]}
+            {selectedCollection === collection && <Button className={c.clearButton} icon={<CloseOutlined size={'small'} className={c.clearButton__icon} />} onClick={handleClearSearch} />}
           </li>
         ))}
       </ul>

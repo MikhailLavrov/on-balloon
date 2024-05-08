@@ -60,7 +60,7 @@
   &:not(:first-child) {
     flex-direction: column;
     justify-content: space-between;
-    gap: 10px;
+    // gap: 10px;
   }
 
   & img {

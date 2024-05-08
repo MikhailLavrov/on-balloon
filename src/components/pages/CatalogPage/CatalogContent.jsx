@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import c from './CatalogPage.module.scss';
-import { Pagination } from 'antd';
+import { Badge, Modal, Pagination, Segmented } from 'antd';
 import { animationData } from '../../../data/catalogData/animationData';
 import { attractionsData } from '../../../data/catalogData/attractionsData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { catalogMenuData } from './../../../data/catalogData/catalogMenuData';
 import { BadgedProductCard } from '../../ProductCard/BadgedProductCard';
+import { Button } from 'antd';
+import { SlidersOutlined } from '@ant-design/icons';
+import { ColorPalette } from '../../ColorPalette/ColorPalette';
+import { CollectionPalette } from './../../CollectionPalette/CollectionPalette';
 
 const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
 
@@ -15,10 +19,32 @@ export const CatalogContent = () => {
   const {topcategory, category} = useParams();
   const [selectedTopCategory, setSelectedTopCategory] = useState(topcategory);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [searchParams] = useSearchParams();
-
+  
   const filteredColor = searchParams.get('palette') || '';
   const filteredCollection = searchParams.get('collection') || '';
+
+  // const categoryHasItemsWithColor = balloonsData
+  //   .filter(item => item.category.includes(category))
+  //   .some(item => item.palette && item.palette.length > 0);
+
+  // console.log(categoryHasItemsWithColor)
+  
+  const filterOptions = [`Цвет`, 'Коллекция']
+  const [currentFilter, setCurrentFilter] = useState(filterOptions[0]);
+
+  const showModal = () => {
+    setIsFilterModalOpen(true);
+  };
+  const handleOk = () => {
+    setTimeout(() => {
+      setIsFilterModalOpen(false);
+    }, 500);
+  };
+  const handleCancel = () => {
+    setIsFilterModalOpen(false);
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' }); 
@@ -36,6 +62,11 @@ export const CatalogContent = () => {
       setSelectedTopCategory(catalogMenuData[0].key || '');
     }
   }, [topcategory]);
+  
+  useEffect(() => {
+    setCurrentFilter(filterOptions[0])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [topcategory, category]);
   
   const renderSubcategories = (subcategoryData) => {
     return subcategoryData.map((subcategory) => (
@@ -136,7 +167,48 @@ export const CatalogContent = () => {
               )}
           </div>
           {topcategory === 'balloons' && (
-            <p className={c.totalDataCountMobile}>Всего товаров: {totalDataCount}</p>
+            <div className={c.totalLine}>
+              <p className={c.totalDataCountMobile}>Всего товаров: {totalDataCount}</p>
+              {totalDataCount > 0 &&
+              <>
+                <Badge
+                  // size='small'
+                  count={(filteredColor || filteredCollection) ? 1 : 0}
+                >
+                  <Button
+                    onClick={showModal}
+                    // size='small'
+                    icon={<SlidersOutlined />}
+                    className={c.filterButton}
+                  >
+                    Фильтр
+                  </Button>
+                </Badge>
+                <Modal
+                  title="Фильтр"
+                  centered
+                  footer={null}
+                  open={isFilterModalOpen}
+                  onOk={handleOk}
+                  onCancel={handleCancel}
+                  style={{overflow: 'auto'}}
+                  className={c.filterModal}
+                >
+                  <Segmented
+                    options={filterOptions}
+                    value={currentFilter}
+                    defaultValue={currentFilter[0]}
+                    block 
+                    onChange={(value) => setCurrentFilter(value)}
+                    className={c.filterSegmented}
+                  />
+                  <div className={c.filterModal__container}>
+                    {currentFilter === 'Цвет' ? <ColorPalette outerHandler={handleOk} /> : <CollectionPalette outerHandler={handleOk} />}
+                  </div>
+                </Modal>
+              </>
+              }
+            </div>
           )}
         </>
       )}
@@ -146,7 +218,7 @@ export const CatalogContent = () => {
           <PaginationComponent className={`${c.pagination} ${c.pagination__top}`} />
         </div>
         {topcategory === 'balloons' && (
-          <p className={c.totalDataCount}>Всего товаров: {totalDataCount}</p>
+        <p className={c.totalDataCount}>Всего товаров: {totalDataCount}</p>
         )}
       </div>
       <div className={c.catalog__content}>
