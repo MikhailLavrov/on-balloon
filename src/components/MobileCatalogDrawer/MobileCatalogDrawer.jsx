@@ -9,7 +9,7 @@ import TREND_TILE_IMAGE from "../../assets/logonew.webp";
 import BALLOONS_TILE_IMAGE from "../../assets/collections/balloons.webp";
 import ANIMATION_TILE_IMAGE from "../../assets/collections/animation.webp";
 import PHOTOZONE_TILE_IMAGE from "../../assets/collections/photozone.webp";
-import ATTRACTIONS_TILE_IMAGE from "../../assets/collections/attractions.webp";
+import COMMERCIAL_TILE_IMAGE from "../../assets/collections/attractions.webp";
 import { catalogMenuData } from './../../data/catalogData/catalogMenuData';
 
 export const MobileCatalogDrawer = () => {
@@ -38,8 +38,8 @@ export const MobileCatalogDrawer = () => {
         return ANIMATION_TILE_IMAGE;
       case 'photozone':
         return PHOTOZONE_TILE_IMAGE;
-      case 'attractions':
-        return ATTRACTIONS_TILE_IMAGE;
+      case 'commercial':
+        return COMMERCIAL_TILE_IMAGE;
       default:
         return null;
     }

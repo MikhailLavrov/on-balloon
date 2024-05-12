@@ -1,14 +1,14 @@
 import c from './HitsSection.module.scss';
 import { Link } from 'react-router-dom';
 import { animationData } from '../../data/catalogData/animationData';
-import { attractionsData } from '../../data/catalogData/attractionsData';
+import { commercialData } from '../../data/catalogData/commercialData';
 import { balloonsData } from '../../data/catalogData/balloonsData';
 import { photozoneData } from '../../data/catalogData/photozoneData';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { hitsSwiperParams } from '../../data/swiperParams';
 
-const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
+const allData = [...animationData, ...commercialData, ...balloonsData, ...photozoneData];
 const hitsData = allData.filter((item) => item.hit).slice(0, 6);
 
 export const HitsSection = () => {

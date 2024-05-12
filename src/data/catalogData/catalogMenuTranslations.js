@@ -5,10 +5,11 @@ export const topLevelTranslations = {
   'balloons': 'Воздушные шары',
   'photozone': 'Фотозоны',
   'animation': 'Аниматоры и шоу',
-  'attractions': 'Для бизнеса',
+  'commercial': 'Для бизнеса',
 };
 
 export const sublevelTranslations = {
+  // balloons
   'girl': 'Девочкам',
   'boy': 'Мальчикам',
   'her': 'Для неё',
@@ -17,16 +18,17 @@ export const sublevelTranslations = {
   'latex': 'Шары с рисунком',
   'number': 'Цифры',
   'figure': 'Фигуры',
-  'crio': 'Крио-шоу',
-  'bubbles': 'Шоу мыльных пузырей',
-  'chemical': 'Химическое шоу',
+  // animation
+  'animator': 'Анимация',
+  'show': 'Шоу-программы',
+  'quest': 'Квесты',
+  // photozone
   'payetki': 'С пайетками',
   'flowers': 'С цветами',
   'ph_balloons': 'С шарами',
+  // commercial
+  'opening': 'Открытие',
   'cotton': 'Сладкая вата',
   'popcorn': 'Попкорн',
   'apples': 'Яблоки в карамели',
-  'skazka': 'Батут Сказка',
-  'botinok': 'Батут Ботинок',
-  'sport': 'Батут Спортивный',
 };

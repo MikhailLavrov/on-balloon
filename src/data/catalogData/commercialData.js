@@ -2,7 +2,7 @@ import IMG_111542123 from '../../assets/catalog/cotton.webp';
 import IMG_455542423 from '../../assets/catalog/skazka.webp';
 import IMG_155542423 from '../../assets/catalog/popcorn.webp';
 
-export const attractionsData = [
+export const commercialData = [
   {
     category: ['cotton'],
     article: '122-123',

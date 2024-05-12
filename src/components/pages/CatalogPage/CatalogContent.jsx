@@ -3,7 +3,7 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import c from './CatalogPage.module.scss';
 import { Badge, Modal, Pagination, Segmented } from 'antd';
 import { animationData } from '../../../data/catalogData/animationData';
-import { attractionsData } from '../../../data/catalogData/attractionsData';
+import { commercialData } from '../../../data/catalogData/commercialData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { catalogMenuData } from './../../../data/catalogData/catalogMenuData';
@@ -13,7 +13,7 @@ import { SlidersOutlined } from '@ant-design/icons';
 import { ColorPalette } from '../../ColorPalette/ColorPalette';
 import { CollectionPalette } from './../../CollectionPalette/CollectionPalette';
 
-const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
+const allData = [...animationData, ...commercialData, ...balloonsData, ...photozoneData];
 
 export const CatalogContent = () => {
   const {topcategory, category} = useParams();
@@ -24,15 +24,8 @@ export const CatalogContent = () => {
   
   const filteredColor = searchParams.get('palette') || '';
   const filteredCollection = searchParams.get('collection') || '';
-
-  // const categoryHasItemsWithColor = balloonsData
-  //   .filter(item => item.category.includes(category))
-  //   .some(item => item.palette && item.palette.length > 0);
-
-  // console.log(categoryHasItemsWithColor)
-  
-  const filterOptions = [`Цвет`, 'Коллекция']
-  const [currentFilter, setCurrentFilter] = useState(filterOptions[0]);
+  const filterOptions = ['Цвет', 'Коллекция'];
+  const [currentFilter, setCurrentFilter] = useState(filterOptions.length !== 0 ? filterOptions[0] : null);
 
   const showModal = () => {
     setIsFilterModalOpen(true);
@@ -64,7 +57,7 @@ export const CatalogContent = () => {
   }, [topcategory]);
   
   useEffect(() => {
-    setCurrentFilter(filterOptions[0])
+    setCurrentFilter(filterOptions.length !== 0 ? filterOptions[0] : null)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [topcategory, category]);
   
@@ -111,8 +104,8 @@ export const CatalogContent = () => {
     case 'animation':
       catalogItems = !category ? filterAllCategoriesData(animationData) : filterCurrentCategoryData(animationData);
       break;
-    case 'attractions':
-      catalogItems = !category ? filterAllCategoriesData(attractionsData) : filterCurrentCategoryData(attractionsData);
+    case 'commercial':
+      catalogItems = !category ? filterAllCategoriesData(commercialData) : filterCurrentCategoryData(commercialData);
       break;
     default:
       catalogItems = null;
@@ -197,7 +190,7 @@ export const CatalogContent = () => {
                   <Segmented
                     options={filterOptions}
                     value={currentFilter}
-                    defaultValue={currentFilter[0]}
+                    defaultValue={currentFilter}
                     block 
                     onChange={(value) => setCurrentFilter(value)}
                     className={c.filterSegmented}
@@ -228,4 +221,3 @@ export const CatalogContent = () => {
     </div>
   );
 };
-

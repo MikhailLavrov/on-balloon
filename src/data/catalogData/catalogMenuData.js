@@ -21,9 +21,9 @@ export const catalogMenuData = [
     key: 'animation',
     label: 'Аниматоры и шоу',
     children: [
-      { key: 'crio', label: 'Крио-шоу' },
-      { key: 'bubbles', label: 'Шоу мыльных пузырей' },
-      { key: 'chemical', label: 'Химическое шоу' },
+      { key: 'animator', label: 'Анимация' },
+      { key: 'show', label: 'Шоу-программы' },
+      { key: 'quest', label: 'Квесты' },
     ]
   },
   {
@@ -36,15 +36,13 @@ export const catalogMenuData = [
     ]
   },
   {
-    key: 'attractions',
+    key: 'commercial',
     label: 'Для бизнеса',
     children: [
+      { key: 'opening', label: 'Открытие' },
       { key: 'cotton', label: 'Сладкая вата' },
       { key: 'popcorn', label: 'Попкорн' },
       { key: 'apples', label: 'Яблоки в карамели' },
-      { key: 'skazka', label: 'Батут Сказка' },
-      { key: 'botinok', label: 'Батут Ботинок' },
-      { key: 'sport', label: 'Батут Спортивный' },
     ]
   }
 ];

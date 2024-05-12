@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { animationData } from '../../../data/catalogData/animationData';
-import { attractionsData } from '../../../data/catalogData/attractionsData';
+import { commercialData } from '../../../data/catalogData/commercialData';
 import { balloonsData } from '../../../data/catalogData/balloonsData';
 import { photozoneData } from '../../../data/catalogData/photozoneData';
 import { BreadcrumbsComponent } from '../../BreadcrumbsComponent/BreadcrumbsComponent';
@@ -10,7 +10,7 @@ import EMPTY_IMAGE from '../../../assets/empty.webp';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 import { BadgedProductCard } from '../../ProductCard/BadgedProductCard';
 
-const allData = [...animationData, ...attractionsData, ...balloonsData, ...photozoneData];
+const allData = [...animationData, ...commercialData, ...balloonsData, ...photozoneData];
 
 const SearchResultsPage = () => {
   const location = useLocation();

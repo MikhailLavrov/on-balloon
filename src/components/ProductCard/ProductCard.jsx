@@ -126,10 +126,10 @@ export const ProductCard = ({...item}) => {
             <p className={c.catalogCard__title}>{title}</p>
           </div>
           <div className={c.catalogCard__priceBox}>
-            <p className={c.catalogCard__price}>{price}<span>&#8381;</span></p>
+            <p className={c.catalogCard__price}>{price.toLocaleString('ru-RU')}<span>&#8381;</span></p>
             {oldPrice && 
               <div className={c.catalogCard__oldPriceBox}>
-                <p className={c.catalogCard__oldPrice}>{oldPrice}<span>&#8381;</span></p>
+                <p className={c.catalogCard__oldPrice}>{oldPrice.toLocaleString('ru-RU')}<span>&#8381;</span></p>
                 <span className={c.catalogCard__discountPercent}>-{discountPercentage}%</span>
               </div>
             }

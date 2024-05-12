@@ -39,7 +39,7 @@
     
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 30px;
   }
 }
 
@@ -208,4 +208,9 @@
   @include vp-768 {
     width: 20px;
   }
+}
+
+.cardModal__additional {
+  margin-bottom: 20px;
+  font-size: $fz-s;
 }

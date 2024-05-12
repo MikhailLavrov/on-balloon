@@ -27,6 +27,7 @@ export const ProductCardModal = (props) => {
     article,
     title,
     description,
+    additional,
     price,
     oldPrice,
     image,
@@ -51,8 +52,15 @@ export const ProductCardModal = (props) => {
       return params;
     });
   };
-
   const tabsItems = [
+    additional && {
+      key: 'additional',
+      label: 'Описание',
+      children: additional.split('\n').map((line, index) => (
+        <p key={index} style={{margin: 0}}>{line}</p>
+      )),
+      icon: <ReadOutlined />,
+    },
     {
       key: 'delivery',
       label: 'Доставка',
@@ -86,7 +94,7 @@ export const ProductCardModal = (props) => {
       open={isOpen} 
       onOk={handleCancel} 
       onCancel={handleCancel}
-      className={c.cardModal__top}
+      className={`${c.cardModal__top} productCardModal`}
       wrapClassName={c.cardModal__topWrap}
     >
       <div className={c.cardModal}>
@@ -96,43 +104,48 @@ export const ProductCardModal = (props) => {
           </div>
           <div className={c.cardModal__mainInfo}>
 
-        {/* Заголовок */}
+          {/* Заголовок */}
             <p className={c.cardModal__title}>{title}</p>
 
-        {/* Прайсбокс */}
+          {/* Прайсбокс */}
             <div className={c.cardModal__priceBox}>
-              <p className={c.cardModal__price}>{price} &#8381;</p>
-              {oldPrice && <p className={c.cardModal__oldPrice}>{oldPrice} &#8381;</p>}
+              <p className={c.cardModal__price}>{price.toLocaleString('ru-RU')} &#8381;</p>
+              {oldPrice && <p className={c.cardModal__oldPrice}>{oldPrice.toLocaleString('ru-RU')} &#8381;</p>}
               <div className={c.cardModal__badges}>
                 {oldPrice && <span style={{backgroundColor: '#f83939'}}>Акция</span>}
                 {hit && <span style={{backgroundColor: 'rgb(77, 182, 40)'}}>Хит</span>}
               </div>
             </div>
 
-        {/* Количество */}
-              {count>=1 ? 
+          {/* Количество */}
+              {count && count>=1 ? 
                 <div className={c.cardModal__inStockWrapper}><Badge status="success" /><span className={c.cardModal__inStock}>Есть в наличии</span></div> 
               : <div className={c.cardModal__inStockWrapper}><Badge status="warning" /><span className={c.cardModal__inStock}>Доступно для заказа</span></div>
               }
 
-        {/* Артикул */}
-            <p className={c.cardModal__article}>
-              Артикул:
-              <CopyToClipboard 
-                text={article} 
-                onCopy={() => message.info('Артикул скопирован в буфер обмена')}
-              >
-                  <span style={{ cursor: 'pointer', marginLeft: '5px' }}>{article}</span>
-              </CopyToClipboard>
-            </p>
+          {/* Артикул */}
+            {article && count &&
+              <p className={c.cardModal__article}>
+                Артикул:
+                <CopyToClipboard 
+                  text={article} 
+                  onCopy={() => message.info('Артикул скопирован в буфер обмена')}
+                  >
+                    <span style={{ cursor: 'pointer', marginLeft: '5px' }}>{article}</span>
+                </CopyToClipboard>
+              </p>
+            }
 
-        {/* Описание */}
+          {/* Описание */}
             <div className={c.cardModal__description}>
-              {description}
+              {description.split('\n').map((line, index) => (
+                <p key={index} style={{margin: 0}}>{line}</p>
+              ))}
             </div>
 
+
             <div className={c.cardModal__userActions}>
-        {/* В избранное и В корзину */}
+          {/* В избранное и В корзину */}
               <div className={c.cardModal__userActionsInner}>
                 <Button 
                   onClick={toggleFavorites} 
