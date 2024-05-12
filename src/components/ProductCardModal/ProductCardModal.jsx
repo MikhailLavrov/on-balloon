@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import c from './ProductCardModal.module.scss';
 import { useSearchParams } from 'react-router-dom';
 import { Badge, Button, ConfigProvider, Image, message, Modal, Spin, Tabs } from 'antd';
@@ -39,7 +39,12 @@ export const ProductCardModal = (props) => {
   
   const [ searchParams, setSearchParams ] = useSearchParams();
   const currentUrl = window.location.href;
+  const [shouldDisplayArticleAndStock, setShouldDisplayArticleAndStock] = useState(false);
 
+  useEffect(() => {
+    setShouldDisplayArticleAndStock(article.startsWith('animation'));
+  }, [article])
+console.log(shouldDisplayArticleAndStock)
   useEffect(() => {
     const product = searchParams.get('product');
     if (product && product === article) {
@@ -147,13 +152,13 @@ export const ProductCardModal = (props) => {
             </div>
 
           {/* Количество */}
-            {count && count>=1 ? 
+            {!shouldDisplayArticleAndStock && count && count>=1 &&
               <div className={c.cardModal__inStockWrapper}><Badge status="success" /><span className={c.cardModal__inStock}>Есть в наличии</span></div> 
-            : <div className={c.cardModal__inStockWrapper}><Badge status="warning" /><span className={c.cardModal__inStock}>Доступно для заказа</span></div>
+            // : <div className={c.cardModal__inStockWrapper}><Badge status="warning" /><span className={c.cardModal__inStock}>Доступно для заказа</span></div>
             }
 
           {/* Артикул */}
-            {article && count &&
+            {!shouldDisplayArticleAndStock && article &&
               <p className={c.cardModal__article}>
                 Артикул:
                 <CopyToClipboard 
