@@ -34,7 +34,7 @@
   flex-direction: column;
   gap: 5px;
 
-  @include vp-500 {
+  @include vp-768 {
     margin-bottom: 15px;
     
     display: grid;

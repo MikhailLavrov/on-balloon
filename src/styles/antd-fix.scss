@@ -22,16 +22,25 @@
 
 .catalogCardModal__tabs {
   font-size: $fz-s;
-
-  @media (max-width: $vp-500) {
-
+  
+  @include vp-500 {
+    
     & .ant-tabs-tab {
-      margin-left: 15px !important;
+      margin-left: 25px !important;
+      font-size: calc($fz-m - 2px);
       
       & .ant-tabs-tab-icon {
         margin-right: 5px !important;
       }
     }
+  }
+
+  @include vp-768 {
+    font-size: calc($fz-m - 2px);
+  }
+
+  & .ant-tabs-nav-list {
+    margin: 0 auto !important;
   }
 }
 

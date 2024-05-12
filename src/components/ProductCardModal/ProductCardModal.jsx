@@ -23,7 +23,7 @@ export const ProductCardModal = (props) => {
     isInCart,
   } = props;
 
-  const { 
+  const {
     article,
     title,
     description,
@@ -38,12 +38,22 @@ export const ProductCardModal = (props) => {
   const [ searchParams, setSearchParams ] = useSearchParams();
   const currentUrl = window.location.href;
 
+  // console.log(shortvalues.time)
+
   useEffect(() => {
     const product = searchParams.get('product');
     if (product && product === article) {
       openModal();
     }
   }, [article, searchParams, openModal])
+
+  const splitedData = (data) => {
+    return (
+      data.split('\n').map((line, index) => (
+        <p key={index} style={{margin: 0}}>{line}</p>
+      ))
+    )
+  }
 
   const handleCancel = () => {
     closeModal();
@@ -56,27 +66,25 @@ export const ProductCardModal = (props) => {
     additional && {
       key: 'additional',
       label: 'Описание',
-      children: additional.split('\n').map((line, index) => (
-        <p key={index} style={{margin: 0}}>{line}</p>
-      )),
+      children: splitedData(additional),
       icon: <ReadOutlined />,
     },
     {
       key: 'delivery',
       label: 'Доставка',
-      children: delivery,
+      children: splitedData(delivery),
       icon: <ReadOutlined />,
     },
     {
       key: 'payment',
       label: 'Оплата',
-      children: payment,
+      children: splitedData(payment),
       icon: <TruckOutlined />,
     },
     {
       key: 'guarantee',
       label: 'Гарантия',
-      children: guarantee,
+      children: splitedData(guarantee),
       icon: <ShoppingCartOutlined />,
     },
   ];
@@ -118,10 +126,10 @@ export const ProductCardModal = (props) => {
             </div>
 
           {/* Количество */}
-              {count && count>=1 ? 
-                <div className={c.cardModal__inStockWrapper}><Badge status="success" /><span className={c.cardModal__inStock}>Есть в наличии</span></div> 
-              : <div className={c.cardModal__inStockWrapper}><Badge status="warning" /><span className={c.cardModal__inStock}>Доступно для заказа</span></div>
-              }
+            {count && count>=1 ? 
+              <div className={c.cardModal__inStockWrapper}><Badge status="success" /><span className={c.cardModal__inStock}>Есть в наличии</span></div> 
+            : <div className={c.cardModal__inStockWrapper}><Badge status="warning" /><span className={c.cardModal__inStock}>Доступно для заказа</span></div>
+            }
 
           {/* Артикул */}
             {article && count &&
@@ -138,11 +146,8 @@ export const ProductCardModal = (props) => {
 
           {/* Описание */}
             <div className={c.cardModal__description}>
-              {description.split('\n').map((line, index) => (
-                <p key={index} style={{margin: 0}}>{line}</p>
-              ))}
+              {splitedData(description)}
             </div>
-
 
             <div className={c.cardModal__userActions}>
           {/* В избранное и В корзину */}
@@ -199,7 +204,6 @@ export const ProductCardModal = (props) => {
           >
             <Tabs
               defaultActiveKey="1"
-              centered
               items={tabsItems}
               className={`catalogCardModal__tabs`}
             />
