@@ -2,46 +2,43 @@
 @import '../../styles/mixins.scss';
 
 .socialLink {
+  padding: 5px;
+
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 5px;
 
-  color: $base-dark-color;
-  font-weight: 500;
+  border-radius: 5px;
+  transition: all 250ms ease-in-out;
   
   & svg {
+    padding: 3px;
+
+    width: 20px;
+    height: 20px;
+    
     display: flex;
     border-radius: 50%;
-    transition: all 200ms ease-in-out;
   }
 
   &:hover {
-    color: $base-dark-color;
-
-    & svg {
-      outline-offset: 2px;
-    }
+    background-color: $color-grey;
   }
 }
 
 .socialLink__telegram {
   & svg {
     background-color: $color-telegram-blue;
-    outline: $color-telegram-blue 1px solid;
   }
 }
 
 .socialLink__whatsapp {
   & svg {
     background-color: $color-whatsapp-green;
-    outline: $color-whatsapp-green 1px solid;
   }
 }
 
 .socialLink__vk {
   & svg {
     background-color: $color-vk-blue;
-    outline: $color-vk-blue 1px solid;
   }
 }

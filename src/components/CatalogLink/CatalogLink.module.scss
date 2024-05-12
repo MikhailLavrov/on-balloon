@@ -1,62 +1,27 @@
 @import '../../styles/vars.scss';
 @import '../../styles/mixins.scss';
 
-.catalog {
-  display: none;
-
-  @include vp-1260 {
-    display: block;
-  }
-}
-
-.catalog__link {
+.catalogLink {
   padding: 12px 20px;
 
-  height: 100%;
-  position: relative;
-  
-  display: flex;
+  display: none;
 
   font-size: calc($fz-m - 3px);
   font-weight: 400;
   color: $base-light-color;
 
   border-radius: 20px;
-  background: linear-gradient(to right bottom, $color-red, $color-orange);
-
-  overflow: hidden;
+  background-color: $color-red;
 
   transition: all 200ms ease-in-out;
-  box-shadow: 0 2px 7px -4px $base-dark-color;
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 20%;
-    height: 100%;
-    background-color: rgba($base-light-color, 0.3);
-    transform: translateX(-5em) skewX(-45deg);
-  }
+  box-shadow: 0 1px 6px -4px $base-dark-color;
   
   &:hover {
     color: $base-dark-color;
-    box-shadow: 0 2px 5px -2px $base-dark-color;
-
-    &:before {
-      animation: moveLightOnHover 800ms;
-    }
+    background-color: $color-red-light;
+    box-shadow: 0 2px 6px -4px $base-dark-color;
   }
-
-  & span {
-    margin-right: 5px;
-
-    & svg {
-      width: 14px;
-      height: 14px;
-    }
-  }
+  
   &.inCatalog {
     color: $base-dark-color;
     background: none;
@@ -64,33 +29,14 @@
   }
   
   &.outCatalog {
-    padding-left: 45px;
-  
     &:hover {
       color: $base-light-color;
     }
   }
-}
 
-
-.catalog__linkIcon {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-
-  width: auto;
-  height: 100%;
-  
-  border-radius: 50%;
-  aspect-ratio: 1/1;
-}
-
-@keyframes moveLightOnHover {
-  from {
-      transform: translateX(-5em) skewX(-45deg);
-  }
-  to {
-      transform: translateX(11em) skewX(-45deg);
+  @include vp-1260 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }

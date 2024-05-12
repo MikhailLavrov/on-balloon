@@ -7,13 +7,13 @@ export const SocialLinks = () => {
   return (
     <>
       <Link className={`${c.socialLink} ${c.socialLink__telegram}`} target = "_blank" to={personalData.telegram}>
-        <SvgIcon icon='telegram2' /><span>Telegram</span>
+        <SvgIcon icon='telegram2' />
       </Link>
       <Link className={`${c.socialLink} ${c.socialLink__whatsapp}`} target = "_blank" to={personalData.whatsapp}>
-        <SvgIcon icon='whatsapp2' /><span>Whatsapp</span>
+        <SvgIcon icon='whatsapp2' />
       </Link>
       <Link className={`${c.socialLink} ${c.socialLink__vk}`} target = "_blank" to={personalData.vkontakte}>
-        <SvgIcon icon='vk2' /><span>ВКонтакте</span>
+        <SvgIcon icon='vk2' />
       </Link>
     </>
   )

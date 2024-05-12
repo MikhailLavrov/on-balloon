@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Affix, Badge } from 'antd';
 import { HeartOutlined, UserOutlined, ShoppingCartOutlined, EnvironmentOutlined } from '@ant-design/icons';
-import LOGO_IMG from '../../assets/logotext.png';
 import { CallBackModal } from '../CallBackModal/CallBackModal';
 import { CatalogLink } from '../CatalogLink/CatalogLink';
 import { SearchComponent } from '../SearchComponent/SearchComponent';
@@ -29,20 +28,18 @@ export const HeaderComponent = () => {
     dispatch(initShoppingCart(shoppingCartFromStorage))
   }, [dispatch]);
   
-  const isDesktop = window.innerWidth >= 768;
+  const isDesktop = window.innerWidth >= 1260;
 
   return (
     <header className={c.header}>
-      <div className={c.header__topMenu}>
-        <div className={`${c.headerTopMenu__container} ${c.container}`}>
-          <div className={c.topMenu__menu}>
-            <TopMenu />
-          </div>
-          <div className={c.topMenu__socials}>
+      <div className={c.headerTop}>
+        <div className={`${c.headerTop__container} container`}>
+          <TopMenu />
+          <div className={c.headerTop__socials}>
             <SocialLinks />
           </div>
-          <div className={c.topMenu__contacts}>
-            <a className={c.topMenu__contactsPhone} href={`tel:${personalData.phone}`}>{personalData.phoneMasked}</a>
+          <div className={c.headerTop__contacts}>
+            <a className={c.headerTop__contactsPhone} href={`tel:${personalData.phone}`}>{personalData.phoneMasked}</a>
             <CallBackModal />
             <p><EnvironmentOutlined /> Гатчина, CПб</p>
           </div>
@@ -50,13 +47,12 @@ export const HeaderComponent = () => {
       </div>
       {isDesktop ?
       <Affix>
-        <div className={c.headerMain}>
-          <div className={`${c.headerMain__container} ${c.container}`} ref={headerRef}>
-            <LogoFull className={c.header__logo} />
-            <MobileBurgerMenu />
+        <div className={c.headerBottom}>
+          <div className={`${c.headerBottom__container} container`} ref={headerRef}>
+            <LogoFull linkClassName={c.headerBottom__logoLink} imageClassName={c.headerBottom__logoImage} />
             <CatalogLink />
-            <SearchComponent className={c.searchComponent} />
-            <div className={c.header__mainControls}>
+            <SearchComponent className={c.headerBottom__searchComponent} />
+            <div className={c.headerBottom__mainControls}>
               <Link to={'/favourites'} title='Перейти в избранное'>
                 <Badge count={favouritesCountState}>
                   <HeartOutlined style={{ fontSize: '20px' }} />
@@ -77,32 +73,10 @@ export const HeaderComponent = () => {
           </div>
         </div>
       </Affix>
-      : <div className={c.headerMain}>
-      <div className={`${c.headerMain__container} ${c.container}`} ref={headerRef}>
-        <Link className={c.header__logo} to={''}>
-          <img src={LOGO_IMG} width={100} alt="Логотип" />
-        </Link>
+      : <div className={c.headerBottom}>
+      <div className={`${c.headerBottom__container} container`} ref={headerRef}>
+        <LogoFull linkClassName={c.headerBottom__logoLink} imageClassName={c.headerBottom__logoImage} />
         <MobileBurgerMenu />
-        <CatalogLink />
-        <SearchComponent className={c.searchComponent} />
-        <div className={c.header__mainControls}>
-          <Link to={'/favourites'} title='Перейти в избранное'>
-            <Badge count={favouritesCountState}>
-              <HeartOutlined style={{ fontSize: '20px' }} />
-            </Badge>
-            <span>Избранное</span>
-          </Link>
-          <Link to={'/cart'} title='Перейти в корзину'>
-            <Badge count={shoppingCartCountState}>
-              <ShoppingCartOutlined style={{ fontSize: '20px' }} />
-            </Badge>
-            <span>Корзина</span>
-          </Link>
-          <Link disabled style={{opacity: '0.3'}}>
-            <UserOutlined style={{ fontSize: '20px' }} />
-            <span>Войти</span>
-          </Link>
-        </div>
       </div>
     </div>
       }

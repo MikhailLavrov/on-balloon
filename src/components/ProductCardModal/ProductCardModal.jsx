@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import c from './ProductCardModal.module.scss';
 import { useSearchParams } from 'react-router-dom';
-import { Badge, Button, ConfigProvider, message, Modal, Tabs } from 'antd';
+import { Badge, Button, ConfigProvider, Image, message, Modal, Spin, Tabs } from 'antd';
 import LOGO_IMG from '../../assets/logotext.png';
 import { CheckCircleFilled, HeartFilled, HeartOutlined, ReadOutlined, ShoppingCartOutlined, TruckOutlined } from '@ant-design/icons';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { cardAdditionalData } from '../../data/cardAdditionalData';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { TelegramShareButton, ViberShareButton, VKShareButton, WhatsappShareButton } from "react-share";
+import FALLBACK from '../../assets/catalog/fallback.webp';
+import { ImagePreloader } from '../../utils/ImagePreloader/ImagePreloader';
 
 const {delivery, payment, guarantee} = cardAdditionalData;
 
@@ -38,8 +40,6 @@ export const ProductCardModal = (props) => {
   const [ searchParams, setSearchParams ] = useSearchParams();
   const currentUrl = window.location.href;
 
-  // console.log(shortvalues.time)
-
   useEffect(() => {
     const product = searchParams.get('product');
     if (product && product === article) {
@@ -47,13 +47,13 @@ export const ProductCardModal = (props) => {
     }
   }, [article, searchParams, openModal])
 
-  const splitedData = (data) => {
+  const splitedData = useCallback((data) => {
     return (
       data.split('\n').map((line, index) => (
         <p key={index} style={{margin: 0}}>{line}</p>
       ))
     )
-  }
+  }, []);
 
   const handleCancel = () => {
     closeModal();
@@ -62,6 +62,7 @@ export const ProductCardModal = (props) => {
       return params;
     });
   };
+
   const tabsItems = [
     additional && {
       key: 'additional',
@@ -98,7 +99,15 @@ export const ProductCardModal = (props) => {
     <Modal 
       width={800} 
       footer={null} 
-      title={<img src={LOGO_IMG} width={120} alt="Логотип" />} 
+      title={
+        <Image
+          src={LOGO_IMG}
+          width={120}
+          height={23}
+          alt="Логотип"
+          preview={false}
+          placeholder={<ImagePreloader />}
+        />} 
       open={isOpen} 
       onOk={handleCancel} 
       onCancel={handleCancel}
@@ -107,8 +116,20 @@ export const ProductCardModal = (props) => {
     >
       <div className={c.cardModal}>
         <div className={c.cardModal__main}>
-          <div className={c.cardModal__image}>
-            <img src={image} width={400} alt={title} />
+          <div className={c.cardModal__imageWrapper}>
+            <Image
+              className={c.cardModal__image}
+              src={image}
+              width={'auto'}
+              alt={title}
+              preview={false}
+              fallback={FALLBACK}
+              placeholder={
+                <div className={c.imagePreloader} >
+                  <Spin size='small'/>
+                </div>
+              }
+            />
           </div>
           <div className={c.cardModal__mainInfo}>
 
