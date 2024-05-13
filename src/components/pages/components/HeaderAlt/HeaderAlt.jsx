@@ -9,7 +9,6 @@ export const HeaderAlt = (props) => {
     subTitle,
     buttonText='Заказать сейчас',
     imageSrc,
-    secondaryImageSrc,
     imageWrapperClassName,
     imagePreloaderStyle,
   } = props;
@@ -29,15 +28,6 @@ export const HeaderAlt = (props) => {
           preview={false}
           placeholder={<ImagePreloader style={imagePreloaderStyle && imagePreloaderStyle} />}
         />
-        {secondaryImageSrc && 
-        <Image
-          src={secondaryImageSrc}
-          alt='Фото'
-          width={'100%'}
-          preview={false}
-          placeholder={<ImagePreloader style={imagePreloaderStyle && imagePreloaderStyle} />}
-        />
-        }
       </div>
     </div>
   )

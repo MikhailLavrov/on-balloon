@@ -17,28 +17,14 @@
 }
 
 .photozonePage__headerImageWrapper {
-  margin: 30px 0;
-
-  width: 70%;
-  height: 100%;
-  box-shadow: 0 0 10px 10px $color-orange;
-
-  & div {
-    width: 100% !important;
-    height: 100% !important;
-  }
-
   & img {
-    height: 100% !important;
-    box-shadow: 0 0 0 5px $base-light-color, 0 0 0 15px $color-telegram-blue, 5px 10px 10px 10px $base-dark-color;
-    
-    @include vp-1260 {
-      box-shadow: 0 0 0 10px $base-light-color, 0 0 0 20px $color-telegram-blue, 5px 10px 10px 10px $base-dark-color;
-    }
-  }
-  
-  @include vp-1260 {
-    width: 100%;
+    aspect-ratio: 1/1;
+
+    box-shadow: 
+      0 0 0 10px $base-light-color,
+      0 0 0 20px $color-telegram-blue,
+      0 5px 15px 15px $base-dark-color,
+    ;
   }
 }
 

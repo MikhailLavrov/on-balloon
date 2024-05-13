@@ -11,8 +11,7 @@ import { AdditionalSection } from '../components/AdditionalSection/AdditionalSec
 import { ComplexSection } from '../components/ComplexSection/ComplexSection';
 import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComponent';
 
-const HEADER_IMAGE = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn-Oy0kyU68Nllj_fIHmREYlX-mAzAdd8C-6zOzgEbwZwN_16fKys8A1LzwNzGBLyhgBY&usqp=CAU';
-const SECONDARY_HEADER_IMAGE = 'https://marvel-ekb.ru/wp-content/uploads/2022/03/05_09_20_1.jpg';
+const HEADER_IMAGE = 'https://marvel-ekb.ru/wp-content/uploads/2022/03/05_09_20_1.jpg';
 const FEEDBACK_IMAGE = 'https://gkevent.pro/img_small.php?img=/uploads/PR-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B5%20%D0%B4%D0%B8%D0%BB%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D1%85%20%D1%86%D0%B5%D0%BD%D1%82%D1%80%D0%BE%D0%B2/5N8A1679%20(1).jpg&mw=1000&mh=667';
 
 const businessGalleryData = [
@@ -134,7 +133,6 @@ const ForBusinessPage = () => {
           title={'Торжественное открытие магазина - не только яркие эмоции для клиентов, но и дальнейшая выгода для вашего бизнеса'}
           subTitle={'Мы поможем превратить открытие вашего магазина, ТЦ, салона красоты или любого другого объекта в настоящий праздник!'}
           imageSrc={HEADER_IMAGE}
-          secondaryImageSrc={SECONDARY_HEADER_IMAGE}
           imageWrapperClassName={c.forBusinessPage__headerImageWrapper}
         />
         <ContentHeader title={'Услуги для вашего бизнеса'} />

@@ -17,39 +17,16 @@
 }
 
 .decorPage__imageWrapper {
-  padding: 40px 0;
-
-  & div {
-    width: 100% !important;
-    height: 100% !important;
-  }
-  
   & img {
-    margin: 0 auto;
-    max-width: 200px;
-    
     aspect-ratio: 1/1;
 
     border-radius: 50%;
-    box-shadow:
-      10px 10px 0 15px $color-orange,
-      -5px -10px 0 15px $color-telegram-blue,
-      30px -10px 0 15px $color-purple,
+    box-shadow: 
+      0 0 0 10px $color-orange,
+      0 0 0 20px $base-light-color,
+      0 0 0 30px $color-telegram-blue,
+      0 5px 15px 25px $base-dark-color,
     ;
-
-    @include vp-1260 {
-      max-width: 300px;
-
-      box-shadow:
-        10px 10px 0 25px $color-orange,
-        -5px -10px 0 25px $color-telegram-blue,
-        30px -10px 0 25px $color-purple,
-      ;
-    }
-  }
-
-  @include vp-1260 {
-    margin-top: 0;
   }
 }
 

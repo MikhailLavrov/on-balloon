@@ -17,36 +17,14 @@
 }
 
 .childrenShowPage__headerImageWrapper {
-  margin: 40px 0;
-
-  width: 100%;
-  height: auto;
-  max-width: 400px;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-
-  box-shadow: 0 0 0 10px $color-orange;
-
   & img {
-    width: 100%;
-    height: 100%;
-  
-    box-shadow: 0 0 0 10px $color-telegram-blue, 0 12px 15px -2px $base-dark-color;
-    
-    &:first-child {
-      transform: translate(20px, -20px);
-    }
-    
-    &:last-child {
-      transform: translate(-20px, 20px);
-    }
-  }
+    aspect-ratio: 4/3;
 
-  @include vp-1260 {
-    margin: 0;
-
-    max-width: 600px;
+    box-shadow: 
+      0 0 0 10px $base-light-color,
+      0 0 0 20px $color-orange,
+      0 5px 15px 15px $base-dark-color,
+    ;
   }
 }
 

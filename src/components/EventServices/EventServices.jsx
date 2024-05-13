@@ -44,11 +44,11 @@ export const EventServices = () => {
           preview={false}
           placeholder={<ImagePreloader />}
         />
+        <div className={c.eventServices__itemTitleWrapper}>
+          <h3 className={c.eventServices__itemTitle}>{item.title}</h3>
+          <RightCircleOutlined className={c.eventServices__itemIcon} size={'small'} />
+        </div>
         <div className={c.eventServices__itemTextWrapper}>
-          <div className={c.eventServices__itemTitleWrapper}>
-            <h3 className={c.eventServices__itemTitle}>{item.title}</h3>
-            <RightCircleOutlined className={c.eventServices__itemIcon} size={'small'} />
-          </div>
           <p className={c.eventServices__itemText}>{item.text}</p>
         </div>
       </div>

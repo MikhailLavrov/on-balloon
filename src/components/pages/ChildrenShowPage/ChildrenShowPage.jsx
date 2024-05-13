@@ -15,9 +15,7 @@ import { FloatButtonComponent } from '../../FloatButtonComponent/FloatButtonComp
 
 const FEEDBACK_IMAGE = 'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663176964_2-mykaleidoscope-ru-p-deti-v-vostorge-vkontakte-2.jpg';
 
-const HEADER_IMAGE = 'https://delai-vibor.com/wp-content/uploads/2023/05/Animator.jpg';
-
-const SECONDARY_HEADER_IMAGE = 'https://bash.today/storage/uploads/posts/detskiye/animators/782ab0665be31abcc980dcaef96b706e';
+const HEADER_IMAGE = 'https://bash.today/storage/uploads/posts/detskiye/animators/782ab0665be31abcc980dcaef96b706e';
 
 const childrenShowGalleryData = [
   'https://gallery.profi.ru/xfiles/pfiles/38ff2a2c12d1463a9259fa96551a03b3.jpg-profi_h420.jpg',
@@ -145,7 +143,6 @@ const ChildrenShowPage = () => {
           title={'Аниматоры, квесты и шоу-программы для детей любого возраста'}
           subTitle={'Профессиональные аниматоры с большим опытом проведения детских праздников с красивыми, качественными костюмами и оборудованием'}
           imageSrc={HEADER_IMAGE}
-          secondaryImageSrc={SECONDARY_HEADER_IMAGE}
           imageWrapperClassName={c.childrenShowPage__headerImageWrapper}
         />
         <div className={c.childrenShowPage__content}>
