@@ -17,13 +17,21 @@
 .emptyToCatalog__imageWrapper {
   width: 100%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  & img {
+  & div {
+    margin: 0 auto;
     max-width: 50%;
-    width: auto;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    & img {
+      aspect-ratio: 1/1;
+    }
+
+    @include vp-500 {
+      max-width: 300px;
+    }
   }
 }
 

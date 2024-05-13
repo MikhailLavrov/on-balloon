@@ -13,9 +13,9 @@
 
   background-color: $base-light-color;
 
-  background: linear-gradient(90deg, $base-light-color, $color-grey-light); // Градиент от серого к белому
-  background-size: 400% 400%; // Увеличьте размер градиента для создания анимации
-  animation: gradientAnimation 3s ease infinite; // Применение анимации
+  background: linear-gradient(90deg, $base-light-color, $color-grey-light);
+  background-size: 400% 400%;
+  animation: gradientAnimation 3s ease infinite;
 }
 
 @keyframes gradientAnimation {

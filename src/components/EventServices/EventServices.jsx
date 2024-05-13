@@ -1,6 +1,8 @@
 import { RightCircleOutlined } from '@ant-design/icons';
 import c from './EventServices.module.scss';
 import { Link } from 'react-router-dom';
+import { ImagePreloader } from '../../utils/ImagePreloader/ImagePreloader';
+import { Image } from 'antd';
 
 export const eventServicesData = [
   {
@@ -34,7 +36,14 @@ export const EventServices = () => {
   const items = eventServicesData.map((item, index) => (
     <Link className={c.eventServices__itemLink} key={index} to={item.link}>
       <div className={c.eventServices__itemImageWrapper}>
-        <img className={c.eventServices__itemImage} src={item.image} alt={item.title} width={200} height={200} />
+        <Image
+          className={c.eventServices__itemImage}
+          src={item.image}
+          alt={item.title}
+          width={'auto'}
+          preview={false}
+          placeholder={<ImagePreloader />}
+        />
         <div className={c.eventServices__itemTextWrapper}>
           <div className={c.eventServices__itemTitleWrapper}>
             <h3 className={c.eventServices__itemTitle}>{item.title}</h3>
@@ -45,19 +54,6 @@ export const EventServices = () => {
       </div>
     </Link>
   ))
-
-  // const items = eventServicesData.map((item, index) => (
-  //   <Link className={c.eventServices__itemLink} key={index} to={item.link}>
-  //     <div className={c.eventServices__itemImageWrapper}>
-  //       <img className={c.eventServices__itemImage} src={item.image} alt={item.title} width={200} height={200} />
-  //       <div className={c.eventServices__itemTextWrapper}>
-  //         <p className={c.eventServices__itemText}>{item.text}</p>
-  //         <RightCircleOutlined className={c.eventServices__itemIcon} />
-  //       </div>
-  //     </div>
-  //     <h3 className={c.eventServices__itemTitle}>{item.title}</h3>
-  //   </Link>
-  // ))
 
   return (
     <section className={c.eventServices}>

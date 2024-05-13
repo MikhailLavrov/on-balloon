@@ -2,6 +2,8 @@ import c from './FeedbackSection.module.scss';
 import { personalData } from '../../data/personalData';
 import { SocialLinks } from '../SocialLinks/SocialLinks';
 import { CallBackModal } from '../CallBackModal/CallBackModal';
+import { ImagePreloader } from '../../utils/ImagePreloader/ImagePreloader';
+import { Image } from 'antd';
 
 export const FeedbackSection = (props) => {
   const {
@@ -29,7 +31,14 @@ export const FeedbackSection = (props) => {
       </div>
       {imageSrc &&
       <div className={c.feedback__imageWrapper}>
-        <img className={imageClassName} src={imageSrc} alt="Фото" width={200} />
+        <Image
+          className={imageClassName}
+          src={imageSrc}
+          alt="Фото"
+          width={'auto'}
+          preview={false}
+          placeholder={<ImagePreloader />}
+        />
       </div>
       }
         

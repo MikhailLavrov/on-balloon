@@ -66,6 +66,7 @@ const DecorPage = () => {
           title={'Оформление праздников в Ленинградской области и Санкт-Петербурге'}
           imageSrc={HEADER_IMAGE}
           imageWrapperClassName={c.decorPage__imageWrapper}
+          imagePreloaderStyle={{background: 'transparent', borderRadius: '50%'}}
         />
         <div className={c.decorPage__content}>
           <ContentHeader

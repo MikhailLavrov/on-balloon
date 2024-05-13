@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Drawer } from 'antd';
+import { Button, Drawer, Image } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import c from './MobileBurgerMenu.module.scss';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,7 @@ import { setBurgerIsOpened } from '../../redux/burgerMenuSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { MobileTopMenu } from '../MobileTopMenu/MobileTopMenu';
 import LOGO from '../../assets/logonew.webp';
+import { ImagePreloader } from '../../utils/ImagePreloader/ImagePreloader';
 
 export const MobileBurgerMenu = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,14 @@ export const MobileBurgerMenu = () => {
   const MenuHeader = () => {
     return (
       <div className={c.menuHeader}>
-        <img src={LOGO} width={20} height={20} alt='Logo' />
+        <Image
+          src={LOGO}
+          width={20}
+          height={20}
+          alt='Logo'
+          preview={false}
+          placeholder={<ImagePreloader />}
+        />
         <span>Меню</span>
       </div>
     )

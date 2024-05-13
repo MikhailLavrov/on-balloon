@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { eventServicesData } from '../../../EventServices/EventServices';
 import c from './AdditionalSection.module.scss';
+import { ImagePreloader } from '../../../../utils/ImagePreloader/ImagePreloader';
+import { Image } from 'antd';
 
 export const AdditionalSection = ({ location }) => {
   const additionalData = eventServicesData.filter(item => item.link !== location.pathname);
@@ -9,7 +11,13 @@ export const AdditionalSection = ({ location }) => {
     <div className={c.additional__item} key={index}>
       <Link to={item.link}>
         <div className={c.additional__itemImageWrapper}>
-          <img src={item.image} alt={item.title} width={200} />
+          <Image
+            src={item.image}
+            alt={item.title}
+            width={'auto'}
+            preview={false}
+            placeholder={<ImagePreloader />}
+          />
         </div>
       </Link>
       <p className={c.additional__itemTitle}>{item.title}</p>

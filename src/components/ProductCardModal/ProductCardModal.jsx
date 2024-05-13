@@ -44,7 +44,7 @@ export const ProductCardModal = (props) => {
   useEffect(() => {
     setShouldDisplayArticleAndStock(article.startsWith('animation'));
   }, [article])
-console.log(shouldDisplayArticleAndStock)
+  
   useEffect(() => {
     const product = searchParams.get('product');
     if (product && product === article) {

@@ -1,4 +1,4 @@
-import { Drawer } from "antd";
+import { Drawer, Image } from "antd";
 import { SearchComponent } from "../SearchComponent/SearchComponent";
 import c from './MobileCatalogDrawer.module.scss';
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +11,7 @@ import ANIMATION_TILE_IMAGE from "../../assets/collections/animation.webp";
 import PHOTOZONE_TILE_IMAGE from "../../assets/collections/photozone.webp";
 import COMMERCIAL_TILE_IMAGE from "../../assets/collections/attractions.webp";
 import { catalogMenuData } from './../../data/catalogData/catalogMenuData';
+import { ImagePreloader } from "../../utils/ImagePreloader/ImagePreloader";
 
 export const MobileCatalogDrawer = () => {
   const drawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
@@ -52,7 +53,13 @@ export const MobileCatalogDrawer = () => {
       className={c.catalogMenu__tile}
     >
       <span>{item.label}</span>
-      <img src={tileImage(item.key)} alt={item.key} />
+      <Image
+        src={tileImage(item.key)}
+        alt={item.key}
+        width={'auto'}
+        preview={false}
+        placeholder={<ImagePreloader />}
+      />
     </li>
   ))
 

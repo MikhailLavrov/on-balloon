@@ -1,3 +1,5 @@
+import { Image } from 'antd';
+import { ImagePreloader } from '../../../../utils/ImagePreloader/ImagePreloader';
 import { CallBackModal } from '../../../CallBackModal/CallBackModal';
 import c from './HeaderAlt.module.scss';
 
@@ -9,6 +11,7 @@ export const HeaderAlt = (props) => {
     imageSrc,
     secondaryImageSrc,
     imageWrapperClassName,
+    imagePreloaderStyle,
   } = props;
 
   return (
@@ -19,8 +22,22 @@ export const HeaderAlt = (props) => {
         <CallBackModal buttonText={buttonText} className={c.header__button}/>
       </div>
       <div className={`${c.header__imageWrapper} ${imageWrapperClassName}`}>
-        <img src={imageSrc} alt='Фото' width={200} height={200} />
-        {secondaryImageSrc && <img src={secondaryImageSrc} alt='Фото' width={200} height={200} />}
+        <Image
+          src={imageSrc}
+          alt='Фото'
+          width={'auto'}
+          preview={false}
+          placeholder={<ImagePreloader style={imagePreloaderStyle && imagePreloaderStyle} />}
+        />
+        {secondaryImageSrc && 
+        <Image
+          src={secondaryImageSrc}
+          alt='Фото'
+          width={'100%'}
+          preview={false}
+          placeholder={<ImagePreloader style={imagePreloaderStyle && imagePreloaderStyle} />}
+        />
+        }
       </div>
     </div>
   )

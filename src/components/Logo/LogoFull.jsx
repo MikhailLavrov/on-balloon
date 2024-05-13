@@ -9,10 +9,10 @@ export const LogoFull = ({linkClassName, imageClassName}) => {
       <Image
         className={imageClassName}
         src={LOGO_IMG}
-        width={'100%'}
         alt="Логотип"
+        width={'100%'}
         preview={false}
-        placeholder={<ImagePreloader />}
+        placeholder={<ImagePreloader style={{background: 'transparent'}} />}
       />
     </Link>
   )

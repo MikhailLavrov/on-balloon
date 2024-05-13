@@ -19,6 +19,12 @@ export const ProductRowCard = ({...item}) => {
   // Custom hooks
   const [ isOpen, openModal, closeModal ] = useModal();
 
+  const [shouldDisplayArticleAndStock, setShouldDisplayArticleAndStock] = useState(false);
+
+  useEffect(() => {
+    setShouldDisplayArticleAndStock(article.startsWith('animation'));
+  }, [article])
+
   useEffect(() => {
     // Проверяем, есть ли товар в корзине при загрузке компонента
     const goods = JSON.parse(localStorage.getItem('shoppingCart')) || [];
@@ -111,7 +117,7 @@ export const ProductRowCard = ({...item}) => {
           <img src={image} width={50} height={50} alt={title} />
         </div>
         <div className={c.catalogCard__header}>
-          <p className={c.catalogCard__article}>Арт. {article}</p>
+          {!shouldDisplayArticleAndStock && <p className={c.catalogCard__article}>Арт. {article}</p>}
           <div className={c.catalogCard__actions}>
             <Button size='small' className={c.catalogCard__toFavouritesButton} onClick={toggleFavorites}>{favoritesButtonIcon}</Button>
             <Button size='small' className={c.catalogCard__delButton} onClick={deleteFromCartHandler}><CloseOutlined /></Button>
@@ -122,11 +128,11 @@ export const ProductRowCard = ({...item}) => {
         </div>
         <div className={c.catalogCard__priceWrapper}>
           <p className={c.catalogCard__price}>
-            <span>{price} &#8381;</span> 
+            <span>{price.toLocaleString('ru-RU')} &#8381;</span> 
             <span>за шт.</span>
           </p>
           <p className={c.catalogCard__sum}>
-            <span>{totalItemPrice} &#8381;</span> 
+            <span>{totalItemPrice.toLocaleString('ru-RU')} &#8381;</span> 
             <span>сумма</span>
           </p>
           <div className={c.catalogCard__sumCounter}>

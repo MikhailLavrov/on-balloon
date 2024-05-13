@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import c from './HeroSlide.module.scss';
-import { Image, Spin } from 'antd';
+import { Image } from 'antd';
 import FALLBACK from '../../assets/catalog/fallback.webp';
+import { ImagePreloader } from '../../utils/ImagePreloader/ImagePreloader';
 
 export const HeroSlide = ({card}) => {
   const {link, image, title} = card;
@@ -15,14 +16,8 @@ export const HeroSlide = ({card}) => {
           className={c.heroSlide__image}
           fallback={FALLBACK}
           preview={false}
-          placeholder={
-            <div className={c.imagePreloader} >
-              <Spin size='small'/>
-            </div>
-          }
-          
+          placeholder={<ImagePreloader />}
         />
-        {/* <img src={image} alt={title} className={c.heroSlide__image} /> */}
       </div>
     </Link>
   )
