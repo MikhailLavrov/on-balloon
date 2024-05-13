@@ -37,10 +37,10 @@ export const EventServices = () => {
     <Link className={c.eventServices__itemLink} key={index} to={item.link}>
       <div className={c.eventServices__itemImageWrapper}>
         <Image
-          className={c.eventServices__itemImage}
           src={item.image}
           alt={item.title}
-          width={'auto'}
+          width={'100%'}
+          height={'100%'}
           preview={false}
           placeholder={<ImagePreloader />}
         />

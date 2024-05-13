@@ -5,14 +5,20 @@ import { Link } from 'react-router-dom';
 import c from './GallerySection.module.scss';
 import { galleryData } from '../../data/galleryData';
 import { gallerySwiperParams } from '../../data/swiperParams';
+import { ImagePreloader } from './../../utils/ImagePreloader/ImagePreloader';
 
 export const GallerySection = () => {
   const [ isLinkVisible, setIsLinkVisible ] = useState(false);
 
   const gallerySlides = galleryData.slice(0, 8).map((image, index) => (
     <SwiperSlide className='gallery__slide' key={index}>
-      <div className={c.gallery__item}>
-        <Image className={c.gallery__image} src={image} alt={index} preview={false} />
+      <div className={c.gallery__imageWrapper}>
+        <Image
+          src={image}
+          alt={index}
+          preview={false}
+          placeholder={<ImagePreloader />}
+        />
       </div>
     </SwiperSlide>
   ));
