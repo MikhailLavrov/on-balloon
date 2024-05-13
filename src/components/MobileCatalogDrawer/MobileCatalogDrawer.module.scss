@@ -32,14 +32,14 @@
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  // grid-auto-rows: minmax(40%, 1fr);
+  grid-auto-rows: 1fr;
   gap: 15px;
 
   list-style: none;
 }
 
 .catalogMenu__tile {
-  padding: 15px;
+  padding: 15px 10px;
 
   display: flex;
   align-items: center;
@@ -47,25 +47,20 @@
   position: relative;
 
   font-size: $fz-s;
+  font-weight: 600;
+  color: $base-light-color;
 
   transition: all 200ms ease-in-out;
 
   border-radius: 5px;
   box-shadow: 0 1px 2px 2px rgba($color-grey, 0.7);
   background-color: $color-grey;
-  color: $base-light-color;
-  font-weight: 600;
   overflow: hidden;
 
   &:not(:first-child) {
     flex-direction: column;
     justify-content: space-between;
-    // gap: 10px;
-  }
-
-  & img {
-    max-width: 100%;
-    width: 100%;
+    gap: 10px;
   }
   
   &:first-child {
@@ -73,12 +68,7 @@
     background: linear-gradient(57deg,#8c00ffb5,#2db1d2);
 
     display: grid;
-    grid-template-columns: 1fr auto;
-
-    & img {
-      max-height: 80px;
-      object-fit: contain;
-    }
+    grid-template-columns: 1fr minmax(80px, 127.5px);
   }
   
   &:nth-child(2) {
@@ -95,5 +85,49 @@
   
   &:nth-child(5) {
     background: linear-gradient(1200deg,#8c00ffb5,#2db1d2);
+  }
+}
+
+.catalogMenu__imageWrapper {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & div {
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include vp-500 {
+      max-width: 250px;
+    }
+
+    @include vp-768 {
+      max-width: 300px;
+    }
+
+    @include vp-1260 {
+      max-width: 400px;
+    }
+  }
+  
+  & img {
+    padding: 5px;
+    margin: 0 auto;
+
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: contain;
+
+    background-color: rgba($base-light-color, 0.7);
+    background: radial-gradient($base-light-color, transparent);
   }
 }

@@ -41,22 +41,8 @@
   width: auto;
 
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-  
-  font-size: calc($fz-m - 3px);
-
-  & span {
-    font-weight: 400;
-  }
-
-  & svg {
-    padding: 3px;
-
-    width: 20px;
-    height: 20px;
-  }
 }
 
 .contactsPage__phoneMail {

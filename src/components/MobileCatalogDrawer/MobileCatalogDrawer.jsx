@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDrawerState } from "../../redux/catalogDrawerSlice";
 import { setBurgerIsOpened } from "../../redux/burgerMenuSlice";
 import { useNavigate } from "react-router-dom";
-import TREND_TILE_IMAGE from "../../assets/logonew.webp";
-import BALLOONS_TILE_IMAGE from "../../assets/collections/balloons.webp";
-import ANIMATION_TILE_IMAGE from "../../assets/collections/animation.webp";
-import PHOTOZONE_TILE_IMAGE from "../../assets/collections/photozone.webp";
-import COMMERCIAL_TILE_IMAGE from "../../assets/collections/attractions.webp";
 import { catalogMenuData } from './../../data/catalogData/catalogMenuData';
 import { ImagePreloader } from "../../utils/ImagePreloader/ImagePreloader";
+import TREND_TILE_IMAGE from "../../assets/logonew.webp";
+import ANIMATION_TILE_IMAGE from "../../assets/collections/animation.webp";
+import PHOTOZONE_TILE_IMAGE from "../../assets/collections/photozone.webp";
+import BALLOONS_TILE_IMAGE from "../../assets/collections/balloons.webp";
+import COMMERCIAL_TILE_IMAGE from "../../assets/collections/commercial.webp";
 
 export const MobileCatalogDrawer = () => {
   const drawerVisibleState = useSelector(state => state.catalogDrawer.mainDrawerIsOpened)
@@ -53,13 +53,15 @@ export const MobileCatalogDrawer = () => {
       className={c.catalogMenu__tile}
     >
       <span>{item.label}</span>
-      <Image
-        src={tileImage(item.key)}
-        alt={item.key}
-        width={'auto'}
-        preview={false}
-        placeholder={<ImagePreloader />}
-      />
+      <div className={c.catalogMenu__imageWrapper}>
+        <Image
+          src={tileImage(item.key)}
+          alt={item.key}
+          width={'auto'}
+          preview={false}
+          placeholder={<ImagePreloader style={{borderRadius: '50%'}} />}
+        />
+      </div>
     </li>
   ))
 

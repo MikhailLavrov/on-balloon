@@ -4,7 +4,7 @@
 .mobileNavigation {
   position: sticky;
   bottom: 0;
-  z-index: 9999;
+  z-index: 1000;
   background-color: $base-light-color;
 
   @include vp-1260 {
