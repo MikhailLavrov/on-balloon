@@ -37,12 +37,11 @@ export const catalogMenuData = [
   },
   {
     key: 'commercial',
-    label: 'Для бизнеса',
+    label: 'Для организаций',
     children: [
-      { key: 'opening', label: 'Открытие' },
-      { key: 'cotton', label: 'Сладкая вата' },
-      { key: 'popcorn', label: 'Попкорн' },
-      { key: 'apples', label: 'Яблоки в карамели' },
+      { key: 'commercial_decor', label: 'Украшение' },
+      { key: 'commercial_forkids', label: 'Детям' },
+      { key: 'commercial_services', label: 'Оборудование и услуги' },
     ]
   }
 ];
