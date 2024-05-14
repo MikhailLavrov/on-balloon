@@ -170,14 +170,58 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
+}
 
-  @include vp-500 {
-    padding: 10px;
+// Выбранный костюм
 
-    display: flex;
-    align-items: center;
+.cardModal__currentSuite {
+  padding-left: 10px;
+
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  grid-column: 1/-1;
+
+  background-color: rgba($color-orange, 0.4);
+  border-radius: 5px;
+}
+
+.cardModal__currentSuiteTitle {
+  margin: 0;
+
+  font-weight: 500;
+  font-size: calc($fz-m - 3px);
+}
+
+.cardModal__currentSuiteClearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  border: none;
+  aspect-ratio: 1/1;
+
+  &:hover,
+  &:active {
+    color: $base-dark-color !important;
+    background-color: transparent !important;
   }
 }
+
+.cardModal__chooseSuiteButton {
+  height: auto;
+  padding: 7px 15px;
+  grid-column: 1/-1;
+
+  font-size: $fz-s;
+  line-height: 1.5;
+}
+
+// ============================
 
 .cardModal__shareWrapper {
   padding: 10px 0;
@@ -232,4 +276,41 @@
 .cardModal__additional {
   margin-bottom: 20px;
   font-size: $fz-s;
+}
+
+// costumeSection
+
+.costumeSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.costumeSection__header {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  border-radius: 5px;
+  background-color: rgba($color-orange, 0.3);
+}
+
+.costumeSection__headerTitle {
+  margin: 0;
+
+  font-weight: 500;
+}
+
+.costumeSection__clearButton {
+  padding: 5px;
+
+  border: none;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+
+  &:hover {
+    color: $base-dark-color !important;
+    background-color: transparent !important;
+  }
 }

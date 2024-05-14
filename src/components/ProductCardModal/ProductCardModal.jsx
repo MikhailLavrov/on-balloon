@@ -3,13 +3,14 @@ import c from './ProductCardModal.module.scss';
 import { useSearchParams } from 'react-router-dom';
 import { Badge, Button, ConfigProvider, Image, message, Modal, Spin, Tabs } from 'antd';
 import LOGO_IMG from '../../assets/logotext.png';
-import { CheckCircleFilled, HeartFilled, HeartOutlined, ReadOutlined, ShoppingCartOutlined, TruckOutlined } from '@ant-design/icons';
+import { CheckCircleFilled, CloseOutlined, HeartFilled, HeartOutlined, ReadOutlined, ShoppingCartOutlined, SkinOutlined, TruckOutlined } from '@ant-design/icons';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { cardAdditionalData } from '../../data/cardAdditionalData';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { TelegramShareButton, ViberShareButton, VKShareButton, WhatsappShareButton } from "react-share";
 import FALLBACK from '../../assets/catalog/fallback.webp';
 import { ImagePreloader } from '../../utils/ImagePreloader/ImagePreloader';
+import { CostumeSelect } from './CostumeSelect/CostumeSelect';
 
 const {delivery, payment, guarantee} = cardAdditionalData;
 
@@ -37,12 +38,14 @@ export const ProductCardModal = (props) => {
     count,
   } = item;
   
-  const [ searchParams, setSearchParams ] = useSearchParams();
   const currentUrl = window.location.href;
-  const [shouldDisplayArticleAndStock, setShouldDisplayArticleAndStock] = useState(false);
+  const [ searchParams, setSearchParams ] = useSearchParams();
+  const [ isAnimationData, setIsAnimationData ] = useState(false);
+  const [ isCostumeSelectOpen, setIsCostumeSelectOpen ] = useState(false);
+  const [ currentCostume, setCurrentCostume ] = useState(null);
 
   useEffect(() => {
-    setShouldDisplayArticleAndStock(article.startsWith('animation'));
+    setIsAnimationData(article.startsWith('animation'));
   }, [article])
   
   useEffect(() => {
@@ -59,7 +62,7 @@ export const ProductCardModal = (props) => {
       ))
     )
   }, []);
-
+  
   const handleCancel = () => {
     closeModal();
     setSearchParams(params => {
@@ -119,6 +122,7 @@ export const ProductCardModal = (props) => {
       className={`${c.cardModal__top} productCardModal`}
       wrapClassName={c.cardModal__topWrap}
     >
+      {!isCostumeSelectOpen ? 
       <div className={c.cardModal}>
         <div className={c.cardModal__main}>
           <div className={c.cardModal__imageWrapper}>
@@ -152,13 +156,13 @@ export const ProductCardModal = (props) => {
             </div>
 
           {/* Количество */}
-            {!shouldDisplayArticleAndStock && count && count>=1 &&
+            {!isAnimationData && count && count>=1 &&
               <div className={c.cardModal__inStockWrapper}><Badge status="success" /><span className={c.cardModal__inStock}>Есть в наличии</span></div> 
             // : <div className={c.cardModal__inStockWrapper}><Badge status="warning" /><span className={c.cardModal__inStock}>Доступно для заказа</span></div>
             }
 
           {/* Артикул */}
-            {!shouldDisplayArticleAndStock && article &&
+            {!isAnimationData && article &&
               <p className={c.cardModal__article}>
                 Артикул:
                 <CopyToClipboard 
@@ -175,9 +179,30 @@ export const ProductCardModal = (props) => {
               {splitedData(description)}
             </div>
 
-            <div className={c.cardModal__userActions}>
           {/* В избранное и В корзину */}
+            <div className={c.cardModal__userActions}>
               <div className={c.cardModal__userActionsInner}>
+                {isAnimationData ?
+                  (currentCostume !== null
+                    ? <div className={c.cardModal__currentSuite}>
+                        <p className={c.cardModal__currentSuiteTitle}>Выбранный костюм: {currentCostume.title}</p>
+                        <Button
+                          className={c.cardModal__currentSuiteClearButton}
+                          onClick={() => setCurrentCostume(null)}
+                        >
+                          <CloseOutlined />
+                        </Button>
+                      </div>
+                    : <Button
+                        icon={<SkinOutlined />}
+                        className={c.cardModal__chooseSuiteButton}
+                        onClick={() => setIsCostumeSelectOpen(true)}
+                      >
+                        Выбрать костюм
+                      </Button>
+                    )
+                  : null
+                }
                 <Button 
                   onClick={toggleFavorites} 
                   size="large"
@@ -189,6 +214,7 @@ export const ProductCardModal = (props) => {
                   onClick={togglePurchases} 
                   size="large"
                   style={{fontSize: "15px", fontFamily: "Tilda Sans"}}
+                  // disabled={!currentCostume}
                 >
                   {shoppingCartButtonIcon} {shoppingCartButtonText}
                 </Button>
@@ -236,6 +262,33 @@ export const ProductCardModal = (props) => {
           </ConfigProvider>
         </div>
       </div>
+      : 
+      <>
+      <div className={c.costumeSection}>
+        <Button
+          onClick={() => setIsCostumeSelectOpen(false)}
+        >
+          Назад
+        </Button>
+        {/* {currentCostume !== null &&
+        <div className={c.costumeSection__header}>
+          <p className={c.costumeSection__headerTitle}>Выбранный костюм: {currentCostume.title}</p>
+          <Button
+            className={c.costumeSection__clearButton}
+            onClick={() => setCurrentCostume(null)}
+          >
+            <CloseOutlined />
+          </Button>
+        </div>
+         } */}
+      </div>
+        <CostumeSelect
+          setIsCostumeSelectOpen={setIsCostumeSelectOpen}
+          isCostumeSelectOpen={isCostumeSelectOpen}
+          setCurrentCostume={setCurrentCostume}
+          currentCostume={currentCostume}
+        />
+      </>
+      }
     </Modal>
 )};
-

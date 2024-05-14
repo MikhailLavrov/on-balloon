@@ -1,0 +1,105 @@
+@import '../../../styles/vars.scss';
+@import '../../../styles/mixins.scss';
+
+.costumeSelect {
+  padding: 40px 20px;
+
+  position: relative;
+}
+
+.costumeSelect__list {
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: stretch;
+  gap: 20px;
+  
+  list-style: none;
+}
+
+.costumeSelect__item {
+  padding: 10px 5px;
+  
+  display: flex;
+  flex-direction: column;
+  background-color: $color-grey-light-2;
+
+  border-radius: 5px;
+}
+
+.costumeSelect__imageWrapper {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  
+  & div {
+    width: 100% !important;
+    height: 100% !important;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  & img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+}
+
+.costumeSelect__info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  text-align: center;
+}
+
+.costumeSelect__title {
+  padding: 5px;
+  margin: auto;
+
+  font-size: calc($fz-m - 4px);
+  line-height: 1;
+}
+
+.costumeSelect__button {
+  justify-self: flex-start;
+  border: none;
+
+  &:hover,
+  &:active {
+    color: $base-dark-color !important;
+    background-color: rgba($color-orange, 0.3) !important;
+  }
+}
+
+.activeButton {
+  background-color: $color-orange;
+  color: $base-light-color;
+
+  &:hover,
+  &:active {
+    background-color: $color-orange !important;
+    color: $base-light-color !important;
+  }
+}
+
+.costumeSelect__applyButton {
+  margin: 0 auto;
+  width: 200px;
+  position: fixed;
+  background-color: $color-green;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+}
