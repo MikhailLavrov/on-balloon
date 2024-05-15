@@ -165,16 +165,41 @@
 }
 
 .cardModal__userActionsInner {
-  padding: 15px 0 0;
+  padding: 15px 0;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
 }
 
+.cardModal__actionButton {
+  height: auto;
+  padding: 10px;
+
+  font-size: calc($fz-m - 3px);
+  line-height: 1;
+  color: $base-light-color;
+
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 7px -2px $base-dark-color;
+  background-color: rgba($color-purple, 0.7);
+
+  &:hover {
+    background-color: rgba($color-purple, 0.8) !important;
+    color: $base-light-color !important;
+  }
+
+  &.favoriteButton__active,
+  &.inCartButton__active {
+    background-color: $color-purple;
+  }
+}
+
 // Выбранный костюм
 
 .cardModal__currentSuite {
+  padding: 5px;
   padding-left: 10px;
 
   width: fit-content;
@@ -185,15 +210,19 @@
 
   grid-column: 1/-1;
 
-  background-color: rgba($color-orange, 0.4);
-  border-radius: 5px;
+  background-color: $color-orange;
+  background: linear-gradient(to right bottom, $color-orange, $color-red);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px -2px $base-dark-color;
 }
 
 .cardModal__currentSuiteTitle {
   margin: 0;
 
+  font-size: calc($fz-m - 4px);
+  line-height: 1.2;
   font-weight: 500;
-  font-size: calc($fz-m - 3px);
+  color: $base-light-color;
 }
 
 .cardModal__currentSuiteClearButton {
@@ -204,6 +233,7 @@
   background-color: transparent;
   border: none;
   aspect-ratio: 1/1;
+  color: $base-light-color;
 
   &:hover,
   &:active {
@@ -214,11 +244,61 @@
 
 .cardModal__chooseSuiteButton {
   height: auto;
-  padding: 7px 15px;
+  padding: 10px;
+
   grid-column: 1/-1;
 
-  font-size: $fz-s;
-  line-height: 1.5;
+  font-size: calc($fz-m - 3px);
+  line-height: 1;
+  color: $base-light-color;
+
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 7px -2px $base-dark-color;
+  background-color: $color-orange;
+
+  &:hover {
+    background-color: $color-orange !important;
+    color: $base-light-color !important;
+  }
+
+  &.favoriteButton__active,
+  &.inCartButton__active {
+    background-color: $color-orange;
+  }
+}
+
+.cardModal__chooseAttention {
+  margin: 0;
+  padding: 10px;
+  
+  position: relative;
+  
+  height: auto;
+  width: fit-content;
+
+  grid-column: 1/-1;
+
+  font-size: calc($fz-m - 3px);
+  line-height: 1;
+  color: $base-light-color;
+
+  background-color: $color-orange;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px -2px $base-dark-color;
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: -10px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-left-width: 20px;
+    border-right-width: 10px;
+    border-top: 15px solid $color-orange;
+  }
 }
 
 // ============================

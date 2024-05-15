@@ -11,6 +11,8 @@ import { TelegramShareButton, ViberShareButton, VKShareButton, WhatsappShareButt
 import FALLBACK from '../../assets/catalog/fallback.webp';
 import { ImagePreloader } from '../../utils/ImagePreloader/ImagePreloader';
 import { CostumeSelect } from './CostumeSelect/CostumeSelect';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearSelectedCostume, loadStateFromStorage } from '../../redux/costumeSlice';
 
 const {delivery, payment, guarantee} = cardAdditionalData;
 
@@ -36,16 +38,32 @@ export const ProductCardModal = (props) => {
     image,
     hit,
     count,
+    // costume,
   } = item;
   
   const currentUrl = window.location.href;
+  const selectedCostumes = useSelector((state) => state.costume.selectedCostumes);
   const [ searchParams, setSearchParams ] = useSearchParams();
   const [ isAnimationData, setIsAnimationData ] = useState(false);
+  const [isCommercialData, setIsCommercialData] = useState(false);
   const [ isCostumeSelectOpen, setIsCostumeSelectOpen ] = useState(false);
-  const [ currentCostume, setCurrentCostume ] = useState(null);
+  const [ currentCostume, setCurrentCostume ] = useState(selectedCostumes[article] || null);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const localStorageCostumeState = localStorage.getItem('selectedCostumes');
+    if (localStorageCostumeState) {
+      dispatch(loadStateFromStorage(JSON.parse(localStorageCostumeState)));
+    }
+  }, [dispatch]);
+  
+  useEffect(() => {
+    setIsCostumeSelectOpen(false);
+  }, [isOpen])
 
   useEffect(() => {
     setIsAnimationData(article.startsWith('animation'));
+    setIsCommercialData(article.startsWith('commercial'));
   }, [article])
   
   useEffect(() => {
@@ -69,6 +87,14 @@ export const ProductCardModal = (props) => {
       params.delete('product');
       return params;
     });
+  };
+
+  const clearCurrentCostume = () => {
+    setCurrentCostume(null);
+    dispatch(clearSelectedCostume({ itemId: article }));
+    const updatedCostumes = { ...selectedCostumes };
+    delete updatedCostumes[article];
+    localStorage.setItem('selectedCostumes', JSON.stringify(updatedCostumes));
   };
 
   const tabsItems = [
@@ -156,20 +182,19 @@ export const ProductCardModal = (props) => {
             </div>
 
           {/* Количество */}
-            {!isAnimationData && count && count>=1 &&
+            {!isAnimationData && !isCommercialData && count &&
               <div className={c.cardModal__inStockWrapper}><Badge status="success" /><span className={c.cardModal__inStock}>Есть в наличии</span></div> 
-            // : <div className={c.cardModal__inStockWrapper}><Badge status="warning" /><span className={c.cardModal__inStock}>Доступно для заказа</span></div>
             }
 
           {/* Артикул */}
-            {!isAnimationData && article &&
+            {!isAnimationData && !isCommercialData && article &&
               <p className={c.cardModal__article}>
                 Артикул:
                 <CopyToClipboard 
                   text={article} 
                   onCopy={() => message.info('Артикул скопирован в буфер обмена')}
-                  >
-                    <span style={{ cursor: 'pointer', marginLeft: '5px' }}>{article}</span>
+                >
+                  <span style={{ cursor: 'pointer', marginLeft: '5px' }}>{article}</span>
                 </CopyToClipboard>
               </p>
             }
@@ -182,38 +207,46 @@ export const ProductCardModal = (props) => {
           {/* В избранное и В корзину */}
             <div className={c.cardModal__userActions}>
               <div className={c.cardModal__userActionsInner}>
+
+                {/* Если категория Анимация */}
                 {isAnimationData ?
-                  (currentCostume !== null
-                    ? <div className={c.cardModal__currentSuite}>
-                        <p className={c.cardModal__currentSuiteTitle}>Выбранный костюм: {currentCostume.title}</p>
+                  (isInCart ?
+                    selectedCostumes[article] ? // есть ВЫБРАННЫЙ КОСТЮМ ?
+                     // показываем ВЫБРАННЫЙ КОСТЮМ...
+                      <div className={c.cardModal__currentSuite}>
+                        <p className={c.cardModal__currentSuiteTitle}>Выбранный костюм: {selectedCostumes[article]}</p>
                         <Button
                           className={c.cardModal__currentSuiteClearButton}
-                          onClick={() => setCurrentCostume(null)}
+                          onClick={clearCurrentCostume}
                         >
                           <CloseOutlined />
                         </Button>
                       </div>
-                    : <Button
-                        icon={<SkinOutlined />}
-                        className={c.cardModal__chooseSuiteButton}
-                        onClick={() => setIsCostumeSelectOpen(true)}
-                      >
-                        Выбрать костюм
-                      </Button>
-                    )
+                      : <Button 
+                          icon={<SkinOutlined />} // или показываем кнопку ВЫБРАТЬ КОСТЮМ
+                          className={c.cardModal__chooseSuiteButton}
+                          onClick={() => setIsCostumeSelectOpen(true)}
+                        >
+                          Выбрать костюм
+                        </Button>
+                    : <p className={c.cardModal__chooseAttention}>Добавьте товар в корзину, чтобы выбрать костюм</p>
+                  )
+                  /* Если категория НЕ Анимация то ничего не показываем */
                   : null
                 }
+
                 <Button 
                   onClick={toggleFavorites} 
                   size="large"
-                  style={{fontSize: "15px", fontFamily: "Tilda Sans"}}
-                >
+                  className={`${c.cardModal__actionButton} ${isFavorite && c.favoriteButton__active}`}
+                  >
                   {favoritesButtonIcon} {favoritesButtonText}
                 </Button>
+                
                 <Button 
                   onClick={togglePurchases} 
+                  className={`${c.cardModal__actionButton} ${isInCart && c.inCartButton__active}`}
                   size="large"
-                  style={{fontSize: "15px", fontFamily: "Tilda Sans"}}
                   // disabled={!currentCostume}
                 >
                   {shoppingCartButtonIcon} {shoppingCartButtonText}
@@ -262,31 +295,21 @@ export const ProductCardModal = (props) => {
           </ConfigProvider>
         </div>
       </div>
-      : 
+      : isAnimationData &&
       <>
-      <div className={c.costumeSection}>
-        <Button
-          onClick={() => setIsCostumeSelectOpen(false)}
-        >
-          Назад
-        </Button>
-        {/* {currentCostume !== null &&
-        <div className={c.costumeSection__header}>
-          <p className={c.costumeSection__headerTitle}>Выбранный костюм: {currentCostume.title}</p>
+        <div className={c.costumeSection}>
           <Button
-            className={c.costumeSection__clearButton}
-            onClick={() => setCurrentCostume(null)}
+            onClick={() => setIsCostumeSelectOpen(false)}
           >
-            <CloseOutlined />
+            Назад
           </Button>
         </div>
-         } */}
-      </div>
         <CostumeSelect
           setIsCostumeSelectOpen={setIsCostumeSelectOpen}
           isCostumeSelectOpen={isCostumeSelectOpen}
           setCurrentCostume={setCurrentCostume}
           currentCostume={currentCostume}
+          article={article}
         />
       </>
       }

@@ -15,14 +15,15 @@ export const ProductRowCard = ({...item}) => {
   const [amount, setAmount] = useState(count);
   const dispatch = useDispatch();
   const [isInCart, setIsInCart] = useState(false);
+  const [isAnimationData, setIsAnimationData] = useState(false);
+  const [isCommercialData, setIsCommercialData] = useState(false);
 
   // Custom hooks
   const [ isOpen, openModal, closeModal ] = useModal();
 
-  const [shouldDisplayArticleAndStock, setShouldDisplayArticleAndStock] = useState(false);
-
   useEffect(() => {
-    setShouldDisplayArticleAndStock(article.startsWith('animation'));
+    setIsAnimationData(article.startsWith('animation'));
+    setIsCommercialData(article.startsWith('commercial'));
   }, [article])
 
   useEffect(() => {
@@ -117,7 +118,7 @@ export const ProductRowCard = ({...item}) => {
           <img src={image} width={50} height={50} alt={title} />
         </div>
         <div className={c.catalogCard__header}>
-          {!shouldDisplayArticleAndStock && <p className={c.catalogCard__article}>Арт. {article}</p>}
+          {!isAnimationData && !isCommercialData && <p className={c.catalogCard__article}>Арт. {article}</p>}
           <div className={c.catalogCard__actions}>
             <Button size='small' className={c.catalogCard__toFavouritesButton} onClick={toggleFavorites}>{favoritesButtonIcon}</Button>
             <Button size='small' className={c.catalogCard__delButton} onClick={deleteFromCartHandler}><CloseOutlined /></Button>

@@ -2,21 +2,50 @@
 @import '../../../styles/mixins.scss';
 
 .costumeSelect {
-  padding: 40px 20px;
-
+  padding: 20px 0;
+  
   position: relative;
+  
+  @include vp-1260 {
+    padding: 40px 20px;
+  }
+}
+
+.costumeSelect__total {
+  margin: 0;
+  margin-bottom: 10px;
+
+  font-size: $fz-s;
 }
 
 .costumeSelect__list {
-  padding: 0;
   margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
+
+  list-style: none;
 
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  align-items: stretch;
-  gap: 20px;
-  
-  list-style: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
+  & img {
+    aspect-ratio: 1/1;
+  }
+
+  @include vp-500 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  @include vp-768 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  @include vp-1260 {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 .costumeSelect__item {

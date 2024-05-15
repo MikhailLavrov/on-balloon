@@ -3,9 +3,13 @@ import c from './CostumeSelect.module.scss';
 import { costumeData } from '../../../data/catalogData/costumeData';
 import { ImagePreloader } from '../../../utils/ImagePreloader/ImagePreloader';
 import { useCallback } from 'react';
+import { setSelectedCostume } from '../../../redux/costumeSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const CostumeSelect = (props) => {
-  const { setCurrentCostume, currentCostume, setIsCostumeSelectOpen } = props;
+  const { setCurrentCostume, currentCostume, setIsCostumeSelectOpen, article } = props;
+  const selectedCostumes = useSelector((state) => state.costume.selectedCostumes);
+  const dispatch = useDispatch();
   
   const splitedData = useCallback((data) => {
     return (
@@ -16,7 +20,11 @@ export const CostumeSelect = (props) => {
   }, []);
 
   const onChooseSuiteHandler = (item) => {
-    setCurrentCostume(item);
+    const costume = item.title;
+    dispatch(setSelectedCostume({ itemId: article, costume }));
+    const updatedCostumes = { ...selectedCostumes, [article]: costume };
+    localStorage.setItem('selectedCostumes', JSON.stringify(updatedCostumes));
+    setCurrentCostume(costume);
     setTimeout(() => {
       setIsCostumeSelectOpen(false);
     }, 500);
@@ -24,6 +32,7 @@ export const CostumeSelect = (props) => {
 
   return (
     <div className={c.costumeSelect}>
+      <p className={c.costumeSelect__total}>Всего доступно: {costumeData.length} костюмов</p>
       <ul className={c.costumeSelect__list}>
         {costumeData.map((item, index) => (
           <li className={c.costumeSelect__item} key={index}>
