@@ -214,7 +214,7 @@ export const ProductCardModal = (props) => {
                     selectedCostumes[article] ? // есть ВЫБРАННЫЙ КОСТЮМ ?
                      // показываем ВЫБРАННЫЙ КОСТЮМ...
                       <div className={c.cardModal__currentSuite}>
-                        <p className={c.cardModal__currentSuiteTitle}>Выбранный костюм: {selectedCostumes[article]}</p>
+                        <p className={c.cardModal__currentSuiteTitle} onClick={() => setIsCostumeSelectOpen(true)}>Выбранный костюм: {selectedCostumes[article]}</p>
                         <Button
                           className={c.cardModal__currentSuiteClearButton}
                           onClick={clearCurrentCostume}
@@ -303,6 +303,15 @@ export const ProductCardModal = (props) => {
           >
             Назад
           </Button>
+          {selectedCostumes[article] && <div className={c.costumeSection__currentSuite}>
+            <p className={c.costumeSection__currentSuiteTitle}>Выбранный костюм: {selectedCostumes[article]}</p>
+            <Button
+              className={c.costumeSection__currentSuiteClearButton}
+              onClick={clearCurrentCostume}
+            >
+              <CloseOutlined />
+            </Button>
+          </div>}
         </div>
         <CostumeSelect
           setIsCostumeSelectOpen={setIsCostumeSelectOpen}
@@ -310,6 +319,7 @@ export const ProductCardModal = (props) => {
           setCurrentCostume={setCurrentCostume}
           currentCostume={currentCostume}
           article={article}
+          clearCurrentCostume={clearCurrentCostume}
         />
       </>
       }

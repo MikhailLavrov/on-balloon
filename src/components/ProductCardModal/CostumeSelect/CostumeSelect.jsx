@@ -7,7 +7,7 @@ import { setSelectedCostume } from '../../../redux/costumeSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const CostumeSelect = (props) => {
-  const { setCurrentCostume, currentCostume, setIsCostumeSelectOpen, article } = props;
+  const { setCurrentCostume, currentCostume, setIsCostumeSelectOpen, article, clearCurrentCostume } = props;
   const selectedCostumes = useSelector((state) => state.costume.selectedCostumes);
   const dispatch = useDispatch();
   
@@ -20,14 +20,20 @@ export const CostumeSelect = (props) => {
   }, []);
 
   const onChooseSuiteHandler = (item) => {
-    const costume = item.title;
-    dispatch(setSelectedCostume({ itemId: article, costume }));
-    const updatedCostumes = { ...selectedCostumes, [article]: costume };
-    localStorage.setItem('selectedCostumes', JSON.stringify(updatedCostumes));
-    setCurrentCostume(costume);
-    setTimeout(() => {
-      setIsCostumeSelectOpen(false);
-    }, 500);
+    
+    if (currentCostume === item.title) {
+      clearCurrentCostume();
+    } else {
+      const costume = item.title;
+      dispatch(setSelectedCostume({ itemId: article, costume }));
+      const updatedCostumes = { ...selectedCostumes, [article]: costume };
+      localStorage.setItem('selectedCostumes', JSON.stringify(updatedCostumes));
+      setCurrentCostume(costume);
+      setTimeout(() => {
+        setIsCostumeSelectOpen(false);
+      }, 500);
+    }
+
   }
 
   return (
@@ -47,10 +53,10 @@ export const CostumeSelect = (props) => {
             <div className={c.costumeSelect__info}>
               <div className={c.costumeSelect__title}>{splitedData(item.title)}</div>
               <Button
-                className={`${c.costumeSelect__button} ${currentCostume === item && c.activeButton}`}
+                className={`${c.costumeSelect__button} ${currentCostume === item.title && c.activeButton}`}
                 onClick={() => onChooseSuiteHandler(item)}
               >
-                {currentCostume !== item ? 'Выбрать' : 'Выбрано'}
+                {currentCostume !== item.title ? 'Выбрать' : 'Выбрано'}
               </Button>
             </div>
           </li>

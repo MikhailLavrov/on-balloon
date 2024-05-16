@@ -223,6 +223,8 @@
   line-height: 1.2;
   font-weight: 500;
   color: $base-light-color;
+
+  cursor: pointer;
 }
 
 .cardModal__currentSuiteClearButton {
@@ -390,6 +392,58 @@
   background-color: transparent;
 
   &:hover {
+    color: $base-dark-color !important;
+    background-color: transparent !important;
+  }
+}
+
+// ====
+
+.costumeSection__currentSuite {
+  padding: 5px;
+  padding-left: 10px;
+
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  grid-column: 1/-1;
+
+  background-color: $color-orange;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px -2px $base-dark-color;
+}
+
+.costumeSection__currentSuiteTitle {
+  margin: 0;
+
+  font-size: $fz-s;
+  line-height: 1;
+  font-weight: 500;
+  color: $base-light-color;
+
+  cursor: pointer;
+}
+
+.costumeSection__currentSuiteClearButton {
+  padding: 5px;
+  
+  height: 20px;
+  width: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  border: none;
+  aspect-ratio: 1/1;
+  color: $base-light-color;
+
+  &:hover,
+  &:active {
     color: $base-dark-color !important;
     background-color: transparent !important;
   }
