@@ -183,7 +183,7 @@ export const ProductCardModal = (props) => {
 
           {/* Количество */}
             {!isAnimationData && !isCommercialData && count &&
-              <div className={c.cardModal__inStockWrapper}><Badge status="success" /><span className={c.cardModal__inStock}>Есть в наличии</span></div> 
+              <div className={c.cardModal__inStockWrapper}><Badge status="success" /><span className={c.cardModal__inStock}>Есть в наличии</span></div>
             }
 
           {/* Артикул */}
