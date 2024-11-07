@@ -21,7 +21,7 @@ export const CatalogContent = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [searchParams] = useSearchParams();
-  
+
   const filteredColor = searchParams.get('palette') || '';
   const filteredCollection = searchParams.get('collection') || '';
   const filterOptions = ['Цвет', 'Коллекция'];
@@ -47,7 +47,7 @@ export const CatalogContent = () => {
     setCurrentPage(1)
   }, [category, topcategory, filteredColor, filteredCollection]);
 
-   // Установим первый подраздел первой категории по умолчанию
+  // Установим первый подраздел первой категории по умолчанию
   useEffect(() => {
     if (topcategory && topcategory !== '') {
       setSelectedTopCategory(topcategory);
@@ -153,7 +153,9 @@ export const CatalogContent = () => {
                     key={'all'}
                     to={`/catalog/${selectedTopCategory}`}
                     className={`${c.subcategory__link} ${!category ? c.subcategory__linkActive : ''}`}
-                  >Все</Link>
+                  >
+                    Все
+                  </Link>
                   {renderSubcategories(menuTopCategory.children)}
                 </div>
               ) : null
