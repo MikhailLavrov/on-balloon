@@ -27,7 +27,7 @@ const variantsData = [
   },
   {
     title: 'Фотозона с баннером',
-    image: 'https://gelione.ru/images/FZ_banner_2x2.jpg',
+    image: 'https://www.imp66.ru/uploads/product/2253/loupe.jpg',
   },
   {
     title: 'Круглая фотозона',

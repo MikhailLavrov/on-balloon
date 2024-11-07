@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import c from './ProductCardModal.module.scss';
 import { useSearchParams } from 'react-router-dom';
 import { Badge, Button, ConfigProvider, Image, message, Modal, Spin, Tabs } from 'antd';
-import LOGO_IMG from '../../assets/logotext.png';
+import LOGO_IMG from '../../assets/logotext.webp';
 import { CheckCircleFilled, CloseOutlined, HeartFilled, HeartOutlined, ReadOutlined, ShoppingCartOutlined, SkinOutlined, TruckOutlined } from '@ant-design/icons';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { cardAdditionalData } from '../../data/cardAdditionalData';

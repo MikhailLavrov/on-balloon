@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import LOGO_IMG from '../../assets/logotext.png';
+import LOGO_IMG from '../../assets/logotext.webp';
 import { Image } from "antd";
 import { ImagePreloader } from './../../utils/ImagePreloader/ImagePreloader';
 

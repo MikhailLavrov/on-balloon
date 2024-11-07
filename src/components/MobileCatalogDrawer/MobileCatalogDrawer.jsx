@@ -7,7 +7,7 @@ import { setBurgerIsOpened } from "../../redux/burgerMenuSlice";
 import { useNavigate } from "react-router-dom";
 import { catalogMenuData } from './../../data/catalogData/catalogMenuData';
 import { ImagePreloader } from "../../utils/ImagePreloader/ImagePreloader";
-import TREND_TILE_IMAGE from "../../assets/logonew.webp";
+import TREND_TILE_IMAGE from "../../assets/logo.webp";
 import ANIMATION_TILE_IMAGE from "../../assets/collections/animation.webp";
 import PHOTOZONE_TILE_IMAGE from "../../assets/collections/photozone.webp";
 import BALLOONS_TILE_IMAGE from "../../assets/collections/balloons.webp";

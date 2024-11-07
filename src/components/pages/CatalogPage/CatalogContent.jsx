@@ -164,13 +164,9 @@ export const CatalogContent = () => {
               <p className={c.totalDataCountMobile}>Всего товаров: {totalDataCount}</p>
               {totalDataCount > 0 &&
               <>
-                <Badge
-                  // size='small'
-                  count={(filteredColor || filteredCollection) ? 1 : 0}
-                >
+                <Badge count={(filteredColor || filteredCollection) ? 1 : 0} >
                   <Button
                     onClick={showModal}
-                    // size='small'
                     icon={<SlidersOutlined />}
                     className={c.filterButton}
                   >

@@ -26,22 +26,22 @@ export const heroData = [
     },
     image: require('../assets/hero/3.webp'),
   },
-  {
-    title: 'Синий трактор',
-    text: '',
-    link: {
-      text: '',
-      href: '',
-    },
-    image: require('../assets/hero/4.webp'),
-  },
-  {
-    title: 'Три кота',
-    text: '',
-    link: {
-      text: '',
-      href: '',
-    },
-    image: require('../assets/hero/5.webp'),
-  },
+  // {
+  //   title: 'Синий трактор',
+  //   text: '',
+  //   link: {
+  //     text: '',
+  //     href: '',
+  //   },
+  //   image: require('../assets/hero/4.webp'),
+  // },
+  // {
+  //   title: 'Три кота',
+  //   text: '',
+  //   link: {
+  //     text: '',
+  //     href: '',
+  //   },
+  //   image: require('../assets/hero/5.webp'),
+  // },
 ]

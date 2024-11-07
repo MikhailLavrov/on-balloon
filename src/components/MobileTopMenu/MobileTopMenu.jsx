@@ -46,7 +46,7 @@ export const MobileTopMenu = ({ handleMenuClose }) => {
           },
         }}
       >
-        <Collapse accordion className={c.mobileTopMenu__collapse} items={items} expandIconPosition="right" />
+        <Collapse accordion className={c.mobileTopMenu__collapse} items={items} expandIconPosition="end" />
       </ConfigProvider>
     </div>
   );

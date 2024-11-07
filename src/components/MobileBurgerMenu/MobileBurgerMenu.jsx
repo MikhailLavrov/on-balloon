@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { setBurgerIsOpened } from '../../redux/burgerMenuSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { MobileTopMenu } from '../MobileTopMenu/MobileTopMenu';
-import LOGO from '../../assets/logonew.webp';
+import LOGO from '../../assets/logo.webp';
 import { ImagePreloader } from '../../utils/ImagePreloader/ImagePreloader';
 
 export const MobileBurgerMenu = () => {
